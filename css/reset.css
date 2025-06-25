@@ -1,0 +1,887 @@
+/* Modern CSS Reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: var(--font-family-sans);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Remove default button styles */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Remove default fieldset styles */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Remove default legend styles */
+legend {
+    padding: 0;
+}
+
+/* Remove default table styles */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Remove default form styles */
+input,
+textarea {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+/* Remove default select styles */
+select {
+    border: none;
+    outline: none;
+    background: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Remove default details styles */
+details {
+    display: block;
+}
+
+/* Remove default summary styles */
+summary {
+    display: list-item;
+    cursor: pointer;
+}
+
+/* Remove default template styles */
+template {
+    display: none;
+}
+
+/* Remove default hidden styles */
+[hidden] {
+    display: none !important;
+}
+
+/* Remove default focus styles for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Add focus styles for keyboard users */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Remove default text selection styles */
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Remove default scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-gray-300);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gray-400);
+}
+
+/* Remove default autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--bg-primary) inset !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+/* Remove default placeholder styles */
+::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+}
+
+/* Remove default search input styles */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+/* Remove default number input styles */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Remove default file input styles */
+input[type="file"]::-webkit-file-upload-button {
+    -webkit-appearance: none;
+}
+
+/* Remove default color input styles */
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: var(--radius-base);
+}
+
+/* Remove default range input styles */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+    border: none;
+    border-radius: var(--radius-full);
+}
+
+/* Remove default progress styles */
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--color-gray-200);
+    border-radius: var(--radius-full);
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--color-primary);
+    border-radius: var(--radius-full);
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--color-primary);
+    border-radius: var(--radius-full);
+}
+
+/* Remove default meter styles */
+meter {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+meter::-webkit-meter-bar {
+    background-color: var(--color-gray-200);
+    border-radius: var(--radius-full);
+}
+
+meter::-webkit-meter-optimum-value {
+    background-color: var(--color-success);
+    border-radius: var(--radius-full);
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background-color: var(--color-warning);
+    border-radius: var(--radius-full);
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background-color: var(--color-error);
+    border-radius: var(--radius-full);
+}
+
+/* Remove default datalist styles */
+datalist {
+    display: none;
+}
+
+/* Remove default output styles */
+output {
+    display: inline;
+}
+
+/* Remove default keygen styles */
+keygen {
+    display: none;
+}
+
+/* Remove default xmp styles */
+xmp {
+    font-family: var(--font-family-mono);
+    white-space: pre;
+}
+
+/* Remove default plaintext styles */
+plaintext {
+    font-family: var(--font-family-mono);
+    white-space: pre;
+}
+
+/* Remove default listing styles */
+listing {
+    font-family: var(--font-family-mono);
+    white-space: pre;
+}
+
+/* Remove default tt styles */
+tt {
+    font-family: var(--font-family-mono);
+}
+
+/* Remove default code styles */
+code {
+    font-family: var(--font-family-mono);
+    font-size: 0.875em;
+}
+
+/* Remove default kbd styles */
+kbd {
+    font-family: var(--font-family-mono);
+    font-size: 0.875em;
+    padding: 0.125em 0.25em;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-base);
+    background-color: var(--color-gray-100);
+}
+
+/* Remove default samp styles */
+samp {
+    font-family: var(--font-family-mono);
+    font-size: 0.875em;
+}
+
+/* Remove default var styles */
+var {
+    font-style: italic;
+}
+
+/* Remove default mark styles */
+mark {
+    background-color: var(--color-accent-light);
+    color: var(--color-gray-900);
+    padding: 0.125em 0.25em;
+    border-radius: var(--radius-base);
+}
+
+/* Remove default small styles */
+small {
+    font-size: 0.875em;
+}
+
+/* Remove default sub and sup styles */
+sub,
+sup {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+/* Remove default abbr styles */
+abbr[title] {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+/* Remove default acronym styles */
+acronym {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+/* Remove default cite styles */
+cite {
+    font-style: italic;
+}
+
+/* Remove default dfn styles */
+dfn {
+    font-style: italic;
+    font-weight: var(--font-semibold);
+}
+
+/* Remove default ins and del styles */
+ins {
+    text-decoration: underline;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+/* Remove default q styles */
+q {
+    quotes: '"' '"' "'" "'";
+}
+
+q::before {
+    content: open-quote;
+}
+
+q::after {
+    content: close-quote;
+}
+
+/* Remove default blockquote styles */
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove default address styles */
+address {
+    font-style: normal;
+}
+
+/* Remove default pre styles */
+pre {
+    font-family: var(--font-family-mono);
+    white-space: pre;
+    overflow-x: auto;
+}
+
+/* Remove default hr styles */
+hr {
+    border: none;
+    border-top: 1px solid var(--color-gray-200);
+    margin: var(--space-6) 0;
+}
+
+/* Remove default dl, dt, dd styles */
+dl {
+    margin: 0;
+}
+
+dt {
+    font-weight: var(--font-semibold);
+}
+
+dd {
+    margin-left: 0;
+}
+
+/* Remove default figure and figcaption styles */
+figure {
+    margin: 0;
+}
+
+figcaption {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-top: var(--space-2);
+}
+
+/* Remove default main styles */
+main {
+    display: block;
+}
+
+/* Remove default article styles */
+article {
+    display: block;
+}
+
+/* Remove default aside styles */
+aside {
+    display: block;
+}
+
+/* Remove default section styles */
+section {
+    display: block;
+}
+
+/* Remove default nav styles */
+nav {
+    display: block;
+}
+
+/* Remove default header styles */
+header {
+    display: block;
+}
+
+/* Remove default footer styles */
+footer {
+    display: block;
+}
+
+/* Remove default hgroup styles */
+hgroup {
+    display: block;
+}
+
+/* Remove default h1-h6 styles */
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+}
+
+/* Remove default p styles */
+p {
+    margin: 0;
+}
+
+/* Remove default ul, ol styles */
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove default li styles */
+li {
+    margin: 0;
+}
+
+/* Remove default dl, dt, dd styles */
+dl {
+    margin: 0;
+}
+
+dt {
+    margin: 0;
+}
+
+dd {
+    margin: 0;
+}
+
+/* Remove default form styles */
+form {
+    margin: 0;
+}
+
+/* Remove default label styles */
+label {
+    cursor: pointer;
+}
+
+/* Remove default fieldset styles */
+fieldset {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove default legend styles */
+legend {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove default datalist styles */
+datalist {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove default optgroup styles */
+optgroup {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove default option styles */
+option {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove default textarea styles */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Remove default iframe styles */
+iframe {
+    border: none;
+}
+
+/* Remove default embed styles */
+embed {
+    display: block;
+}
+
+/* Remove default object styles */
+object {
+    display: block;
+}
+
+/* Remove default param styles */
+param {
+    display: none;
+}
+
+/* Remove default source styles */
+source {
+    display: none;
+}
+
+/* Remove default track styles */
+track {
+    display: none;
+}
+
+/* Remove default map styles */
+map {
+    display: block;
+}
+
+/* Remove default area styles */
+area {
+    display: none;
+}
+
+/* Remove default svg styles */
+svg {
+    display: block;
+    overflow: hidden;
+}
+
+/* Remove default math styles */
+math {
+    display: block;
+}
+
+/* Remove default mtext styles */
+mtext {
+    font-family: var(--font-family-sans);
+}
+
+/* Remove default mspace styles */
+mspace {
+    display: inline-block;
+}
+
+/* Remove default ms styles */
+ms {
+    font-family: var(--font-family-serif);
+    font-style: italic;
+}
+
+/* Remove default mrow styles */
+mrow {
+    display: inline;
+}
+
+/* Remove default mfrac styles */
+mfrac {
+    display: inline;
+    vertical-align: middle;
+}
+
+/* Remove default msqrt styles */
+msqrt {
+    display: inline;
+}
+
+/* Remove default mroot styles */
+mroot {
+    display: inline;
+}
+
+/* Remove default msub styles */
+msub {
+    display: inline;
+}
+
+/* Remove default msup styles */
+msup {
+    display: inline;
+}
+
+/* Remove default msubsup styles */
+msubsup {
+    display: inline;
+}
+
+/* Remove default munder styles */
+munder {
+    display: inline;
+}
+
+/* Remove default mover styles */
+mover {
+    display: inline;
+}
+
+/* Remove default munderover styles */
+munderover {
+    display: inline;
+}
+
+/* Remove default mmultiscripts styles */
+mmultiscripts {
+    display: inline;
+}
+
+/* Remove default mtable styles */
+mtable {
+    display: table;
+    border-collapse: collapse;
+}
+
+/* Remove default mtr styles */
+mtr {
+    display: table-row;
+}
+
+/* Remove default mtd styles */
+mtd {
+    display: table-cell;
+    padding: var(--space-2);
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Remove default mlabeledtr styles */
+mlabeledtr {
+    display: table-row;
+}
+
+/* Remove default maction styles */
+maction {
+    display: inline;
+}
+
+/* Remove default semantics styles */
+semantics {
+    display: inline;
+}
+
+/* Remove default annotation styles */
+annotation {
+    display: none;
+}
+
+/* Remove default annotation-xml styles */
+annotation-xml {
+    display: none;
+}
+
+/* Remove default mtext styles */
+mtext {
+    font-family: var(--font-family-sans);
+}
+
+/* Remove default mspace styles */
+mspace {
+    display: inline-block;
+}
+
+/* Remove default ms styles */
+ms {
+    font-family: var(--font-family-serif);
+    font-style: italic;
+}
+
+/* Remove default mrow styles */
+mrow {
+    display: inline;
+}
+
+/* Remove default mfrac styles */
+mfrac {
+    display: inline;
+    vertical-align: middle;
+}
+
+/* Remove default msqrt styles */
+msqrt {
+    display: inline;
+}
+
+/* Remove default mroot styles */
+mroot {
+    display: inline;
+}
+
+/* Remove default msub styles */
+msub {
+    display: inline;
+}
+
+/* Remove default msup styles */
+msup {
+    display: inline;
+}
+
+/* Remove default msubsup styles */
+msubsup {
+    display: inline;
+}
+
+/* Remove default munder styles */
+munder {
+    display: inline;
+}
+
+/* Remove default mover styles */
+mover {
+    display: inline;
+}
+
+/* Remove default munderover styles */
+munderover {
+    display: inline;
+}
+
+/* Remove default mmultiscripts styles */
+mmultiscripts {
+    display: inline;
+}
+
+/* Remove default mtable styles */
+mtable {
+    display: table;
+    border-collapse: collapse;
+}
+
+/* Remove default mtr styles */
+mtr {
+    display: table-row;
+}
+
+/* Remove default mtd styles */
+mtd {
+    display: table-cell;
+    padding: var(--space-2);
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Remove default mlabeledtr styles */
+mlabeledtr {
+    display: table-row;
+}
+
+/* Remove default maction styles */
+maction {
+    display: inline;
+}
+
+/* Remove default semantics styles */
+semantics {
+    display: inline;
+}
+
+/* Remove default annotation styles */
+annotation {
+    display: none;
+}
+
+/* Remove default annotation-xml styles */
+annotation-xml {
+    display: none;
+} 

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>백엔드 소개 | junetapa</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .backend-main {
+            max-width: 700px;
+            margin: 60px auto 0 auto;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(60,60,100,0.10);
+            padding: 48px 32px 40px 32px;
+        }
+        .backend-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #10b981;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .backend-desc {
+            color: #555;
+            font-size: 1.15rem;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .code-section {
+            background: #f3f4f6;
+            border-radius: 16px;
+            padding: 28px 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.06);
+        }
+        .code-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 10px;
+        }
+        pre {
+            background: #222;
+            color: #fff;
+            border-radius: 10px;
+            padding: 18px;
+            font-size: 1rem;
+            overflow-x: auto;
+        }
+        .back-btn {
+            display: block;
+            margin: 24px auto 0 auto;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            text-align: center;
+            max-width: 260px;
+        }
+        .back-btn:hover {
+            background: #047857;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="backend-main">
+        <h1 class="backend-title"><i class="fas fa-server"></i> 백엔드란?</h1>
+        <p class="backend-desc">
+            백엔드는 사용자가 직접 볼 수 없는 서버, 데이터베이스, API 등<br>
+            웹사이트와 앱의 핵심 로직과 데이터를 처리하는 영역입니다.<br>
+            Node.js, Python, Java, PHP 등 다양한 언어와 프레임워크로<br>
+            데이터 저장, 인증, 비즈니스 로직, API 제공 등을 담당합니다.
+        </p>
+        <div class="code-section">
+            <div class="code-title"><i class="fas fa-code"></i> 백엔드 기초 예제 (Node.js Express)</div>
+            <pre><code>// Node.js + Express로 만드는 간단한 서버 예제
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello Backend!');
+});
+
+app.listen(PORT, () => {
+  console.log(`서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
+});
+</code></pre>
+        </div>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> 메인페이지로 돌아가기</a>
+    </div>
+</body>
+</html> 

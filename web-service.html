@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 개발 서비스 안내 | junetapa</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .service-main {
+            max-width: 900px;
+            margin: 60px auto 0 auto;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(60,60,100,0.10);
+            padding: 48px 32px 40px 32px;
+        }
+        .service-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #4a3aff;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .service-desc {
+            color: #555;
+            font-size: 1.15rem;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .industry-section {
+            margin-bottom: 36px;
+        }
+        .industry-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 12px;
+        }
+        .industry-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+        .industry-item {
+            background: #f3f4f6;
+            border-radius: 12px;
+            padding: 16px 22px;
+            font-size: 1rem;
+            color: #4a3aff;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.06);
+        }
+        .responsive-section {
+            margin-bottom: 36px;
+        }
+        .responsive-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 12px;
+        }
+        .responsive-options {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .responsive-card {
+            background: #e0e7ff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            width: 260px;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.06);
+        }
+        .responsive-card.selected {
+            border: 2px solid #4a3aff;
+        }
+        .responsive-card .icon {
+            font-size: 2.2rem;
+            color: #4a3aff;
+            margin-bottom: 10px;
+        }
+        .responsive-card .option-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .responsive-card .option-desc {
+            color: #555;
+            font-size: 0.98rem;
+        }
+        .service-example {
+            background: #f3f4f6;
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.06);
+        }
+        .back-btn {
+            display: block;
+            margin: 32px auto 0 auto;
+            background: linear-gradient(135deg, #4a3aff 0%, #6366f1 100%);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            text-align: center;
+            max-width: 260px;
+        }
+        .back-btn:hover {
+            background: #3730a3;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            .service-main { padding: 18px 4vw; }
+            .responsive-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="service-main">
+        <h1 class="service-title"><i class="fas fa-laptop-code"></i> 웹 개발 서비스 안내</h1>
+        <p class="service-desc">
+            업종/분야별 맞춤 웹사이트 개발, 반응형/일반형 선택의 중요성까지!<br>
+            성공적인 온라인 비즈니스를 위한 웹 개발의 모든 것을 안내합니다.
+        </p>
+        <section class="industry-section">
+            <div class="industry-title"><i class="fas fa-industry"></i> 업종/분야별 웹 개발 예시</div>
+            <div class="industry-list">
+                <div class="industry-item">기업/비즈니스 홈페이지</div>
+                <div class="industry-item">쇼핑몰/이커머스</div>
+                <div class="industry-item">교육/학원</div>
+                <div class="industry-item">병원/의료</div>
+                <div class="industry-item">포트폴리오/개인</div>
+                <div class="industry-item">음악/아트/창작</div>
+                <div class="industry-item">커뮤니티/포럼</div>
+                <div class="industry-item">블로그/미디어</div>
+            </div>
+            <div class="service-example">
+                <b>분야별 특성에 맞는 UI/UX, 기능, 디자인이 중요합니다.</b><br>
+                예) 쇼핑몰은 결제/상품관리, 병원은 예약/상담, 포트폴리오는 작품 전시 등!
+            </div>
+        </section>
+        <section class="responsive-section">
+            <div class="responsive-title"><i class="fas fa-mobile-alt"></i> 반응형 vs 일반형</div>
+            <div class="responsive-options">
+                <div class="responsive-card selected">
+                    <div class="icon"><i class="fas fa-tablet-alt"></i></div>
+                    <div class="option-title">반응형 웹</div>
+                    <div class="option-desc">PC, 태블릿, 모바일 등 모든 기기에서 최적화<br>현대 웹사이트의 표준, 추천!</div>
+                </div>
+                <div class="responsive-card">
+                    <div class="icon"><i class="fas fa-desktop"></i></div>
+                    <div class="option-title">일반형 웹</div>
+                    <div class="option-desc">PC 환경에만 최적화<br>특정 목적/내부 시스템에 한정해 사용</div>
+                </div>
+            </div>
+            <div class="service-example">
+                <b>TIP:</b> 반응형 웹은 유지보수, 접근성, SEO, 사용자 경험 모두에서 유리합니다.<br>
+                특별한 이유가 없다면 <span style="color:#4a3aff;font-weight:700;">반응형 웹</span>을 추천합니다!
+            </div>
+        </section>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> 메인페이지로 돌아가기</a>
+    </div>
+</body>
+</html> 

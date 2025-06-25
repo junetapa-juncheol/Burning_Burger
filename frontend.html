@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프론트엔드 소개 | junetapa</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .frontend-main {
+            max-width: 700px;
+            margin: 60px auto 0 auto;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(60,60,100,0.10);
+            padding: 48px 32px 40px 32px;
+        }
+        .frontend-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #4a3aff;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .frontend-desc {
+            color: #555;
+            font-size: 1.15rem;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .code-section {
+            background: #f3f4f6;
+            border-radius: 16px;
+            padding: 28px 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.06);
+        }
+        .code-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 10px;
+        }
+        pre {
+            background: #222;
+            color: #fff;
+            border-radius: 10px;
+            padding: 18px;
+            font-size: 1rem;
+            overflow-x: auto;
+        }
+        .back-btn {
+            display: block;
+            margin: 24px auto 0 auto;
+            background: linear-gradient(135deg, #4a3aff 0%, #6366f1 100%);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            text-align: center;
+            max-width: 260px;
+        }
+        .back-btn:hover {
+            background: #3730a3;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="frontend-main">
+        <h1 class="frontend-title"><i class="fab fa-html5"></i> 프론트엔드란?</h1>
+        <p class="frontend-desc">
+            프론트엔드는 사용자가 직접 보고, 만지고, 경험하는 웹의 모든 UI/UX를 만드는 영역입니다.<br>
+            HTML, CSS, JavaScript를 기반으로 다양한 프레임워크(React, Vue, Angular 등)와 도구를 활용해<br>
+            웹사이트와 웹앱의 인터페이스를 구현합니다.
+        </p>
+        <div class="code-section">
+            <div class="code-title"><i class="fas fa-code"></i> 프론트엔드 기초 예제 (HTML+CSS+JS)</div>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Hello Frontend!&lt;/title&gt;
+  &lt;style&gt;
+    body { background: #f5f7fa; font-family: sans-serif; }
+    h1 { color: #4a3aff; }
+    button { padding: 10px 20px; border-radius: 8px; border: none; background: #4a3aff; color: #fff; cursor: pointer; }
+    button:hover { background: #3730a3; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;프론트엔드 시작!&lt;/h1&gt;
+  &lt;button onclick="alert('프론트엔드 세계에 오신 것을 환영합니다!')"&gt;클릭해보세요&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> 메인페이지로 돌아가기</a>
+    </div>
+</body>
+</html> 
