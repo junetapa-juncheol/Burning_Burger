@@ -5,12 +5,19 @@
 
 class SearchManager {
     constructor() {
+        if (!window.utils) {
+            console.error('SearchManager Error: window.utils is not defined. Search will not initialize.');
+            return;
+        }
+
+        this.utils = window.utils;
+        
         this.elements = {
-            searchForm: utils.$('.search-form'),
-            searchInput: utils.$('.search-input'),
-            searchButton: utils.$('.search-btn'),
-            suggestions: utils.$('.search-suggestions'),
-            suggestionTags: utils.$$('.suggestion-tag'),
+            searchForm: this.utils.$('.search-form'),
+            searchInput: this.utils.$('.search-input'),
+            searchButton: this.utils.$('.search-btn'),
+            suggestions: this.utils.$('.search-suggestions'),
+            suggestionTags: this.utils.$$('.suggestion-tag'),
             resultsContainer: null,
             historyContainer: null,
             filtersContainer: null
@@ -44,7 +51,7 @@ class SearchManager {
         
         this.searchIndex = new Map();
         this.searchableContent = [];
-        this.debouncedSearch = utils.debounce(this.performSearch.bind(this), this.config.debounceDelay);
+        this.debouncedSearch = this.utils.debounce(this.performSearch.bind(this), this.config.debounceDelay);
         
         this.init();
     }
@@ -61,7 +68,7 @@ class SearchManager {
     
     createSearchInterface() {
         // Create results dropdown
-        this.elements.resultsContainer = utils.createElement('div', {
+        this.elements.resultsContainer = this.utils.createElement('div', {
             className: 'search-results-dropdown',
             'aria-hidden': 'true'
         });
@@ -134,11 +141,11 @@ class SearchManager {
         }
         
         // Get references to new elements
-        this.elements.historyContainer = utils.$('.search-history-list');
-        this.elements.filtersContainer = utils.$('.filter-options');
-        this.elements.suggestionsContainer = utils.$('.search-suggestions-list');
-        this.elements.resultsListContainer = utils.$('.search-results-list');
-        this.elements.resultsCount = utils.$('.results-count');
+        this.elements.historyContainer = this.utils.$('.search-history-list');
+        this.elements.filtersContainer = this.utils.$('.filter-options');
+        this.elements.suggestionsContainer = this.utils.$('.search-suggestions-list');
+        this.elements.resultsListContainer = this.utils.$('.search-results-list');
+        this.elements.resultsCount = this.utils.$('.results-count');
     }
     
     buildSearchIndex() {
@@ -153,7 +160,7 @@ class SearchManager {
     
     indexPageContent() {
         // Index main page sections
-        const sections = utils.$$('section[id]');
+        const sections = this.utils.$$('section[id]');
         sections.forEach(section => {
             const title = section.querySelector('h1, h2, h3')?.textContent || section.id;
             const content = this.extractTextContent(section);
@@ -265,50 +272,50 @@ class SearchManager {
     bindEvents() {
         // Search input events
         if (this.elements.searchInput) {
-            utils.on(this.elements.searchInput, 'input', (e) => {
+            this.utils.on(this.elements.searchInput, 'input', (e) => {
                 this.handleSearchInput(e);
             });
             
-            utils.on(this.elements.searchInput, 'focus', () => {
+            this.utils.on(this.elements.searchInput, 'focus', () => {
                 this.showSearchDropdown();
             });
             
-            utils.on(this.elements.searchInput, 'blur', (e) => {
+            this.utils.on(this.elements.searchInput, 'blur', (e) => {
                 // Delay hiding to allow clicking on results
                 setTimeout(() => {
                     this.hideSearchDropdown();
                 }, 200);
             });
             
-            utils.on(this.elements.searchInput, 'keydown', (e) => {
+            this.utils.on(this.elements.searchInput, 'keydown', (e) => {
                 this.handleSearchKeydown(e);
             });
         }
         
         // Search form submission
         if (this.elements.searchForm) {
-            utils.on(this.elements.searchForm, 'submit', (e) => {
+            this.utils.on(this.elements.searchForm, 'submit', (e) => {
                 this.handleSearchSubmit(e);
             });
         }
         
         // Suggestion tags
         this.elements.suggestionTags.forEach(tag => {
-            utils.on(tag, 'click', () => {
+            this.utils.on(tag, 'click', () => {
                 this.selectSuggestion(tag.textContent);
             });
         });
         
         // Filter changes
-        const filterSelects = utils.$$('.filter-select');
+        const filterSelects = this.utils.$$('.filter-select');
         filterSelects.forEach(select => {
-            utils.on(select, 'change', (e) => {
+            this.utils.on(select, 'change', (e) => {
                 this.handleFilterChange(e);
             });
         });
         
         // Global click to close dropdown
-        utils.on(document, 'click', (e) => {
+        this.utils.on(document, 'click', (e) => {
             if (!this.elements.searchForm?.contains(e.target) && 
                 !this.elements.resultsContainer?.contains(e.target)) {
                 this.hideSearchDropdown();
@@ -316,7 +323,7 @@ class SearchManager {
         });
         
         // Escape key to close dropdown
-        utils.on(document, 'keydown', (e) => {
+        this.utils.on(document, 'keydown', (e) => {
             if (e.key === 'Escape' && this.state.showDropdown) {
                 this.hideSearchDropdown();
                 this.elements.searchInput?.blur();
@@ -342,7 +349,7 @@ class SearchManager {
     handleSearchKeydown(e) {
         if (!this.state.showDropdown) return;
         
-        const results = utils.$$('.search-result-item');
+        const results = this.utils.$$('.search-result-item');
         
         switch (e.key) {
             case 'ArrowDown':
@@ -614,7 +621,7 @@ class SearchManager {
         this.bindResultEvents();
         
         // Show results section
-        utils.$('.search-results-section')?.classList.add('has-results');
+        this.utils.$('.search-results-section')?.classList.add('has-results');
     }
     
     createResultHTML(result) {
@@ -708,14 +715,14 @@ class SearchManager {
     }
     
     bindResultEvents() {
-        const resultItems = utils.$$('.search-result-item');
+        const resultItems = this.utils.$$('.search-result-item');
         
         resultItems.forEach((item, index) => {
-            utils.on(item, 'click', () => {
+            this.utils.on(item, 'click', () => {
                 this.selectResult(item);
             });
             
-            utils.on(item, 'mouseenter', () => {
+            this.utils.on(item, 'mouseenter', () => {
                 this.state.selectedIndex = index;
                 this.updateResultSelection(resultItems);
             });
@@ -745,10 +752,10 @@ class SearchManager {
         // Navigate to result
         if (url.startsWith('#')) {
             // Internal link
-            const target = utils.$(url);
+            const target = this.utils.$(url);
             if (target) {
                 this.hideSearchDropdown();
-                utils.smoothScrollTo(target);
+                this.utils.smoothScrollTo(target);
                 
                 // Update URL
                 history.pushState(null, null, url);
@@ -786,14 +793,14 @@ class SearchManager {
         this.elements.suggestionsContainer.innerHTML = suggestionsHTML;
         
         // Bind suggestion events
-        utils.$$('.search-suggestion-item').forEach(item => {
-            utils.on(item, 'click', () => {
+        this.utils.$$('.search-suggestion-item').forEach(item => {
+            this.utils.on(item, 'click', () => {
                 this.selectSuggestion(item.dataset.suggestion);
             });
         });
         
         // Show suggestions section
-        utils.$('.search-suggestions-section')?.classList.toggle('has-suggestions', suggestions.length > 0);
+        this.utils.$('.search-suggestions-section')?.classList.toggle('has-suggestions', suggestions.length > 0);
     }
     
     generateRelatedSuggestions(query) {
@@ -828,7 +835,7 @@ class SearchManager {
     
     // Search history management
     loadSearchHistory() {
-        this.state.history = utils.storage.get(this.config.storageKey, []);
+        this.state.history = this.utils.storage.get(this.config.storageKey, []);
         this.displaySearchHistory();
     }
     
@@ -850,13 +857,13 @@ class SearchManager {
         }
         
         // Save to storage
-        utils.storage.set(this.config.storageKey, this.state.history);
+        this.utils.storage.set(this.config.storageKey, this.state.history);
         this.displaySearchHistory();
     }
     
     displaySearchHistory() {
         if (!this.elements.historyContainer || this.state.history.length === 0) {
-            utils.$('.search-history')?.classList.remove('has-history');
+            this.utils.$('.search-history')?.classList.remove('has-history');
             return;
         }
         
@@ -885,23 +892,23 @@ class SearchManager {
         this.elements.historyContainer.innerHTML = historyHTML;
         
         // Bind history events
-        utils.$$('.search-history-item').forEach(item => {
-            utils.on(item, 'click', (e) => {
+        this.utils.$$('.search-history-item').forEach(item => {
+            this.utils.on(item, 'click', (e) => {
                 if (!e.target.closest('.history-remove-btn')) {
                     this.selectSuggestion(item.dataset.query);
                 }
             });
         });
         
-        utils.$$('.history-remove-btn').forEach(btn => {
-            utils.on(btn, 'click', (e) => {
+        this.utils.$$('.history-remove-btn').forEach(btn => {
+            this.utils.on(btn, 'click', (e) => {
                 e.stopPropagation();
                 this.removeFromHistory(btn.dataset.query);
             });
         });
         
         // Show history section
-        utils.$('.search-history')?.classList.add('has-history');
+        this.utils.$('.search-history')?.classList.add('has-history');
     }
     
     removeFromHistory(query) {
@@ -909,13 +916,13 @@ class SearchManager {
             (typeof item === 'string' ? item : item.query) !== query
         );
         
-        utils.storage.set(this.config.storageKey, this.state.history);
+        this.utils.storage.set(this.config.storageKey, this.state.history);
         this.displaySearchHistory();
     }
     
     clearSearchHistory() {
         this.state.history = [];
-        utils.storage.remove(this.config.storageKey);
+        this.utils.storage.remove(this.config.storageKey);
         this.displaySearchHistory();
     }
     
@@ -964,7 +971,7 @@ class SearchManager {
         if (this.elements.resultsCount) {
             this.elements.resultsCount.textContent = '';
         }
-        utils.$('.search-results-section')?.classList.remove('has-results');
+        this.utils.$('.search-results-section')?.classList.remove('has-results');
     }
     
     showSearchLoading() {
@@ -979,7 +986,7 @@ class SearchManager {
     }
     
     hideSearchLoading() {
-        const loading = utils.$('.search-loading');
+        const loading = this.utils.$('.search-loading');
         if (loading) {
             loading.remove();
         }
@@ -1000,7 +1007,7 @@ class SearchManager {
     initializeVoiceSearch() {
         if (!this.config.enableVoiceSearch) return;
         
-        const voiceBtn = utils.createElement('button', {
+        const voiceBtn = this.utils.createElement('button', {
             className: 'voice-search-btn',
             'aria-label': '음성 검색',
             innerHTML: '<i class="fas fa-microphone" aria-hidden="true"></i>'
@@ -1008,7 +1015,7 @@ class SearchManager {
         
         this.elements.searchForm?.appendChild(voiceBtn);
         
-        utils.on(voiceBtn, 'click', () => {
+        this.utils.on(voiceBtn, 'click', () => {
             this.startVoiceSearch();
         });
     }
@@ -1022,7 +1029,7 @@ class SearchManager {
         recognition.interimResults = false;
         
         recognition.onstart = () => {
-            utils.$('.voice-search-btn')?.classList.add('recording');
+            this.utils.$('.voice-search-btn')?.classList.add('recording');
         };
         
         recognition.onresult = (event) => {
@@ -1037,7 +1044,7 @@ class SearchManager {
         };
         
         recognition.onend = () => {
-            utils.$('.voice-search-btn')?.classList.remove('recording');
+            this.utils.$('.voice-search-btn')?.classList.remove('recording');
         };
         
         recognition.start();
@@ -1086,7 +1093,7 @@ class SearchManager {
         
         // Update filter UI
         Object.entries(filters).forEach(([key, value]) => {
-            const select = utils.$(`#${key}-filter`);
+            const select = this.utils.$(`#${key}-filter`);
             if (select) {
                 select.value = value;
             }
@@ -1107,10 +1114,19 @@ class SearchManager {
 }
 
 // Initialize search when DOM is ready
-utils.ready(() => {
-    if (utils.$('.search-form')) {
-        window.searchManager = new SearchManager();
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    // utils 객체가 로드될 때까지 대기
+    const waitForUtils = () => {
+        if (window.utils) {
+            const searchForm = window.utils.$('.search-form');
+            if (searchForm) {
+                window.searchManager = new SearchManager();
+            }
+        } else {
+            setTimeout(waitForUtils, 100);
+        }
+    };
+    waitForUtils();
 });
 
 // Export for use in other modules

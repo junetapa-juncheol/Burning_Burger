@@ -5,10 +5,16 @@
 
 class Navigation {
     constructor() {
-        this.init();
+        // utils 객체가 로드될 때까지 대기
+        if (window.utils) {
+            this.init();
+        } else {
+            document.addEventListener('DOMContentLoaded', () => this.init());
+        }
     }
 
     init() {
+        this.utils = window.utils;
         this.bindEvents();
         this.setupDropdowns();
         this.setupMobileMenu();
@@ -18,19 +24,19 @@ class Navigation {
 
     bindEvents() {
         // 모바일 메뉴 토글
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileToggle = this.utils.$('.mobile-menu-toggle');
         if (mobileToggle) {
-            mobileToggle.addEventListener('click', () => this.toggleMobileMenu());
+            this.utils.on(mobileToggle, 'click', () => this.toggleMobileMenu());
         }
 
         // 드롭다운 메뉴
-        const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+        const dropdownItems = this.utils.$$('.nav-item.has-dropdown');
         dropdownItems.forEach(item => {
             const link = item.querySelector('.nav-link');
             const dropdown = item.querySelector('.dropdown-menu');
             
             if (link && dropdown) {
-                link.addEventListener('click', (e) => {
+                this.utils.on(link, 'click', (e) => {
                     if (window.innerWidth <= 768) {
                         e.preventDefault();
                         this.toggleDropdown(item);
@@ -40,52 +46,50 @@ class Navigation {
         });
 
         // 스크롤 이벤트
-        window.addEventListener('scroll', () => this.handleScroll());
+        this.utils.onScroll(() => this.handleScroll());
         
         // 리사이즈 이벤트
-        window.addEventListener('resize', () => this.handleResize());
+        this.utils.onResize(() => this.handleResize());
         
         // 외부 클릭으로 드롭다운 닫기
-        document.addEventListener('click', (e) => this.handleOutsideClick(e));
+        this.utils.onClickOutside(this.utils.$('.main-nav-list'), (e) => this.handleOutsideClick(e));
     }
 
     setupDropdowns() {
-        const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+        const dropdownItems = this.utils.$$('.nav-item.has-dropdown');
         
         dropdownItems.forEach(item => {
             const dropdown = item.querySelector('.dropdown-menu');
             if (dropdown) {
-                // 드롭다운 애니메이션 설정
-                dropdown.style.transition = 'all 0.3s ease-in-out';
+                this.utils.setStyle(dropdown, 'transition', 'all 0.3s ease-in-out');
             }
         });
     }
 
     setupMobileMenu() {
-        const mobileMenu = document.querySelector('.main-nav-list');
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = this.utils.$('.main-nav-list');
+        const mobileToggle = this.utils.$('.mobile-menu-toggle');
         
         if (mobileMenu && mobileToggle) {
-            // 모바일 메뉴 초기 상태 설정
-            mobileMenu.classList.remove('active');
+            this.utils.removeClass(mobileMenu, 'active');
             mobileToggle.setAttribute('aria-expanded', 'false');
         }
     }
 
     setupScrollEffects() {
-        const navigation = document.querySelector('.main-navigation');
+        const navigation = this.utils.$('.main-navigation');
         if (navigation) {
             let lastScrollTop = 0;
             
-            window.addEventListener('scroll', () => {
+            this.utils.onScroll(() => {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 
                 if (scrollTop > lastScrollTop && scrollTop > 100) {
                     // 아래로 스크롤
-                    navigation.classList.add('nav-hidden');
+                    this.utils.addClass(navigation, 'nav-hidden');
                 } else {
                     // 위로 스크롤
-                    navigation.classList.remove('nav-hidden');
+                    this.utils.removeClass(navigation, 'nav-hidden');
                 }
                 
                 lastScrollTop = scrollTop;
@@ -96,22 +100,22 @@ class Navigation {
     setupActiveStates() {
         // 현재 페이지에 따른 활성 상태 설정
         const currentPath = window.location.pathname;
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = this.utils.$$('.nav-link');
         
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
             if (href && href !== '#' && currentPath.includes(href.replace('#', ''))) {
-                link.classList.add('active');
+                this.utils.addClass(link, 'active');
             }
         });
     }
 
     toggleMobileMenu() {
-        const mobileMenu = document.querySelector('.main-nav-list');
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = this.utils.$('.main-nav-list');
+        const mobileToggle = this.utils.$('.mobile-menu-toggle');
         
         if (mobileMenu && mobileToggle) {
-            const isActive = mobileMenu.classList.contains('active');
+            const isActive = this.utils.hasClass(mobileMenu, 'active');
             
             if (isActive) {
                 this.closeMobileMenu();
@@ -122,12 +126,12 @@ class Navigation {
     }
 
     openMobileMenu() {
-        const mobileMenu = document.querySelector('.main-nav-list');
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = this.utils.$('.main-nav-list');
+        const mobileToggle = this.utils.$('.mobile-menu-toggle');
         
         if (mobileMenu && mobileToggle) {
-            mobileMenu.classList.add('active');
-            mobileToggle.classList.add('active');
+            this.utils.addClass(mobileMenu, 'active');
+            this.utils.addClass(mobileToggle, 'active');
             mobileToggle.setAttribute('aria-expanded', 'true');
             
             // 스크롤 방지
@@ -139,12 +143,12 @@ class Navigation {
     }
 
     closeMobileMenu() {
-        const mobileMenu = document.querySelector('.main-nav-list');
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = this.utils.$('.main-nav-list');
+        const mobileToggle = this.utils.$('.mobile-menu-toggle');
         
         if (mobileMenu && mobileToggle) {
-            mobileMenu.classList.remove('active');
-            mobileToggle.classList.remove('active');
+            this.utils.removeClass(mobileMenu, 'active');
+            this.utils.removeClass(mobileToggle, 'active');
             mobileToggle.setAttribute('aria-expanded', 'false');
             
             // 스크롤 복원
@@ -156,15 +160,15 @@ class Navigation {
     }
 
     animateMobileMenu(direction) {
-        const mobileMenu = document.querySelector('.main-nav-list');
+        const mobileMenu = this.utils.$('.main-nav-list');
         if (!mobileMenu) return;
         
         if (direction === 'in') {
-            mobileMenu.style.transform = 'translateX(0)';
-            mobileMenu.style.opacity = '1';
+            this.utils.setStyle(mobileMenu, 'transform', 'translateX(0)');
+            this.utils.setStyle(mobileMenu, 'opacity', '1');
         } else {
-            mobileMenu.style.transform = 'translateX(-100%)';
-            mobileMenu.style.opacity = '0';
+            this.utils.setStyle(mobileMenu, 'transform', 'translateX(-100%)');
+            this.utils.setStyle(mobileMenu, 'opacity', '0');
         }
     }
 
@@ -173,34 +177,34 @@ class Navigation {
         const isActive = item.classList.contains('active');
         
         // 다른 드롭다운들 닫기
-        document.querySelectorAll('.nav-item.has-dropdown.active').forEach(activeItem => {
+        this.utils.$$('.nav-item.has-dropdown.active').forEach(activeItem => {
             if (activeItem !== item) {
-                activeItem.classList.remove('active');
+                this.utils.removeClass(activeItem, 'active');
                 const activeDropdown = activeItem.querySelector('.dropdown-menu');
                 if (activeDropdown) {
-                    activeDropdown.classList.remove('show');
+                    this.utils.removeClass(activeDropdown, 'show');
                 }
             }
         });
         
         if (isActive) {
-            item.classList.remove('active');
-            dropdown.classList.remove('show');
+            this.utils.removeClass(item, 'active');
+            this.utils.removeClass(dropdown, 'show');
         } else {
-            item.classList.add('active');
-            dropdown.classList.add('show');
+            this.utils.addClass(item, 'active');
+            this.utils.addClass(dropdown, 'show');
         }
     }
 
     handleScroll() {
-        const navigation = document.querySelector('.main-navigation');
+        const navigation = this.utils.$('.main-navigation');
         if (navigation) {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             if (scrollTop > 50) {
-                navigation.classList.add('scrolled');
+                this.utils.addClass(navigation, 'scrolled');
             } else {
-                navigation.classList.remove('scrolled');
+                this.utils.removeClass(navigation, 'scrolled');
             }
         }
     }
@@ -211,19 +215,19 @@ class Navigation {
             this.closeMobileMenu();
             
             // 드롭다운 상태 초기화
-            document.querySelectorAll('.nav-item.has-dropdown.active').forEach(item => {
-                item.classList.remove('active');
+            this.utils.$$('.nav-item.has-dropdown.active').forEach(item => {
+                this.utils.removeClass(item, 'active');
                 const dropdown = item.querySelector('.dropdown-menu');
                 if (dropdown) {
-                    dropdown.classList.remove('show');
+                    this.utils.removeClass(dropdown, 'show');
                 }
             });
         }
     }
 
     handleOutsideClick(event) {
-        const navigation = document.querySelector('.main-navigation');
-        const mobileMenu = document.querySelector('.main-nav-list');
+        const navigation = this.utils.$('.main-navigation');
+        const mobileMenu = this.utils.$('.main-nav-list');
         
         // 모바일 메뉴 외부 클릭 시 닫기
         if (mobileMenu && mobileMenu.classList.contains('active')) {
@@ -233,13 +237,13 @@ class Navigation {
         }
         
         // 드롭다운 외부 클릭 시 닫기
-        const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+        const dropdownItems = this.utils.$$('.nav-item.has-dropdown');
         dropdownItems.forEach(item => {
             if (!item.contains(event.target)) {
-                item.classList.remove('active');
+                this.utils.removeClass(item, 'active');
                 const dropdown = item.querySelector('.dropdown-menu');
                 if (dropdown) {
-                    dropdown.classList.remove('show');
+                    this.utils.removeClass(dropdown, 'show');
                 }
             }
         });
@@ -247,22 +251,22 @@ class Navigation {
 
     // 북마크 기능
     setupBookmark() {
-        const bookmarkBtn = document.querySelector('.bookmark-btn');
+        const bookmarkBtn = this.utils.$('.bookmark-btn');
         if (bookmarkBtn) {
-            bookmarkBtn.addEventListener('click', () => this.toggleBookmark());
+            this.utils.on(bookmarkBtn, 'click', () => this.toggleBookmark());
         }
     }
 
     toggleBookmark() {
-        const bookmarkBtn = document.querySelector('.bookmark-btn');
+        const bookmarkBtn = this.utils.$('.bookmark-btn');
         if (bookmarkBtn) {
-            const isBookmarked = bookmarkBtn.classList.contains('active');
+            const isBookmarked = this.utils.hasClass(bookmarkBtn, 'active');
             
             if (isBookmarked) {
-                bookmarkBtn.classList.remove('active');
+                this.utils.removeClass(bookmarkBtn, 'active');
                 this.removeBookmark();
             } else {
-                bookmarkBtn.classList.add('active');
+                this.utils.addClass(bookmarkBtn, 'active');
                 this.addBookmark();
             }
         }
@@ -300,9 +304,9 @@ class Navigation {
 
     // 공유 기능
     setupShare() {
-        const shareBtn = document.querySelector('.share-btn');
+        const shareBtn = this.utils.$('.share-btn');
         if (shareBtn) {
-            shareBtn.addEventListener('click', () => this.sharePage());
+            this.utils.on(shareBtn, 'click', () => this.sharePage());
         }
     }
 
@@ -375,9 +379,9 @@ class Navigation {
     // 접근성 개선
     setupAccessibility() {
         // 키보드 네비게이션
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = this.utils.$$('.nav-link');
         navLinks.forEach((link, index) => {
-            link.addEventListener('keydown', (e) => {
+            this.utils.on(link, 'keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     link.click();
@@ -386,13 +390,13 @@ class Navigation {
         });
 
         // 포커스 관리
-        const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+        const dropdownItems = this.utils.$$('.nav-item.has-dropdown');
         dropdownItems.forEach(item => {
             const link = item.querySelector('.nav-link');
             const dropdown = item.querySelector('.dropdown-menu');
             
             if (link && dropdown) {
-                link.addEventListener('focus', () => {
+                this.utils.on(link, 'focus', () => {
                     if (window.innerWidth > 768) {
                         this.openDropdown(item);
                     }
@@ -448,11 +452,25 @@ class Navigation {
     }
 }
 
-// 인스턴스 생성 및 초기화
+// Navigation 인스턴스 생성
 document.addEventListener('DOMContentLoaded', () => {
-    const navigation = new Navigation();
-    navigation.afterInit();
+    window.navigation = new Navigation();
 });
 
 // 전역으로 내보내기
-window.Navigation = Navigation; 
+window.Navigation = Navigation;
+
+// 모바일에서 드롭다운 메뉴 한 번에 하나만 열리게
+if (window.innerWidth <= 768) {
+    document.querySelectorAll('.nav-item.has-dropdown > .nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            // 모든 active 해제
+            document.querySelectorAll('.nav-item.has-dropdown.active').forEach(item => {
+                if (item !== this.parentElement) item.classList.remove('active');
+            });
+            // 현재만 active 토글
+            this.parentElement.classList.toggle('active');
+        });
+    });
+} 

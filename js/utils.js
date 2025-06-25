@@ -517,7 +517,7 @@ const performance = {
         return result;
     },
     
-    async measureAsync: async (name, fn) => {
+    measureAsync: async (name, fn) => {
         const start = performance.now();
         const result = await fn();
         const end = performance.now();
@@ -581,20 +581,34 @@ const initUtils = () => {
         copyToClipboard,
         downloadFile,
         preloadImage, preloadImages,
-        createModal,
         createElement,
         trigger,
-        // 아래 함수들은 추가 정의가 필요합니다.
-        // supportsFeature, ready 등
+        ready: (fn) => {
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', fn);
+            } else {
+                fn();
+            }
+        },
+        supportsFeature: (feature) => {
+            // 예시: IntersectionObserver 등 주요 브라우저 API 지원 여부 확인
+            switch (feature) {
+                case 'IntersectionObserver':
+                    return 'IntersectionObserver' in window;
+                case 'ResizeObserver':
+                    return 'ResizeObserver' in window;
+                default:
+                    return false;
+            }
+        },
+        // supportsFeature 등 추가 정의 필요시 여기에 작성
     };
 
     window.utils = utils;
     console.log('Utilities initialized and exposed to window.utils');
 };
 
-// DOM이 준비되면 유틸리티 초기화
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initUtils);
-} else {
+// DOM이 로드되면 유틸리티 초기화
+document.addEventListener('DOMContentLoaded', () => {
     initUtils();
-} 
+}); 

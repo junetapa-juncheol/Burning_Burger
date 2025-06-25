@@ -5,14 +5,21 @@
 
 class AnimationsManager {
     constructor() {
+        if (!window.utils) {
+            console.error('AnimationsManager Error: window.utils is not defined. Animations will not initialize.');
+            return;
+        }
+
+        this.utils = window.utils;
+        
         this.elements = {
-            scrollRevealElements: utils.$$('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale'),
-            parallaxElements: utils.$$('[data-parallax]'),
-            counterElements: utils.$$('[data-counter]'),
-            progressBars: utils.$$('[data-progress]'),
-            typewriterElements: utils.$$('[data-typewriter]'),
-            morphingElements: utils.$$('[data-morph]'),
-            particleContainers: utils.$$('[data-particles]')
+            scrollRevealElements: this.utils.$$('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale'),
+            parallaxElements: this.utils.$$('[data-parallax]'),
+            counterElements: this.utils.$$('[data-counter]'),
+            progressBars: this.utils.$$('[data-progress]'),
+            typewriterElements: this.utils.$$('[data-typewriter]'),
+            morphingElements: this.utils.$$('[data-morph]'),
+            particleContainers: this.utils.$$('[data-particles]')
         };
         
         this.state = {
@@ -77,7 +84,7 @@ class AnimationsManager {
     
     setupObservers() {
         // 스크롤 리빌 옵저버
-        if (utils.supportsFeature('intersectionObserver')) {
+        if (this.utils.supportsFeature('intersectionObserver')) {
             this.createScrollRevealObserver();
             this.createParallaxObserver();
             this.createCounterObserver();
@@ -153,7 +160,7 @@ class AnimationsManager {
     }
     
     createResizeObserver() {
-        const resizeObserver = new ResizeObserver(utils.debounce((entries) => {
+        const resizeObserver = new ResizeObserver(this.utils.debounce((entries) => {
             this.handleResize(entries);
         }, this.config.debounceDelay));
         
@@ -167,25 +174,25 @@ class AnimationsManager {
     
     bindEvents() {
         // 스크롤 이벤트
-        const throttledScrollHandler = utils.throttle(() => {
+        const throttledScrollHandler = this.utils.throttle(() => {
             this.handleScroll();
         }, this.config.throttleDelay);
         
-        utils.on(window, 'scroll', throttledScrollHandler);
+        this.utils.on(window, 'scroll', throttledScrollHandler);
         
         // 리사이즈 이벤트
-        utils.on(window, 'resize', utils.debounce(() => {
+        this.utils.on(window, 'resize', this.utils.debounce(() => {
             this.handleWindowResize();
         }, this.config.debounceDelay));
         
         // 페이지 가시성 변경
-        utils.on(document, 'visibilitychange', () => {
+        this.utils.on(document, 'visibilitychange', () => {
             this.handleVisibilityChange();
         });
         
         // 모션 설정 변경 감지
         const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-        utils.on(motionQuery, 'change', (e) => {
+        this.utils.on(motionQuery, 'change', (e) => {
             this.state.isReducedMotion = e.matches;
             if (e.matches) {
                 this.disableAnimations();
@@ -271,12 +278,12 @@ class AnimationsManager {
             element.style.opacity = '1';
             element.style.transform = 'translateY(0px) translateX(0px) scale(1) rotate(0deg)';
             
-            utils.addClass(element, 'revealed');
+            this.utils.addClass(element, 'revealed');
         });
         
         // 애니메이션 완료 후 이벤트 발생
         setTimeout(() => {
-            utils.trigger(element, 'animationComplete', {
+            this.utils.trigger(element, 'animationComplete', {
                 type: element.animationConfig.type,
                 element: element
             });
@@ -296,18 +303,18 @@ class AnimationsManager {
         element.style.opacity = '0';
         element.style.transform = this.getInitialTransform(element.animationConfig.type);
         
-        utils.removeClass(element, 'revealed');
+        this.utils.removeClass(element, 'revealed');
     }
     
     handleStaggerAnimation(element, staggerGroup) {
-        const staggerElements = utils.$$(`[data-stagger="${staggerGroup}"]`);
+        const staggerElements = this.utils.$$(`[data-stagger="${staggerGroup}"]`);
         const elementIndex = Array.from(staggerElements).indexOf(element);
         const staggerDelay = elementIndex * this.config.staggerDelay;
         
         setTimeout(() => {
             element.style.opacity = '1';
             element.style.transform = 'translateY(0px) translateX(0px) scale(1) rotate(0deg)';
-            utils.addClass(element, 'revealed');
+            this.utils.addClass(element, 'revealed');
         }, staggerDelay);
     }
     
@@ -378,7 +385,7 @@ class AnimationsManager {
                 requestAnimationFrame(animate);
             } else {
                 element.textContent = this.formatCounterValue(target, format);
-                utils.trigger(element, 'counterComplete', { target, element });
+                this.utils.trigger(element, 'counterComplete', { target, element });
             }
         };
         
@@ -413,7 +420,7 @@ class AnimationsManager {
             };
             
             // 프로그레스 바 초기 설정
-            const fill = utils.$('.progress-fill', element) || element;
+            const fill = this.utils.$('.progress-fill', element) || element;
             fill.style.width = '0%';
             fill.style.transition = `width ${duration}ms ease-out`;
         });
@@ -439,14 +446,14 @@ class AnimationsManager {
         element.progressConfig.hasAnimated = true;
         const { target } = element.progressConfig;
         
-        const fill = utils.$('.progress-fill', element) || element;
+        const fill = this.utils.$('.progress-fill', element) || element;
         
         requestAnimationFrame(() => {
             fill.style.width = `${target}%`;
         });
         
         // 수치 애니메이션 (있는 경우)
-        const counter = utils.$('.progress-counter', element);
+        const counter = this.utils.$('.progress-counter', element);
         if (counter) {
             this.animateProgressCounter(counter, target, element.progressConfig.duration);
         }
@@ -513,7 +520,7 @@ class AnimationsManager {
         
         setTimeout(() => {
             let index = 0;
-            const cursor = utils.createElement('span', {
+            const cursor = this.utils.createElement('span', {
                 className: 'typewriter-cursor',
                 textContent: '|'
             });
@@ -527,12 +534,12 @@ class AnimationsManager {
                 } else {
                     clearInterval(typeInterval);
                     // 커서 깜빡임 효과
-                    utils.addClass(cursor, 'animate-blink');
+                    this.utils.addClass(cursor, 'animate-blink');
                     
                     // 몇 초 후 커서 제거
                     setTimeout(() => {
                         cursor.remove();
-                        utils.trigger(element, 'typewriterComplete', { text, element });
+                        this.utils.trigger(element, 'typewriterComplete', { text, element });
                     }, 2000);
                 }
             }, speed);
@@ -553,7 +560,7 @@ class AnimationsManager {
         const { count, type, color } = options;
         
         for (let i = 0; i < count; i++) {
-            const particle = utils.createElement('div', {
+            const particle = this.utils.createElement('div', {
                 className: `particle particle-${type}`,
                 style: {
                     position: 'absolute',
@@ -573,7 +580,7 @@ class AnimationsManager {
     }
     
     handleScroll() {
-        const currentScrollY = utils.getScrollPosition().y;
+        const currentScrollY = this.utils.getScrollPosition().y;
         const scrollDirection = currentScrollY > this.state.lastScrollY ? 'down' : 'up';
         
         this.state.lastScrollY = currentScrollY;
@@ -622,9 +629,9 @@ class AnimationsManager {
         document.body.setAttribute('data-scroll-direction', direction);
         
         // 방향별 애니메이션 트리거
-        const directionElements = utils.$$(`[data-scroll-${direction}]`);
+        const directionElements = this.utils.$$(`[data-scroll-${direction}]`);
         directionElements.forEach(element => {
-            utils.addClass(element, `scroll-${direction}`);
+            this.utils.addClass(element, `scroll-${direction}`);
         });
     }
     
@@ -633,13 +640,13 @@ class AnimationsManager {
         const scrollProgress = (this.state.lastScrollY / scrollHeight) * 100;
         
         // 프로그레스 바 업데이트
-        const progressBars = utils.$$('.scroll-progress-bar');
+        const progressBars = this.utils.$$('.scroll-progress-bar');
         progressBars.forEach(bar => {
             bar.style.width = `${scrollProgress}%`;
         });
         
         // 커스텀 이벤트 발생
-        utils.trigger(document, 'scrollProgress', {
+        this.utils.trigger(document, 'scrollProgress', {
             progress: scrollProgress,
             scrollY: this.state.lastScrollY
         });
@@ -674,7 +681,7 @@ class AnimationsManager {
     }
     
     adjustParticleContainer(container) {
-        const particles = utils.$$('.particle', container);
+        const particles = this.utils.$$('.particle', container);
         const containerRect = container.getBoundingClientRect();
         
         particles.forEach(particle => {
@@ -724,7 +731,7 @@ class AnimationsManager {
             element.style.opacity = '1';
             element.style.transform = 'none';
             element.style.transition = 'none';
-            utils.addClass(element, 'revealed');
+            this.utils.addClass(element, 'revealed');
         });
         
         // 패럴랙스 비활성화
@@ -746,7 +753,7 @@ class AnimationsManager {
             if (element.animationConfig) {
                 element.animationConfig.isRevealed = false;
             }
-            utils.removeClass(element, 'revealed');
+            this.utils.removeClass(element, 'revealed');
             this.prepareElement(element);
         });
         
@@ -846,14 +853,9 @@ class AnimationsManager {
     }
 }
 
-// 전역 인스턴스 생성
-let animationsManager = null;
-
-utils.ready(() => {
-    animationsManager = new AnimationsManager();
-    
-    // 전역 접근을 위해 window에 할당
-    window.animationsManager = animationsManager;
+// AnimationsManager 인스턴스 생성
+document.addEventListener('DOMContentLoaded', () => {
+    window.animationsManager = new AnimationsManager();
 });
 
 // 모듈 내보내기
