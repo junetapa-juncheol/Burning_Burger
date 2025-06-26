@@ -78,12 +78,194 @@
             background: rgba(79,70,229,1);
             transform: translateY(-2px);
         }
-        @media (max-width: 700px) {
+        @media (max-width: 768px) {
+            body {
+                background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 50%, #dbeafe 100%);
+            }
             .fullstack-section {
-                padding: 24px 8px;
+                margin: 24px 16px;
+                padding: 32px 20px;
+                border-radius: 20px;
+                box-shadow: 0 8px 40px rgba(99,102,241,0.15);
+                border: 1px solid rgba(99,102,241,0.1);
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(10px);
+            }
+            .fullstack-section h2 {
+                font-size: 1.5rem;
+                font-weight: 900;
+                color: #4338ca;
+                margin-bottom: 24px;
+                text-align: center;
+                padding: 16px 0;
+                background: linear-gradient(135deg, #6366f1, #4338ca);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-shadow: 0 2px 8px rgba(99,102,241,0.3);
+                position: relative;
+            }
+            .fullstack-section h2::after {
+                content: '';
+                position: absolute;
+                bottom: 8px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(90deg, #6366f1, #4338ca);
+                border-radius: 2px;
+            }
+            .fullstack-section h3 {
+                font-size: 1.2rem;
+                font-weight: 800;
+                color: #4338ca;
+                margin-top: 28px;
+                margin-bottom: 16px;
+                padding-left: 12px;
+                border-left: 4px solid #6366f1;
+                background: linear-gradient(90deg, rgba(99,102,241,0.08) 0%, transparent 100%);
+                padding: 12px 16px;
+                border-radius: 8px;
+            }
+            .fullstack-section p {
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 20px;
+                text-align: justify;
+                color: #374151;
+            }
+            .fullstack-section ul, .fullstack-section ol {
+                margin-left: 0;
+                padding-left: 0;
+                margin-bottom: 24px;
+            }
+            .fullstack-section li {
+                margin-bottom: 12px;
+                padding: 12px 16px;
+                background: rgba(99,102,241,0.04);
+                border-radius: 12px;
+                border-left: 3px solid #6366f1;
+                font-size: 0.95rem;
+                line-height: 1.6;
+                list-style: none;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+            .fullstack-section li:hover {
+                background: rgba(99,102,241,0.08);
+                transform: translateX(4px);
+            }
+            .fullstack-section ol li {
+                counter-increment: item;
+                padding-left: 48px;
+            }
+            .fullstack-section ol li::before {
+                content: counter(item);
+                position: absolute;
+                left: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #6366f1;
+                color: white;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.8rem;
+                font-weight: bold;
+            }
+            .fullstack-section ol {
+                counter-reset: item;
+            }
+            .fullstack-section ul li::before {
+                content: '▶';
+                color: #6366f1;
+                font-size: 0.8rem;
+                position: absolute;
+                left: 16px;
+                top: 14px;
+            }
+            .fullstack-section ul li {
+                padding-left: 40px;
+            }
+            .fullstack-section img {
+                border-radius: 16px;
+                margin: 24px 0;
+                box-shadow: 0 8px 32px rgba(99,102,241,0.15);
+                border: 2px solid rgba(99,102,241,0.1);
+                transition: all 0.3s ease;
+            }
+            .fullstack-section img:hover {
+                transform: scale(1.02);
+                box-shadow: 0 12px 40px rgba(99,102,241,0.2);
+            }
+            .fullstack-section .highlight {
+                background: linear-gradient(120deg, #6366f1, #4338ca);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: 800;
+                padding: 2px 4px;
+                border-radius: 4px;
+            }
+            .back-button {
+                top: 16px;
+                left: 16px;
+                padding: 14px 24px;
+                font-size: 15px;
+                background: linear-gradient(135deg, #6366f1, #4338ca);
+                box-shadow: 0 4px 20px rgba(99,102,241,0.3);
+                border-radius: 25px;
+            }
+            .back-button:hover {
+                background: linear-gradient(135deg, #4338ca, #3730a3);
+                transform: translateY(-3px);
+                box-shadow: 0 6px 25px rgba(99,102,241,0.4);
+            }
+            /* 스크롤 애니메이션 */
+            .fullstack-section {
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeInUp 0.6s ease forwards;
+            }
+            .fullstack-section:nth-child(2) { animation-delay: 0.1s; }
+            .fullstack-section:nth-child(3) { animation-delay: 0.2s; }
+            .fullstack-section:nth-child(4) { animation-delay: 0.3s; }
+            .fullstack-section:nth-child(5) { animation-delay: 0.4s; }
+            .fullstack-section:nth-child(6) { animation-delay: 0.5s; }
+            .fullstack-section:nth-child(7) { animation-delay: 0.6s; }
+            .fullstack-section:nth-child(8) { animation-delay: 0.7s; }
+            .fullstack-section:nth-child(9) { animation-delay: 0.8s; }
+            .fullstack-section:nth-child(10) { animation-delay: 0.9s; }
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .fullstack-section {
+                margin: 20px 12px;
+                padding: 28px 16px;
             }
             .fullstack-section h2 {
                 font-size: 1.3rem;
+            }
+            .fullstack-section h3 {
+                font-size: 1.1rem;
+            }
+            .fullstack-section p {
+                font-size: 0.95rem;
+            }
+            .back-button {
+                padding: 12px 20px;
+                font-size: 14px;
             }
         }
     </style>
@@ -99,54 +281,211 @@
         <section class="fullstack-section" id="fullstack-1">
             <h2>풀스택 개발 [프론트엔드와 백엔드를 아우르는 완전한 개발]</h2>
             <img src="./assets/images/fullstack/fullstack-1.png" alt="풀스택 개발 [프론트엔드와 백엔드를 아우르는 완전한 개발]">
+            <p>풀스택 개발은 웹 애플리케이션의 <span class="highlight">프론트엔드(사용자 인터페이스)</span>와 <span class="highlight">백엔드(서버 및 데이터베이스)</span> 모든 영역을 다루는 개발 방식입니다. 풀스택 개발자는 사용자가 보고 상호작용하는 화면부터 데이터 처리와 저장을 담당하는 서버까지 전체 시스템을 이해하고 구축할 수 있습니다.</p>
+            <p>현대의 웹 개발에서 풀스택 접근법은 특히 스타트업이나 중소규모 프로젝트에서 매우 중요한 역할을 합니다. 한 명의 개발자가 전체 시스템을 이해하고 개발할 수 있다는 것은 개발 효율성과 유지보수 측면에서 큰 장점을 제공합니다.</p>
         </section>
 
         <!-- 2. 풀스택 개발자의 역할 -->
         <section class="fullstack-section" id="fullstack-2">
             <h2>풀스택 개발자의 역할</h2>
             <img src="./assets/images/fullstack/fullstack-2.png" alt="풀스택 개발자의 역할">
+            <p>풀스택 개발자는 다음과 같은 다양한 역할을 수행합니다:</p>
+            <ul>
+                <li><strong>UI/UX 설계 및 구현:</strong> 사용자 경험을 고려한 직관적인 인터페이스 개발</li>
+                <li><strong>API 설계 및 개발:</strong> 프론트엔드와 백엔드 간의 데이터 통신 구조 설계</li>
+                <li><strong>데이터베이스 설계:</strong> 효율적인 데이터 저장 및 관리 시스템 구축</li>
+                <li><strong>서버 관리 및 배포:</strong> 애플리케이션의 안정적인 서비스 운영</li>
+                <li><strong>성능 최적화:</strong> 전체 시스템의 성능 모니터링 및 개선</li>
+                <li><strong>보안 관리:</strong> 전 영역에 걸친 보안 취약점 점검 및 대응</li>
+            </ul>
         </section>
 
         <!-- 3. 풀스택 개발 기술 스택 -->
         <section class="fullstack-section" id="fullstack-3">
             <h2>풀스택 개발 기술 스택</h2>
             <img src="./assets/images/fullstack/fullstack-3.png" alt="풀스택 개발 기술 스택">
+            <p>풀스택 개발에서 사용되는 주요 기술 스택들은 다음과 같습니다:</p>
+            <h3>인기 있는 풀스택 조합</h3>
+            <ul>
+                <li><strong>MEAN Stack:</strong> MongoDB, Express.js, Angular, Node.js</li>
+                <li><strong>MERN Stack:</strong> MongoDB, Express.js, React, Node.js</li>
+                <li><strong>LAMP Stack:</strong> Linux, Apache, MySQL, PHP</li>
+                <li><strong>Django + React:</strong> Python Django 백엔드 + React 프론트엔드</li>
+                <li><strong>Next.js Full Stack:</strong> React 기반 풀스택 프레임워크</li>
+            </ul>
+            <p>각 스택은 프로젝트의 성격, 팀의 경험, 성능 요구사항에 따라 선택됩니다. 중요한 것은 하나의 스택을 깊이 있게 학습한 후, 필요에 따라 다른 기술들을 점진적으로 익혀나가는 것입니다.</p>
         </section>
 
         <!-- 4. 프론트엔드 기술 -->
         <section class="fullstack-section" id="fullstack-4">
             <h2>프론트엔드 기술</h2>
             <img src="./assets/images/fullstack/fullstack-4.png" alt="프론트엔드 기술">
+            <p>프론트엔드는 사용자가 직접 보고 상호작용하는 부분을 담당합니다:</p>
+            <h3>핵심 기술</h3>
+            <ul>
+                <li><strong>HTML5:</strong> 웹 페이지의 구조와 콘텐츠 정의</li>
+                <li><strong>CSS3:</strong> 스타일링, 레이아웃, 애니메이션</li>
+                <li><strong>JavaScript (ES6+):</strong> 동적 기능과 사용자 인터랙션</li>
+            </ul>
+            <h3>주요 프레임워크/라이브러리</h3>
+            <ul>
+                <li><strong>React:</strong> 컴포넌트 기반 UI 라이브러리</li>
+                <li><strong>Vue.js:</strong> 점진적 채택이 가능한 프레임워크</li>
+                <li><strong>Angular:</strong> 대규모 애플리케이션을 위한 완전한 프레임워크</li>
+                <li><strong>Svelte:</strong> 컴파일 타임 최적화에 특화된 프레임워크</li>
+            </ul>
+            <h3>도구 및 기술</h3>
+            <ul>
+                <li><strong>반응형 디자인:</strong> 다양한 디바이스 지원</li>
+                <li><strong>웹팩/Vite:</strong> 모듈 번들링 및 빌드 도구</li>
+                <li><strong>TypeScript:</strong> 타입 안전성을 위한 JavaScript 확장</li>
+            </ul>
         </section>
 
         <!-- 5. 백엔드 기술 -->
         <section class="fullstack-section" id="fullstack-5">
             <h2>백엔드 기술</h2>
             <img src="./assets/images/fullstack/fullstack-5.png" alt="백엔드 기술">
+            <p>백엔드는 서버, 데이터베이스, API 등 시스템의 핵심 로직을 담당합니다:</p>
+            <h3>프로그래밍 언어</h3>
+            <ul>
+                <li><strong>Node.js:</strong> JavaScript 기반 서버 환경</li>
+                <li><strong>Python:</strong> Django, Flask 등의 웹 프레임워크</li>
+                <li><strong>Java:</strong> Spring Framework 생태계</li>
+                <li><strong>C#:</strong> .NET Core/5+ 플랫폼</li>
+                <li><strong>Go:</strong> 고성능 마이크로서비스</li>
+                <li><strong>PHP:</strong> Laravel, Symfony 프레임워크</li>
+            </ul>
+            <h3>주요 개념</h3>
+            <ul>
+                <li><strong>RESTful API:</strong> 표준화된 웹 서비스 인터페이스</li>
+                <li><strong>GraphQL:</strong> 효율적인 데이터 쿼리 언어</li>
+                <li><strong>마이크로서비스:</strong> 서비스 분리 아키텍처</li>
+                <li><strong>인증/인가:</strong> JWT, OAuth, 세션 관리</li>
+                <li><strong>캐싱:</strong> Redis, Memcached를 통한 성능 최적화</li>
+            </ul>
         </section>
 
         <!-- 6. 데이터베이스 및 배포 -->
         <section class="fullstack-section" id="fullstack-6">
             <h2>데이터베이스 및 배포</h2>
             <img src="./assets/images/fullstack/fullstack-6.png" alt="데이터베이스 및 배포">
+            <h3>데이터베이스</h3>
+            <ul>
+                <li><strong>관계형 DB:</strong> MySQL, PostgreSQL, SQLite</li>
+                <li><strong>NoSQL DB:</strong> MongoDB, Firebase, DynamoDB</li>
+                <li><strong>인메모리 DB:</strong> Redis (캐싱 및 세션 저장)</li>
+                <li><strong>검색 엔진:</strong> Elasticsearch (로그 분석, 검색)</li>
+            </ul>
+            <h3>배포 및 인프라</h3>
+            <ul>
+                <li><strong>클라우드 플랫폼:</strong> AWS, Google Cloud, Azure</li>
+                <li><strong>컨테이너화:</strong> Docker, Kubernetes</li>
+                <li><strong>CI/CD:</strong> GitHub Actions, Jenkins, GitLab CI</li>
+                <li><strong>서버리스:</strong> AWS Lambda, Vercel Functions</li>
+                <li><strong>CDN:</strong> CloudFlare, AWS CloudFront</li>
+            </ul>
+            <h3>모니터링 및 로깅</h3>
+            <ul>
+                <li><strong>로그 관리:</strong> Winston, Morgan (Node.js)</li>
+                <li><strong>성능 모니터링:</strong> New Relic, DataDog</li>
+                <li><strong>에러 추적:</strong> Sentry, Bugsnag</li>
+            </ul>
         </section>
 
         <!-- 7. 풀스택 개발의 장점과 단점 -->
         <section class="fullstack-section" id="fullstack-7">
             <h2>풀스택 개발의 장점과 단점</h2>
             <img src="./assets/images/fullstack/fullstack-7.png" alt="풀스택 개발의 장점과 단점">
+            <h3>장점</h3>
+            <ul>
+                <li><strong>개발 효율성:</strong> 전체 시스템을 이해하여 빠른 의사결정 가능</li>
+                <li><strong>비용 효율성:</strong> 한 명이 여러 역할을 수행하여 인력 비용 절감</li>
+                <li><strong>원활한 소통:</strong> 프론트엔드-백엔드 간 소통 오류 최소화</li>
+                <li><strong>유연한 대응:</strong> 요구사항 변경에 빠른 적응 가능</li>
+                <li><strong>학습 시너지:</strong> 전체 시스템 이해로 더 나은 아키텍처 설계</li>
+            </ul>
+            <h3>단점</h3>
+            <ul>
+                <li><strong>학습 부담:</strong> 광범위한 기술 스택 학습 필요</li>
+                <li><strong>전문성 한계:</strong> 모든 영역에서 전문가 수준 달성 어려움</li>
+                <li><strong>기술 뒤처짐:</strong> 빠르게 변화하는 모든 기술 따라가기 어려움</li>
+                <li><strong>복잡성 증가:</strong> 대규모 프로젝트에서는 전문화된 역할 분담이 더 효율적</li>
+                <li><strong>번아웃 위험:</strong> 많은 책임과 광범위한 업무로 인한 스트레스</li>
+            </ul>
         </section>
 
         <!-- 8. 풀스택 개발자가 되는 방법 -->
         <section class="fullstack-section" id="fullstack-8">
             <h2>풀스택 개발자가 되는 방법</h2>
             <img src="./assets/images/fullstack/fullstack-8.png" alt="풀스택 개발자가 되는 방법">
+            <h3>단계별 학습 로드맵</h3>
+            <ol>
+                <li><strong>기초 다지기 (1-3개월)</strong>
+                    <ul>
+                        <li>HTML, CSS, JavaScript 기본기 탄탄히</li>
+                        <li>Git/GitHub 버전 관리 익히기</li>
+                        <li>기본적인 알고리즘 및 자료구조 학습</li>
+                    </ul>
+                </li>
+                <li><strong>프론트엔드 심화 (2-4개월)</strong>
+                    <ul>
+                        <li>React 또는 Vue.js 프레임워크 마스터</li>
+                        <li>상태 관리 라이브러리 (Redux, Vuex)</li>
+                        <li>반응형 디자인 및 CSS 전처리기</li>
+                    </ul>
+                </li>
+                <li><strong>백엔드 입문 (3-5개월)</strong>
+                    <ul>
+                        <li>Node.js + Express 또는 Python + Django</li>
+                        <li>데이터베이스 기초 (SQL/NoSQL)</li>
+                        <li>RESTful API 설계 및 구현</li>
+                    </ul>
+                </li>
+                <li><strong>통합 및 배포 (2-3개월)</strong>
+                    <ul>
+                        <li>프론트엔드-백엔드 연동</li>
+                        <li>클라우드 서비스 활용 (AWS, Heroku)</li>
+                        <li>CI/CD 파이프라인 구축</li>
+                    </ul>
+                </li>
+            </ol>
+            <h3>실무 경험 쌓기</h3>
+            <ul>
+                <li><strong>개인 프로젝트:</strong> 포트폴리오용 완성도 높은 프로젝트 개발</li>
+                <li><strong>오픈소스 기여:</strong> GitHub의 오픈소스 프로젝트 참여</li>
+                <li><strong>팀 프로젝트:</strong> 협업 경험 및 코드 리뷰 경험</li>
+                <li><strong>사이드 프로젝트:</strong> 실제 사용자가 있는 서비스 개발</li>
+            </ul>
         </section>
 
         <!-- 9. 풀스택 개발의 미래와 전망 -->
         <section class="fullstack-section" id="fullstack-9">
             <h2>풀스택 개발의 미래와 전망</h2>
             <img src="./assets/images/fullstack/fullstack-9.png" alt="풀스택 개발의 미래와 전망">
+            <h3>기술 트렌드</h3>
+            <ul>
+                <li><strong>JAMstack:</strong> JavaScript, APIs, Markup 기반 모던 웹 아키텍처</li>
+                <li><strong>서버리스 컴퓨팅:</strong> 인프라 관리 부담 줄이고 개발에 집중</li>
+                <li><strong>마이크로 프론트엔드:</strong> 프론트엔드 영역의 마이크로서비스화</li>
+                <li><strong>AI/ML 통합:</strong> 지능형 기능을 갖춘 풀스택 애플리케이션</li>
+                <li><strong>Web3 기술:</strong> 블록체인, 탈중앙화 애플리케이션 개발</li>
+            </ul>
+            <h3>시장 전망</h3>
+            <ul>
+                <li><strong>수요 증가:</strong> 스타트업과 중소기업에서 풀스택 개발자 선호</li>
+                <li><strong>원격 근무:</strong> 글로벌 원격 개발팀에서 풀스택 역량 중요</li>
+                <li><strong>프리랜싱:</strong> 독립적인 개발자로 다양한 프로젝트 참여</li>
+                <li><strong>창업 기회:</strong> 기술적 제약 없이 아이디어를 실현할 수 있는 능력</li>
+            </ul>
+            <h3>필요한 역량</h3>
+            <ul>
+                <li><strong>지속적 학습:</strong> 빠르게 변화하는 기술 환경 적응</li>
+                <li><strong>문제 해결:</strong> 전체 시스템 관점에서의 이슈 진단 및 해결</li>
+                <li><strong>커뮤니케이션:</strong> 기술적 내용을 비개발자에게 설명하는 능력</li>
+                <li><strong>비즈니스 이해:</strong> 기술적 결정이 비즈니스에 미치는 영향 파악</li>
+            </ul>
+            <p class="highlight">풀스택 개발의 미래는 밝습니다. 기술의 복잡성이 증가하는 만큼, 전체를 아우를 수 있는 개발자의 가치는 더욱 높아질 것입니다.</p>
         </section>
     </main>
 </body>
