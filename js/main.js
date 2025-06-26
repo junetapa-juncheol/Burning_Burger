@@ -48,10 +48,9 @@ class App {
             return;
         }
 
-        // 컴포넌트 초기화 순서 중요
+        // 컴포넌트 초기화 순서 중요 (MusicPlayer는 별도로 초기화되므로 제외)
         const initSequence = [
             { name: 'navigation', class: 'Navigation' },
-            { name: 'musicPlayer', class: 'MusicPlayer' },
             { name: 'tabs', class: 'Tabs' },
             { name: 'search', class: 'SearchManager' },
             { name: 'hero', class: 'HeroSection' },

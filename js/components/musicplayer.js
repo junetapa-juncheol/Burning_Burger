@@ -33,7 +33,10 @@ class MusicPlayer {
             albumImage: this.utils.$('.album-image'),
             equalizer: this.utils.$('.equalizer'),
             playlistBtn: this.utils.$('.playlist-btn'),
-            fullscreenBtn: this.utils.$('.fullscreen-btn')
+            fullscreenBtn: this.utils.$('.fullscreen-btn'),
+            playerToggleBtn: this.utils.$('.player-toggle-btn'),
+            miniBar: this.utils.$('.music-player-mini'),
+            miniExpand: this.utils.$('.mini-player-expand')
         };
         
         this.state = {
@@ -50,14 +53,14 @@ class MusicPlayer {
             wasPlayingBeforeDrag: false
         };
         
-        this.playlist = window.CONFIG?.tracks || [];
+        this.playlist = window.CONFIG?.get()?.tracks || [];
         this.originalPlaylist = [...this.playlist];
         
         this.config = {
-            autoplay: window.CONFIG?.musicPlayer?.autoplay || false,
-            volume: window.CONFIG?.musicPlayer?.volume || 0.7,
-            crossfade: window.CONFIG?.musicPlayer?.crossfade || 2000,
-            storageKey: window.CONFIG?.musicPlayer?.storageKey || 'music-player-settings'
+            autoplay: window.CONFIG?.get()?.musicPlayer?.autoplay || false,
+            volume: window.CONFIG?.get()?.musicPlayer?.volume || 0.7,
+            crossfade: window.CONFIG?.get()?.musicPlayer?.crossfade || 2000,
+            storageKey: 'music-player-settings'
         };
         
         this.analytics = {
@@ -233,6 +236,38 @@ class MusicPlayer {
         // 전체화면 버튼
         if (this.elements.fullscreenBtn) {
             this.utils.on(this.elements.fullscreenBtn, 'click', () => this.toggleFullscreen());
+        }
+        
+        // 음악바 축소/확대 토글
+        const playerBar = this.utils.$('.music-player-bar');
+        const toggleBtn = this.utils.$('.player-toggle-btn');
+        const miniBar = this.utils.$('.music-player-mini');
+        const miniExpand = this.utils.$('.mini-player-expand');
+
+        if (toggleBtn && playerBar && miniBar) {
+            this.utils.on(toggleBtn, 'click', () => {
+                console.log('축소 버튼 클릭됨');
+                // 음악바 축소
+                playerBar.classList.add('minimized');
+                // 미니바 표시
+                miniBar.style.display = 'flex';
+                setTimeout(() => {
+                    miniBar.classList.add('visible');
+                }, 50);
+            });
+        }
+
+        if (miniExpand && playerBar && miniBar) {
+            this.utils.on(miniExpand, 'click', () => {
+                console.log('미니바 확대 버튼 클릭됨');
+                // 미니바 숨김
+                miniBar.classList.remove('visible');
+                setTimeout(() => {
+                    miniBar.style.display = 'none';
+                    // 음악바 복원
+                    playerBar.classList.remove('minimized');
+                }, 300);
+            });
         }
     }
     
@@ -783,11 +818,22 @@ class MusicPlayer {
 // 전역 인스턴스 생성
 let musicPlayer = null;
 
-this.utils.ready(() => {
-    musicPlayer = new MusicPlayer();
-    
-    // 전역 접근을 위해 window에 할당
-    window.musicPlayer = musicPlayer;
+document.addEventListener('DOMContentLoaded', () => {
+    // utils와 CONFIG 객체가 로드될 때까지 대기
+    const waitForDependencies = () => {
+        if (window.utils && window.CONFIG) {
+            musicPlayer = new MusicPlayer();
+            if (musicPlayer) {
+                musicPlayer.init(); // 명시적으로 init 호출
+                // 전역 접근을 위해 window에 할당
+                window.musicPlayer = musicPlayer;
+                console.log('Music Player fully initialized');
+            }
+        } else {
+            setTimeout(waitForDependencies, 100);
+        }
+    };
+    waitForDependencies();
 });
 
 // 모듈 내보내기

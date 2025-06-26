@@ -39,12 +39,12 @@ class SearchManager {
         };
         
         this.config = {
-            minCharacters: window.config.search.minCharacters,
-            maxResults: window.config.search.maxResults,
-            debounceDelay: window.config.search.debounceDelay,
-            highlightResults: window.config.search.highlightResults,
-            storageKey: window.config.search.storageKey,
-            maxHistoryItems: window.config.search.maxHistoryItems,
+            minCharacters: window.CONFIG?.get()?.search?.minLength || 2,
+            maxResults: window.CONFIG?.get()?.search?.maxResults || 10,
+            debounceDelay: window.CONFIG?.get()?.search?.debounce || 300,
+            highlightResults: window.CONFIG?.get()?.search?.highlight || true,
+            storageKey: 'search_history',
+            maxHistoryItems: 10,
             apiEndpoint: '/api/search',
             enableVoiceSearch: 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window
         };
@@ -72,64 +72,8 @@ class SearchManager {
             className: 'search-results-dropdown',
             'aria-hidden': 'true'
         });
-        
-        // Create search sections
-        const sectionsHTML = `
-            <div class="search-section search-history">
-                <h4 class="search-section-title">
-                    <i class="fas fa-history" aria-hidden="true"></i>
-                    최근 검색
-                </h4>
-                <div class="search-history-list"></div>
-            </div>
-            
-            <div class="search-section search-suggestions-section">
-                <h4 class="search-section-title">
-                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
-                    추천 검색어
-                </h4>
-                <div class="search-suggestions-list"></div>
-            </div>
-            
-            <div class="search-section search-results-section">
-                <h4 class="search-section-title">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                    검색 결과
-                    <span class="results-count"></span>
-                </h4>
-                <div class="search-results-list"></div>
-            </div>
-            
-            <div class="search-section search-filters">
-                <h4 class="search-section-title">
-                    <i class="fas fa-filter" aria-hidden="true"></i>
-                    필터
-                </h4>
-                <div class="filter-options">
-                    <div class="filter-group">
-                        <label for="category-filter">카테고리</label>
-                        <select id="category-filter" class="filter-select">
-                            <option value="all">전체</option>
-                            <option value="portfolio">포트폴리오</option>
-                            <option value="blog">블로그</option>
-                            <option value="music">음악</option>
-                            <option value="about">소개</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="type-filter">유형</label>
-                        <select id="type-filter" class="filter-select">
-                            <option value="all">전체</option>
-                            <option value="page">페이지</option>
-                            <option value="project">프로젝트</option>
-                            <option value="post">게시물</option>
-                            <option value="track">음악</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        `;
-        
+        // sectionsHTML을 빈 문자열로 설정하여 UI 숨김 처리
+        const sectionsHTML = '';
         this.elements.resultsContainer.innerHTML = sectionsHTML;
         
         // Insert after search form
@@ -179,20 +123,20 @@ class SearchManager {
     
     indexPortfolioItems() {
         // Index portfolio items if available
-        if (window.config.portfolio) {
-            window.config.portfolio.forEach(item => {
+        if (window.CONFIG?.get()?.projects) {
+            window.CONFIG.get().projects.forEach(item => {
                 this.addToSearchIndex({
                     id: `portfolio-${item.id}`,
                     title: item.title,
-                    content: item.description + ' ' + item.tags.join(' '),
+                    content: item.description + ' ' + (item.technologies ? item.technologies.join(' ') : ''),
                     url: item.url || `#portfolio-${item.id}`,
                     type: 'project',
                     category: 'portfolio',
                     weight: 8,
                     metadata: {
-                        tags: item.tags,
+                        technologies: item.technologies || [],
                         category: item.category,
-                        date: item.date
+                        status: item.status
                     }
                 });
             });
@@ -200,13 +144,13 @@ class SearchManager {
     }
     
     indexMusicTracks() {
-        // Index music tracks
-        if (window.config.musicPlayer?.playlist) {
-            window.config.musicPlayer.playlist.forEach(track => {
+        // Index music tracks if available
+        if (window.CONFIG?.get()?.tracks) {
+            window.CONFIG.get().tracks.forEach(track => {
                 this.addToSearchIndex({
                     id: `track-${track.id}`,
                     title: track.title,
-                    content: `${track.artist} ${track.album}`,
+                    content: `${track.artist} ${track.album} ${track.genre}`,
                     url: `#music-${track.id}`,
                     type: 'track',
                     category: 'music',
@@ -214,6 +158,7 @@ class SearchManager {
                     metadata: {
                         artist: track.artist,
                         album: track.album,
+                        genre: track.genre,
                         duration: track.duration
                     }
                 });
@@ -222,8 +167,26 @@ class SearchManager {
     }
     
     indexBlogPosts() {
-        // Index blog posts (if available)
-        // This would be implemented based on your blog structure
+        // Index blog posts if available
+        if (window.CONFIG?.get()?.blogPosts) {
+            window.CONFIG.get().blogPosts.forEach(post => {
+                this.addToSearchIndex({
+                    id: `post-${post.id}`,
+                    title: post.title,
+                    content: post.excerpt + ' ' + (post.tags ? post.tags.join(' ') : ''),
+                    url: post.url || `#blog-${post.id}`,
+                    type: 'post',
+                    category: 'blog',
+                    weight: 7,
+                    metadata: {
+                        tags: post.tags || [],
+                        category: post.category,
+                        author: post.author,
+                        date: post.date
+                    }
+                });
+            });
+        }
     }
     
     addToSearchIndex(item) {

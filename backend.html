@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>백엔드 소개 | junetapa</title>
+    <title>백엔드 개발 가이드</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/layout.css">
@@ -14,99 +14,184 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
+            background: linear-gradient(135deg, #e6e6fa 0%, #d6d6f7 100%);
+            font-family: 'Noto Sans KR', 'Inter', Arial, sans-serif;
+            color: #222;
             margin: 0;
             padding: 0;
         }
-        .backend-main {
-            max-width: 700px;
-            margin: 60px auto 0 auto;
-            background: #fff;
+        .backend-section {
+            max-width: 1100px;
+            margin: 48px auto;
+            background: rgba(255,255,255,0.95);
             border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(60,60,100,0.10);
-            padding: 48px 32px 40px 32px;
+            box-shadow: 0 4px 32px rgba(110,127,243,0.08);
+            padding: 48px 32px;
+            margin-bottom: 40px;
         }
-        .backend-title {
+        .backend-section h2 {
             font-size: 2.2rem;
             font-weight: 800;
-            color: #10b981;
+            color: #4b3fa7;
             margin-bottom: 18px;
-            text-align: center;
         }
-        .backend-desc {
-            color: #555;
-            font-size: 1.15rem;
-            margin-bottom: 32px;
-            text-align: center;
-        }
-        .code-section {
-            background: #f3f4f6;
-            border-radius: 16px;
-            padding: 28px 20px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(60,60,100,0.06);
-        }
-        .code-title {
-            font-size: 1.1rem;
+        .backend-section h3 {
+            font-size: 1.3rem;
             font-weight: 700;
-            color: #222;
+            margin-top: 32px;
             margin-bottom: 10px;
+            color: #6e7ff3;
         }
-        pre {
-            background: #222;
-            color: #fff;
-            border-radius: 10px;
-            padding: 18px;
-            font-size: 1rem;
-            overflow-x: auto;
+        .backend-section ul, .backend-section ol {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
         }
-        .back-btn {
-            display: block;
-            margin: 24px auto 0 auto;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.2s;
-            text-align: center;
-            max-width: 260px;
+        .backend-section img {
+            max-width: 100%;
+            border-radius: 16px;
+            margin: 24px 0;
+            box-shadow: 0 2px 16px rgba(110,127,243,0.10);
         }
-        .back-btn:hover {
-            background: #047857;
-            transform: translateY(-2px);
+        .backend-section .highlight {
+            color: #6e7ff3;
+            font-weight: 700;
+        }
+        @media (max-width: 700px) {
+            .backend-section {
+                padding: 24px 8px;
+            }
+            .backend-section h2 {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="backend-main">
-        <h1 class="backend-title"><i class="fas fa-server"></i> 백엔드란?</h1>
-        <p class="backend-desc">
-            백엔드는 사용자가 직접 볼 수 없는 서버, 데이터베이스, API 등<br>
-            웹사이트와 앱의 핵심 로직과 데이터를 처리하는 영역입니다.<br>
-            Node.js, Python, Java, PHP 등 다양한 언어와 프레임워크로<br>
-            데이터 저장, 인증, 비즈니스 로직, API 제공 등을 담당합니다.
-        </p>
-        <div class="code-section">
-            <div class="code-title"><i class="fas fa-code"></i> 백엔드 기초 예제 (Node.js Express)</div>
-            <pre><code>// Node.js + Express로 만드는 간단한 서버 예제
-const express = require('express');
-const app = express();
-const PORT = 3000;
+    <main>
+        <!-- 1. 백엔드 [디지털 세상의 숨겨진 심장] -->
+        <section class="backend-section" id="backend-1">
+            <h2>백엔드 [디지털 세상의 숨겨진 심장]</h2>
+            <img src="./assets/images/backend/backend-1.png" alt="백엔드 [디지털 세상의 숨겨진 심장]">
+            <!-- <p>실제 웹 서비스나 앱의 백엔드는 여러 구성 요소가 복잡하게 연결된 시스템입니다. 예를 들어, 온라인 쇼핑몰의 백엔드는 다음과 같은 요소로 이루어져 있습니다:</p>
+            <ul>
+                <li><span class="highlight">웹 서버</span>: 클라이언트의 HTTP 요청을 받아 처리하고 응답을 반환합니다. Nginx, Apache 등이 대표적입니다.</li>
+                <li><span class="highlight">데이터베이스 서버</span>: 사용자, 상품, 주문 등 데이터를 저장/관리합니다. MySQL, PostgreSQL, MongoDB, Redis 등.</li>
+                <li><span class="highlight">API 레이어</span>: 프론트엔드와 백엔드 간 통신을 위한 인터페이스를 제공합니다. RESTful API, GraphQL, WebSocket 등.</li>
+                <li><span class="highlight">마이크로서비스</span>: 작은 독립적 서비스로 분리하여 개발/배포합니다.</li>
+                <li><span class="highlight">외부 서비스 통합</span>: 결제, 배송, 소셜 로그인 등 외부 서비스와 연동합니다.</li>
+            </ul>
+            <p>이러한 요소들은 상호 연결되어 동작하며, 로그, 모니터링, 보안, 네트워킹 등 인프라 요소도 백엔드의 중요한 부분입니다.</p> -->
+        </section>
 
-app.get('/', (req, res) => {
-  res.send('Hello Backend!');
-});
+        <!-- 2. 백엔드는 어떻게 작동하는가? -->
+        <section class="backend-section" id="backend-2">
+            <h2>백엔드는 어떻게 작동하는가?</h2>
+            <img src="./assets/images/backend/backend-2.png" alt="백엔드는 어떻게 작동하는가?">
+            <!-- <ul>
+                <li><span class="highlight">시스템 설계 및 아키텍처 구축</span>: 요구사항 분석, 확장성/유지보수성 고려, 서버 구조/데이터 흐름/API 설계 등.</li>
+                <li><span class="highlight">API 개발 및 서버 로직 구현</span>: RESTful API, GraphQL 등으로 데이터 처리, 계산, 검증 등 비즈니스 로직 구현.</li>
+                <li><span class="highlight">데이터베이스 설계 및 쿼리 최적화</span>: 데이터 모델링, 인덱스, ORM, 무결성/일관성 유지 전략.</li>
+                <li><span class="highlight">인증 및 보안 시스템 구현</span>: JWT, OAuth, SQL 인젝션, XSS, CSRF 등 보안 취약점 방지.</li>
+                <li><span class="highlight">성능 최적화 및 확장성 관리</span>: 응답 시간 단축, 캐싱, 분산 시스템 설계 등.</li>
+                <li><span class="highlight">배포 및 운영 관리</span>: CI/CD, Docker, Kubernetes, 모니터링, 장애 대응 등.</li>
+            </ul> -->
+        </section>
 
-app.listen(PORT, () => {
-  console.log(`서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
-});
-</code></pre>
-        </div>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> 메인페이지로 돌아가기</a>
-    </div>
+        <!-- 3. 백엔드의 주요 역할 -->
+        <section class="backend-section" id="backend-3">
+            <h2>백엔드의 주요 역할</h2>
+            <img src="./assets/images/backend/backend-3.png" alt="백엔드의 주요 역할">
+            <!-- <div style="display: flex; flex-wrap: wrap; gap: 32px;">
+                <div style="flex:1; min-width:220px;">
+                    <h3>서버용 프로그래밍 언어</h3>
+                    <ul>
+                        <li>Node.js, Python, Java, PHP, Go, Ruby 등</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width:220px;">
+                    <h3>백엔드 프레임워크</h3>
+                    <ul>
+                        <li>Express, Django, Spring, Laravel, Ruby on Rails, ASP.NET Core 등</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width:220px;">
+                    <h3>데이터베이스 시스템</h3>
+                    <ul>
+                        <li>MySQL, PostgreSQL, Oracle, MongoDB, Redis, Cassandra, Firebase 등</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width:220px;">
+                    <h3>서버 관리 및 배포</h3>
+                    <ul>
+                        <li>AWS, Google Cloud, Azure, Docker, Kubernetes, CI/CD, 모니터링 등</li>
+                    </ul>
+                </div>
+            </div> -->
+        </section>
+
+        <!-- 4. 백엔드 개발에 사용되는 기술과 언어 -->
+        <section class="backend-section" id="backend-4">
+            <h2>백엔드 개발에 사용되는 기술과 언어</h2>
+            <img src="./assets/images/backend/backend-4.png" alt="백엔드 개발에 사용되는 기술과 언어">
+            <!-- <p>백엔드는 디지털 서비스의 견고한 기반이자 안정적인 운영을 가능하게 하는 핵심 요소입니다. 데이터 중심 시대에 점점 더 중요해지고 있으며, 클라우드, 마이크로서비스, 보안 등 다양한 트렌드와 함께 발전하고 있습니다.</p>
+            <ul>
+                <li><b>27%</b> 연간 성장률</li>
+                <li><b>85%</b> 클라우드 채택률</li>
+                <li><b>68%</b> 마이크로서비스 전환</li>
+            </ul> -->
+        </section>
+
+        <!-- 5. 백엔드와 프론트엔드의 차이 -->
+        <section class="backend-section" id="backend-5">
+            <h2>백엔드와 프론트엔드의 차이</h2>
+            <img src="./assets/images/backend/backend-5.png" alt="백엔드와 프론트엔드의 차이">
+            <!-- <ul>
+                <li><span class="highlight">데이터 저장 및 관리</span>: 데이터베이스를 통한 정보 저장/관리, SQL/NoSQL, 인덱싱, 쿼리 최적화 등</li>
+                <li><span class="highlight">사용자 인증과 보안</span>: 회원가입, 권한 관리, 암호화, JWT/OAuth, SQL 인젝션/XSS/CSRF 방지 등</li>
+                <li><span class="highlight">비즈니스 로직 실행</span>: 장바구니, 할인, 추천, 콘텐츠 필터링 등 핵심 로직 구현</li>
+                <li><span class="highlight">API 설계 및 외부 서비스 연동</span>: RESTful API, GraphQL, 결제/소셜/클라우드 연동 등</li>
+            </ul> -->
+        </section>
+
+        <!-- 6. 백엔드의 실제 예시와 구성 요소 -->
+        <section class="backend-section" id="backend-6">
+            <h2>백엔드의 실제 예시와 구성 요소</h2>
+            <img src="./assets/images/backend/backend-6.png" alt="백엔드의 실제 예시와 구성 요소">
+            <!-- <p>백엔드는 사용자의 요청을 받아 데이터베이스에서 정보를 조회하거나, 계산을 수행하고, 적절한 응답을 반환합니다. 프론트엔드와의 통신, 로드 밸런싱, 캐싱, 최적화 등 다양한 기술이 활용됩니다.</p> -->
+        </section>
+
+        <!-- 7. 백엔드 개발자가 하는 일 -->
+        <section class="backend-section" id="backend-7">
+            <h2>백엔드 개발자가 하는 일</h2>
+            <img src="./assets/images/backend/backend-7.png" alt="백엔드 개발자가 하는 일">
+           <!--  <p>서버, 데이터베이스, API가 어떻게 협력하여 디지털 경험을 가능하게 하는지 알아보세요.</p> -->
+        </section>
+
+        <!-- 8. 결론: 백엔드의 중요성과 전망 -->
+        <section class="backend-section" id="backend-8">
+            <h2>결론: 백엔드의 중요성과 전망</h2>
+            <img src="./assets/images/backend/backend-8.png" alt="결론: 백엔드의 중요성과 전망">
+            <div style="display: flex; flex-wrap: wrap; gap: 32px;">
+                <!-- <div style="flex:1; min-width:220px;">
+                    <h3>프론트엔드 기술</h3>
+                    <ul>
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>React, Vue, Angular</li>
+                        <li>Sass, Less, Tailwind CSS</li>
+                        <li>Webpack, Babel, TypeScript</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width:220px;">
+                    <h3>백엔드 기술</h3>
+                    <ul>
+                        <li>Node.js, Python, Java, PHP</li>
+                        <li>Express, Django, Spring, Laravel</li>
+                        <li>MySQL, MongoDB, PostgreSQL</li>
+                        <li>AWS, Docker, Kubernetes</li>
+                    </ul>
+                </div> -->
+            </div>
+        </section>
+    </main>
 </body>
 </html> 

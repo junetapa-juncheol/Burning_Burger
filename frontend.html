@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프론트엔드 소개 | junetapa</title>
+    <title>프론트엔드 개발 가이드</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/layout.css">
@@ -14,103 +14,93 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
+            background: linear-gradient(135deg, #e6e6fa 0%, #d6d6f7 100%);
+            font-family: 'Noto Sans KR', 'Inter', Arial, sans-serif;
+            color: #222;
             margin: 0;
             padding: 0;
         }
-        .frontend-main {
-            max-width: 700px;
-            margin: 60px auto 0 auto;
-            background: #fff;
+        .frontend-section {
+            max-width: 1100px;
+            margin: 48px auto;
+            background: rgba(255,255,255,0.95);
             border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(60,60,100,0.10);
-            padding: 48px 32px 40px 32px;
+            box-shadow: 0 4px 32px rgba(110,127,243,0.08);
+            padding: 48px 32px;
+            margin-bottom: 40px;
         }
-        .frontend-title {
+        .frontend-section h2 {
             font-size: 2.2rem;
             font-weight: 800;
-            color: #4a3aff;
+            color: #4b3fa7;
             margin-bottom: 18px;
-            text-align: center;
         }
-        .frontend-desc {
-            color: #555;
-            font-size: 1.15rem;
-            margin-bottom: 32px;
-            text-align: center;
-        }
-        .code-section {
-            background: #f3f4f6;
-            border-radius: 16px;
-            padding: 28px 20px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(60,60,100,0.06);
-        }
-        .code-title {
-            font-size: 1.1rem;
+        .frontend-section h3 {
+            font-size: 1.3rem;
             font-weight: 700;
-            color: #222;
+            margin-top: 32px;
             margin-bottom: 10px;
+            color: #6e7ff3;
         }
-        pre {
-            background: #222;
-            color: #fff;
-            border-radius: 10px;
-            padding: 18px;
-            font-size: 1rem;
-            overflow-x: auto;
+        .frontend-section ul, .frontend-section ol {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
         }
-        .back-btn {
-            display: block;
-            margin: 24px auto 0 auto;
-            background: linear-gradient(135deg, #4a3aff 0%, #6366f1 100%);
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.2s;
-            text-align: center;
-            max-width: 260px;
+        .frontend-section img {
+            max-width: 100%;
+            border-radius: 16px;
+            margin: 24px 0;
+            box-shadow: 0 2px 16px rgba(110,127,243,0.10);
         }
-        .back-btn:hover {
-            background: #3730a3;
-            transform: translateY(-2px);
+        .frontend-section .highlight {
+            color: #6e7ff3;
+            font-weight: 700;
+        }
+        @media (max-width: 700px) {
+            .frontend-section {
+                padding: 24px 8px;
+            }
+            .frontend-section h2 {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="frontend-main">
-        <h1 class="frontend-title"><i class="fab fa-html5"></i> 프론트엔드란?</h1>
-        <p class="frontend-desc">
-            프론트엔드는 사용자가 직접 보고, 만지고, 경험하는 웹의 모든 UI/UX를 만드는 영역입니다.<br>
-            HTML, CSS, JavaScript를 기반으로 다양한 프레임워크(React, Vue, Angular 등)와 도구를 활용해<br>
-            웹사이트와 웹앱의 인터페이스를 구현합니다.
-        </p>
-        <div class="code-section">
-            <div class="code-title"><i class="fas fa-code"></i> 프론트엔드 기초 예제 (HTML+CSS+JS)</div>
-            <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Hello Frontend!&lt;/title&gt;
-  &lt;style&gt;
-    body { background: #f5f7fa; font-family: sans-serif; }
-    h1 { color: #4a3aff; }
-    button { padding: 10px 20px; border-radius: 8px; border: none; background: #4a3aff; color: #fff; cursor: pointer; }
-    button:hover { background: #3730a3; }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;프론트엔드 시작!&lt;/h1&gt;
-  &lt;button onclick="alert('프론트엔드 세계에 오신 것을 환영합니다!')"&gt;클릭해보세요&lt;/button&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-        </div>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> 메인페이지로 돌아가기</a>
-    </div>
+    <main>
+        <!-- 1. 프론트엔드 섹션 예시 -->
+        <section class="frontend-section" id="frontend-1">
+            <h2>프론트엔드 개발의 모든 것 [사용자 경험을 혁신하는 기술]</h2>
+            <img src="./assets/images/frontend/frontend-1.png" alt="프론트엔드 섹션 1">
+        </section>
+        <section class="frontend-section" id="frontend-2">
+            <h2>프론트엔드 개발이란 무엇인가?</h2>
+            <img src="./assets/images/frontend/frontend-2.png" alt="프론트엔드 섹션 2">
+        </section>
+        <section class="frontend-section" id="frontend-3">
+            <h2>프론트엔드의 핵심 요소 : HTML, CSS, JavaScript</h2>
+            <img src="./assets/images/frontend/frontend-3.png" alt="프론트엔드 섹션 3">
+        </section>
+        <section class="frontend-section" id="frontend-4">
+            <h2>현대 프론트엔드 프레임워크와 라이브러리</h2>
+            <img src="./assets/images/frontend/frontend-4.png" alt="프론트엔드 섹션 4">
+        </section>
+        <section class="frontend-section" id="frontend-5">
+            <h2>반응형 디자인과 모바일 최적화</h2>
+            <img src="./assets/images/frontend/frontend-5.png" alt="프론트엔드 섹션 5">
+        </section>
+        <section class="frontend-section" id="frontend-6">
+            <h2>프론트엔드 개발자의 핵심 역할과 책임</h2>
+            <img src="./assets/images/frontend/frontend-6.png" alt="프론트엔드 섹션 6">
+        </section>
+        <section class="frontend-section" id="frontend-7">
+            <h2>프론트엔드와 백엔드의 협업 : 완전한 웹 서비스 구축</h2>
+            <img src="./assets/images/frontend/frontend-7.png" alt="프론트엔드 섹션 7">
+        </section>
+        <section class="frontend-section" id="frontend-8">
+            <h2>프론트엔드 개발의 미래 : 진화하는 기술과 트렌드</h2>
+            <img src="./assets/images/frontend/frontend-8.png" alt="프론트엔드 섹션 8">
+        </section>
+    </main>
 </body>
 </html> 

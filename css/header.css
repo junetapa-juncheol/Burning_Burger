@@ -531,4 +531,30 @@
     .counter-number {
         font-size: var(--text-xl);
     }
+}
+
+.junetapa-gradient {
+    color: rgb(147,78,217) !important;
+    font-weight: 800 !important;
+}
+
+.junetapa-gradient-slide {
+    background: linear-gradient(90deg, #6e7ff3 0%, #7b6cc7 100%);
+    background-size: 200% auto;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-slide 3s linear infinite;
+    font-weight: 800;
+}
+
+@keyframes gradient-slide {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 } 

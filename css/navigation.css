@@ -79,10 +79,11 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background: var(--bg-primary);
+    background: linear-gradient(135deg, rgba(110,127,243,0.5) 0%, rgba(123,108,199,0.5) 100%);
+    color: #222;
     border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: none;
     padding: var(--space-2);
     min-width: 200px;
     opacity: 0;
@@ -226,11 +227,9 @@
         font-size: var(--text-xs);
     }
     
-    /* @media (max-width: 1024px) {
-        .nav-link span {
-            display: none;
-        }
-    } */
+    .nav-link span {
+        display: none;
+    }
     
     .nav-link i {
         font-size: var(--text-lg);
@@ -295,28 +294,20 @@
     }
 
     .dropdown-menu {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        position: static !important;
-        width: 100% !important;
-        background: var(--bg-primary) !important;
-        box-shadow: none !important;
-        border: none !important;
-        padding: 0 var(--space-6) !important;
-        margin: 0 !important;
-        z-index: 1 !important;
-        transition: none !important;
+        position: static;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        padding-left: var(--space-6);
+        display: none;
+        background: linear-gradient(135deg, rgba(110,127,243,0.5) 0%, rgba(123,108,199,0.5) 100%);
     }
 
-    .nav-item.has-dropdown.active > .dropdown-menu {
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-
-    .dropdown-menu li {
-        width: 100% !important;
+    .nav-item.has-dropdown.active .dropdown-menu {
+        display: block;
     }
 }
 
@@ -356,7 +347,7 @@
 }
 
 [data-theme="dark"] .dropdown-menu {
-    background: var(--bg-primary);
+    background: linear-gradient(135deg, rgba(110,127,243,0.5) 0%, rgba(123,108,199,0.5) 100%);
     border-color: var(--border-light);
 }
 

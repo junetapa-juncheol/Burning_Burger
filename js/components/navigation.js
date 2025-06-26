@@ -458,19 +458,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 전역으로 내보내기
-window.Navigation = Navigation;
-
-// 모바일에서 드롭다운 메뉴 한 번에 하나만 열리게
-if (window.innerWidth <= 768) {
-    document.querySelectorAll('.nav-item.has-dropdown > .nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            // 모든 active 해제
-            document.querySelectorAll('.nav-item.has-dropdown.active').forEach(item => {
-                if (item !== this.parentElement) item.classList.remove('active');
-            });
-            // 현재만 active 토글
-            this.parentElement.classList.toggle('active');
-        });
-    });
-} 
+window.Navigation = Navigation; 

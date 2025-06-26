@@ -6,16 +6,16 @@
 const CONFIG = {
     // 기본 설정
     app: {
-        name: 'Your Name - Creative Developer Portal',
+        name: 'junetapa - Creative Developer Portal',
         version: '1.0.0',
         description: '크리에이티브 개발자 포털 - 웹 개발, 음악 작곡, 창작 활동을 소개합니다',
-        author: 'Your Name',
-        url: 'https://yoursite.com'
+        author: 'junetapa',
+        url: 'https://junetapa.info'
     },
 
     // API 설정
     api: {
-        baseUrl: 'https://api.yoursite.com',
+        baseUrl: 'https://api.junetapa.info',
         timeout: 10000,
         retries: 3
     },
@@ -80,17 +80,17 @@ const CONFIG = {
 
     // 소셜 미디어 링크
     social: {
-        github: 'https://github.com/yourusername',
-        linkedin: 'https://linkedin.com/in/yourprofile',
-        youtube: 'https://youtube.com/@yourchannel',
-        instagram: 'https://instagram.com/yourid',
-        twitter: 'https://twitter.com/yourhandle',
-        spotify: 'https://open.spotify.com/artist/yourid'
+        github: 'https://github.com/junetapa',
+        linkedin: 'https://linkedin.com/in/junetapa',
+        youtube: 'https://youtube.com/@junetapa',
+        instagram: 'https://instagram.com/junetapa',
+        twitter: 'https://twitter.com/junetapa',
+        spotify: 'https://open.spotify.com/artist/junetapa'
     },
 
     // 연락처 정보
     contact: {
-        email: 'your.email@example.com',
+        email: 'jun22sky@nate.com',
         phone: '+82-10-1234-5678',
         address: '인천광역시 부평구',
         businessHours: '월-금 9:00-18:00'
@@ -112,30 +112,8 @@ const CONFIG = {
             artist: '만수동 고양이',
             album: '여름 이야기',
             duration: 200,
-            file: './assets/audio/3. 폭염 속 불꽃.mp3',
-            cover: './assets/images/여름 이야기 앨범.png',
-            genre: 'Instrumental',
-            year: 2024
-        },
-        {
-            id: 2,
-            title: '코딩하는 밤',
-            artist: 'Your Name',
-            album: 'Digital Dreams',
-            duration: 240,
-            file: './assets/audio/track2.mp3',
-            cover: './assets/images/album-default.jpg',
-            genre: 'Ambient',
-            year: 2024
-        },
-        {
-            id: 3,
-            title: '창작자의 꿈',
-            artist: 'Your Name',
-            album: 'Digital Dreams',
-            duration: 200,
-            file: './assets/audio/track3.mp3',
-            cover: './assets/images/album-default.jpg',
+            src: './assets/audio/3. 폭염 속 불꽃.mp3',
+            cover: './assets/images/profile.jpg',
             genre: 'Instrumental',
             year: 2024
         }
@@ -151,9 +129,9 @@ const CONFIG = {
             status: 'active',
             progress: 75,
             technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-            image: './assets/images/projects/ecommerce.jpg',
+            image: './assets/images/profile.jpg',
             url: 'https://project1.com',
-            github: 'https://github.com/yourusername/project1'
+            github: 'https://github.com/junetapa/project1'
         },
         {
             id: 2,
@@ -163,9 +141,9 @@ const CONFIG = {
             status: 'planning',
             progress: 25,
             technologies: ['React Native', 'Firebase', 'Spotify API'],
-            image: './assets/images/projects/music-app.jpg',
+            image: './assets/images/profile.jpg',
             url: null,
-            github: 'https://github.com/yourusername/project2'
+            github: 'https://github.com/junetapa/project2'
         }
     ],
 
@@ -177,7 +155,7 @@ const CONFIG = {
             excerpt: 'useState, useEffect부터 커스텀 훅까지...',
             category: 'frontend',
             tags: ['React', 'JavaScript', 'Hooks'],
-            author: 'Your Name',
+            author: 'junetapa',
             date: '2024-03-14',
             readTime: 5,
             image: './assets/images/blog/react-hooks.jpg',

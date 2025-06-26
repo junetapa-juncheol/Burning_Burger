@@ -677,3 +677,11 @@
     display: none;
   }
 }
+
+.hero-profile-section .profile-card .profile-info .junetapa-gradient {
+  color: #fff !important;
+}
+
+.hero-profile-section .profile-card .profile-info .junetapa-white {
+  color: #fff !important;
+}
