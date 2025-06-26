@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>풀스택 개발 가이드</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            font-family: 'Noto Sans KR', 'Inter', Arial, sans-serif;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+        .fullstack-section {
+            max-width: 1100px;
+            margin: 48px auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 24px;
+            box-shadow: 0 4px 32px rgba(99,102,241,0.08);
+            padding: 48px 32px;
+            margin-bottom: 40px;
+        }
+        .fullstack-section h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #4338ca;
+            margin-bottom: 18px;
+        }
+        .fullstack-section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 10px;
+            color: #6366f1;
+        }
+        .fullstack-section ul, .fullstack-section ol {
+            margin-left: 1.2em;
+            margin-bottom: 1em;
+        }
+        .fullstack-section img {
+            max-width: 100%;
+            border-radius: 16px;
+            margin: 24px 0;
+            box-shadow: 0 2px 16px rgba(99,102,241,0.10);
+        }
+        .fullstack-section .highlight {
+            color: #6366f1;
+            font-weight: 700;
+        }
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(99,102,241,0.9);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-button:hover {
+            background: rgba(79,70,229,1);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 700px) {
+            .fullstack-section {
+                padding: 24px 8px;
+            }
+            .fullstack-section h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        홈으로 돌아가기
+    </a>
+
+    <main>
+        <!-- 1. 풀스택 개발이란? -->
+        <section class="fullstack-section" id="fullstack-1">
+            <h2>풀스택 개발 [프론트엔드와 백엔드를 아우르는 완전한 개발]</h2>
+            <img src="./assets/images/fullstack/fullstack-1.png" alt="풀스택 개발 [프론트엔드와 백엔드를 아우르는 완전한 개발]">
+        </section>
+
+        <!-- 2. 풀스택 개발자의 역할 -->
+        <section class="fullstack-section" id="fullstack-2">
+            <h2>풀스택 개발자의 역할</h2>
+            <img src="./assets/images/fullstack/fullstack-2.png" alt="풀스택 개발자의 역할">
+        </section>
+
+        <!-- 3. 풀스택 개발 기술 스택 -->
+        <section class="fullstack-section" id="fullstack-3">
+            <h2>풀스택 개발 기술 스택</h2>
+            <img src="./assets/images/fullstack/fullstack-3.png" alt="풀스택 개발 기술 스택">
+        </section>
+
+        <!-- 4. 프론트엔드 기술 -->
+        <section class="fullstack-section" id="fullstack-4">
+            <h2>프론트엔드 기술</h2>
+            <img src="./assets/images/fullstack/fullstack-4.png" alt="프론트엔드 기술">
+        </section>
+
+        <!-- 5. 백엔드 기술 -->
+        <section class="fullstack-section" id="fullstack-5">
+            <h2>백엔드 기술</h2>
+            <img src="./assets/images/fullstack/fullstack-5.png" alt="백엔드 기술">
+        </section>
+
+        <!-- 6. 데이터베이스 및 배포 -->
+        <section class="fullstack-section" id="fullstack-6">
+            <h2>데이터베이스 및 배포</h2>
+            <img src="./assets/images/fullstack/fullstack-6.png" alt="데이터베이스 및 배포">
+        </section>
+
+        <!-- 7. 풀스택 개발의 장점과 단점 -->
+        <section class="fullstack-section" id="fullstack-7">
+            <h2>풀스택 개발의 장점과 단점</h2>
+            <img src="./assets/images/fullstack/fullstack-7.png" alt="풀스택 개발의 장점과 단점">
+        </section>
+
+        <!-- 8. 풀스택 개발자가 되는 방법 -->
+        <section class="fullstack-section" id="fullstack-8">
+            <h2>풀스택 개발자가 되는 방법</h2>
+            <img src="./assets/images/fullstack/fullstack-8.png" alt="풀스택 개발자가 되는 방법">
+        </section>
+
+        <!-- 9. 풀스택 개발의 미래와 전망 -->
+        <section class="fullstack-section" id="fullstack-9">
+            <h2>풀스택 개발의 미래와 전망</h2>
+            <img src="./assets/images/fullstack/fullstack-9.png" alt="풀스택 개발의 미래와 전망">
+        </section>
+    </main>
+</body>
+</html> 
