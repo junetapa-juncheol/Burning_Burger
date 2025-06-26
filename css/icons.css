@@ -1,0 +1,98 @@
+/**
+ * Local SVG Icons Styles
+ * 로컬 SVG 아이콘 스타일
+ */
+
+/* SVG 아이콘 기본 스타일 */
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+/* 네비게이션 아이콘 스타일 */
+.nav-link .icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
+
+/* 다크모드 토글 아이콘 */
+.theme-toggle .icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* 음악 플레이어 아이콘 */
+.music-player-bar .icon {
+    width: 16px;
+    height: 16px;
+    filter: invert(1);
+}
+
+/* 검색 버튼 아이콘 */
+.search-btn .icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* 음악 플레이어 아이콘 */
+.music-player-bar .icon,
+.music-player-bar img[src*="icons/"] {
+    filter: brightness(0) invert(1);
+    transition: all 0.2s ease;
+}
+
+.music-player-mini .icon,
+.music-player-mini img[src*="icons/"] {
+    filter: brightness(0) invert(1);
+    transition: all 0.2s ease;
+}
+
+/* 버튼 호버 효과 */
+.player-toggle-btn:hover img,
+.mini-player-expand:hover img {
+    transform: scale(1.1);
+    filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(255,255,255,0.5));
+}
+
+/* 다크모드 대응 */
+[data-theme="dark"] .icon,
+[data-theme="dark"] img[src*="icons/"] {
+    filter: brightness(0) invert(1);
+}
+
+/* 라이트모드 대응 */
+[data-theme="light"] .icon,
+[data-theme="light"] img[src*="icons/"]:not(.music-player-bar img):not(.music-player-mini img) {
+    filter: brightness(0);
+}
+
+/* 아이콘 크기 변형 */
+.icon-sm { width: 0.875em; height: 0.875em; }
+.icon-lg { width: 1.25em; height: 1.25em; }
+.icon-xl { width: 1.5em; height: 1.5em; }
+.icon-2x { width: 2em; height: 2em; }
+
+/* 회전 애니메이션 */
+.icon-spin {
+    animation: icon-spin 1s linear infinite;
+}
+
+@keyframes icon-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 펄스 애니메이션 */
+.icon-pulse {
+    animation: icon-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+} 
