@@ -36,4 +36,33 @@
 .access-icon .icon-svg {
     width: 2em;
     height: 2em;
+}
+
+/* Information Tabs Section 아이콘들 */
+.tab-btn .icon-svg {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+}
+
+.panel-title .icon-svg {
+    width: 1.3em;
+    height: 1.3em;
+    margin-right: 0.6em;
+}
+
+.play-overlay .icon-svg {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.result-action-btn .icon-svg {
+    width: 1em;
+    height: 1em;
+}
+
+.more-link .icon-svg {
+    width: 0.9em;
+    height: 0.9em;
+    margin-left: 0.5em;
 } 
