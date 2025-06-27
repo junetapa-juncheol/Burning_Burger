@@ -65,4 +65,90 @@
     width: 0.9em;
     height: 0.9em;
     margin-left: 0.5em;
+}
+
+/* 분야별 정보 섹션 카테고리 아이콘들 */
+.category-icon .icon-svg {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+/* Footer 아이콘들 */
+.footer-contact .icon-svg {
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 0.5em;
+}
+
+.social-link .icon-svg {
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.newsletter-btn .icon-svg {
+    width: 1em;
+    height: 1em;
+}
+
+/* Music Player Bar 아이콘들 */
+.player-toggle-btn .icon-svg {
+    width: 1em;
+    height: 1em;
+}
+
+.control-btn .icon-svg {
+    width: 1.1em;
+    height: 1.1em;
+}
+
+.volume-btn .icon-svg,
+.playlist-btn .icon-svg,
+.fullscreen-btn .icon-svg {
+    width: 1em;
+    height: 1em;
+}
+
+.mini-player-expand .icon-svg {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+/* Floating Action Buttons 아이콘들 */
+.fab-btn .icon-svg {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+/* Header Quick Actions 아이콘들 */
+.quick-actions .icon-svg {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.4em;
+}
+
+/* Search Form 아이콘 */
+.search-btn .icon-svg {
+    width: 1em;
+    height: 1em;
+}
+
+/* Status Badges 아이콘들 */
+.status-badge .icon-svg,
+.project-status .icon-svg {
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.3em;
+}
+
+/* Banner Actions 아이콘들 */
+.btn .icon-svg {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+}
+
+/* Floating Elements 아이콘들 */
+.floating-element .icon-svg {
+    width: 1.5em;
+    height: 1.5em;
 } 
