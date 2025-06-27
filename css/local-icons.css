@@ -31,4 +31,9 @@
 .share-btn .icon-svg {
     width: 1.1em;
     height: 1.1em;
+}
+
+.access-icon .icon-svg {
+    width: 2em;
+    height: 2em;
 } 
