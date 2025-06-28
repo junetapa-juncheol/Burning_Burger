@@ -14,6 +14,7 @@ class HeroSection {
         this.setupCounters();
         this.setupFloatingElements();
         this.setupProfileCard();
+        this.ensureHeaderVisibility(); // 헤더 가시성 확보
     }
 
     bindEvents() {
@@ -274,6 +275,7 @@ class HeroSection {
 
     handleScroll() {
         const heroBanner = document.querySelector('.hero-banner');
+        
         if (!heroBanner) return;
 
         const scrollTop = window.pageYOffset;
@@ -410,6 +412,22 @@ class HeroSection {
         };
     }
 
+    // 헤더 가시성 확보 메서드 (단순화)
+    ensureHeaderVisibility() {
+        const mainHeader = document.querySelector('.main-header');
+        if (mainHeader) {
+            console.log('🔍 헤더 기본 설정 확인 중...');
+            
+            // 기본 가시성만 확보 (고정 로직 제거)
+            mainHeader.style.visibility = 'visible';
+            mainHeader.style.opacity = '1';
+            
+            console.log('✅ 헤더 기본 설정 완료');
+        } else {
+            console.warn('⚠️ 헤더 요소를 찾을 수 없습니다.');
+        }
+    }
+
     // 초기화 완료 후 추가 설정
     afterInit() {
         this.setupAccessibility();
@@ -420,6 +438,9 @@ class HeroSection {
         
         // 초기 리사이즈 처리
         this.handleResize();
+        
+        // 헤더 가시성 재확인
+        setTimeout(() => this.ensureHeaderVisibility(), 100);
     }
 }
 

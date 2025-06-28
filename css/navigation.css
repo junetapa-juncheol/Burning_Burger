@@ -2,16 +2,34 @@
 
 /* Main Navigation */
 .main-navigation {
-    background: var(--bg-primary);
-    border-bottom: 1px solid var(--border-light);
+    background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%); /* 연한 회색 그라데이션 */
+    border-bottom: 1px solid rgba(153, 153, 153, 0.2);
     height: var(--main-nav-height);
     position: sticky;
     top: 0;
     z-index: var(--z-fixed);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); /* 회색 그림자 */
     transition: transform var(--transition-medium), opacity var(--transition-medium);
     transform: translateY(0);
     opacity: 1;
+}
+
+/* 메인 네비게이션 링크들 강제 회색 적용 */
+.main-navigation .nav-link,
+.main-navigation .nav-link:visited,
+.main-navigation .nav-link:link {
+    color: #666666 !important;
+}
+
+.main-navigation .nav-link:hover {
+    color: #333333 !important;
+    background: #f5f5f5 !important;
+}
+
+.main-navigation .nav-link.active {
+    color: #333333 !important;
+    border-bottom-color: #999999 !important;
+    background: rgba(0, 0, 0, 0.05) !important;
 }
 
 /* 네비게이션 숨김 상태 */
@@ -46,7 +64,7 @@
     gap: var(--space-2);
     height: 100%;
     padding: 0 var(--space-4);
-    color: var(--text-secondary);
+    color: #666666 !important; /* 회색으로 강제 변경 */
     text-decoration: none;
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
@@ -56,13 +74,15 @@
 }
 
 .nav-link:hover {
-    color: var(--text-primary);
-    background: var(--bg-tertiary);
+    color: #333333 !important; /* 호버 시 진한 회색으로 강제 변경 */
+    background: #f5f5f5 !important; /* 연한 회색 배경 */
+    transform: translateY(-1px);
 }
 
 .nav-link.active {
-    color: var(--color-primary);
-    border-bottom-color: var(--color-primary);
+    color: #333333 !important; /* 활성 상태도 진한 회색 */
+    border-bottom-color: #999999 !important; /* 활성 상태 밑줄도 회색 */
+    background: rgba(0, 0, 0, 0.05) !important;
 }
 
 .nav-link i {
@@ -139,26 +159,33 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-light);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(33, 150, 243, 0.3);
     border-radius: var(--radius-base);
     cursor: pointer;
     transition: all var(--transition-fast);
     z-index: var(--z-fixed);
+    backdrop-filter: blur(10px);
 }
 
 .mobile-menu-toggle:hover {
-    background: var(--bg-primary);
-    border-color: var(--border-medium);
+    background: #2196f3; /* 헤더와 동일한 호버 색상 */
+    border-color: #2196f3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
 }
 
 .hamburger-line {
     width: 20px;
     height: 2px;
-    background: var(--text-secondary);
+    background: #1976d2; /* 헤더와 동일한 블루 색상 */
     margin: 2px 0;
     transition: all var(--transition-fast);
     border-radius: var(--radius-full);
+}
+
+.mobile-menu-toggle:hover .hamburger-line {
+    background: white; /* 호버 시 흰색으로 변경 */
 }
 
 .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
@@ -187,19 +214,21 @@
     justify-content: center;
     width: 36px;
     height: 36px;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-light);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(153, 153, 153, 0.3);
     border-radius: var(--radius-base);
-    color: var(--text-secondary);
+    color: #666666; /* 회색으로 변경 */
     transition: all var(--transition-fast);
+    backdrop-filter: blur(10px);
 }
 
 .bookmark-btn:hover,
 .share-btn:hover {
-    background: var(--bg-primary);
-    border-color: var(--border-medium);
-    color: var(--text-primary);
+    background: #f5f5f5; /* 연한 회색 배경 */
+    border-color: #999999; /* 회색 테두리 */
+    color: #333333; /* 진한 회색 */
     transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .bookmark-btn.active {

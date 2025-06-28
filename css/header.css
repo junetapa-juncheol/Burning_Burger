@@ -2,11 +2,12 @@
 
 /* Top Navigation Bar */
 .top-nav-bar {
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-light);
+    background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%); /* 연한 회색 그라데이션 */
+    border-bottom: 1px solid rgba(153, 153, 153, 0.2);
     height: var(--top-nav-height);
     position: relative;
     z-index: var(--z-sticky);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 부드러운 회색 그림자 */
 }
 
 .top-nav {
@@ -23,18 +24,20 @@
 }
 
 .top-nav-list a {
-    color: var(--text-secondary);
+    color: #666666; /* 회색으로 변경 */
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
     text-decoration: none;
-    transition: color var(--transition-fast);
+    transition: all var(--transition-fast);
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-base);
 }
 
 .top-nav-list a:hover {
-    color: var(--text-primary);
-    background-color: var(--bg-tertiary);
+    color: #333333; /* 호버 시 진한 회색 */
+    background-color: #f5f5f5; /* 호버 시 연한 회색 배경 */
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .top-nav-utils {
@@ -53,29 +56,32 @@
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-2) var(--space-3);
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-light);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(153, 153, 153, 0.3);
     border-radius: var(--radius-base);
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
-    color: var(--text-secondary);
+    color: #666666; /* 회색으로 변경 */
     transition: all var(--transition-fast);
+    backdrop-filter: blur(10px);
 }
 
 .lang-btn:hover {
-    background: var(--bg-primary);
-    border-color: var(--border-medium);
-    color: var(--text-primary);
+    background: #f5f5f5; /* 연한 회색 배경 */
+    border-color: #999999; /* 회색 테두리 */
+    color: #333333; /* 진한 회색 텍스트 */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .lang-dropdown {
     position: absolute;
     top: 100%;
     right: 0;
-    background: var(--bg-primary);
-    border: 1px solid var(--border-light);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(153, 153, 153, 0.3);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     padding: var(--space-2);
     min-width: 120px;
     opacity: 0;
@@ -83,6 +89,7 @@
     transform: translateY(-10px);
     transition: all var(--transition-fast);
     z-index: var(--z-dropdown);
+    backdrop-filter: blur(15px);
 }
 
 .language-selector:hover .lang-dropdown {
@@ -98,15 +105,17 @@
 .lang-dropdown a {
     display: block;
     padding: var(--space-2) var(--space-3);
-    color: var(--text-secondary);
+    color: #666666; /* 회색으로 변경 */
     text-decoration: none;
     border-radius: var(--radius-base);
     transition: all var(--transition-fast);
+    font-weight: var(--font-medium);
 }
 
 .lang-dropdown a:hover {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.05); /* 연한 회색 배경 */
+    color: #333333; /* 진한 회색 */
+    transform: translateX(2px);
 }
 
 /* Theme Toggle */
@@ -116,34 +125,106 @@
     justify-content: center;
     width: 36px;
     height: 36px;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-light);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(153, 153, 153, 0.3);
     border-radius: var(--radius-base);
-    color: var(--text-secondary);
+    color: #666666; /* 회색으로 변경 */
     transition: all var(--transition-fast);
+    backdrop-filter: blur(10px);
 }
 
 .theme-toggle:hover {
-    background: var(--bg-primary);
-    border-color: var(--border-medium);
-    color: var(--text-primary);
+    background: #f5f5f5; /* 연한 회색 배경 */
+    border-color: #999999; /* 회색 테두리 */
+    color: #333333; /* 진한 회색 */
     transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Main Header */
 .main-header {
-    background: var(--bg-primary);
-    border-bottom: 1px solid var(--border-light);
+    /* 연한 블루 계열 그라데이션 배경 */
+    background: linear-gradient(
+        270deg,
+        #e3f2fd 0%,     /* 아주 연한 파랑 */
+        #bbdefb 20%,    /* 연한 파랑 */
+        #90caf9 40%,    /* 중간 파랑 */
+        #64b5f6 60%,    /* 블루 */
+        #42a5f5 80%,    /* 진한 블루 */
+        #2196f3 100%    /* 표준 블루 */
+    );
+    background-size: 600% 100%; /* 배경 크기를 더 크게 설정하여 부드러운 애니메이션 효과 */
+    animation: headerGradientSlide 25s ease-in-out infinite; /* 아주 느린 슬라이드 애니메이션 */
+    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding: var(--space-6) 0;
+    position: sticky; /* 스크롤 시 상단에 고정 */
+    top: var(--main-nav-height, 60px); /* 네비게이션 바 아래에 고정 */
+    z-index: var(--z-sticky); /* 네비게이션과 같은 레벨 */
+    transition: all var(--transition-medium);
+    min-height: 140px; /* 높이 증가 */
+    height: auto; /* 자동 높이로 변경 */
+    overflow: visible; /* 내용이 보이도록 변경 */
+    box-sizing: border-box; /* 패딩 포함한 높이 계산 */
+    box-shadow: 0 8px 32px rgba(33, 150, 243, 0.3); /* 화려한 블루 그림자 */
+    backdrop-filter: blur(10px); /* 배경 블러 효과 */
+    
+    /* 텍스트 가독성을 위한 오버레이 */
     position: relative;
-    z-index: var(--z-sticky);
 }
+
+/* 그라데이션 슬라이드 애니메이션 */
+@keyframes headerGradientSlide {
+    0% {
+        background-position: 0% 50%;
+    }
+    16.67% {
+        background-position: 100% 50%;
+    }
+    33.33% {
+        background-position: 200% 50%;
+    }
+    50% {
+        background-position: 300% 50%;
+    }
+    66.67% {
+        background-position: 400% 50%;
+    }
+    83.33% {
+        background-position: 500% 50%;
+    }
+    100% {
+        background-position: 600% 50%;
+    }
+}
+
+/* 텍스트 가독성을 위한 반투명 오버레이 */
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 스크롤 시 헤더 최적화 - 제거됨 (헤더 고정 문제 해결) */
 
 .header-content {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    gap: var(--space-8);
+    gap: var(--space-6); /* 간격 증가 */
+    width: 100%;
+    min-height: 140px; /* 최소 높이 */
+    padding: var(--space-4) var(--space-6); /* 내부 여백 추가 */
+    position: relative;
+    z-index: 2; /* 그라데이션 오버레이보다 위에 */
+    color: #1976d2; /* 연한 블루 배경에서 진한 블루 텍스트로 가독성 향상 */
+    overflow: visible; /* 내용이 보이도록 */
 }
 
 /* Logo Section */
@@ -151,6 +232,12 @@
     display: flex;
     align-items: center;
     gap: var(--space-4);
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
+    position: relative;
+    min-height: 60px; /* 로고 섹션 최소 높이 */
+    padding: var(--space-2) 0; /* 상하 여백 추가 */
 }
 
 .logo {
@@ -159,6 +246,8 @@
     gap: var(--space-3);
     text-decoration: none;
     color: inherit;
+    visibility: visible;
+    opacity: 1;
 }
 
 .logo-img {
@@ -166,19 +255,35 @@
     height: 48px;
     border-radius: var(--radius-lg);
     object-fit: cover;
+    visibility: visible;
+    opacity: 1;
+    display: block;
 }
 
 .logo-text h1 {
     font-size: var(--text-xl);
     font-weight: var(--font-bold);
-    color: var(--text-primary);
+    color: #0d47a1; /* 진한 블루 */
     margin: 0;
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    text-shadow: 0 2px 8px rgba(33, 150, 243, 0.2); /* 블루 텍스트 그림자로 가독성 향상 */
+}
+
+.logo-text {
+    visibility: visible;
+    opacity: 1;
 }
 
 .logo-subtitle {
     font-size: var(--text-sm);
-    color: var(--text-secondary);
+    color: #1976d2; /* 중간 블루 */
     margin: 0;
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    text-shadow: 0 1px 4px rgba(33, 150, 243, 0.15);
 }
 
 .anniversary-badge {
@@ -210,9 +315,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-4);
-    max-width: 500px;
+    gap: var(--space-4); /* 간격 복원 */
+    max-width: 600px; /* 최대 너비 증가 */
     width: 100%;
+    min-height: 100px; /* 최소 높이 설정 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    padding: var(--space-3) 0; /* 상하 여백 추가 */
 }
 
 /* Search Container */
@@ -233,64 +341,79 @@
 
 .search-input {
     width: 100%;
-    padding: var(--space-3) var(--space-12) var(--space-3) var(--space-4);
-    background: var(--bg-tertiary);
-    border: 2px solid var(--border-light);
+    padding: var(--space-3) var(--space-12) var(--space-3) var(--space-4); /* 패딩 복원 */
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(33, 150, 243, 0.3);
     border-radius: var(--radius-xl);
-    font-size: var(--text-base);
-    color: var(--text-primary);
+    font-size: var(--text-base); /* 폰트 크기 복원 */
+    color: #1976d2;
     transition: all var(--transition-fast);
+    backdrop-filter: blur(10px);
+    height: 48px; /* 높이 증가 */
+    min-height: 48px; /* 최소 높이 */
 }
 
 .search-input:focus {
     outline: none;
-    border-color: var(--border-focus);
-    background: var(--bg-primary);
-    box-shadow: var(--shadow-glow);
+    border-color: #2196f3;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.3);
+}
+
+.search-input::placeholder {
+    color: rgba(25, 118, 210, 0.6);
 }
 
 .search-btn {
     position: absolute;
     right: var(--space-2);
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: var(--color-primary);
-    color: var(--text-inverse);
+    width: 40px; /* 크기 증가 */
+    height: 40px; /* 크기 증가 */
+    background: #2196f3;
+    color: white;
     border-radius: var(--radius-lg);
     transition: all var(--transition-fast);
+    backdrop-filter: blur(10px);
 }
 
 .search-btn:hover {
-    background: var(--color-primary-dark);
+    background: #1976d2;
+    color: white;
     transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
 }
 
 .search-suggestions {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    margin-top: var(--space-2);
+    gap: var(--space-2); /* 간격 복원 */
+    margin-top: var(--space-2); /* 마진 복원 */
     flex-wrap: wrap;
+    min-height: 32px; /* 최소 높이 설정 */
 }
 
 .suggestion-tag {
     padding: var(--space-1) var(--space-2);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-light);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(33, 150, 243, 0.3);
     border-radius: var(--radius-full);
     font-size: var(--text-xs);
-    color: var(--text-secondary);
+    color: #1976d2;
     cursor: pointer;
     transition: all var(--transition-fast);
+    backdrop-filter: blur(5px);
 }
 
 .suggestion-tag:hover {
-    background: var(--color-primary);
-    color: var(--text-inverse);
-    border-color: var(--color-primary);
+    background: #2196f3;
+    color: white;
+    border-color: #2196f3;
+    transform: translateY(-1px);
 }
 
 /* Stats Counter */
@@ -469,8 +592,16 @@
         display: none;
     }
     
+    .main-header {
+        min-height: 130px; /* 태블릿에서 최소 높이 증가 */
+        height: auto;
+        overflow: visible;
+    }
+    
     .header-content {
         gap: var(--space-4);
+        min-height: 100px; /* 태블릿에서 최소 높이 */
+        padding: var(--space-3) var(--space-4); /* 여백 추가 */
     }
     
     .logo-section {
@@ -507,6 +638,14 @@
 @media (max-width: 480px) {
     .main-header {
         padding: var(--space-4) 0;
+        min-height: 120px; /* 모바일에서 최소 높이 증가 */
+        height: auto;
+        overflow: visible;
+    }
+    
+    .header-content {
+        min-height: 90px; /* 모바일에서 최소 높이 */
+        padding: var(--space-2) var(--space-3); /* 여백 추가 */
     }
     
     .logo-img {
@@ -521,11 +660,12 @@
     .search-input {
         padding: var(--space-2) var(--space-10) var(--space-2) var(--space-3);
         font-size: var(--text-sm);
+        height: 36px; /* 모바일에서 더 작은 높이 */
     }
     
     .search-btn {
-        width: 32px;
-        height: 32px;
+        width: 28px; /* 모바일에서 더 작은 크기 */
+        height: 28px;
     }
     
     .counter-number {
