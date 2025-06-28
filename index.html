@@ -866,16 +866,22 @@
         </div>
     </div>
     
-    <!-- JavaScript Files -->
+    <!-- JavaScript Files (로딩 순서 최적화) -->
     <script src="./js/utils.js"></script>
     <script src="./js/config.js"></script>
-    <script src="./js/components/navigation.js" defer></script>
-    <script src="./js/components/musicplayer.js" defer></script>
+    
+    <!-- 핵심 컴포넌트들 먼저 로드 -->
+    <script src="./js/components/navigation.js"></script>
+    <script src="./js/components/musicplayer.js"></script>
+    
+    <!-- 나머지 컴포넌트들 -->
     <script src="./js/components/tabs.js" defer></script>
     <script src="./js/components/search.js" defer></script>
     <script src="./js/sections/hero.js" defer></script>
     <script src="./js/sections/portfolio.js" defer></script>
     <script src="./js/animations.js" defer></script>
+    
+    <!-- 메인 앱은 마지막에 로드 -->
     <script src="./js/main.js" defer></script>
 </body>
 </html>

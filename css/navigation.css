@@ -9,6 +9,15 @@
     top: 0;
     z-index: var(--z-fixed);
     box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-medium), opacity var(--transition-medium);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* 네비게이션 숨김 상태 */
+.main-navigation.nav-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
 }
 
 .nav-content {

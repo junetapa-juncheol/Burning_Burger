@@ -157,32 +157,57 @@ class MusicPlayer {
     bindEvents() {
         // 플레이어 컨트롤 이벤트
         if (this.elements.playPauseBtn) {
-            this.utils.on(this.elements.playPauseBtn, 'click', () => this.togglePlayPause());
+            this.utils.on(this.elements.playPauseBtn, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.togglePlayPause();
+            });
         }
         
         if (this.elements.prevBtn) {
-            this.utils.on(this.elements.prevBtn, 'click', () => this.previousTrack());
+            this.utils.on(this.elements.prevBtn, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.previousTrack();
+            });
         }
         
         if (this.elements.nextBtn) {
-            this.utils.on(this.elements.nextBtn, 'click', () => this.nextTrack());
+            this.utils.on(this.elements.nextBtn, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.nextTrack();
+            });
         }
         
         if (this.elements.repeatBtn) {
-            this.utils.on(this.elements.repeatBtn, 'click', () => this.toggleRepeat());
+            this.utils.on(this.elements.repeatBtn, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleRepeat();
+            });
         }
         
         if (this.elements.shuffleBtn) {
-            this.utils.on(this.elements.shuffleBtn, 'click', () => this.toggleShuffle());
+            this.utils.on(this.elements.shuffleBtn, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleShuffle();
+            });
         }
         
         // 볼륨 컨트롤
         if (this.elements.volumeBtn) {
-            this.utils.on(this.elements.volumeBtn, 'click', () => this.toggleMute());
+            this.utils.on(this.elements.volumeBtn, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleMute();
+            });
         }
         
         if (this.elements.volumeSlider) {
             this.utils.on(this.elements.volumeSlider, 'input', (e) => {
+                e.stopPropagation();
                 this.setVolume(parseFloat(e.target.value) / 100);
             });
         }
@@ -190,10 +215,14 @@ class MusicPlayer {
         // 프로그레스 바 이벤트
         if (this.elements.progressContainer) {
             this.utils.on(this.elements.progressContainer, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 this.handleProgressClick(e);
             });
             
             this.utils.on(this.elements.progressContainer, 'mousedown', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 this.handleProgressMouseDown(e);
             });
         }
@@ -211,6 +240,9 @@ class MusicPlayer {
             this.utils.on(this.elements.audio, 'waiting', () => this.handleWaiting());
             this.utils.on(this.elements.audio, 'playing', () => this.handlePlaying());
         }
+        
+        // 스크롤 시 자동 숨김/표시 기능
+        this.setupAutoHide();
         
         // 키보드 단축키
         this.utils.on(document, 'keydown', (e) => this.handleKeyboard(e));
@@ -230,12 +262,20 @@ class MusicPlayer {
         
         // 플레이리스트 버튼
         if (this.elements.playlistBtn) {
-            this.utils.on(this.elements.playlistBtn, 'click', () => this.togglePlaylist());
+            this.utils.on(this.elements.playlistBtn, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.togglePlaylist();
+            });
         }
         
         // 전체화면 버튼
         if (this.elements.fullscreenBtn) {
-            this.utils.on(this.elements.fullscreenBtn, 'click', () => this.toggleFullscreen());
+            this.utils.on(this.elements.fullscreenBtn, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleFullscreen();
+            });
         }
         
         // 음악바 축소/확대 토글
@@ -245,7 +285,9 @@ class MusicPlayer {
         const miniExpand = this.utils.$('.mini-player-expand');
 
         if (toggleBtn && playerBar && miniBar) {
-            this.utils.on(toggleBtn, 'click', () => {
+            this.utils.on(toggleBtn, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 console.log('축소 버튼 클릭됨');
                 // 음악바 축소
                 playerBar.classList.add('minimized');
@@ -258,7 +300,9 @@ class MusicPlayer {
         }
 
         if (miniExpand && playerBar && miniBar) {
-            this.utils.on(miniExpand, 'click', () => {
+            this.utils.on(miniExpand, 'click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 console.log('미니바 확대 버튼 클릭됨');
                 // 미니바 숨김
                 miniBar.classList.remove('visible');
@@ -801,6 +845,126 @@ class MusicPlayer {
                 this.loadTrack(Math.min(this.state.currentTrackIndex, this.playlist.length - 1));
             }
         }
+    }
+    
+    setupAutoHide() {
+        console.log('🎵 자동 숨김 기능 설정 시작');
+        
+        // 상태 변수들
+        let lastScrollY = window.scrollY;
+        let isHidden = false;
+        let scrollTimeout;
+        let isInteracting = false; // 버튼 상호작용 상태
+        
+        // 음악 플레이어 요소 확인
+        const playerBar = document.querySelector('.music-player-bar');
+        if (!playerBar) {
+            console.error('❌ 음악 플레이어 요소를 찾을 수 없습니다.');
+            return;
+        }
+        
+        console.log('✅ 음악 플레이어 요소 찾음:', playerBar);
+        
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            const scrollDifference = Math.abs(currentScrollY - lastScrollY);
+            
+            // 스크롤이 충분히 발생했을 때만 처리
+            if (scrollDifference < 5) return;
+            
+            const isScrollingDown = currentScrollY > lastScrollY;
+            const isScrollingUp = currentScrollY < lastScrollY;
+            
+            console.log(`📜 스크롤: ${isScrollingDown ? '⬇️ 아래' : '⬆️ 위'}, Y: ${currentScrollY}, 상호작용중: ${isInteracting}`);
+            
+            // 스크롤 위로 올리면 버튼 상호작용 종료 (재활성화)
+            if (isScrollingUp && isInteracting) {
+                isInteracting = false;
+                console.log('🔄 스크롤 위로: 자동 숨김 기능 재활성화');
+            }
+            
+            // 버튼과 상호작용 중이면 자동 숨김 비활성화
+            if (isInteracting) {
+                console.log('🚫 상호작용 중이므로 자동 숨김 비활성화');
+                return;
+            }
+            
+            const shouldHide = isScrollingDown && currentScrollY > 100;
+            const shouldShow = isScrollingUp || currentScrollY <= 100;
+            
+            if (shouldHide && !isHidden) {
+                // 플레이어 숨김 (아래 스크롤)
+                playerBar.classList.add('auto-hide');
+                playerBar.classList.remove('auto-show');
+                isHidden = true;
+                console.log('👻 스크롤 아래: 플레이어 숨김');
+            } else if (shouldShow && isHidden) {
+                // 플레이어 표시 (위 스크롤)
+                playerBar.classList.remove('auto-hide');
+                playerBar.classList.add('auto-show');
+                isHidden = false;
+                console.log('👁️ 스크롤 위: 플레이어 표시');
+            }
+            
+            lastScrollY = currentScrollY;
+            
+            // 스크롤이 멈추면 자동 표시 (제거됨 - 사용자 요청)
+            // clearTimeout(scrollTimeout);
+            // scrollTimeout = setTimeout(() => {
+            //     if (isHidden && !isInteracting) {
+            //         playerBar.classList.remove('auto-hide');
+            //         playerBar.classList.add('auto-show');
+            //         isHidden = false;
+            //         console.log('⏰ 2초 후 자동 표시');
+            //     }
+            // }, 2000);
+        };
+        
+        // 플레이어 영역에 마우스를 올리면 항상 표시
+        const handleMouseEnter = () => {
+            if (isHidden) {
+                playerBar.classList.remove('auto-hide');
+                playerBar.classList.add('auto-show');
+                isHidden = false;
+                console.log('🖱️ 마우스 진입: 플레이어 표시');
+            }
+        };
+        
+        // 버튼 상호작용 시작
+        const handleInteractionStart = (e) => {
+            isInteracting = true;
+            // 강제로 플레이어 표시
+            playerBar.classList.remove('auto-hide');
+            playerBar.classList.add('auto-show');
+            isHidden = false;
+            console.log('🔘 버튼 상호작용 시작: 자동 숨김 비활성화');
+        };
+        
+        // 버튼 상호작용 종료
+        const handleInteractionEnd = (e) => {
+            console.log('✋ 버튼 상호작용 종료: 스크롤로 재활성화 대기');
+        };
+        
+        // 스크롤 이벤트 등록
+        const throttledScroll = this.utils.throttle(handleScroll, 16);
+        window.addEventListener('scroll', throttledScroll, { passive: true });
+        
+        // 마우스 이벤트 등록
+        playerBar.addEventListener('mouseenter', handleMouseEnter);
+        
+        // 모든 버튼에 상호작용 이벤트 등록
+        const buttons = playerBar.querySelectorAll('button');
+        console.log(`🔘 버튼 ${buttons.length}개 찾음`);
+        
+        buttons.forEach((button, index) => {
+            button.addEventListener('mousedown', handleInteractionStart);
+            button.addEventListener('click', handleInteractionEnd);
+            button.addEventListener('touchstart', handleInteractionStart);
+            button.addEventListener('touchend', handleInteractionEnd);
+            console.log(`✅ 버튼 ${index + 1} 이벤트 등록 완료`);
+        });
+        
+        console.log('🎉 자동 숨김 기능 설정 완료');
     }
     
     destroy() {

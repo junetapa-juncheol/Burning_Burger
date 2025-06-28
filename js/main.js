@@ -60,15 +60,22 @@ class App {
 
         initSequence.forEach(component => {
             try {
+                console.log(`🔧 ${component.class} 초기화 시도...`);
+                
                 if (window[component.class]) {
                     this.components[component.name] = new window[component.class]();
-                    if (this.components[component.name].init) {
+                    
+                    // init 메서드가 있고 아직 호출되지 않았다면 호출
+                    if (this.components[component.name].init && typeof this.components[component.name].init === 'function') {
                         this.components[component.name].init();
                     }
-                    console.log(`${component.class} initialized successfully`);
+                    
+                    console.log(`✅ ${component.class} 초기화 성공`);
+                } else {
+                    console.warn(`⚠️ ${component.class} 클래스를 찾을 수 없습니다.`);
                 }
             } catch (error) {
-                console.error(`Failed to initialize ${component.class}:`, error);
+                console.error(`❌ ${component.class} 초기화 실패:`, error);
             }
         });
 

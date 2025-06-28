@@ -5,21 +5,73 @@
 
 class Navigation {
     constructor() {
-        // utils 객체가 로드될 때까지 대기
-        if (window.utils) {
-            this.init();
-        } else {
-            document.addEventListener('DOMContentLoaded', () => this.init());
+        console.log('🧭 네비게이션 컴포넌트 초기화 시작');
+        
+        // 즉시 초기화 시도
+        this.tryInit();
+        
+        // DOMContentLoaded 이벤트에도 등록 (백업)
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.tryInit());
         }
     }
 
+    tryInit() {
+        // utils 객체 체크
+        if (!window.utils) {
+            console.log('⏳ utils 대기 중...');
+            setTimeout(() => this.tryInit(), 100);
+            return;
+        }
+        
+        console.log('✅ utils 로드됨, 네비게이션 초기화');
+        this.init();
+    }
+
     init() {
+        // 중복 초기화 방지
+        if (this.initialized) {
+            console.log('📌 네비게이션 이미 초기화됨, 건너뛰기');
+            return;
+        }
+        
         this.utils = window.utils;
+        
+        // 네비게이션 요소 확인
+        const navigation = document.querySelector('.main-navigation');
+        if (!navigation) {
+            console.error('❌ 네비게이션 요소를 찾을 수 없습니다.');
+            // 다시 시도 (DOM이 완전히 로드되지 않았을 수 있음)
+            setTimeout(() => {
+                if (!this.initialized) {
+                    console.log('🔄 네비게이션 재시도...');
+                    this.init();
+                }
+            }, 500);
+            return;
+        }
+        
+        console.log('✅ 네비게이션 요소 찾음:', navigation);
+        
+        // 네비게이션이 화면에 보이는지 확인
+        const rect = navigation.getBoundingClientRect();
+        if (rect.height === 0) {
+            console.warn('⚠️ 네비게이션 높이가 0입니다. CSS 로딩 확인 필요');
+        }
+        
         this.bindEvents();
         this.setupDropdowns();
         this.setupMobileMenu();
         this.setupScrollEffects();
         this.setupActiveStates();
+        
+        // 초기화 완료 플래그
+        this.initialized = true;
+        
+        // 추가 설정 실행
+        this.afterInit();
+        
+        console.log('🎉 네비게이션 초기화 완료');
     }
 
     bindEvents() {
@@ -78,23 +130,44 @@ class Navigation {
 
     setupScrollEffects() {
         const navigation = this.utils.$('.main-navigation');
-        if (navigation) {
-            let lastScrollTop = 0;
+        if (!navigation) {
+            console.warn('⚠️ 네비게이션 요소를 찾을 수 없어 스크롤 효과를 설정할 수 없습니다.');
+            return;
+        }
+        
+        let lastScrollTop = 0;
+        let isScrolling = false;
+        
+        const handleScroll = this.debounce(() => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollDifference = Math.abs(scrollTop - lastScrollTop);
             
-            this.utils.onScroll(() => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop > lastScrollTop && scrollTop > 100) {
-                    // 아래로 스크롤
+            // 스크롤 거리가 충분히 클 때만 반응 (더 부드러운 UX)
+            if (scrollDifference > 5) {
+                if (scrollTop > lastScrollTop && scrollTop > 200) {
+                    // 아래로 스크롤 (임계값 100 → 200으로 증가)
+                    console.log('📱 네비게이션 숨김 (스크롤 다운)');
                     this.utils.addClass(navigation, 'nav-hidden');
-                } else {
+                } else if (scrollTop < lastScrollTop) {
                     // 위로 스크롤
+                    console.log('📱 네비게이션 표시 (스크롤 업)');
                     this.utils.removeClass(navigation, 'nav-hidden');
                 }
                 
                 lastScrollTop = scrollTop;
-            });
-        }
+            }
+            
+            isScrolling = false;
+        }, 16); // 60fps로 제한
+        
+        this.utils.onScroll(() => {
+            if (!isScrolling) {
+                isScrolling = true;
+                handleScroll();
+            }
+        });
+        
+        console.log('📜 네비게이션 스크롤 효과 설정 완료');
     }
 
     setupActiveStates() {
@@ -484,10 +557,28 @@ class Navigation {
     }
 }
 
-// Navigation 인스턴스 생성
-document.addEventListener('DOMContentLoaded', () => {
-    window.navigation = new Navigation();
-});
-
 // 전역으로 내보내기
-window.Navigation = Navigation; 
+window.Navigation = Navigation;
+
+// Navigation 인스턴스 생성 (더 안정적인 방식)
+const initNavigationInstance = () => {
+    if (!window.navigation) {
+        console.log('🧭 전역 네비게이션 인스턴스 생성');
+        window.navigation = new Navigation();
+    }
+};
+
+// 여러 시점에서 초기화 시도
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavigationInstance);
+} else {
+    initNavigationInstance();
+}
+
+// 백업으로 window.load 이벤트에도 등록
+window.addEventListener('load', () => {
+    if (!window.navigation) {
+        console.log('🔄 window.load에서 네비게이션 인스턴스 재시도');
+        initNavigationInstance();
+    }
+}); 
