@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 음악 이론 심화 과정 마스터 - junetapa</title>
+    <title>홈스튜디오 × AI 레코딩 기술 완벽 가이드 - junetapa</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="AI를 활용한 음악 이론 완벽 가이드. 화성학, 작곡 이론, 코드 진행, 멜로디 라인 AI 분석과 자동화 실무 꿀팁">
-    <meta name="keywords" content="AI음악이론, 화성학AI, 작곡이론, 코드진행AI, 멜로디AI, 장르분석, 음악분석, 이론자동화">
+    <meta name="description" content="홈스튜디오에서 자주 사용하는 레코딩 기법과 AI 도구를 활용한 실무 중심 완벽 가이드. Cubase, Logic Pro, FL Studio 레코딩 꿀팁">
+    <meta name="keywords" content="홈스튜디오, AI레코딩, 보컬레코딩, 펀치인아웃, 컴핑, 노이즈제거, 큐베이스, 로직프로, FL스튜디오, 레코딩기법">
     <meta name="author" content="junetapa">
     
     <!-- CSS Files -->
@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        .music-theory-page {
+        .recording-page {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
@@ -120,7 +120,7 @@
         }
         
         .content-text li:before {
-            content: "🎼";
+            content: "🎙️";
             position: absolute;
             left: 0;
             font-size: 16px;
@@ -156,7 +156,7 @@
         
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-top: 30px;
         }
@@ -355,21 +355,21 @@
         }
     </style>
 </head>
-<body class="music-theory-page">
+<body class="recording-page">
     <!-- Navigation Back -->
-    <a href="index.html" class="nav-back">← 홈으로 돌아가기</a>
+    <a href="../index.html#recording" class="nav-back">← 홈으로 돌아가기</a>
     
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="hero-badge">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M192 256c0 17.7 14.3 32 32 32s32-14.3 32-32s-14.3-32-32-32s-32 14.3-32 32zm32-80c44.2 0 80 35.8 80 80s-35.8 80-80 80s-80-35.8-80-80s35.8-80 80-80zM32 192c0-79.5 64.5-144 144-144s144 64.5 144 144v64h32c17.7 0 32 14.3 32 32v128c0 17.7-14.3 32-32 32H48c-17.7 0-32-14.3-32-32V288c0-17.7 14.3-32 32-32h32V192z"/></svg>
-                <span>AI 음악 이론</span>
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                <span>홈스튜디오 × AI 레코딩</span>
             </div>
-            <h1 class="hero-title">음악 이론의 AI 혁명</h1>
+            <h1 class="hero-title">집에서도 스튜디오급 레코딩</h1>
             <p class="hero-subtitle">
-                화성학부터 멜로디 완성까지, AI가 모든 이론을 실시간 분석하고 제안<br>
-                복잡한 음악 이론을 직관적으로 이해하고 창작에 바로 활용하세요.
+                홈스튜디오에서 자주 사용하는 레코딩 기법과 AI 도구의 완벽한 조화<br>
+                펀치 인/아웃, 컴핑, 노이즈 제거까지 실무 꿀팁을 모두 공개합니다.
             </p>
         </div>
     </section>
@@ -377,205 +377,171 @@
     <!-- Table of Contents -->
     <section class="toc-section">
         <div class="container">
-            <h2 class="toc-title">AI 음악 이론 마스터 로드맵</h2>
+            <h2 class="toc-title">홈스튜디오 레코딩 마스터 로드맵</h2>
             <div class="toc-grid">
                 <div class="toc-item">
                     <div class="toc-number">01</div>
-                    <h3>화성학 × AI 분석 엔진</h3>
-                    <p>지능형 코드 분석과 진행 최적화</p>
+                    <h3>홈스튜디오 셋업 × AI 최적화</h3>
+                    <p>방음, 음향, 장비 배치와 AI 도구 통합</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">02</div>
-                    <h3>작곡 이론 자동화 시스템</h3>
-                    <p>AI 기반 구조 분석과 형식 제안</p>
+                    <h3>보컬 레코딩 × AI 튜닝</h3>
+                    <p>펀치 인/아웃, 컴핑, AI 피치 보정</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">03</div>
-                    <h3>장르별 특성 AI 학습</h3>
-                    <p>스타일 분석과 패턴 인식</p>
+                    <h3>악기 레코딩 × 스마트 처리</h3>
+                    <p>기타, 피아노, 드럼 레코딩과 AI 강화</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">04</div>
-                    <h3>실시간 이론 제안 AI</h3>
-                    <p>창작 중 즉시 이론적 가이드</p>
+                    <h3>MIDI × AI 연주 최적화</h3>
+                    <p>가상악기, 시퀀싱, AI 연주 개선</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">05</div>
-                    <h3>코드 진행 AI 최적화</h3>
-                    <p>감정과 장르에 맞는 진행 생성</p>
+                    <h3>노이즈 제거 × AI 클린업</h3>
+                    <p>iZotope RX, Adobe Audition AI 활용</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">06</div>
-                    <h3>멜로디 라인 AI 완성</h3>
-                    <p>스케일과 모드 기반 멜로디 생성</p>
+                    <h3>모니터링 × AI 보정</h3>
+                    <p>룸 보정, 헤드폰 캘리브레이션</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">07</div>
-                    <h3>AI 대위법과 편곡 이론</h3>
-                    <p>다성부 작곡과 오케스트레이션</p>
+                    <h3>DAW별 레코딩 꿀팁</h3>
+                    <p>Cubase, Logic Pro, FL Studio 특화 기법</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">08</div>
-                    <h3>차세대 음악 분석 AI</h3>
-                    <p>복합 장르와 퓨전 음악 이해</p>
+                    <h3>실시간 AI 모니터링</h3>
+                    <p>레이턴시 최적화와 AI 실시간 처리</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 1: 화성학 × AI 분석 엔진 -->
+    <!-- Section 1: 보컬 레코딩 × AI 튜닝 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">화성학 × AI 분석 엔진</h2>
+            <h2 class="section-title">보컬 레코딩 × AI 튜닝 마스터 클래스</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>지능형 코드 분석과 진행 최적화</h3>
-                    <p>복잡한 화성 이론을 AI가 실시간으로 분석하고 최적의 코드 진행을 제안합니다. 전문가 수준의 화성학 지식을 누구나 쉽게 활용할 수 있습니다.</p>
+                    <h3>홈스튜디오 보컬 레코딩의 모든 것</h3>
+                    <p>홈스튜디오에서 가장 많이 하는 보컬 레코딩. 펀치 인/아웃, 컴핑부터 AI 피치 보정까지 실무에서 매일 쓰는 기법들을 정리했습니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">🎹 AI 코드 분석기</div>
-                            <div class="tech-desc">Captain Chords AI가 입력된 코드를 즉시 분석하여 기능, 텐션, 대리코드까지 완벽하게 표시합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 복잡한 재즈 코드도 한 번에 분석 완료</div>
+                            <div class="tech-name">🎤 펀치 인/아웃 × AI 감지</div>
+                            <div class="tech-desc">AI가 보컬의 호흡과 실수 구간을 자동 감지하여 펀치 포인트를 제안합니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> Logic Pro Take Folder + AI 분석 = 완벽한 테이크 관리</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">🔄 스마트 코드 대체</div>
-                            <div class="tech-desc">Scaler 2 AI가 현재 코드에 맞는 대리코드와 변화코드를 실시간으로 제안합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 같은 기능의 코드를 다양하게 변형</div>
+                            <div class="tech-name">✂️ 스마트 컴핑</div>
+                            <div class="tech-desc">여러 테이크에서 AI가 최고의 구간들을 자동 선별하여 완벽한 컴프 테이크를 생성합니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> Cubase VariAudio + AI = 자동 최적 구간 선택</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">🎵 진행 완성 AI</div>
-                            <div class="tech-desc">Band-in-a-Box AI가 몇 개의 코드만으로 완전한 코드 진행을 자동 완성합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 장르별 특성을 반영한 자연스러운 진행</div>
+                            <div class="tech-name">🎵 실시간 AI 피치 보정</div>
+                            <div class="tech-desc">녹음과 동시에 AI가 피치를 자연스럽게 보정하여 후작업 시간을 단축합니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> Auto-Tune Pro + Real-Time = 라이브 수준 보정</div>
                         </div>
                     </div>
                     
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-number">98%</div>
-                            <div class="stat-label">분석 정확도</div>
+                            <div class="stat-number">83%</div>
+                            <div class="stat-label">시간 단축</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">85%</div>
-                            <div class="stat-label">학습 속도 향상</div>
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">품질 향상</div>
                         </div>
                     </div>
                 </div>
                 <div class="content-image">
-                    <img src="./assets/images/fullstack/fullstack-1.png" alt="화성학 AI 분석" loading="lazy">
+                    <img src="./assets/images/fullstack/fullstack-1.png" alt="보컬 레코딩 AI 튜닝" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 2: 작곡 이론 자동화 시스템 -->
+    <!-- Section 2: DAW별 레코딩 꿀팁 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">작곡 이론 자동화 시스템</h2>
+            <h2 class="section-title">DAW별 레코딩 꿀팁 × AI 통합</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>AI 기반 구조 분석과 형식 제안</h3>
-                    <p>곡의 구조와 형식을 AI가 자동으로 분석하고 최적의 전개를 제안합니다. 전통적인 형식부터 현대적인 구조까지 모든 것을 다룹니다.</p>
+                    <h3>각 DAW의 강점을 AI로 극대화하기</h3>
+                    <p>Cubase, Logic Pro, FL Studio 각각의 레코딩 특화 기능과 AI를 결합한 실무 워크플로우를 소개합니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">🏗️ AI 곡 구조 분석</div>
-                            <div class="tech-desc">MuseNet AI가 기존 곡들을 분석하여 효과적인 구조 패턴을 학습하고 새로운 곡에 적용합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 장르별 최적 구조를 자동 제안</div>
+                            <div class="tech-name">🎛️ Cubase Control Room × AI</div>
+                            <div class="tech-desc">Control Room의 cue mix 기능과 AI 모니터링을 결합하여 완벽한 헤드폰 믹스를 자동 생성합니다.</div>
+                            <div class="tech-tips"><strong>꿀팁:</strong> Reference 4 + Control Room = 아티스트 맞춤 큐 믹스</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">📊 형식 최적화 AI</div>
-                            <div class="tech-desc">AIVA Composer가 곡의 길이와 목적에 맞는 최적의 형식(ABA, 소나타 등)을 제안합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 감정 흐름에 따른 섹션 배치</div>
+                            <div class="tech-name">🍎 Logic Pro Low Latency Mode × AI</div>
+                            <div class="tech-desc">Low Latency Mode에서 AI 플러그인들을 최적화하여 실시간 모니터링과 고품질 처리를 동시에 실현합니다.</div>
+                            <div class="tech-tips"><strong>꿀팁:</strong> Flex Pitch + Low Latency = 무지연 실시간 보정</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">⚡ 실시간 전개 가이드</div>
-                            <div class="tech-desc">창작 중에 AI가 다음 섹션의 방향성과 전개 방법을 실시간으로 제안합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 막힌 부분에서 즉시 해결책 제공</div>
+                            <div class="tech-name">🔥 FL Studio Edison × AI</div>
+                            <div class="tech-desc">Edison의 스펙트럼 분석 기능과 AI를 결합하여 실시간 오디오 품질 모니터링을 수행합니다.</div>
+                            <div class="tech-tips"><strong>꿀팁:</strong> Edison + FLEX = 완벽한 루프 타이밍 자동 보정</div>
                         </div>
                     </div>
                 </div>
                 <div class="content-image">
-                    <img src="./assets/images/fullstack/fullstack-2.png" alt="작곡 이론 자동화" loading="lazy">
+                    <img src="./assets/images/fullstack/fullstack-2.png" alt="DAW별 레코딩 꿀팁" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 3: 장르별 특성 AI 학습 -->
+    <!-- Section 3: 노이즈 제거 × AI 클린업 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">장르별 특성 AI 학습</h2>
+            <h2 class="section-title">노이즈 제거 × AI 클린업 마스터</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>스타일 분석과 패턴 인식</h3>
-                    <p>각 장르의 고유한 특성을 AI가 깊이 있게 학습하여 정확한 스타일 재현과 창의적 변형을 동시에 제공합니다.</p>
+                    <h3>홈스튜디오 필수 스킬: AI 노이즈 제거</h3>
+                    <p>홈스튜디오에서는 항상 노이즈와의 전쟁입니다. AI 도구들을 활용하면 마법처럼 깨끗한 오디오를 얻을 수 있습니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">🎸 장르 패턴 분석</div>
-                            <div class="tech-desc">OpenAI Jukebox가 수천 곡을 학습하여 각 장르의 핵심 특성과 패턴을 정확히 파악합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 록, 재즈, 클래식 등 장르별 DNA 분석</div>
+                            <div class="tech-name">🔧 iZotope RX AI 노이즈 제거</div>
+                            <div class="tech-desc">AI가 오디오를 분석하여 에어컨, 컴퓨터 팬, 교통 소음 등을 완벽히 제거합니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> RX Spectral Repair + AI = 완벽한 클릭 제거</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">🎭 스타일 퓨전 AI</div>
-                            <div class="tech-desc">서로 다른 장르의 특성을 AI가 지능적으로 융합하여 새로운 스타일을 창조합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 재즈 + EDM = 완전히 새로운 퓨전 장르</div>
+                            <div class="tech-name">🎙️ Adobe Audition AI 음성 강화</div>
+                            <div class="tech-desc">Enhance Speech 기능이 AI로 음성을 자동 최적화하여 전문 성우 수준의 품질을 만들어냅니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> Spectral Frequency Display = 노이즈 시각적 제거</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">🎼 리듬 패턴 생성</div>
-                            <div class="tech-desc">각 장르의 특징적인 리듬 패턴을 AI가 학습하여 무한한 변형을 생성합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 라틴, 아프리카, 아시아 리듬까지</div>
+                            <div class="tech-name">🔇 AI 디에서 (De-esser)</div>
+                            <div class="tech-desc">거슬리는 치찰음을 AI가 자동 감지하여 자연스럽게 줄여줍니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> FabFilter Pro-DS + AI = 완벽한 치찰음 제거</div>
                         </div>
                     </div>
                     
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-number">92%</div>
-                            <div class="stat-label">장르 정확도</div>
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label">노이즈 제거율</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">78%</div>
-                            <div class="stat-label">창의성 지수</div>
+                            <div class="stat-number">90%</div>
+                            <div class="stat-label">시간 단축</div>
                         </div>
                     </div>
                 </div>
                 <div class="content-image">
-                    <img src="./assets/images/fullstack/fullstack-3.png" alt="장르별 AI 학습" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Section 4: 멜로디 라인 AI 완성 -->
-    <section class="content-section">
-        <div class="container">
-            <h2 class="section-title">멜로디 라인 AI 완성 마스터</h2>
-            <div class="section-content reverse">
-                <div class="content-text">
-                    <h3>스케일과 모드 기반 멜로디 생성</h3>
-                    <p>음악 이론의 정수인 멜로디 창작을 AI가 완벽하게 지원합니다. 스케일, 모드, 감정을 모두 고려한 아름다운 멜로디를 생성합니다.</p>
-                    
-                    <div class="tech-grid">
-                        <div class="tech-card">
-                            <div class="tech-name">🎵 AI 멜로디 생성기</div>
-                            <div class="tech-desc">Humtap AI가 허밍이나 간단한 입력만으로 완전한 멜로디 라인을 자동 완성합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 감정 키워드 입력으로 분위기 조절</div>
-                        </div>
-                        <div class="tech-card">
-                            <div class="tech-name">🎹 스케일 기반 AI</div>
-                            <div class="tech-desc">Orb Composer가 선택한 스케일과 모드에 맞는 멜로디를 이론적으로 완벽하게 생성합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 도리안, 믹솔리디안 등 모든 모드 지원</div>
-                        </div>
-                        <div class="tech-card">
-                            <div class="tech-name">🎪 감정 표현 AI</div>
-                            <div class="tech-desc">AI가 인간의 감정 패턴을 학습하여 기쁨, 슬픔, 긴장감을 멜로디로 완벽하게 표현합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> 영화 OST급 감정 표현력</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-image">
-                    <img src="./assets/images/fullstack/fullstack-4.png" alt="멜로디 AI 완성" loading="lazy">
+                    <img src="./assets/images/fullstack/fullstack-3.png" alt="AI 노이즈 제거" loading="lazy">
                 </div>
             </div>
         </div>
@@ -584,12 +550,12 @@
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
-            <h2 class="cta-title">AI 음악 이론 마스터가 되세요</h2>
+            <h2 class="cta-title">홈스튜디오 레코딩 마스터가 되세요</h2>
             <p class="cta-text">
-                화성학부터 멜로디 완성까지<br>
-                AI와 함께 음악 이론의 모든 영역을 정복하세요.
+                제한된 공간에서도 AI 도구와 함께<br>
+                전문 스튜디오급 레코딩 품질을 달성하세요.
             </p>
-            <a href="mailto:jun22sky@nate.com" class="cta-button">음악 이론 AI 상담받기</a>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">레코딩 기술 상담받기</a>
         </div>
     </section>
     
