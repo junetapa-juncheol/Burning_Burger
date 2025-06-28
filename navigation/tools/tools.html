@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개발도구 소개 | junetapa</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .tools-main {
+            max-width: 900px;
+            margin: 60px auto 0 auto;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(60,60,100,0.10);
+            padding: 48px 32px 40px 32px;
+        }
+        .tools-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #6366f1;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .tools-desc {
+            color: #555;
+            font-size: 1.15rem;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 28px;
+        }
+        .tool-card {
+            background: #f3f4f6;
+            border-radius: 16px;
+            padding: 28px 20px;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.06);
+            text-align: center;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .tool-card:hover {
+            box-shadow: 0 8px 24px rgba(60,60,100,0.13);
+            transform: translateY(-2px);
+        }
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 14px;
+            color: #6366f1;
+        }
+        .tool-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 8px;
+        }
+        .tool-desc {
+            color: #666;
+            font-size: 0.98rem;
+        }
+        .back-btn {
+            display: block;
+            margin: 32px auto 0 auto;
+            background: linear-gradient(135deg, #6366f1 0%, #4a3aff 100%);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            text-align: center;
+            max-width: 260px;
+        }
+        .back-btn:hover {
+            background: #3730a3;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="tools-main">
+        <h1 class="tools-title"><i class="fas fa-tools"></i> 개발도구 소개</h1>
+        <p class="tools-desc">
+            junetapa가 실제로 사용한 다양한 개발도구와 기술 스택을 소개합니다.<br>
+            웹, 앱, 디자인, 협업까지! 실무에서 꼭 필요한 도구들만 모았습니다.
+        </p>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-html5"></i></div>
+                <div class="tool-title">HTML5</div>
+                <div class="tool-desc">웹의 뼈대를 만드는 마크업 언어. 모든 웹의 시작!</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-css3-alt"></i></div>
+                <div class="tool-title">CSS3</div>
+                <div class="tool-desc">웹에 색과 스타일을 입히는 디자인 언어.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-js-square"></i></div>
+                <div class="tool-title">JavaScript</div>
+                <div class="tool-desc">웹에 생명과 인터랙션을 불어넣는 필수 스크립트 언어.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-node-js"></i></div>
+                <div class="tool-title">Node.js</div>
+                <div class="tool-desc">자바스크립트로 서버까지! 빠르고 확장성 높은 백엔드 플랫폼.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-server"></i></div>
+                <div class="tool-title">Express</div>
+                <div class="tool-desc">Node.js 기반의 대표적인 웹 서버 프레임워크.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-react"></i></div>
+                <div class="tool-title">React</div>
+                <div class="tool-desc">컴포넌트 기반의 UI 개발을 위한 프론트엔드 라이브러리.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-vuejs"></i></div>
+                <div class="tool-title">Vue.js</div>
+                <div class="tool-desc">가볍고 배우기 쉬운 프론트엔드 프레임워크.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-angular"></i></div>
+                <div class="tool-title">Angular</div>
+                <div class="tool-desc">대규모 프로젝트에 적합한 프론트엔드 프레임워크.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-layer-group"></i></div>
+                <div class="tool-title">Next.js</div>
+                <div class="tool-desc">React 기반의 SSR/SSG 지원 프레임워크.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-code"></i></div>
+                <div class="tool-title">TypeScript</div>
+                <div class="tool-desc">자바스크립트에 타입을 더해주는 슈퍼셋 언어.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-figma"></i></div>
+                <div class="tool-title">Figma</div>
+                <div class="tool-desc">협업에 최적화된 UI/UX 디자인 툴.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fab fa-git-alt"></i></div>
+                <div class="tool-title">Git</div>
+                <div class="tool-desc">버전 관리와 협업의 필수! 분산형 소스 관리 시스템.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-code-branch"></i></div>
+                <div class="tool-title">GitHub</div>
+                <div class="tool-desc">코드 공유와 오픈소스 협업의 중심 플랫폼.</div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-terminal"></i></div>
+                <div class="tool-title">VSCode</div>
+                <div class="tool-desc">가볍고 강력한 마이크로소프트의 코드 에디터.</div>
+            </div>
+        </div>
+        <a href="../../index.html#tools" class="back-btn"><i class="fas fa-arrow-left"></i> 메인페이지로 돌아가기</a>
+    </div>
+</body>
+</html> 

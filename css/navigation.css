@@ -245,55 +245,91 @@
 
 @media (max-width: 768px) {
     .main-navigation {
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: var(--z-fixed);
+        background: transparent;
+        padding: var(--space-3);
     }
 
     .nav-content {
-        justify-content: flex-end;
+        justify-content: space-between;
+        align-items: flex-start;
     }
 
     .main-nav-list {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
+        top: var(--space-3);
+        left: var(--space-3);
+        width: auto;
+        max-width: 280px;
+        height: auto;
         background: var(--bg-primary);
         flex-direction: column;
         align-items: flex-start;
-        padding: var(--space-8) var(--space-4);
+        padding: var(--space-4);
         transform: translateX(-100%);
         opacity: 0;
         visibility: hidden;
         transition: all var(--transition-fast);
         z-index: calc(var(--z-fixed) - 1);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--border-light);
     }
 
     .main-nav-list.active {
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
-        box-shadow: var(--shadow-lg);
     }
 
     .mobile-menu-toggle {
         display: flex;
-        margin-left: auto;
+        position: fixed;
+        top: var(--space-3);
+        right: var(--space-3);
+        z-index: var(--z-fixed);
+        background: var(--bg-primary);
+        border: 1px solid var(--border-light);
+        box-shadow: var(--shadow-md);
+        margin: 0;
     }
 
     .nav-item {
         width: 100%;
         height: auto;
+        margin-bottom: var(--space-1);
     }
 
     .nav-link {
-        padding: var(--space-4);
+        padding: var(--space-3) var(--space-4);
         width: 100%;
         border-radius: var(--radius-base);
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        font-size: var(--text-sm);
+        font-weight: var(--font-medium);
+        transition: all var(--transition-fast);
+    }
+    
+    .nav-link span {
+        display: block !important;
+        white-space: nowrap;
+    }
+    
+    .nav-link .icon-svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
     }
 
     .nav-link:hover {
         background: var(--bg-tertiary);
+        transform: translateX(4px);
     }
 
     .main-navigation .dropdown-menu {
@@ -304,16 +340,40 @@
         transform: none;
         box-shadow: none;
         border: none;
-        padding-left: var(--space-6);
-        display: none;
-        background: rgba(99, 102, 241, 0.95) !important;
-        backdrop-filter: blur(10px);
+        padding-left: var(--space-4);
+        display: block;
+        background: var(--bg-secondary) !important;
         border-radius: var(--radius-base);
-        margin-top: var(--space-2);
+        margin-top: var(--space-1);
+        margin-left: var(--space-2);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+        padding: 0 var(--space-4);
+        border-left: 2px solid var(--color-primary);
     }
 
     .main-navigation .nav-item.has-dropdown.active .dropdown-menu {
+        max-height: 200px;
+        padding: var(--space-2) var(--space-4);
+        opacity: 1;
+    }
+    
+    .main-navigation .dropdown-menu a {
+        padding: var(--space-2) var(--space-3) !important;
+        font-size: var(--text-xs) !important;
+        color: var(--text-secondary) !important;
+        border-radius: var(--radius-base);
+        margin-bottom: var(--space-1);
         display: block;
+        font-weight: var(--font-normal);
+        transition: all var(--transition-fast);
+    }
+    
+    .main-navigation .dropdown-menu a:hover {
+        background: var(--bg-tertiary) !important;
+        color: var(--text-primary) !important;
+        transform: translateX(2px);
     }
 }
 

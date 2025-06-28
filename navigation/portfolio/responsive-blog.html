@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 블로그 플랫폼 | junetapa</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background: #f5f6fa; }
+        .blog-main {
+            max-width: 1100px;
+            margin: 60px auto 0 auto;
+            padding: 48px 24px;
+            background: #fff;
+            border-radius: 32px;
+            box-shadow: 0 8px 32px rgba(60,60,100,0.10);
+            text-align: center;
+        }
+        .blog-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #4a3aff;
+            margin-bottom: 18px;
+        }
+        .blog-desc {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        .blog-frames {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .blog-frame {
+            background: #f7f8fa;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.07);
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .blog-frame-pc {
+            width: 380px;
+            height: 340px;
+            border: 6px solid #e0e7ff;
+        }
+        .blog-frame-mobile {
+            width: 180px;
+            height: 340px;
+            border: 6px solid #e0e7ff;
+        }
+        .blog-frame-header {
+            background: linear-gradient(90deg, #4a3aff 0%, #a5b4fc 100%);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 16px 0;
+        }
+        .blog-frame-content {
+            flex: 1;
+            background: #fff;
+            padding: 18px 16px;
+            text-align: left;
+        }
+        .blog-post-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #4a3aff;
+            margin-bottom: 8px;
+        }
+        .blog-post-desc {
+            color: #555;
+            font-size: 0.98rem;
+            margin-bottom: 12px;
+        }
+        .blog-post-meta {
+            color: #888;
+            font-size: 0.92rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="blog-main">
+        <h1 class="blog-title"><i class="fas fa-globe"></i> 반응형 블로그 플랫폼</h1>
+        <p class="blog-desc">여행 테마의 반응형 블로그 샘플입니다.<br>모바일/PC 화면을 동시에 확인할 수 있습니다.</p>
+        <div class="blog-frames">
+            <div class="blog-frame blog-frame-pc">
+                <div class="blog-frame-header"><i class="fas fa-laptop"></i> 여행 블로그 (PC)</div>
+                <div class="blog-frame-content">
+                    <div class="blog-post-title">[유럽여행] 파리의 아침 산책</div>
+                    <div class="blog-post-desc">에펠탑이 보이는 카페에서 시작하는 하루, 파리의 감성을 담은 여행기.</div>
+                    <div class="blog-post-meta">2025.06.23 · by junetapa</div>
+                </div>
+            </div>
+            <div class="blog-frame blog-frame-mobile">
+                <div class="blog-frame-header"><i class="fas fa-mobile-alt"></i> 여행 블로그 (모바일)</div>
+                <div class="blog-frame-content">
+                    <div class="blog-post-title">[유럽여행] 파리의 아침 산책</div>
+                    <div class="blog-post-desc">에펠탑이 보이는 카페에서 시작하는 하루, 파리의 감성을 담은 여행기.</div>
+                    <div class="blog-post-meta">2025.06.23 · by junetapa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <a href="../../index.html#portfolio" class="back-button">
+        <i class="fas fa-arrow-left"></i> 메인페이지로 돌아가기
+    </a>
+</body>
+</html> 

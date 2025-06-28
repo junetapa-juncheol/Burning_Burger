@@ -139,6 +139,28 @@ class Navigation {
             
             // 애니메이션 효과
             this.animateMobileMenu('in');
+            
+            // 모바일에서 포트폴리오와 서비스 드롭다운 자동으로 열기
+            setTimeout(() => {
+                const portfolioItem = this.utils.$('.nav-item.has-dropdown');
+                const serviceItem = this.utils.$$('.nav-item.has-dropdown')[1]; // 두 번째 드롭다운 (서비스)
+                
+                if (portfolioItem) {
+                    this.utils.addClass(portfolioItem, 'active');
+                    const portfolioDropdown = portfolioItem.querySelector('.dropdown-menu');
+                    if (portfolioDropdown) {
+                        this.utils.addClass(portfolioDropdown, 'show');
+                    }
+                }
+                
+                if (serviceItem) {
+                    this.utils.addClass(serviceItem, 'active');
+                    const serviceDropdown = serviceItem.querySelector('.dropdown-menu');
+                    if (serviceDropdown) {
+                        this.utils.addClass(serviceDropdown, 'show');
+                    }
+                }
+            }, 100);
         }
     }
 
@@ -156,6 +178,16 @@ class Navigation {
             
             // 애니메이션 효과
             this.animateMobileMenu('out');
+            
+            // 드롭다운 상태 초기화
+            const dropdownItems = this.utils.$$('.nav-item.has-dropdown');
+            dropdownItems.forEach(item => {
+                this.utils.removeClass(item, 'active');
+                const dropdown = item.querySelector('.dropdown-menu');
+                if (dropdown) {
+                    this.utils.removeClass(dropdown, 'show');
+                }
+            });
         }
     }
 
