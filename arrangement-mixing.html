@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 편곡 & 스마트 믹싱 마스터 클래스 - junetapa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Cubase Expression Maps, Logic Pro Flex Pitch, FL Studio와 AI를 활용한 전문 편곡 및 믹싱 실무 꿀팁 완전 가이드">
+    <meta name="keywords" content="AI편곡, 스마트믹싱, 큐베이스, 로직프로, FL스튜디오, Expression Maps, Flex Pitch, 음악편곡, 믹싱기법">
+    <meta name="author" content="junetapa">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/local-icons.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .arrangement-page {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .hero-section {
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #a8edea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .content-section {
+            background: white;
+            margin: 40px 20px;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .content-text h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .content-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .content-text ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .content-text li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .content-text li:before {
+            content: "🎚️";
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+        
+        .content-image {
+            text-align: center;
+        }
+        
+        .content-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        .reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .reverse .content-text {
+            order: 2;
+        }
+        
+        .reverse .content-image {
+            order: 1;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .tech-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tech-name {
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .tech-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .tech-tips {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #0066cc;
+            border-left: 3px solid #667eea;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        
+        .toc-section {
+            background: white;
+            margin: 40px 20px;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toc-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .toc-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .toc-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toc-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .toc-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .toc-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            margin: 40px 20px;
+            border-radius: 20px;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .reverse .content-text,
+            .reverse .content-image {
+                order: unset;
+            }
+            
+            .content-section {
+                margin: 20px 10px;
+                padding: 40px 20px;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="arrangement-page">
+    <!-- Navigation Back -->
+    <a href="index.html" class="nav-back">← 홈으로 돌아가기</a>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-badge">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                <span>AI 편곡 & 스마트 믹싱</span>
+            </div>
+            <h1 class="hero-title">프로급 편곡과 AI 믹싱의 만남</h1>
+            <p class="hero-subtitle">
+                Cubase Expression Maps, Logic Pro Flex Pitch, FL Studio와 AI의 완벽한 조화<br>
+                현장에서 바로 쓰는 실무 꿀팁과 혁신적인 워크플로우를 마스터하세요.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Table of Contents -->
+    <section class="toc-section">
+        <div class="container">
+            <h2 class="toc-title">AI 편곡 & 믹싱 마스터 로드맵</h2>
+            <div class="toc-grid">
+                <div class="toc-item">
+                    <div class="toc-number">01</div>
+                    <h3>AI 편곡 도구와 워크플로우</h3>
+                    <p>ChatGPT 하모니 분석부터 실시간 편곡까지</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">02</div>
+                    <h3>Cubase Expression Maps × AI</h3>
+                    <p>스마트 오케스트레이션과 AI 아티큘레이션</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">03</div>
+                    <h3>Logic Pro Flex Pitch × AI</h3>
+                    <p>AI 보컬 튜닝과 하모니 자동 생성</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">04</div>
+                    <h3>FL Studio × AI 믹싱 혁신</h3>
+                    <p>Lifetime Updates와 AI 플러그인 통합</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">05</div>
+                    <h3>장르별 AI 편곡 프롬프트</h3>
+                    <p>K-Pop, 힙합, EDM 특화 편곡 기법</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">06</div>
+                    <h3>실무 믹싱 팁 & AI 도구</h3>
+                    <p>LANDR, eMastered 활용 스마트 믹싱</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">07</div>
+                    <h3>AI 마스터링과 최종 믹스</h3>
+                    <p>자동화된 마스터링과 품질 최적화</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">08</div>
+                    <h3>협업과 미래 전망</h3>
+                    <p>AI 시대 편곡가의 경쟁력 강화 전략</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 1: Cubase Expression Maps × AI -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Cubase Expression Maps × AI 스마트 오케스트레이션</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>Expression Maps의 AI 통합 혁명</h3>
+                    <p>Cubase의 Expression Maps는 AI와 결합될 때 진정한 힘을 발휘합니다. VST 인스트루먼트의 아티큘레이션을 AI가 자동으로 선택하고 조절하는 워크플로우를 구축할 수 있습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎻 스마트 아티큘레이션 매핑</div>
+                            <div class="tech-desc">AI가 멜로디 흐름을 분석하여 자동으로 레가토, 스타카토, 피치카토 등을 배치합니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> Logical Editor + Expression Maps 조합으로 완전 자동화</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎺 다이나믹 자동 조절</div>
+                            <div class="tech-desc">곡의 구조를 파악하여 클라이맥스에서 ff, 조용한 부분에서 pp 자동 적용</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> CC11(Expression) + AI 분석으로 자연스러운 다이나믹</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="./assets/images/fullstack/fullstack-1.png" alt="Cubase Expression Maps AI 통합" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 2: Logic Pro Flex Pitch × AI -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Logic Pro Flex Pitch × AI 보컬 튜닝 혁신</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>AI 기반 자동 보컬 프로덕션</h3>
+                    <p>Logic Pro의 Flex Pitch는 AI와 결합되어 단순한 피치 보정을 넘어 창의적인 보컬 편집과 하모니 생성까지 가능합니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎤 AI 자동 피치 보정</div>
+                            <div class="tech-desc">멜로디 라인을 분석하여 자연스러운 피치 보정을 자동 적용합니다.</div>
+                            <div class="tech-tips"><strong>꿀팁:</strong> "Strength" 30-50%로 설정하면 자연스러운 보정 효과</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎵 스마트 하모니 생성</div>
+                            <div class="tech-desc">메인 보컬을 기반으로 AI가 3도, 5도 하모니를 자동 생성합니다.</div>
+                            <div class="tech-tips"><strong>꿀팁:</strong> ChromaGlow + AI 하모니 = K-Pop 스타일 보컬 스택</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">82%</div>
+                            <div class="stat-label">시간 단축</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">품질 향상</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="./assets/images/fullstack/fullstack-2.png" alt="Logic Pro Flex Pitch AI 통합" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 3: FL Studio × AI 믹싱 혁신 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">FL Studio × AI 믹싱 혁신과 Lifetime Updates</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>FL Studio Lifetime Updates의 AI 활용</h3>
+                    <p>FL Studio의 Lifetime Free Updates 정책 덕분에 최신 AI 기능들을 추가 비용 없이 계속 활용할 수 있습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎛️ AI 자동 믹싱</div>
+                            <div class="tech-desc">트랙별 특성을 분석하여 EQ, 컴프레서, 리미터를 자동 설정합니다.</div>
+                            <div class="tech-tips"><strong>꿀팁:</strong> Mixer Track Template + AI = 일관된 믹싱 워크플로우</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔊 스마트 사이드체인</div>
+                            <div class="tech-desc">킥 드럼을 분석하여 베이스와 다른 악기들의 사이드체인을 자동 조절</div>
+                            <div class="tech-tips"><strong>꿀팁:</strong> LFO Tool + AI 분석 = 매끄러운 펌핑 효과</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ 실시간 AI 마스터링</div>
+                            <div class="tech-desc">Maximus + AI 알고리즘으로 장르별 최적화된 마스터링 자동 적용</div>
+                            <div class="tech-tips"><strong>꿀팁:</strong> LANDR 플러그인 + FL Studio = 스트리밍 최적화</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="./assets/images/fullstack/fullstack-3.png" alt="FL Studio AI 믹싱 혁신" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">AI 편곡 & 믹싱 마스터가 되세요</h2>
+            <p class="cta-text">
+                실무 현장에서 검증된 AI 편곡 기법으로<br>
+                당신의 음악 제작 워크플로우를 혁신하세요.
+            </p>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">AI 편곡 상담받기</a>
+        </div>
+    </section>
+    
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+        
+        // Enhanced scroll animations
+        const enhancedObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '-50px'
+        });
+        
+        document.querySelectorAll('.tech-card, .toc-item').forEach(el => {
+            enhancedObserver.observe(el);
+        });
+        
+        // TOC item stagger animation
+        document.querySelectorAll('.toc-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI × DAW 곡 작곡 완전 가이드 - junetapa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="AI와 큐베이스, 로직, FL스튜디오를 활용한 현대적 곡 작곡 완전 가이드. 실무 중심의 워크플로우를 제시합니다.">
+    <meta name="keywords" content="AI작곡, 큐베이스, 로직프로, FL스튜디오, 곡작곡, 음악제작, DAW, 인공지능음악">
+    <meta name="author" content="junetapa">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/local-icons.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .composition-page {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .hero-section {
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #a8edea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .content-section {
+            background: white;
+            margin: 40px 20px;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .content-text h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .content-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .content-text ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .content-text li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .content-text li:before {
+            content: "🎵";
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+        
+        .content-image {
+            text-align: center;
+        }
+        
+        .content-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        .reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .reverse .content-text {
+            order: 2;
+        }
+        
+        .reverse .content-image {
+            order: 1;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .tech-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-name {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .tech-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        
+        .toc-section {
+            background: white;
+            margin: 40px 20px;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toc-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .toc-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .toc-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toc-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .toc-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .toc-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            margin: 40px 20px;
+            border-radius: 20px;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .reverse .content-text,
+            .reverse .content-image {
+                order: unset;
+            }
+            
+            .content-section {
+                margin: 20px 10px;
+                padding: 40px 20px;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="composition-page">
+    <!-- Navigation Back -->
+    <a href="index.html" class="nav-back">← 홈으로 돌아가기</a>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-badge">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                <span>AI × DAW 곡 작곡</span>
+            </div>
+            <h1 class="hero-title">인공지능과 DAW의 완벽한 조화</h1>
+            <p class="hero-subtitle">
+                ChatGPT, Claude부터 Cubase, Logic Pro, FL Studio까지<br>
+                AI 시대의 혁신적인 곡 작곡 워크플로우를 마스터하세요.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Table of Contents -->
+    <section class="toc-section">
+        <div class="container">
+            <h2 class="toc-title">AI 곡 작곡 마스터 로드맵</h2>
+            <div class="toc-grid">
+                <div class="toc-item">
+                    <div class="toc-number">01</div>
+                    <h3>AI 작곡 도구 마스터리</h3>
+                    <p>ChatGPT, Claude, Suno, Udio 활용법</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">02</div>
+                    <h3>Cubase × AI 워크플로우</h3>
+                    <p>전문가용 AI 통합 작업 과정</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">03</div>
+                    <h3>Logic Pro × AI 통합법</h3>
+                    <p>Apple 생태계 AI 활용 전략</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">04</div>
+                    <h3>FL Studio × AI 콜라보</h3>
+                    <p>비트메이킹과 AI의 만남</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">05</div>
+                    <h3>장르별 AI 프롬프트</h3>
+                    <p>팝, 힙합, EDM, 발라드 특화 기법</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">06</div>
+                    <h3>실무 팁 & 트러블슈팅</h3>
+                    <p>현장에서 바로 쓰는 노하우</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">07</div>
+                    <h3>AI 윤리 & 창작권</h3>
+                    <p>저작권과 윤리적 AI 사용법</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">08</div>
+                    <h3>미래 전망 & 커리어</h3>
+                    <p>AI 시대 음악가의 생존 전략</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">AI 곡 작곡 여정을 시작하세요</h2>
+            <p class="cta-text">
+                인공지능과 DAW의 시너지로<br>
+                당신만의 독창적인 음악을 만들어보세요.
+            </p>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">AI 작곡 상담받기</a>
+        </div>
+    </section>
+    
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+        
+        // Enhanced scroll animations
+        const enhancedObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '-50px'
+        });
+        
+        document.querySelectorAll('.tech-card, .toc-item').forEach(el => {
+            enhancedObserver.observe(el);
+        });
+        
+        // TOC item stagger animation
+        document.querySelectorAll('.toc-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html> 

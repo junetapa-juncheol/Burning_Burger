@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 오디오 × AI 워크플로우 마스터 - junetapa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="디지털 오디오 워크플로우에 AI를 통합한 완벽 가이드. 샘플링, 시퀀싱, 오디오 편집을 AI로 혁신하는 실무 꿀팁">
+    <meta name="keywords" content="디지털오디오, AI워크플로우, 샘플링, 시퀀싱, 오디오편집, 마스터링, 큐베이스, 로직프로, FL스튜디오">
+    <meta name="author" content="junetapa">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/local-icons.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .digital-audio-page {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .hero-section {
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #a8edea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .content-section {
+            background: white;
+            margin: 40px 20px;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .content-text h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .content-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .content-text ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .content-text li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .content-text li:before {
+            content: "🎵";
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+        
+        .content-image {
+            text-align: center;
+        }
+        
+        .content-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        .reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .reverse .content-text {
+            order: 2;
+        }
+        
+        .reverse .content-image {
+            order: 1;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .tech-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tech-name {
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .tech-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .tech-tips {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #0066cc;
+            border-left: 3px solid #667eea;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        
+        .toc-section {
+            background: white;
+            margin: 40px 20px;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toc-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .toc-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .toc-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toc-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .toc-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .toc-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            margin: 40px 20px;
+            border-radius: 20px;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .reverse .content-text,
+            .reverse .content-image {
+                order: unset;
+            }
+            
+            .content-section {
+                margin: 20px 10px;
+                padding: 40px 20px;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="digital-audio-page">
+    <!-- Navigation Back -->
+    <a href="index.html" class="nav-back">← 홈으로 돌아가기</a>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-badge">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M0 256a56 56 0 1 1 112 0A56 56 0 1 1 0 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0z"/></svg>
+                <span>디지털 오디오 × AI</span>
+            </div>
+            <h1 class="hero-title">디지털 워크플로우의 AI 혁신</h1>
+            <p class="hero-subtitle">
+                샘플링부터 마스터링까지, AI가 모든 과정을 스마트하게 최적화<br>
+                디지털 오디오 워크플로우의 차세대 혁신을 경험하세요.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Table of Contents -->
+    <section class="toc-section">
+        <div class="container">
+            <h2 class="toc-title">디지털 오디오 AI 마스터 로드맵</h2>
+            <div class="toc-grid">
+                <div class="toc-item">
+                    <div class="toc-number">01</div>
+                    <h3>AI 샘플링 & 루프 창조</h3>
+                    <p>지능형 샘플 검색과 AI 루프 생성</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">02</div>
+                    <h3>스마트 시퀀싱 × MIDI AI</h3>
+                    <p>AI 기반 MIDI 패턴 생성과 최적화</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">03</div>
+                    <h3>오디오 편집 자동화</h3>
+                    <p>AI 기반 컷팅, 페이딩, 타이밍 보정</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">04</div>
+                    <h3>AI 오디오 복원 & 개선</h3>
+                    <p>손상된 오디오 복구와 품질 향상</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">05</div>
+                    <h3>지능형 마스터링 체인</h3>
+                    <p>AI 마스터링과 자동 EQ/압축</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">06</div>
+                    <h3>실시간 AI 프로세싱</h3>
+                    <p>라이브 성능 최적화와 지연시간 관리</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">07</div>
+                    <h3>DAW 통합 AI 워크플로우</h3>
+                    <p>Cubase, Logic Pro, FL Studio AI 활용</p>
+                </div>
+                <div class="toc-item">
+                    <div class="toc-number">08</div>
+                    <h3>차세대 AI 오디오 기술</h3>
+                    <p>공간 오디오와 몰입형 사운드</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 1: AI 샘플링 & 루프 창조 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">AI 샘플링 & 루프 창조 혁신</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>지능형 샘플 검색과 AI 루프 생성</h3>
+                    <p>전통적인 샘플링을 뛰어넘어 AI가 창조하는 새로운 사운드 세계를 경험하세요. 무한한 창의성과 완벽한 라이센스 자유를 동시에 얻을 수 있습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🔍 AI 샘플 검색 엔진</div>
+                            <div class="tech-desc">Splice Sounds AI가 텍스트 설명만으로 원하는 느낌의 샘플을 정확히 찾아줍니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> "어두운 신스웨이브 베이스" → 즉시 완벽한 샘플 발견</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎼 AI 루프 생성기</div>
+                            <div class="tech-desc">AIVA, Amper Music이 원하는 장르와 템포에 맞춘 독창적인 루프를 실시간 생성합니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> 저작권 걱정 없는 100% 오리지널 루프</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">검색 정확도</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">80%</div>
+                            <div class="stat-label">시간 단축</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="./assets/images/fullstack/fullstack-1.png" alt="AI 샘플링 루프 창조" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 2: 스마트 시퀀싱 × MIDI AI -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">스마트 시퀀싱 × MIDI AI 마스터</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>AI 기반 MIDI 패턴 생성과 최적화</h3>
+                    <p>복잡한 MIDI 프로그래밍을 AI가 대신해주면서 동시에 인간적인 그루브와 감정을 놓치지 않는 혁신적 워크플로우입니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🥁 AI 드럼 패턴 생성</div>
+                            <div class="tech-desc">Logic Pro Drummer + AI 플러그인이 실제 드러머의 연주 패턴을 학습하여 자연스러운 그루브를 생성합니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> XO by XLN Audio = AI 드럼 시퀀싱의 최강자</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎹 스마트 코드 진행</div>
+                            <div class="tech-desc">Captain Chords AI가 선택한 키와 장르에 맞는 완벽한 코드 진행을 즉시 제안합니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> MIDI 드래그 앤 드롭으로 바로 사용</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="./assets/images/fullstack/fullstack-2.png" alt="스마트 시퀀싱 MIDI AI" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 3: DAW 통합 AI 워크플로우 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">DAW 통합 AI 워크플로우 최적화</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>Cubase, Logic Pro, FL Studio AI 활용</h3>
+                    <p>각 DAW의 고유한 강점과 AI 기술을 완벽하게 결합한 차세대 음악 제작 워크플로우를 구축합니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎛️ Cubase AI 통합 마스터</div>
+                            <div class="tech-desc">Expression Maps + AI 오케스트레이션으로 실제 연주자 같은 자연스러운 MIDI 연주를 자동 생성합니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> NotePerformer + Cubase = 완벽한 오케스트라 시뮬레이션</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🍎 Logic Pro AI 에코시스템</div>
+                            <div class="tech-desc">Flex Time + AI 분석으로 복잡한 폴리리듬도 완벽하게 동기화하는 혁신적 기술을 제공합니다.</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> Smart Tempo + AI = 자유자재로 템포 변화</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">88%</div>
+                            <div class="stat-label">워크플로우 효율</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">92%</div>
+                            <div class="stat-label">품질 향상</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="./assets/images/fullstack/fullstack-3.png" alt="DAW 통합 AI 워크플로우" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">디지털 오디오 AI 마스터가 되세요</h2>
+            <p class="cta-text">
+                샘플링부터 마스터링까지<br>
+                AI와 함께하는 완전히 새로운 음악 제작 경험을 시작하세요.
+            </p>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">디지털 오디오 AI 상담받기</a>
+        </div>
+    </section>
+    
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+        
+        // Enhanced scroll animations
+        const enhancedObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '-50px'
+        });
+        
+        document.querySelectorAll('.tech-card, .toc-item').forEach(el => {
+            enhancedObserver.observe(el);
+        });
+        
+        // TOC item stagger animation
+        document.querySelectorAll('.toc-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html> 
