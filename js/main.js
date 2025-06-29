@@ -51,6 +51,7 @@ class App {
         // 컴포넌트 초기화 순서 중요 (MusicPlayer는 별도로 초기화되므로 제외)
         const initSequence = [
             { name: 'navigation', class: 'Navigation' },
+            { name: 'scrollHeader', class: 'ScrollHeader' },
             { name: 'tabs', class: 'Tabs' },
             { name: 'search', class: 'SearchManager' },
             { name: 'hero', class: 'HeroSection' },

@@ -2,13 +2,16 @@
 
 /* Main Navigation */
 .main-navigation {
-    background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%); /* 연한 회색 그라데이션 */
-    border-bottom: 1px solid rgba(153, 153, 153, 0.2);
-    height: var(--main-nav-height);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: var(--z-fixed);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); /* 회색 그림자 */
+    z-index: var(--z-nav);              /* 네비게이션 z-index (1030) - 헤더보다 높음 */
+    height: var(--main-nav-height);     /* 50px로 설정됨 */
+    display: flex;
+    align-items: center;
+    padding: 0;                         /* 패딩 제거로 높이 최적화 */
     transition: transform var(--transition-medium), opacity var(--transition-medium);
     transform: translateY(0);
     opacity: 1;
@@ -121,7 +124,7 @@
     visibility: hidden;
     transform: translateY(-10px);
     transition: all var(--transition-fast);
-    z-index: var(--z-dropdown);
+    z-index: var(--z-dropdown) !important;  /* 확실히 최상단 표시 (1050) */
 }
 
 .main-navigation .nav-item.has-dropdown:hover .dropdown-menu {
@@ -389,6 +392,7 @@
         transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
         padding: 0 var(--space-4);
         border-left: 2px solid var(--color-primary);
+        z-index: var(--z-dropdown) !important;  /* 모바일에서도 확실히 최상단 */
     }
 
     .main-navigation .nav-item.has-dropdown.active .dropdown-menu {

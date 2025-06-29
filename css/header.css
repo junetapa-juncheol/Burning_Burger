@@ -6,7 +6,7 @@
     border-bottom: 1px solid rgba(153, 153, 153, 0.2);
     height: var(--top-nav-height);
     position: relative;
-    z-index: var(--z-sticky);
+    z-index: var(--z-header);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 부드러운 회색 그림자 */
 }
 
@@ -157,20 +157,71 @@
     animation: headerGradientSlide 25s ease-in-out infinite; /* 아주 느린 슬라이드 애니메이션 */
     
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding: var(--space-6) 0;
-    position: sticky; /* 스크롤 시 상단에 고정 */
-    top: var(--main-nav-height, 60px); /* 네비게이션 바 아래에 고정 */
-    z-index: var(--z-sticky); /* 네비게이션과 같은 레벨 */
-    transition: all var(--transition-medium);
-    min-height: 140px; /* 높이 증가 */
+    padding: var(--space-4) 0;
+    position: fixed; /* sticky에서 fixed로 변경 */
+    top: var(--main-nav-height, 50px); /* 50px로 업데이트 */
+    left: 0;
+    right: 0;
+    z-index: var(--z-header);           /* 헤더 전용 z-index (1010) */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease; /* 부드러운 전환 */
+    min-height: 120px; /* 140px → 120px로 감소 */
     height: auto; /* 자동 높이로 변경 */
     overflow: visible; /* 내용이 보이도록 변경 */
     box-sizing: border-box; /* 패딩 포함한 높이 계산 */
     box-shadow: 0 8px 32px rgba(33, 150, 243, 0.3); /* 화려한 블루 그림자 */
     backdrop-filter: blur(10px); /* 배경 블러 효과 */
+    transform: translateY(0); /* 기본 위치 */
     
     /* 텍스트 가독성을 위한 오버레이 */
     position: relative;
+}
+
+/* 헤더 숨김 상태 */
+.main-header.header-hidden {
+    transform: translateY(-100%);
+    opacity: 0.8;
+}
+
+/* 헤더 축소 상태 (스크롤 시) */
+.main-header.header-compact {
+    padding: var(--space-2) 0;     /* var(--space-3) → var(--space-2) */
+    min-height: 70px;              /* 80px → 70px로 감소 */
+    background: linear-gradient(
+        270deg,
+        rgba(227, 242, 253, 0.95) 0%,
+        rgba(187, 222, 251, 0.95) 20%,
+        rgba(144, 202, 249, 0.95) 40%,
+        rgba(100, 181, 246, 0.95) 60%,
+        rgba(66, 165, 245, 0.95) 80%,
+        rgba(33, 150, 243, 0.95) 100%
+    );
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(33, 150, 243, 0.2);
+}
+
+/* 스크롤 상태에서 로고 축소 */
+.main-header.header-compact .logo-img {
+    width: 40px;
+    height: 40px;
+}
+
+.main-header.header-compact .logo-text h1 {
+    font-size: 1.5rem;
+}
+
+.main-header.header-compact .logo-subtitle {
+    font-size: 0.8rem;
+}
+
+/* 스크롤 상태에서 검색바 축소 */
+.main-header.header-compact .search-input {
+    height: 36px;
+    font-size: var(--text-sm);
+}
+
+.main-header.header-compact .search-btn {
+    width: 36px;
+    height: 36px;
 }
 
 /* 그라데이션 슬라이드 애니메이션 */

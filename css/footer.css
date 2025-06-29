@@ -5,7 +5,7 @@
     background: var(--footer-bg);
     color: var(--footer-text);
     padding: var(--space-16) 0 var(--space-8);
-    margin-top: var(--space-16);
+    margin-top: var(--space-8);
 }
 
 .footer-content {
