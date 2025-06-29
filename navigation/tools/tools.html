@@ -3,175 +3,664 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>개발도구 소개 | junetapa</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/sections.css">
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/responsive.css">
+    <title>기술스택 | junetapa</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/sections.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             margin: 0;
-            padding: 0;
+            padding: 20px;
         }
-        .tools-main {
-            max-width: 900px;
-            margin: 60px auto 0 auto;
-            background: #fff;
+        
+        .tech-stack-main {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(60,60,100,0.10);
-            padding: 48px 32px 40px 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
         }
-        .tools-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #6366f1;
-            margin-bottom: 18px;
+        
+        .header-section {
             text-align: center;
+            margin-bottom: 48px;
         }
-        .tools-desc {
-            color: #555;
-            font-size: 1.15rem;
-            margin-bottom: 32px;
-            text-align: center;
+        
+        .tech-character {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 24px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+            animation: techFloat 4s ease-in-out infinite;
         }
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 28px;
+        
+        @keyframes techFloat {
+            0%, 100% { transform: translateY(0px) rotateY(0deg); }
+            50% { transform: translateY(-10px) rotateY(180deg); }
         }
-        .tool-card {
-            background: #f3f4f6;
-            border-radius: 16px;
-            padding: 28px 20px;
-            box-shadow: 0 2px 8px rgba(60,60,100,0.06);
-            text-align: center;
-            transition: box-shadow 0.2s, transform 0.2s;
+        
+        .tech-character i {
+            font-size: 4rem;
+            color: white;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
         }
-        .tool-card:hover {
-            box-shadow: 0 8px 24px rgba(60,60,100,0.13);
-            transform: translateY(-2px);
-        }
-        .tool-icon {
+        
+        .tech-title {
             font-size: 2.5rem;
-            margin-bottom: 14px;
-            color: #6366f1;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
         }
-        .tool-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #222;
-            margin-bottom: 8px;
-        }
-        .tool-desc {
+        
+        .tech-desc {
             color: #666;
-            font-size: 0.98rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .back-btn {
-            display: block;
-            margin: 32px auto 0 auto;
-            background: linear-gradient(135deg, #6366f1 0%, #4a3aff 100%);
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 10px;
+        
+        .category-section {
+            margin-bottom: 48px;
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .category-icon {
+            font-size: 1.5rem;
+            padding: 8px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .tech-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .tech-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        
+        .tech-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .tech-icon {
+            font-size: 2rem;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #f8fafc;
+        }
+        
+        .tech-name {
+            font-size: 1.1rem;
             font-weight: 600;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.2s;
-            text-align: center;
-            max-width: 260px;
+            color: #1a1a1a;
         }
+        
+        .tech-level {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+        
+        .level-expert {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+        
+        .level-advanced {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+        
+        .level-intermediate {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
+        .level-learning {
+            background: #f3e8ff;
+            color: #9333ea;
+        }
+        
+        .level-planned {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+        
+        .tech-desc {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .tech-tag {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            margin: 0 auto;
+            display: block;
+            width: fit-content;
+        }
+        
         .back-btn:hover {
-            background: #3730a3;
             transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-title {
+                font-size: 2rem;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="tools-main">
-        <h1 class="tools-title"><i class="fas fa-tools"></i> 개발도구 소개</h1>
-        <p class="tools-desc">
-            junetapa가 실제로 사용한 다양한 개발도구와 기술 스택을 소개합니다.<br>
-            웹, 앱, 디자인, 협업까지! 실무에서 꼭 필요한 도구들만 모았습니다.
-        </p>
-        <div class="tools-grid">
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fab fa-html5"></i></div>
-                <div class="tool-title">HTML5</div>
-                <div class="tool-desc">웹의 뼈대를 만드는 마크업 언어. 모든 웹의 시작!</div>
+    <main>
+        <div class="tech-stack-main">
+            <div class="header-section">
+                <div class="tech-character">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h1 class="tech-title">기술스택 & 도구</h1>
+                <p class="tech-desc">
+                    현재 활용하고 있는 기술들과 향후 학습 예정인 기술들을 포함한<br>
+                    포괄적인 기술스택을 소개합니다.
+                </p>
             </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fab fa-css3-alt"></i></div>
-                <div class="tool-title">CSS3</div>
-                <div class="tool-desc">웹에 색과 스타일을 입히는 디자인 언어.</div>
+
+            <!-- 프론트엔드 개발 -->
+            <div class="category-section">
+                <h2 class="category-title">
+                    <div class="category-icon"><i class="fas fa-paint-brush"></i></div>
+                    프론트엔드 개발
+                </h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fab fa-html5" style="color: #e34f26;"></i></div>
+                                <div class="tech-name">HTML5</div>
+                            </div>
+                            <div class="tech-level level-expert">Expert</div>
+                        </div>
+                        <div class="tech-desc">시멘틱 마크업과 웹 표준을 준수한 구조화된 HTML 작성</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">시멘틱 웹</span>
+                            <span class="tech-tag">접근성</span>
+                            <span class="tech-tag">SEO</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fab fa-css3-alt" style="color: #1572b6;"></i></div>
+                                <div class="tech-name">CSS3</div>
+                            </div>
+                            <div class="tech-level level-expert">Expert</div>
+                        </div>
+                        <div class="tech-desc">Flexbox, Grid, 애니메이션을 활용한 반응형 디자인</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Flexbox</span>
+                            <span class="tech-tag">Grid</span>
+                            <span class="tech-tag">Animation</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fab fa-js-square" style="color: #f7df1e;"></i></div>
+                                <div class="tech-name">JavaScript</div>
+                            </div>
+                            <div class="tech-level level-advanced">Advanced</div>
+                        </div>
+                        <div class="tech-desc">ES6+ 문법과 모던 자바스크립트 개발</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">ES6+</span>
+                            <span class="tech-tag">DOM 조작</span>
+                            <span class="tech-tag">이벤트 처리</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fab fa-react" style="color: #61dafb;"></i></div>
+                                <div class="tech-name">React</div>
+                            </div>
+                            <div class="tech-level level-advanced">Advanced</div>
+                        </div>
+                        <div class="tech-desc">컴포넌트 기반 UI 개발과 상태 관리</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Hooks</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">JSX</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fab fa-vuejs" style="color: #4fc08d;"></i></div>
+                                <div class="tech-name">Vue.js</div>
+                            </div>
+                            <div class="tech-level level-intermediate">Intermediate</div>
+                        </div>
+                        <div class="tech-desc">점진적 프레임워크로 빠른 프로토타이핑</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Composition API</span>
+                            <span class="tech-tag">Vuex</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-code" style="color: #3178c6;"></i></div>
+                                <div class="tech-name">TypeScript</div>
+                            </div>
+                            <div class="tech-level level-advanced">Advanced</div>
+                        </div>
+                        <div class="tech-desc">타입 안정성과 개발 생산성 향상</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">정적 타입</span>
+                            <span class="tech-tag">IntelliSense</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fab fa-js-square"></i></div>
-                <div class="tool-title">JavaScript</div>
-                <div class="tool-desc">웹에 생명과 인터랙션을 불어넣는 필수 스크립트 언어.</div>
+
+            <!-- 백엔드 개발 -->
+            <div class="category-section">
+                <h2 class="category-title">
+                    <div class="category-icon"><i class="fas fa-server"></i></div>
+                    백엔드 개발
+                </h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fab fa-node-js" style="color: #339933;"></i></div>
+                                <div class="tech-name">Node.js</div>
+                            </div>
+                            <div class="tech-level level-advanced">Advanced</div>
+                        </div>
+                        <div class="tech-desc">JavaScript 런타임으로 서버사이드 개발</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">RESTful API</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fab fa-python" style="color: #3776ab;"></i></div>
+                                <div class="tech-name">Python</div>
+                            </div>
+                            <div class="tech-level level-intermediate">Intermediate</div>
+                        </div>
+                        <div class="tech-desc">데이터 처리와 자동화 스크립트 개발</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Flask</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-database" style="color: #336791;"></i></div>
+                                <div class="tech-name">PostgreSQL</div>
+                            </div>
+                            <div class="tech-level level-intermediate">Intermediate</div>
+                        </div>
+                        <div class="tech-desc">관계형 데이터베이스 설계 및 최적화</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">인덱싱</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-leaf" style="color: #47a248;"></i></div>
+                                <div class="tech-name">MongoDB</div>
+                            </div>
+                            <div class="tech-level level-intermediate">Intermediate</div>
+                        </div>
+                        <div class="tech-desc">NoSQL 데이터베이스로 유연한 데이터 관리</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Mongoose</span>
+                            <span class="tech-tag">Aggregation</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fab fa-node-js"></i></div>
-                <div class="tool-title">Node.js</div>
-                <div class="tool-desc">자바스크립트로 서버까지! 빠르고 확장성 높은 백엔드 플랫폼.</div>
+
+            <!-- 디자인 도구 -->
+            <div class="category-section">
+                <h2 class="category-title">
+                    <div class="category-icon"><i class="fas fa-palette"></i></div>
+                    디자인 도구
+                </h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fab fa-figma" style="color: #f24e1e;"></i></div>
+                                <div class="tech-name">Figma</div>
+                            </div>
+                            <div class="tech-level level-advanced">Advanced</div>
+                        </div>
+                        <div class="tech-desc">UI/UX 디자인과 프로토타이핑</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">프로토타이핑</span>
+                            <span class="tech-tag">컴포넌트 시스템</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-image" style="color: #001e36;"></i></div>
+                                <div class="tech-name">Photoshop</div>
+                            </div>
+                            <div class="tech-level level-advanced">Advanced</div>
+                        </div>
+                        <div class="tech-desc">이미지 편집과 그래픽 디자인</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">포토 리터칭</span>
+                            <span class="tech-tag">웹 그래픽</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-bezier-curve" style="color: #ff9a00;"></i></div>
+                                <div class="tech-name">Illustrator</div>
+                            </div>
+                            <div class="tech-level level-intermediate">Intermediate</div>
+                        </div>
+                        <div class="tech-desc">벡터 그래픽과 로고 디자인</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">벡터 아트</span>
+                            <span class="tech-tag">아이콘 디자인</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-video" style="color: #9999ff;"></i></div>
+                                <div class="tech-name">After Effects</div>
+                            </div>
+                            <div class="tech-level level-learning">Learning</div>
+                        </div>
+                        <div class="tech-desc">모션 그래픽과 비주얼 이펙트</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">애니메이션</span>
+                            <span class="tech-tag">모션 디자인</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fas fa-server"></i></div>
-                <div class="tool-title">Express</div>
-                <div class="tool-desc">Node.js 기반의 대표적인 웹 서버 프레임워크.</div>
+
+            <!-- 음악 제작 -->
+            <div class="category-section">
+                <h2 class="category-title">
+                    <div class="category-icon"><i class="fas fa-music"></i></div>
+                    음악 제작
+                </h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-sliders-h" style="color: #ff6b35;"></i></div>
+                                <div class="tech-name">Logic Pro X</div>
+                            </div>
+                            <div class="tech-level level-expert">Expert</div>
+                        </div>
+                        <div class="tech-desc">프로페셔널 음악 제작 및 믹싱</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">작곡</span>
+                            <span class="tech-tag">믹싱</span>
+                            <span class="tech-tag">마스터링</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-waveform" style="color: #00d4ff;"></i></div>
+                                <div class="tech-name">Ableton Live</div>
+                            </div>
+                            <div class="tech-level level-advanced">Advanced</div>
+                        </div>
+                        <div class="tech-desc">전자음악 제작과 라이브 퍼포먼스</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">EDM</span>
+                            <span class="tech-tag">루핑</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fab fa-react"></i></div>
-                <div class="tool-title">React</div>
-                <div class="tool-desc">컴포넌트 기반의 UI 개발을 위한 프론트엔드 라이브러리.</div>
+
+            <!-- 개발 도구 -->
+            <div class="category-section">
+                <h2 class="category-title">
+                    <div class="category-icon"><i class="fas fa-tools"></i></div>
+                    개발 도구
+                </h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-code" style="color: #007acc;"></i></div>
+                                <div class="tech-name">VS Code</div>
+                            </div>
+                            <div class="tech-level level-expert">Expert</div>
+                        </div>
+                        <div class="tech-desc">메인 개발 환경과 확장 프로그램 활용</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Extensions</span>
+                            <span class="tech-tag">디버깅</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fab fa-git-alt" style="color: #f05032;"></i></div>
+                                <div class="tech-name">Git</div>
+                            </div>
+                            <div class="tech-level level-advanced">Advanced</div>
+                        </div>
+                        <div class="tech-desc">버전 관리와 협업 워크플로우</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">브랜치 전략</span>
+                            <span class="tech-tag">충돌 해결</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fab fa-docker" style="color: #2496ed;"></i></div>
+                                <div class="tech-name">Docker</div>
+                            </div>
+                            <div class="tech-level level-learning">Learning</div>
+                        </div>
+                        <div class="tech-desc">컨테이너화와 개발 환경 표준화</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">컨테이너</span>
+                            <span class="tech-tag">DevOps</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fab fa-vuejs"></i></div>
-                <div class="tool-title">Vue.js</div>
-                <div class="tool-desc">가볍고 배우기 쉬운 프론트엔드 프레임워크.</div>
+
+            <!-- 향후 학습 예정 -->
+            <div class="category-section">
+                <h2 class="category-title">
+                    <div class="category-icon"><i class="fas fa-rocket"></i></div>
+                    향후 학습 예정
+                </h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-brain" style="color: #ff6b6b;"></i></div>
+                                <div class="tech-name">AI/ML</div>
+                            </div>
+                            <div class="tech-level level-planned">Planned</div>
+                        </div>
+                        <div class="tech-desc">머신러닝과 인공지능 기술</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">PyTorch</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-mobile-alt" style="color: #61dafb;"></i></div>
+                                <div class="tech-name">React Native</div>
+                            </div>
+                            <div class="tech-level level-planned">Planned</div>
+                        </div>
+                        <div class="tech-desc">크로스플랫폼 모바일 앱 개발</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">Android</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-header">
+                            <div class="tech-info">
+                                <div class="tech-icon"><i class="fas fa-cube" style="color: #326ce5;"></i></div>
+                                <div class="tech-name">Kubernetes</div>
+                            </div>
+                            <div class="tech-level level-planned">Planned</div>
+                        </div>
+                        <div class="tech-desc">컨테이너 오케스트레이션</div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">클러스터 관리</span>
+                            <span class="tech-tag">자동 확장</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fab fa-angular"></i></div>
-                <div class="tool-title">Angular</div>
-                <div class="tool-desc">대규모 프로젝트에 적합한 프론트엔드 프레임워크.</div>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fas fa-layer-group"></i></div>
-                <div class="tool-title">Next.js</div>
-                <div class="tool-desc">React 기반의 SSR/SSG 지원 프레임워크.</div>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fas fa-code"></i></div>
-                <div class="tool-title">TypeScript</div>
-                <div class="tool-desc">자바스크립트에 타입을 더해주는 슈퍼셋 언어.</div>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fab fa-figma"></i></div>
-                <div class="tool-title">Figma</div>
-                <div class="tool-desc">협업에 최적화된 UI/UX 디자인 툴.</div>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fab fa-git-alt"></i></div>
-                <div class="tool-title">Git</div>
-                <div class="tool-desc">버전 관리와 협업의 필수! 분산형 소스 관리 시스템.</div>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fas fa-code-branch"></i></div>
-                <div class="tool-title">GitHub</div>
-                <div class="tool-desc">코드 공유와 오픈소스 협업의 중심 플랫폼.</div>
-            </div>
-            <div class="tool-card">
-                <div class="tool-icon"><i class="fas fa-terminal"></i></div>
-                <div class="tool-title">VSCode</div>
-                <div class="tool-desc">가볍고 강력한 마이크로소프트의 코드 에디터.</div>
-            </div>
+
+            <a href="../../index.html#tools" class="back-btn">
+                <i class="fas fa-arrow-left"></i> 메인페이지로 돌아가기
+            </a>
         </div>
-        <a href="../../index.html#tools" class="back-btn"><i class="fas fa-arrow-left"></i> 메인페이지로 돌아가기</a>
-    </div>
+    </main>
 </body>
 </html> 
