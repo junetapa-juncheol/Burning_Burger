@@ -3,22 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI × DAW 곡 작곡 완전 가이드 - junetapa</title>
+    <title>AI × DAW 곡 작곡 완전 가이드 2025 - junetapa</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="AI와 큐베이스, 로직, FL스튜디오를 활용한 현대적 곡 작곡 완전 가이드. 실무 중심의 워크플로우를 제시합니다.">
-    <meta name="keywords" content="AI작곡, 큐베이스, 로직프로, FL스튜디오, 곡작곡, 음악제작, DAW, 인공지능음악">
+    <meta name="description" content="2025년 AI와 큐베이스, 로직, FL스튜디오를 활용한 혁신적 곡 작곡 가이드. Suno, Udio, ChatGPT와 DAW의 완벽한 조화로 음악 제작의 새로운 차원을 경험하세요.">
+    <meta name="keywords" content="AI작곡, 큐베이스13, 로직프로11, FL스튜디오21, Suno AI, Udio, ChatGPT음악, 곡작곡, 음악제작, DAW, 인공지능음악, 2025">
     <meta name="author" content="junetapa">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/sections.css">
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/local-icons.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        /* 전체 리스트 스타일 초기화 */
+        ul, li {
+            list-style: none;
+        }
+        
         .composition-page {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
@@ -110,20 +105,24 @@
         .content-text ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
         .content-text li {
             padding: 8px 0;
-            padding-left: 25px;
+            padding-left: 0;
             position: relative;
             color: #555;
         }
         
         .content-text li:before {
-            content: "🎵";
+            content: "";
             position: absolute;
             left: 0;
             font-size: 16px;
+            line-height: 1.2;
+            top: 2px;
+            color: #667eea;
         }
         
         .content-image {
@@ -156,18 +155,22 @@
         
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 30px;
         }
         
         .tech-card {
             background: #f8f9fa;
-            padding: 25px;
+            padding: 30px 25px;
             border-radius: 15px;
-            text-align: center;
+            text-align: left;
             transition: transform 0.3s ease;
             border-left: 4px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            min-height: 180px;
+            justify-content: flex-start;
         }
         
         .tech-card:hover {
@@ -176,16 +179,83 @@
         }
         
         .tech-name {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            line-height: 1.4;
             font-weight: 600;
             color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 1.1rem;
         }
         
         .tech-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #666;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        
+        .comparison-table {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .comparison-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .comparison-item h4 {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
             line-height: 1.4;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .comparison-item li {
+            padding: 8px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .comparison-item ul ul {
+            margin-top: 8px;
+            margin-left: 20px;
+            list-style: none;
+        }
+        
+        .comparison-item ul ul li {
+            padding: 4px 0;
+            padding-left: 0;
+            font-size: 0.95em;
+            color: #666;
+        }
+        
+        .comparison-item strong {
+            color: #667eea;
+            font-weight: 600;
         }
         
         .stats-grid {
@@ -319,6 +389,23 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
+        .genre-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 2px;
+        }
+        
+        .genre-pop { background: #ff6b6b; color: white; }
+        .genre-hiphop { background: #4ecdc4; color: white; }
+        .genre-edm { background: #45b7d1; color: white; }
+        .genre-ballad { background: #96ceb4; color: white; }
+        .genre-rock { background: #ffeaa7; color: #2d3436; }
+        .genre-jazz { background: #fd79a8; color: white; }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -342,6 +429,32 @@
             .tech-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .comparison-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .comparison-item h4,
+            .tech-name {
+                gap: 8px;
+                font-size: 1rem;
+                line-height: 1.3;
+            }
+            
+            .comparison-item {
+                padding: 20px;
+            }
+            
+            .tech-card {
+                padding: 20px;
+                min-height: auto;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -353,13 +466,13 @@
     <section class="hero-section">
         <div class="container">
             <div class="hero-badge">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
-                <span>AI × DAW 곡 작곡</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                <span>AI × DAW 곡 작곡 2025</span>
             </div>
-            <h1 class="hero-title">인공지능과 DAW의 완벽한 조화</h1>
+            <h1 class="hero-title">AI × DAW 곡 작곡 완전 가이드</h1>
             <p class="hero-subtitle">
-                ChatGPT, Claude부터 Cubase, Logic Pro, FL Studio까지<br>
-                AI 시대의 혁신적인 곡 작곡 워크플로우를 마스터하세요.
+                Suno v4, Udio, ChatGPT부터 Cubase 13, Logic Pro 11, FL Studio 21까지<br>
+                인공지능과 DAW의 시너지로 창조하는 차세대 음악 제작 워크플로우
             </p>
         </div>
     </section>
@@ -371,57 +484,787 @@
             <div class="toc-grid">
                 <div class="toc-item">
                     <div class="toc-number">01</div>
-                    <h3>AI 작곡 도구 마스터리</h3>
-                    <p>ChatGPT, Claude, Suno, Udio 활용법</p>
+                    <h3>AI 음악 도구 생태계</h3>
+                    <p>Suno v4, Udio, AIVA, Mubert 완전 활용법</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">02</div>
-                    <h3>Cubase × AI 워크플로우</h3>
-                    <p>전문가용 AI 통합 작업 과정</p>
+                    <h3>Cubase 13 × AI 혁신</h3>
+                    <p>전문가용 AI 통합 워크플로우</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">03</div>
-                    <h3>Logic Pro × AI 통합법</h3>
-                    <p>Apple 생태계 AI 활용 전략</p>
+                    <h3>Logic Pro 11 AI 기능</h3>
+                    <p>Apple Intelligence 음악 제작 활용</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">04</div>
-                    <h3>FL Studio × AI 콜라보</h3>
-                    <p>비트메이킹과 AI의 만남</p>
+                    <h3>FL Studio 21 AI 통합</h3>
+                    <p>비트메이킹과 AI의 완벽한 조화</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">05</div>
-                    <h3>장르별 AI 프롬프트</h3>
-                    <p>팝, 힙합, EDM, 발라드 특화 기법</p>
+                    <h3>장르별 AI 프롬프팅</h3>
+                    <p>팝, 힙합, EDM, 발라드 특화 전략</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">06</div>
-                    <h3>실무 팁 & 트러블슈팅</h3>
-                    <p>현장에서 바로 쓰는 노하우</p>
+                    <h3>가사 작성과 ChatGPT</h3>
+                    <p>AI 기반 창의적 가사 제작법</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">07</div>
-                    <h3>AI 윤리 & 창작권</h3>
-                    <p>저작권과 윤리적 AI 사용법</p>
+                    <h3>AI 윤리와 저작권</h3>
+                    <p>창작 윤리와 법적 이슈 가이드</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">08</div>
-                    <h3>미래 전망 & 커리어</h3>
-                    <p>AI 시대 음악가의 생존 전략</p>
+                    <h3>미래 전망과 커리어</h3>
+                    <p>AI 시대 음악가 생존 전략</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: AI 음악 도구 생태계 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">2025년 AI 음악 도구 생태계</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>차세대 AI 음악 생성 플랫폼</h3>
+                    <p>2025년 AI 음악 기술은 단순한 멜로디 생성을 넘어 완전한 편곡, 마스터링까지 가능한 수준으로 발전했습니다. 각 도구의 특성을 이해하고 목적에 맞게 활용하는 것이 핵심입니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎵 Suno v4</div>
+                            <div class="tech-desc">텍스트 프롬프트로 3분 완성곡 생성. 130개 이상 언어 지원, 스테레오 오디오 출력, 커스텀 모드로 세밀한 제어 가능</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎸 Udio</div>
+                            <div class="tech-desc">고품질 오디오 생성에 특화. 보컬 품질이 뛰어나며, 인트로/아웃트로 확장 기능으로 완전한 곡 구성 가능</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎹 AIVA Enterprise</div>
+                            <div class="tech-desc">클래식, 영화음악에 특화된 AI 작곡가. MIDI 출력 지원으로 DAW 통합이 용이하며, 저작권 보장</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎧 Mubert</div>
+                            <div class="tech-desc">실시간 무한 음악 스트림 생성. API 제공으로 앱/게임 통합 가능, 루프 기반 전자음악에 최적화</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🚀 최신 AI 음악 기술 트렌드</h4>
+                                <ul>
+                                    <li><strong>Controllable Generation:</strong> 사용자 의도에 맞는 정밀한 음악 생성</li>
+                                    <li><strong>Multi-modal Input:</strong> 텍스트, 오디오, MIDI 복합 입력</li>
+                                    <li><strong>Real-time Processing:</strong> 실시간 음악 생성 및 변형</li>
+                                    <li><strong>Style Transfer:</strong> 기존 곡의 스타일을 새로운 곡에 적용</li>
+                                    <li><strong>Stem Separation:</strong> AI 기반 트랙 분리 및 리믹스</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>⚡ 도구별 특화 영역</h4>
+                                <ul>
+                                    <li><strong>완성곡 생성:</strong> Suno, Udio (3-4분 풀송)</li>
+                                    <li><strong>루프/비트:</strong> Mubert, Loudly, Beatoven</li>
+                                    <li><strong>클래식/오케스트라:</strong> AIVA, Amper Music</li>
+                                    <li><strong>코드 진행:</strong> Captain Chords, Scaler 2</li>
+                                    <li><strong>마스터링:</strong> LANDR, eMastered</li>
+                                    <li><strong>보컬 처리:</strong> Synthesizer V, Vocaloid 6</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>AI 도구 선택 시 고려사항: 출력 형식(오디오/MIDI), 저작권 정책, API 연동 가능성, 음질과 스타일 적합성을 종합적으로 평가해야 합니다.</p>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/composition/composition-1.png" alt="AI 음악 도구 생태계" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
+    <!-- Section 2: Cubase 13 × AI -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Cubase 13 × AI: 전문가용 음악 제작 혁신</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>AI와 Cubase의 완벽한 통합 워크플로우</h3>
+                    <p>Cubase 13의 새로운 AI 기능과 외부 AI 도구들을 연계한 전문적인 음악 제작 과정을 알아보겠습니다. 아이디어 발상부터 최종 마스터링까지 전 과정에서 AI를 효율적으로 활용할 수 있습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎛️ AI Chord Pads</div>
+                            <div class="tech-desc">AI 추천 코드 진행을 실시간으로 연주 가능. 장르별 코드 패턴 학습으로 자연스러운 하모니 생성</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🥁 AI Drum Agent</div>
+                            <div class="tech-desc">스타일 기반 드럼 패턴 자동 생성. 그루브 템플릿과 휴먼라이제이션으로 자연스러운 리듬 구현</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎵 VariAudio AI</div>
+                            <div class="tech-desc">AI 기반 보컬 튜닝과 타이밍 교정. 자연스러운 피치 보정과 포르마트 처리로 프로 수준 보컬 완성</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔧 AI Mix Assistant</div>
+                            <div class="tech-desc">자동 EQ, 컴프레서 설정 제안. 장르별 믹싱 템플릿과 AI 기반 밸런스 조정</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🎯 Cubase × AI 워크플로우</h4>
+                                <ul>
+                                    <li><strong>1단계 - 아이디어 생성:</strong>
+                                        <ul>
+                                            <li>Suno/Udio로 레퍼런스 트랙 생성</li>
+                                            <li>ChatGPT로 가사 아이디어 발상</li>
+                                            <li>AI Chord Pads로 코드 진행 탐색</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>2단계 - 편곡 및 제작:</strong>
+                                        <ul>
+                                            <li>Expression Maps으로 리얼한 연주 표현</li>
+                                            <li>AI Drum Agent로 리듬 섹션 구성</li>
+                                            <li>Sampler Track으로 AI 생성 샘플 활용</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>⚡ 외부 AI 도구 통합법</h4>
+                                <ul>
+                                    <li><strong>MIDI 가져오기:</strong>
+                                        <ul>
+                                            <li>AIVA에서 MIDI 파일 익스포트</li>
+                                            <li>Captain Chords VST 플러그인 활용</li>
+                                            <li>Orb Composer로 오케스트레이션</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>오디오 처리:</strong>
+                                        <ul>
+                                            <li>Spleeter로 스템 분리 후 리믹스</li>
+                                            <li>LANDR 마스터링 연동</li>
+                                            <li>iZotope RX로 AI 기반 오디오 복원</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/composition/composition-2.png" alt="Cubase 13 AI 워크플로우" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Logic Pro 11 AI 기능 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Logic Pro 11: Apple Intelligence 음악 제작</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>애플 생태계의 AI 음악 혁신</h3>
+                    <p>Logic Pro 11은 Apple Intelligence와 긴밀하게 통합되어 Mac, iPad, iPhone 간 원활한 음악 제작 환경을 제공합니다. 머신러닝 기반의 새로운 기능들이 창작 과정을 근본적으로 변화시키고 있습니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🍎 Apple Intelligence 핵심 기능</h4>
+                                <ul>
+                                    <li><strong>Smart Harmony:</strong> 코드 진행 자동 완성 및 보이싱 제안</li>
+                                    <li><strong>Intelligent Drummer:</strong> 곡 분위기에 맞는 드럼 연주 스타일 자동 조정</li>
+                                    <li><strong>AI Flex Time:</strong> 자연스러운 타이밍 교정과 그루브 매칭</li>
+                                    <li><strong>Neural EQ:</strong> 주파수 분석 기반 자동 EQ 설정</li>
+                                    <li><strong>Voice Memo Integration:</strong> iPhone 녹음을 자동으로 MIDI 변환</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎸 AI 기반 가상 악기</h4>
+                                <ul>
+                                    <li><strong>AI Guitarist:</strong> 연주 스타일과 표현을 학습한 기타 시뮬레이션</li>
+                                    <li><strong>Smart Bass:</strong> 코드에 맞는 베이스 라인 자동 생성</li>
+                                    <li><strong>AI Strings:</strong> 현실적인 오케스트라 스트링 표현</li>
+                                    <li><strong>Neural Synth:</strong> AI 학습 기반 신디사이저 사운드</li>
+                                    <li><strong>Adaptive Alchemy:</strong> 사용자 선호도 학습 샘플 추천</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>📱 크로스 플랫폼 AI 워크플로우</h4>
+                                <ul>
+                                    <li><strong>iPhone:</strong> 아이디어 녹음, 가사 작성 (Siri 연동)</li>
+                                    <li><strong>iPad:</strong> 터치 기반 편곡, AI 어시스트 편집</li>
+                                    <li><strong>Mac:</strong> 풀 프로덕션, 믹싱, 마스터링</li>
+                                    <li><strong>iCloud 동기화:</strong> 실시간 프로젝트 공유</li>
+                                    <li><strong>AirDrop 통합:</strong> 빠른 파일 전송과 협업</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>⚡ AI 기반 믹싱 도구</h4>
+                                <ul>
+                                    <li><strong>Auto Leveler:</strong> 트랙별 자동 볼륨 밸런싱</li>
+                                    <li><strong>AI Reverb:</strong> 공간감 분석 기반 리버브 추천</li>
+                                    <li><strong>Smart Compressor:</strong> 다이나믹스 자동 조절</li>
+                                    <li><strong>Neural Limiter:</strong> 투명한 마스터링 리미터</li>
+                                    <li><strong>AI Reference:</strong> 레퍼런스 트랙 기반 믹스 분석</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎼 Logic × ChatGPT 연동</div>
+                            <div class="tech-desc">Shortcuts 앱을 통한 ChatGPT API 연결로 가사 작성, 곡 구성 아이디어, 프로덕션 팁을 Logic 내에서 직접 활용</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔄 실시간 AI 협업</div>
+                            <div class="tech-desc">GarageBand for iOS와 연동된 AI 기반 실시간 잼 세션. 여러 기기에서 동시 작업 가능</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📊 AI 분석 도구</div>
+                            <div class="tech-desc">곡 구조 분석, 키/템포 추천, 장르 분류, 감정 분석을 통한 객관적 피드백 제공</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎯 맞춤형 AI 학습</div>
+                            <div class="tech-desc">사용자의 음악적 선호도와 작업 패턴을 학습하여 개인화된 제안과 자동화 기능 제공</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/composition/composition-3.png" alt="Logic Pro 11 AI 기능" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: FL Studio 21 AI 통합 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">FL Studio 21: 비트메이킹과 AI의 완벽한 조화</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>힙합, EDM을 위한 AI 비트 제작</h3>
+                    <p>FL Studio 21은 특히 전자음악과 힙합 프로듀싱에 특화된 AI 기능들을 대폭 강화했습니다. Pattern 기반 워크플로우와 AI의 만남으로 더욱 창의적이고 효율적인 비트 메이킹이 가능해졌습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎛️ AI Pattern Generator</div>
+                            <div class="tech-desc">장르별 비트 패턴 자동 생성. 트랩, 하우스, 테크노 등 스타일별 특화된 패턴과 변주 제공</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔊 Smart Sample Chopping</div>
+                            <div class="tech-desc">AI 기반 샘플 분석으로 최적의 초핑 지점 제안. BPM 매칭과 키 감지로 빠른 샘플 편집</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎹 AI Piano Roll</div>
+                            <div class="tech-desc">멜로디 라인 자동 완성, 코드 진행 제안, 리듬 패턴 휴먼라이제이션으로 자연스러운 연주감 구현</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ Real-time AI Effects</div>
+                            <div class="tech-desc">신호 분석 기반 실시간 이펙트 자동 조절. 컴프레서, EQ, 리버브의 스마트 파라미터 제어</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🎵 장르별 AI 워크플로우</h4>
+                                <ul>
+                                    <li><strong>트랩 비트 제작:</strong>
+                                        <ul>
+                                            <li>AI 808 패턴 생성 및 튜닝</li>
+                                            <li>하이햇 롤 자동 생성</li>
+                                            <li>멜로딕 트랩 코드 진행</li>
+                                            <li>보컬 샘플 타임스트레칭</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>하우스 뮤직:</strong>
+                                        <ul>
+                                            <li>4/4 킥 패턴 변주</li>
+                                            <li>베이스라인 자동 생성</li>
+                                            <li>신스 리드 멜로디</li>
+                                            <li>빌드업/드롭 구성</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🔧 FL × 외부 AI 도구 연동</h4>
+                                <ul>
+                                    <li><strong>Splice Sounds AI:</strong>
+                                        <ul>
+                                            <li>FL 내에서 직접 AI 샘플 검색</li>
+                                            <li>BPM/키 매칭 자동화</li>
+                                            <li>무드 기반 샘플 추천</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>AI Mastering:</strong>
+                                        <ul>
+                                            <li>LANDR FL Studio 플러그인</li>
+                                            <li>eMastered 실시간 처리</li>
+                                            <li>Ozone AI 어시스트</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>FL Studio의 강점인 빠른 아이디어 캐치와 패턴 기반 작업에 AI가 더해져 프로듀서들이 더욱 창의적인 작업에 집중할 수 있게 되었습니다.</p>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/composition/composition-4.png" alt="FL Studio 21 AI 통합" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: 장르별 AI 프롬프팅 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">장르별 AI 프롬프팅 전략</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>장르 특성에 맞는 AI 활용법</h3>
+                    <p>각 음악 장르는 고유한 특성과 관습이 있습니다. AI 도구를 효과적으로 활용하기 위해서는 장르별 특성을 이해하고 그에 맞는 프롬프트 전략을 구사해야 합니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4><span class="genre-tag genre-pop">POP</span> 팝 음악 AI 프롬프팅</h4>
+                                <ul>
+                                    <li><strong>효과적인 프롬프트:</strong>
+                                        <ul>
+                                            <li>"Upbeat pop song, 120 BPM, catchy hook"</li>
+                                            <li>"Radio-friendly pop ballad, emotional vocals"</li>
+                                            <li>"Modern pop with 80s synth influences"</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>구조 키워드:</strong> Verse-Chorus-Bridge, Hook, Pre-chorus</li>
+                                    <li><strong>사운드 특성:</strong> Clean vocals, Polished production, Accessible melodies</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4><span class="genre-tag genre-hiphop">HIP-HOP</span> 힙합 AI 프롬프팅</h4>
+                                <ul>
+                                    <li><strong>효과적인 프롬프트:</strong>
+                                        <ul>
+                                            <li>"Trap beat, heavy 808s, dark atmosphere"</li>
+                                            <li>"Boom bap style, vinyl samples, 90s vibe"</li>
+                                            <li>"Melodic rap, autotune vocals, modern trap"</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>구조 키워드:</strong> Verse-Hook, Bridge, Breakdown</li>
+                                    <li><strong>사운드 특성:</strong> Strong drums, 808 bass, Vocal chops</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4><span class="genre-tag genre-edm">EDM</span> 일렉트로닉 댄스 뮤직</h4>
+                                <ul>
+                                    <li><strong>효과적인 프롬프트:</strong>
+                                        <ul>
+                                            <li>"Progressive house, euphoric breakdown, 128 BPM"</li>
+                                            <li>"Future bass, vocal chops, heavy drop"</li>
+                                            <li>"Techno, industrial sounds, driving bassline"</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>구조 키워드:</strong> Intro-Buildup-Drop, Breakdown, Outro</li>
+                                    <li><strong>사운드 특성:</strong> Synthesizers, Four-on-floor, Energy progression</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4><span class="genre-tag genre-ballad">BALLAD</span> 발라드</h4>
+                                <ul>
+                                    <li><strong>효과적인 프롬프트:</strong>
+                                        <ul>
+                                            <li>"Emotional ballad, piano-driven, heartfelt vocals"</li>
+                                            <li>"Acoustic ballad, intimate atmosphere, 70 BPM"</li>
+                                            <li>"Power ballad, building to climax, orchestral"</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>구조 키워드:</strong> Slow build, Emotional climax, Soft dynamics</li>
+                                    <li><strong>사운드 특성:</strong> Piano/guitar focus, Emotional vocals, Dynamic range</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎯 프롬프트 최적화 팁</div>
+                            <div class="tech-desc">구체적인 BPM, 키, 분위기 형용사 사용. 레퍼런스 아티스트나 시대적 특성을 명시하여 더 정확한 결과 도출</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔄 반복 실험</div>
+                            <div class="tech-desc">같은 프롬프트로 여러 버전 생성 후 가장 적합한 요소들을 조합. 점진적 개선을 통한 완성도 향상</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📝 프롬프트 데이터베이스</div>
+                            <div class="tech-desc">성공적인 프롬프트 패턴을 기록하고 분류. 장르별, 분위기별 템플릿화로 작업 효율성 극대화</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ 하이브리드 접근</div>
+                            <div class="tech-desc">AI 생성과 수동 편집의 균형. AI로 기본 틀을 만들고 인간의 창의성으로 디테일 완성</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/composition/composition-5.png" alt="장르별 AI 프롬프팅" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: 가사 작성과 ChatGPT -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">ChatGPT와 Claude를 활용한 창의적 가사 작성</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>AI 기반 가사 창작의 새로운 차원</h3>
+                    <p>AI 언어 모델들은 가사 작성에서 강력한 도구가 되었습니다. 단순한 텍스트 생성을 넘어 운율, 감정, 스토리텔링까지 고려한 전문적인 가사 작성이 가능합니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>💭 ChatGPT 가사 작성 전략</h4>
+                                <ul>
+                                    <li><strong>구체적 상황 설정:</strong>
+                                        <ul>
+                                            <li>"20대 연인의 이별 상황, 남성 시점"</li>
+                                            <li>"성공한 래퍼의 과거 회상, 감사함 표현"</li>
+                                            <li>"청춘을 그리워하는 30대, 노스탤지어"</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>운율과 구조 지정:</strong>
+                                        <ul>
+                                            <li>A-B-A-B 라임 스킴</li>
+                                            <li>4/4박자, 16마디 구조</li>
+                                            <li>후렴구 반복 패턴</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎭 Claude의 창의적 접근</h4>
+                                <ul>
+                                    <li><strong>심층 캐릭터 분석:</strong>
+                                        <ul>
+                                            <li>화자의 배경과 동기 탐구</li>
+                                            <li>감정의 미묘한 변화 표현</li>
+                                            <li>은유와 상징 활용</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>문학적 기법 적용:</strong>
+                                        <ul>
+                                            <li>내적 독백과 외적 표현</li>
+                                            <li>시간의 흐름과 공간 이동</li>
+                                            <li>대조법과 점층법 활용</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>📝 효과적인 프롬프트 예시</h4>
+                                <ul>
+                                    <li><strong>팝 발라드:</strong> "이별 후 홀로 남은 방에서 느끼는 공허함을 4절 8행으로, ABAB 운율"</li>
+                                    <li><strong>힙합:</strong> "어려운 환경을 극복한 성공담, 16바 벌스 2개, 내적 라임 포함"</li>
+                                    <li><strong>록:</strong> "사회에 대한 반항과 자유 의지, 강렬한 이미지와 반복 후렴"</li>
+                                    <li><strong>포크:</strong> "시골 마을의 소박한 일상, 자연스러운 구어체, 따뜻한 감성"</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>⚡ 고급 가사 작성 기법</h4>
+                                <ul>
+                                    <li><strong>테마 연관 단어장:</strong> 핵심 주제 관련 동의어, 유의어 리스트 작성</li>
+                                    <li><strong>감정 아크:</strong> 곡 전체의 감정 변화 곡선 설계</li>
+                                    <li><strong>후크 라인 강화:</strong> 기억에 남는 핵심 문구 반복 활용</li>
+                                    <li><strong>스토리텔링:</strong> 시작-전개-절정-결말 구조 적용</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🔄 반복 개선 프로세스</div>
+                            <div class="tech-desc">초안 → 피드백 → 수정 사이클을 통한 가사 완성도 향상. AI에게 구체적인 수정 지시사항 제공</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎵 멜로디 연동</div>
+                            <div class="tech-desc">가사의 음성학적 특성을 고려한 멜로디 적합성 검토. 모음과 자음의 발성 편의성 고려</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🌍 다국어 번역</div>
+                            <div class="tech-desc">한국어 가사를 영어로, 또는 그 반대로 번역하며 운율과 의미 보존. 문화적 뉘앙스 고려</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">💡 아이디어 발상</div>
+                            <div class="tech-desc">브레인스토밍 파트너로 AI 활용. 예상치 못한 시각과 연결고리 발견으로 창의성 확장</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/composition/composition-6.png" alt="ChatGPT 가사 작성" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: AI 윤리와 저작권 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">AI 음악 창작: 윤리와 저작권 가이드</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>책임감 있는 AI 음악 창작</h3>
+                    <p>AI 음악 창작이 대중화되면서 윤리적 사용과 저작권 문제가 중요한 이슈로 대두되었습니다. 창작자로서 알아야 할 법적, 윤리적 기준과 모범 사례를 알아보겠습니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>⚖️ 저작권 및 법적 이슈</h4>
+                                <ul>
+                                    <li><strong>AI 생성 음악의 저작권:</strong>
+                                        <ul>
+                                            <li>현재 대부분 국가에서 AI 생성물은 저작권 보호 대상 아님</li>
+                                            <li>인간의 창작적 개입이 있어야 저작권 인정</li>
+                                            <li>플랫폼별 이용약관 확인 필수</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>상업적 이용 가능 플랫폼:</strong>
+                                        <ul>
+                                            <li>Suno: 유료 구독 시 상업적 이용 허용</li>
+                                            <li>AIVA: 라이선스 구매 시 완전 소유권</li>
+                                            <li>Mubert: API 이용 시 로열티 프리</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🤖 AI 학습 데이터 윤리</h4>
+                                <ul>
+                                    <li><strong>훈련 데이터 출처:</strong>
+                                        <ul>
+                                            <li>저작권 보호 음악 무단 학습 문제</li>
+                                            <li>아티스트 동의 없는 스타일 모방</li>
+                                            <li>공정 사용 원칙 적용 한계</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>책임감 있는 사용:</strong>
+                                        <ul>
+                                            <li>기존 아티스트 스타일 직접 모방 지양</li>
+                                            <li>AI 사용 사실 투명하게 공개</li>
+                                            <li>인간 창작자와의 협업 강조</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>💰 수익 배분과 크레딧</h4>
+                                <ul>
+                                    <li><strong>음원 유통 시 고려사항:</strong>
+                                        <ul>
+                                            <li>AI 도구 사용 명시 여부</li>
+                                            <li>플랫폼별 AI 생성 음악 정책</li>
+                                            <li>저작권 등록 가능성</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>협업 시 크레딧 처리:</strong>
+                                        <ul>
+                                            <li>"Assisted by AI" 표기</li>
+                                            <li>인간 창작자의 기여도 명확화</li>
+                                            <li>수익 배분 합의서 작성</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🌐 국가별 규제 동향</h4>
+                                <ul>
+                                    <li><strong>미국:</strong> 저작권청 AI 생성물 등록 거부 정책</li>
+                                    <li><strong>유럽:</strong> AI Act로 투명성 의무화</li>
+                                    <li><strong>일본:</strong> AI 학습용 저작물 이용 예외 인정</li>
+                                    <li><strong>한국:</strong> 저작권법 개정 논의 진행 중</li>
+                                    <li><strong>중국:</strong> AI 생성 컨텐츠 표시 의무화</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">📋 AI 사용 가이드라인</div>
+                            <div class="tech-desc">프로젝트별 AI 사용 범위 문서화, 사용한 도구와 버전 기록, 인간 창작 기여도 명시</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚖️ 법률 자문</div>
+                            <div class="tech-desc">상업적 활용 전 전문가 상담, 계약서 리뷰, 보험 가입 검토</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🤝 윤리적 협업</div>
+                            <div class="tech-desc">기존 아티스트 존중, 투명한 제작 과정 공개, 음악계 생태계 기여</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔮 미래 대비</div>
+                            <div class="tech-desc">변화하는 법률 추적, 업계 표준 준수, 새로운 라이선스 모델 적응</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/composition/composition-7.png" alt="AI 윤리와 저작권" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: 미래 전망과 커리어 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">AI 시대 음악가 생존 전략과 미래 전망</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>변화하는 음악 산업에서의 기회</h3>
+                    <p>AI가 음악 산업을 혁신하고 있지만, 이는 위기가 아닌 기회입니다. 인간의 창의성과 감성은 여전히 음악의 핵심이며, AI는 이를 더욱 효과적으로 표현할 수 있는 도구입니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🚀 새로운 직업군의 등장</h4>
+                                <ul>
+                                    <li><strong>AI 음악 프롬프트 엔지니어:</strong>
+                                        <ul>
+                                            <li>AI 도구를 위한 전문 프롬프트 설계</li>
+                                            <li>클라이언트 요구사항을 AI 언어로 번역</li>
+                                            <li>연봉 범위: 5,000만원 - 1억원</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>AI-Human 콜라보 프로듀서:</strong>
+                                        <ul>
+                                            <li>AI 생성물과 인간 창작의 최적 조합</li>
+                                            <li>하이브리드 작업 플로우 설계</li>
+                                            <li>기술적 이해와 음악적 감성 필수</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>💡 기존 음악가의 적응 전략</h4>
+                                <ul>
+                                    <li><strong>차별화 전략:</strong>
+                                        <ul>
+                                            <li>개인적 스토리와 감성 강화</li>
+                                            <li>라이브 퍼포먼스 집중</li>
+                                            <li>팬과의 직접적 소통 확대</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>기술 활용 능력:</strong>
+                                        <ul>
+                                            <li>AI 도구 숙련도 향상</li>
+                                            <li>창작 속도와 볼륨 증가</li>
+                                            <li>다양한 장르 실험 가능</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>📈 산업 구조 변화</h4>
+                                <ul>
+                                    <li><strong>음원 제작 비용 급감:</strong> 기존 수천만원 → 수십만원</li>
+                                    <li><strong>창작 주기 단축:</strong> 몇 달 → 몇 주</li>
+                                    <li><strong>진입 장벽 하락:</strong> 누구나 프로듀서 가능</li>
+                                    <li><strong>개인화된 음악:</strong> 맞춤형 플레이리스트 시대</li>
+                                    <li><strong>버츄얼 아티스트:</strong> AI 가수의 등장</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎯 성공을 위한 핵심 역량</h4>
+                                <ul>
+                                    <li><strong>크리에이티브 디렉션:</strong> AI 결과물의 예술적 판단</li>
+                                    <li><strong>브랜드 구축:</strong> 독특한 음악적 정체성</li>
+                                    <li><strong>협업 능력:</strong> 다양한 창작자와의 네트워킹</li>
+                                    <li><strong>마케팅 감각:</strong> 소셜미디어 활용 능력</li>
+                                    <li><strong>지속적 학습:</strong> 새로운 기술 습득</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🔮 2030년 음악 산업 전망</div>
+                            <div class="tech-desc">완전 자동화된 음악 제작, 실시간 개인화 스트리밍, 메타버스 콘서트, 뇌파 기반 감정 음악 등 혁신적 변화 예상</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📚 필수 학습 영역</div>
+                            <div class="tech-desc">AI/ML 기초 지식, 데이터 분석, UX/UI 디자인, 비즈니스 모델 이해, 글로벌 마케팅 역량</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">💼 새로운 수익 모델</div>
+                            <div class="tech-desc">AI 도구 라이선싱, 맞춤형 음악 서비스, 교육 콘텐츠 제작, 기업용 사운드 브랜딩, 메타버스 공연</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🌟 인간만의 가치</div>
+                            <div class="tech-desc">감정적 공감대, 문화적 맥락 이해, 즉흥성과 창의성, 스토리텔링 능력은 여전히 인간 고유 영역</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 미래 전망 통계 -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-label">2030년 AI 활용 음악 제작 비율</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50%</div>
+                            <div class="stat-label">음원 제작비용 절감 효과</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">300%</div>
+                            <div class="stat-label">개인 창작자 증가율</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24시간</div>
+                            <div class="stat-label">앨범 제작 소요 시간</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/composition/composition-8.png" alt="미래 전망과 커리어" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
-            <h2 class="cta-title">AI 곡 작곡 여정을 시작하세요</h2>
+            <h2 class="cta-title">AI 시대 음악 창작의 새로운 여정</h2>
             <p class="cta-text">
                 인공지능과 DAW의 시너지로<br>
-                당신만의 독창적인 음악을 만들어보세요.
+                당신만의 독창적인 음악 세계를 창조해보세요.
             </p>
-            <a href="mailto:jun22sky@nate.com" class="cta-button">AI 작곡 상담받기</a>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">AI 음악 제작 상담받기</a>
         </div>
     </section>
     
@@ -460,6 +1303,81 @@
             observer.observe(section);
         });
         
+        // Lazy loading images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Counter animation for stats
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.textContent);
+                const isPercentage = counter.textContent.includes('%');
+                const isTime = counter.textContent.includes('시간');
+                
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        let displayValue = Math.ceil(current);
+                        
+                        if (isPercentage) {
+                            counter.textContent = displayValue + '%';
+                        } else if (isTime) {
+                            counter.textContent = displayValue + '시간';
+                        } else {
+                            counter.textContent = displayValue;
+                        }
+                        
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        if (isPercentage) {
+                            counter.textContent = target + '%';
+                        } else if (isTime) {
+                            counter.textContent = target + '시간';
+                        } else {
+                            counter.textContent = target;
+                        }
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+        
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+        
         // Enhanced scroll animations
         const enhancedObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -480,6 +1398,15 @@
         document.querySelectorAll('.toc-item').forEach((item, index) => {
             item.style.animationDelay = `${index * 0.1}s`;
         });
+        
+        // Loading performance optimization
+        window.addEventListener('load', () => {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => {
+                    console.log('AI × DAW 곡 작곡 가이드 페이지가 완전히 로드되었습니다.');
+                });
+            }
+        });
     </script>
 </body>
-</html> 
+</html>

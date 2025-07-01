@@ -3,22 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹 보안 완전 가이드 - junetapa</title>
+    <title>웹 보안 완전 가이드 2025 - junetapa</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="웹 보안의 핵심 원리부터 최신 보안 위협과 대응 방법까지. OWASP Top 10, HTTPS, 인증, 인가 등 안전한 웹 애플리케이션 구축 가이드">
-    <meta name="keywords" content="웹보안, OWASP, HTTPS, 인증, 인가, SQL인젝션, XSS, CSRF, 보안취약점">
+    <meta name="description" content="2025년 웹 보안의 핵심 원리부터 최신 보안 위협과 대응 방법까지. OWASP Top 10, Zero Trust, AI 보안, DevSecOps 등 완전한 웹 보안 가이드">
+    <meta name="keywords" content="웹보안, OWASP, HTTPS, 인증, 인가, SQL인젝션, XSS, CSRF, 제로트러스트, DevSecOps, 2025">
     <meta name="author" content="junetapa">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/sections.css">
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/local-icons.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        /* 전체 리스트 스타일 초기화 */
+        ul, li {
+            list-style: none;
+        }
+        
         .security-page {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
@@ -110,20 +105,24 @@
         .content-text ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
         .content-text li {
             padding: 8px 0;
-            padding-left: 25px;
+            padding-left: 0;
             position: relative;
             color: #555;
         }
         
         .content-text li:before {
-            content: "🔒";
+            content: "";
             position: absolute;
             left: 0;
             font-size: 16px;
+            line-height: 1.2;
+            top: 2px;
+            color: #667eea;
         }
         
         .content-image {
@@ -224,18 +223,22 @@
         
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 30px;
         }
         
         .tech-card {
             background: #f8f9fa;
-            padding: 25px;
+            padding: 30px 25px;
             border-radius: 15px;
-            text-align: center;
+            text-align: left;
             transition: transform 0.3s ease;
             border-left: 4px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            min-height: 180px;
+            justify-content: flex-start;
         }
         
         .tech-card:hover {
@@ -244,16 +247,109 @@
         }
         
         .tech-name {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            line-height: 1.4;
             font-weight: 600;
             color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 1.1rem;
         }
         
         .tech-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #666;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        
+        .comparison-table {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .comparison-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .comparison-item h4 {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
             line-height: 1.4;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .comparison-item li {
+            padding: 8px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .comparison-item ul ul {
+            margin-top: 8px;
+            margin-left: 20px;
+            list-style: none;
+        }
+        
+        .comparison-item ul ul li {
+            padding: 4px 0;
+            padding-left: 0;
+            font-size: 0.95em;
+            color: #666;
+        }
+        
+        .comparison-item strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
         }
         
         .cta-section {
@@ -293,6 +389,20 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
+        .risk-level {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .risk-critical { background: #ff4757; color: white; }
+        .risk-high { background: #ff7675; color: white; }
+        .risk-medium { background: #fdcb6e; color: #2d3436; }
+        .risk-low { background: #00b894; color: white; }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -316,6 +426,32 @@
             .tech-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .comparison-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .comparison-item h4,
+            .tech-name {
+                gap: 8px;
+                font-size: 1rem;
+                line-height: 1.3;
+            }
+            
+            .comparison-item {
+                padding: 20px;
+            }
+            
+            .tech-card {
+                padding: 20px;
+                min-height: auto;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -327,13 +463,13 @@
     <section class="hero-section">
         <div class="container">
             <div class="hero-badge">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0z"/></svg>
-                <span>웹 보안</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0z"/></svg>
+                <span>웹 보안 완전 가이드</span>
             </div>
-            <h1 class="hero-title">안전한 웹 애플리케이션 구축</h1>
+            <h1 class="hero-title">2025년 웹 보안 완전 가이드</h1>
             <p class="hero-subtitle">
-                OWASP Top 10부터 최신 보안 위협까지<br>
-                견고하고 안전한 웹 서비스를 구축하는 완전한 보안 가이드입니다.
+                Zero Trust부터 AI 보안까지<br>
+                현대 웹 환경의 모든 보안 위협을 막아내는 완전한 보안 전략을 제시합니다.
             </p>
         </div>
     </section>
@@ -345,148 +481,683 @@
             <div class="toc-grid">
                 <div class="toc-item">
                     <div class="toc-number">01</div>
-                    <h3>웹 보안 기초</h3>
-                    <p>보안의 핵심 개념과 CIA 트라이어드</p>
+                    <h3>웹 보안 기초와 Zero Trust</h3>
+                    <p>CIA 트라이어드부터 제로 트러스트 아키텍처까지</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">02</div>
-                    <h3>OWASP Top 10</h3>
-                    <p>가장 위험한 웹 애플리케이션 보안 위험</p>
+                    <h3>OWASP Top 10 2021 완전분석</h3>
+                    <p>최신 웹 애플리케이션 보안 위험과 대응책</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">03</div>
-                    <h3>인증과 인가</h3>
-                    <p>안전한 사용자 인증 시스템 구축</p>
+                    <h3>현대적 인증과 인가</h3>
+                    <p>MFA, Passkeys, OAuth 2.1 구현 가이드</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">04</div>
-                    <h3>HTTPS와 TLS</h3>
-                    <p>암호화된 통신 구현 방법</p>
+                    <h3>HTTPS와 TLS 1.3</h3>
+                    <p>완벽한 암호화 통신 구현 방법</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">05</div>
-                    <h3>입력 검증과 필터링</h3>
-                    <p>악성 입력으로부터 시스템 보호</p>
+                    <h3>입력 검증과 보안 필터링</h3>
+                    <p>인젝션 공격 완전 차단 전략</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">06</div>
-                    <h3>세션 보안</h3>
-                    <p>안전한 세션 관리 전략</p>
+                    <h3>세션 보안과 CSRF 방지</h3>
+                    <p>안전한 상태 관리 구현 기법</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">07</div>
-                    <h3>보안 헤더</h3>
-                    <p>HTTP 보안 헤더 설정 가이드</p>
+                    <h3>보안 헤더와 브라우저 보안</h3>
+                    <p>CSP, COOP, COEP 등 최신 보안 헤더</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">08</div>
-                    <h3>보안 테스팅</h3>
-                    <p>취약점 진단과 침투 테스트</p>
+                    <h3>DevSecOps와 자동화 보안</h3>
+                    <p>보안 테스팅부터 모니터링까지</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 1: 웹 보안 기초 -->
+    <!-- Section 1: 웹 보안 기초와 Zero Trust -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">웹 보안의 기초 이해</h2>
+            <h2 class="section-title">웹 보안 기초와 Zero Trust 아키텍처</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>보안의 핵심 원칙 - CIA 트라이어드</h3>
-                    <p>웹 보안은 디지털 자산과 사용자 데이터를 보호하는 포괄적인 접근법입니다. 모든 보안 전략은 기밀성(Confidentiality), 무결성(Integrity), 가용성(Availability)의 3대 원칙을 기반으로 합니다.</p>
-                    <ul>
-                        <li>기밀성: 인가된 사용자만 데이터 접근</li>
-                        <li>무결성: 데이터 변조 및 손상 방지</li>
-                        <li>가용성: 서비스 중단 없는 연속성</li>
-                        <li>인증: 사용자 신원 확인 및 검증</li>
-                        <li>인가: 적절한 권한 부여 및 관리</li>
-                        <li>부인 방지: 행위에 대한 증거 보전</li>
-                    </ul>
-                    <p>현대 웹 환경에서 보안은 선택이 아닌 필수이며, 개발 초기 단계부터 Security by Design 원칙을 적용해야 합니다.</p>
+                    <h3>2025년 보안의 새로운 패러다임</h3>
+                    <p>전통적인 경계 기반 보안에서 Zero Trust로의 패러다임 전환이 가속화되고 있습니다. "절대 신뢰하지 말고, 항상 검증하라"는 원칙이 모든 보안 전략의 핵심이 되었습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🔐 CIA 트라이어드 강화</div>
+                            <div class="tech-desc">기밀성(Confidentiality), 무결성(Integrity), 가용성(Availability)을 AI 기반 위협 탐지와 자동 대응으로 강화</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🛡️ Zero Trust 핵심 원칙</div>
+                            <div class="tech-desc">네트워크 위치에 관계없이 모든 접근을 인증하고 인가. 최소 권한 원칙과 지속적 검증 적용</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ Security by Design</div>
+                            <div class="tech-desc">개발 초기부터 보안을 고려한 설계. Threat Modeling과 보안 요구사항 정의가 필수</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🤖 AI 기반 위협 탐지</div>
+                            <div class="tech-desc">머신러닝을 활용한 이상 행위 탐지, 제로데이 공격 예방, 실시간 위협 인텔리전스</div>
+                        </div>
+                    </div>
+                    
+                    <p>2025년 웹 보안은 사이버 공격의 복잡성과 빈도가 급증함에 따라 예방적 보안에서 적응형 보안으로 진화하고 있습니다. 실시간 위험 평가와 동적 보안 정책 적용이 핵심입니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="./assets/images/backend/backend-1.png" alt="웹 보안 기초" loading="lazy">
+                    <img src="../assets/images/web_security/web_security-1.png" alt="웹 보안 기초와 Zero Trust" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 2: OWASP Top 10 -->
+    <!-- Section 2: OWASP Top 10 2021 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">OWASP Top 10 - 가장 위험한 웹 애플리케이션 보안 위험</h2>
+            <h2 class="section-title">OWASP Top 10 2021 완전 분석과 대응 전략</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>2021년 OWASP Top 10 핵심 위험</h3>
-                    <p>OWASP(Open Web Application Security Project)는 웹 애플리케이션 보안의 글로벌 표준을 제시합니다. 매 3년마다 업데이트되는 Top 10은 가장 심각한 보안 위험을 식별합니다.</p>
+                    <h3>가장 위험한 웹 애플리케이션 보안 위험</h3>
+                    <p>OWASP Top 10 2021은 데이터 기반 접근법을 통해 실제 공격 사례와 취약점 데이터를 분석하여 구성되었습니다. 새로운 위험 카테고리가 추가되고 기존 위험의 우선순위가 재조정되었습니다.</p>
                     
-                    <div class="tech-grid">
-                        <div class="tech-card">
-                            <div class="tech-name">A01 - Broken Access Control</div>
-                            <div class="tech-desc">잘못된 접근 제어로 인한 무단 정보 접근 및 기능 오남용</div>
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🥇 A01: Broken Access Control <span class="risk-level risk-critical">Critical</span></h4>
+                                <ul>
+                                    <li><strong>위험도:</strong> 가장 높은 순위로 상승 (이전 5위)</li>
+                                    <li><strong>주요 공격:</strong>
+                                        <ul>
+                                            <li>URL 직접 접근으로 권한 우회</li>
+                                            <li>다른 사용자 계정 조회/수정</li>
+                                            <li>권한 상승 (Privilege Escalation)</li>
+                                            <li>메타데이터 조작 (토큰, 쿠키 변조)</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>대응 방법:</strong> 화이트리스트 기반 접근 제어, 토큰 무효화, 로그 모니터링</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🔐 A02: Cryptographic Failures <span class="risk-level risk-high">High</span></h4>
+                                <ul>
+                                    <li><strong>위험도:</strong> 이전 'Sensitive Data Exposure'에서 확장</li>
+                                    <li><strong>주요 위협:</strong>
+                                        <ul>
+                                            <li>평문 데이터 전송 (HTTP 사용)</li>
+                                            <li>약한 암호화 알고리즘 사용</li>
+                                            <li>기본값 또는 약한 암호화 키</li>
+                                            <li>인증서 검증 미흡</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>대응 방법:</strong> TLS 1.3 사용, 강력한 암호화 알고리즘, 키 관리 시스템</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="tech-card">
-                            <div class="tech-name">A02 - Cryptographic Failures</div>
-                            <div class="tech-desc">암호화 실패로 인한 민감 데이터 노출</div>
-                        </div>
-                        <div class="tech-card">
-                            <div class="tech-name">A03 - Injection</div>
-                            <div class="tech-desc">SQL, NoSQL, OS 명령어 인젝션 공격</div>
-                        </div>
-                        <div class="tech-card">
-                            <div class="tech-name">A04 - Insecure Design</div>
-                            <div class="tech-desc">설계 단계의 보안 결함</div>
-                        </div>
-                        <div class="tech-card">
-                            <div class="tech-name">A05 - Security Misconfiguration</div>
-                            <div class="tech-desc">잘못된 보안 설정 및 구성</div>
-                        </div>
-                        <div class="tech-card">
-                            <div class="tech-name">A06 - Vulnerable Components</div>
-                            <div class="tech-desc">취약한 컴포넌트 사용으로 인한 위험</div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>💉 A03: Injection <span class="risk-level risk-high">High</span></h4>
+                                <ul>
+                                    <li><strong>공격 유형:</strong>
+                                        <ul>
+                                            <li>SQL Injection (가장 일반적)</li>
+                                            <li>NoSQL Injection</li>
+                                            <li>OS Command Injection</li>
+                                            <li>LDAP Injection</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>방어 기법:</strong> Prepared Statements, 입력 검증, 최소 권한 원칙</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>⚠️ A04: Insecure Design <span class="risk-level risk-medium">Medium</span></h4>
+                                <ul>
+                                    <li><strong>신규 카테고리:</strong> 설계 단계의 보안 결함</li>
+                                    <li><strong>핵심 문제:</strong>
+                                        <ul>
+                                            <li>위협 모델링 부재</li>
+                                            <li>보안 요구사항 정의 미흡</li>
+                                            <li>보안 설계 원칙 무시</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>해결책:</strong> Secure Development Lifecycle, 보안 아키텍처 검토</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="content-image">
-                    <img src="./assets/images/backend/backend-2.png" alt="OWASP Top 10" loading="lazy">
+                    <img src="../assets/images/web_security/web_security-2.png" alt="OWASP Top 10 분석" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: 인증과 인가 -->
+    <!-- Section 3: 현대적 인증과 인가 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">안전한 인증과 인가 시스템</h2>
+            <h2 class="section-title">현대적 인증과 인가: MFA부터 Passkeys까지</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>강력한 인증 메커니즘 구축</h3>
-                    <p>인증(Authentication)은 사용자의 신원을 확인하는 과정이며, 인가(Authorization)는 확인된 사용자에게 적절한 권한을 부여하는 과정입니다.</p>
+                    <h3>2025년 인증 보안의 혁신</h3>
+                    <p>비밀번호 없는 인증(Passwordless Authentication)이 주류가 되고 있으며, FIDO2/WebAuthn 기반의 Passkeys가 표준으로 자리잡고 있습니다. 생체인식과 하드웨어 보안 키를 결합한 강력한 인증이 필수가 되었습니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">다중 인증 (MFA)</div>
-                            <div class="tech-desc">비밀번호 + SMS/TOTP + 생체인식 등 2개 이상 인증 요소 조합</div>
+                            <div class="tech-name">🔑 Passkeys & WebAuthn</div>
+                            <div class="tech-desc">FIDO2 표준 기반 생체인식 인증. 피싱 불가능하고 서버 침해시에도 안전한 차세대 인증 방식</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">JWT 토큰 보안</div>
-                            <div class="tech-desc">안전한 토큰 생성, 저장, 검증 및 만료 관리</div>
+                            <div class="tech-name">🛡️ 다중 인증 (MFA) 2.0</div>
+                            <div class="tech-desc">SMS 대신 앱 기반 TOTP, 하드웨어 토큰(YubiKey), 생체인식을 조합한 적응형 MFA</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">OAuth 2.0 / OpenID</div>
-                            <div class="tech-desc">표준 인증 프로토콜을 통한 안전한 인증 위임</div>
+                            <div class="tech-name">🔐 OAuth 2.1 & PKCE</div>
+                            <div class="tech-desc">OAuth 2.0의 보안 강화 버전. PKCE 필수 적용, 암묵적 플로우 제거, 새로고침 토큰 순환</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">비밀번호 보안</div>
-                            <div class="tech-desc">강력한 해싱(bcrypt, Argon2) 및 솔트 적용</div>
+                            <div class="tech-name">⚡ JWT 보안 모범 사례</div>
+                            <div class="tech-desc">짧은 만료 시간, 안전한 서명 알고리즘(RS256), 민감 정보 제외, 토큰 순환 구현</div>
                         </div>
                     </div>
                     
-                    <p>현대적인 인증 시스템은 사용자 편의성과 보안성을 모두 고려하여 설계되어야 하며, Zero Trust 아키텍처 원칙을 적용해야 합니다.</p>
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🏛️ 중앙집중식 vs 분산형 인증</h4>
+                                <ul>
+                                    <li><strong>중앙집중식 (Traditional):</strong>
+                                        <ul>
+                                            <li>LDAP, Active Directory 기반</li>
+                                            <li>단일 장애점 존재</li>
+                                            <li>확장성 제한</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>분산형 (Modern):</strong>
+                                        <ul>
+                                            <li>블록체인 기반 신원 증명</li>
+                                            <li>자주적 신원 관리 (Self-Sovereign Identity)</li>
+                                            <li>분산 신원 확인 (DID)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎯 적응형 인증 (Adaptive Authentication)</h4>
+                                <ul>
+                                    <li><strong>위험 기반 평가:</strong>
+                                        <ul>
+                                            <li>사용자 행동 패턴 분석</li>
+                                            <li>지리적 위치 및 시간대</li>
+                                            <li>디바이스 지문 인식</li>
+                                            <li>네트워크 평판 분석</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>동적 인증 요구:</strong> 위험도에 따른 인증 단계 조정</li>
+                                    <li><strong>사용자 경험:</strong> 보안과 편의성의 균형</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="content-image">
-                    <img src="./assets/images/backend/backend-3.png" alt="인증과 인가" loading="lazy">
+                    <img src="../assets/images/web_security/web_security-3.png" alt="현대적 인증과 인가" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: HTTPS와 TLS 1.3 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">HTTPS와 TLS 1.3: 완벽한 암호화 통신</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>차세대 전송 보안 구현</h3>
+                    <p>TLS 1.3은 핸드셰이크 과정을 단순화하고 보안을 강화했습니다. 0-RTT 연결 재개, Perfect Forward Secrecy 강제 적용, 약한 암호화 알고리즘 제거로 최고 수준의 보안을 제공합니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🚀 TLS 1.3 핵심 개선사항</div>
+                            <div class="tech-desc">1-RTT 핸드셰이크, 0-RTT 재개, ChaCha20-Poly1305 암호화, HKDF 키 유도로 성능과 보안 동시 향상</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🛡️ Certificate Transparency 2.0</div>
+                            <div class="tech-desc">인증서 투명성 로그 의무화, 악성 인증서 탐지, SCT(Signed Certificate Timestamp) 검증</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔐 Perfect Forward Secrecy</div>
+                            <div class="tech-desc">세션별 고유 키 생성, 과거 통신 내용 보호, ECDHE 키 교환 필수 적용</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ HTTP/3 over QUIC</div>
+                            <div class="tech-desc">UDP 기반 QUIC 프로토콜로 TLS 1.3 통합, 연결 마이그레이션, 멀티플렉싱 지원</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>📜 SSL/TLS 인증서 최신 동향</h4>
+                                <ul>
+                                    <li><strong>Extended Validation (EV) 쇠퇴:</strong> 브라우저 UI 변경으로 효용성 감소</li>
+                                    <li><strong>Let's Encrypt 확산:</strong> 무료 DV 인증서로 HTTPS 대중화</li>
+                                    <li><strong>자동 갱신:</strong> ACME 프로토콜 기반 인증서 자동화</li>
+                                    <li><strong>와일드카드 인증서:</strong> 서브도메인 보안 간소화</li>
+                                    <li><strong>짧은 유효기간:</strong> 90일에서 13개월로 단축 추세</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🔧 TLS 설정 최적화</h4>
+                                <ul>
+                                    <li><strong>암호화 스위트 선택:</strong>
+                                        <ul>
+                                            <li>TLS 1.3: AES-256-GCM, ChaCha20-Poly1305</li>
+                                            <li>TLS 1.2: ECDHE-RSA-AES256-GCM-SHA384</li>
+                                            <li>약한 암호화 제거: RC4, 3DES, MD5</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>HSTS 강화:</strong> includeSubDomains, preload 적용</li>
+                                    <li><strong>OCSP Stapling:</strong> 인증서 상태 확인 최적화</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/web_security/web_security-4.png" alt="HTTPS와 TLS 1.3" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: 입력 검증과 보안 필터링 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">입력 검증과 보안 필터링: 인젝션 공격 완전 차단</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>다층 방어를 통한 인젝션 방지</h3>
+                    <p>입력 검증은 모든 웹 보안의 첫 번째 방어선입니다. 화이트리스트 기반 검증, 매개변수화된 쿼리, 이스케이프 처리를 조합한 다층 방어 전략이 필수입니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>💉 SQL Injection 완전 방어</h4>
+                                <ul>
+                                    <li><strong>Prepared Statements:</strong> 가장 효과적인 방어 방법</li>
+                                    <li><strong>Stored Procedures:</strong> 권한이 제한된 프로시저 사용</li>
+                                    <li><strong>입력 검증:</strong> 화이트리스트 기반 필터링</li>
+                                    <li><strong>이스케이프 처리:</strong> 특수 문자 무력화</li>
+                                    <li><strong>최소 권한:</strong> 데이터베이스 계정 권한 제한</li>
+                                    <li><strong>WAF 적용:</strong> 웹 애플리케이션 방화벽</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🌐 XSS (Cross-Site Scripting) 방지</h4>
+                                <ul>
+                                    <li><strong>출력 인코딩:</strong> HTML, JS, CSS, URL 컨텍스트별 인코딩</li>
+                                    <li><strong>Content Security Policy:</strong> 스크립트 실행 제한</li>
+                                    <li><strong>HttpOnly 쿠키:</strong> 자바스크립트 접근 차단</li>
+                                    <li><strong>X-XSS-Protection:</strong> 브라우저 XSS 필터 활성화</li>
+                                    <li><strong>SameSite 쿠키:</strong> CSRF 공격 방지</li>
+                                    <li><strong>Trusted Types:</strong> DOM XSS 방지</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>💻 Command Injection 차단</h4>
+                                <ul>
+                                    <li><strong>시스템 호출 회피:</strong> 라이브러리 함수 사용</li>
+                                    <li><strong>입력 필터링:</strong> 특수 문자와 메타 문자 제거</li>
+                                    <li><strong>권한 분리:</strong> 최소 권한으로 프로세스 실행</li>
+                                    <li><strong>샌드박스:</strong> 격리된 환경에서 실행</li>
+                                    <li><strong>화이트리스트:</strong> 허용된 명령어만 실행</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🗃️ NoSQL Injection 방어</h4>
+                                <ul>
+                                    <li><strong>매개변수 바인딩:</strong> MongoDB, CouchDB 등</li>
+                                    <li><strong>스키마 검증:</strong> JSON 스키마 강제 적용</li>
+                                    <li><strong>타입 검증:</strong> 데이터 타입 강제 확인</li>
+                                    <li><strong>권한 관리:</strong> 컬렉션별 접근 권한 제한</li>
+                                    <li><strong>쿼리 로깅:</strong> 비정상 쿼리 탐지</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🔍 실시간 위협 탐지</div>
+                            <div class="tech-desc">AI 기반 이상 패턴 감지, 시그니처 기반 탐지와 행위 기반 분석 결합으로 제로데이 공격 방어</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🛡️ 웹 애플리케이션 방화벽</div>
+                            <div class="tech-desc">ModSecurity, AWS WAF, Cloudflare 등을 활용한 애플리케이션 레벨 보안 강화</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔒 API 보안 강화</div>
+                            <div class="tech-desc">GraphQL 인젝션 방지, REST API 속도 제한, API 키 관리, 스키마 검증</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ 자동화 도구</div>
+                            <div class="tech-desc">SAST, DAST, IAST 도구를 CI/CD에 통합하여 개발 과정에서 취약점 자동 탐지</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/web_security/web_security-5.png" alt="입력 검증과 보안 필터링" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: 세션 보안과 CSRF 방지 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">세션 보안과 CSRF 방지: 안전한 상태 관리</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>현대적 세션 관리 전략</h3>
+                    <p>세션 하이재킹과 CSRF 공격이 진화함에 따라 세션 관리 방식도 발전했습니다. JWT와 전통적 세션의 하이브리드 접근, SameSite 쿠키, CSRF 토큰을 활용한 다층 방어가 필요합니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🍪 쿠키 보안 강화</div>
+                            <div class="tech-desc">HttpOnly, Secure, SameSite=Strict 설정으로 XSS와 CSRF 공격 방지. 쿠키 프리픽스 (__Secure-, __Host-) 활용</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔄 세션 순환 (Rotation)</div>
+                            <div class="tech-desc">로그인 후 세션 ID 재생성, 권한 변경시 세션 갱신, 정기적 세션 만료로 하이재킹 위험 최소화</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🛡️ CSRF 토큰 구현</div>
+                            <div class="tech-desc">Synchronizer Token Pattern, Double Submit Cookie, SameSite 쿠키를 조합한 CSRF 방어</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⏰ 적응형 세션 타임아웃</div>
+                            <div class="tech-desc">사용자 활동 패턴 기반 동적 타임아웃, 민감한 작업시 재인증 요구</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🔐 JWT vs 세션 기반 인증</h4>
+                                <ul>
+                                    <li><strong>JWT 장점:</strong>
+                                        <ul>
+                                            <li>상태 비저장 (Stateless)</li>
+                                            <li>마이크로서비스 친화적</li>
+                                            <li>확장성 우수</li>
+                                            <li>크로스 도메인 지원</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>세션 장점:</strong>
+                                        <ul>
+                                            <li>즉시 무효화 가능</li>
+                                            <li>서버 측 제어</li>
+                                            <li>토큰 크기 제한 없음</li>
+                                            <li>민감 정보 서버 저장</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>⚡ 하이브리드 접근법</h4>
+                                <ul>
+                                    <li><strong>Access Token (JWT):</strong>
+                                        <ul>
+                                            <li>짧은 만료 시간 (15-30분)</li>
+                                            <li>API 접근용</li>
+                                            <li>최소한의 사용자 정보</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Refresh Token (세션):</strong>
+                                        <ul>
+                                            <li>긴 만료 시간 (7-30일)</li>
+                                            <li>서버 측 저장/검증</li>
+                                            <li>즉시 무효화 가능</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/web_security/web_security-6.png" alt="세션 보안과 CSRF 방지" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: 보안 헤더와 브라우저 보안 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">보안 헤더와 브라우저 보안: 최신 방어 메커니즘</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>2025년 브라우저 보안 헤더</h3>
+                    <p>브라우저 보안 기능이 빠르게 발전하면서 새로운 보안 헤더들이 등장했습니다. CSP 3.0, COOP, COEP, Trusted Types 등 최신 브라우저 보안 기능을 적극 활용해야 합니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🛡️ Content Security Policy 3.0</h4>
+                                <ul>
+                                    <li><strong>핵심 개선사항:</strong>
+                                        <ul>
+                                            <li>Trusted Types 지원</li>
+                                            <li>strict-dynamic 키워드</li>
+                                            <li>nonce와 hash 기반 허용</li>
+                                            <li>워커 스크립트 제어</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>실용적 설정:</strong>
+                                        <ul>
+                                            <li>script-src 'self' 'nonce-{random}'</li>
+                                            <li>require-trusted-types-for 'script'</li>
+                                            <li>upgrade-insecure-requests</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🔒 격리 및 교차 출처 보안</h4>
+                                <ul>
+                                    <li><strong>Cross-Origin Opener Policy (COOP):</strong>
+                                        <ul>
+                                            <li>same-origin: 동일 출처만 참조 허용</li>
+                                            <li>same-origin-allow-popups</li>
+                                            <li>unsafe-none (기본값)</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Cross-Origin Embedder Policy (COEP):</strong>
+                                        <ul>
+                                            <li>require-corp: 리소스 명시적 허용</li>
+                                            <li>credentialless: 자격 증명 없는 요청</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>⚡ 필수 보안 헤더</h4>
+                                <ul>
+                                    <li><strong>Strict-Transport-Security:</strong> HTTPS 강제 적용</li>
+                                    <li><strong>X-Frame-Options:</strong> 클릭재킹 방지</li>
+                                    <li><strong>X-Content-Type-Options:</strong> MIME 스니핑 방지</li>
+                                    <li><strong>Referrer-Policy:</strong> 리퍼러 정보 제어</li>
+                                    <li><strong>Permissions-Policy:</strong> 브라우저 기능 제한</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🔍 새로운 보안 기능</h4>
+                                <ul>
+                                    <li><strong>Trusted Types:</strong> DOM XSS 방지</li>
+                                    <li><strong>Origin-Agent-Cluster:</strong> 출처별 에이전트 클러스터</li>
+                                    <li><strong>Cross-Origin-Resource-Policy:</strong> 리소스 접근 제어</li>
+                                    <li><strong>Document-Policy:</strong> 문서 정책 제어</li>
+                                    <li><strong>Reporting API:</strong> 보안 위반 실시간 리포팅</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">📊 보안 메트릭스 모니터링</div>
+                            <div class="tech-desc">CSP 위반 리포트, 보안 헤더 적용률, 브라우저 호환성 추적을 통한 보안 상태 가시화</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔧 자동화 도구</div>
+                            <div class="tech-desc">Mozilla Observatory, Security Headers, OWASP ZAP을 활용한 보안 헤더 검증 자동화</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ 점진적 적용</div>
+                            <div class="tech-desc">Report-Only 모드로 영향 분석 후 단계적 적용, 호환성 고려한 폴백 전략</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🌐 CDN 통합</div>
+                            <div class="tech-desc">Cloudflare, AWS CloudFront에서 보안 헤더 자동 적용, 엣지에서 보안 강화</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/web_security/web_security-7.png" alt="보안 헤더와 브라우저 보안" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: DevSecOps와 자동화 보안 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">DevSecOps와 자동화 보안: 보안을 개발에 내재화</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>보안 자동화와 지속적 모니터링</h3>
+                    <p>DevSecOps는 개발 생명주기의 모든 단계에 보안을 통합하는 접근법입니다. 보안이 더 이상 개발 완료 후의 부가 작업이 아니라, 개발 과정의 핵심 요소가 되었습니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🔍 정적 분석 (SAST)</h4>
+                                <ul>
+                                    <li><strong>도구:</strong> SonarQube, Checkmarx, Veracode</li>
+                                    <li><strong>장점:</strong>
+                                        <ul>
+                                            <li>소스 코드 직접 분석</li>
+                                            <li>개발 초기 취약점 발견</li>
+                                            <li>100% 코드 커버리지</li>
+                                            <li>빠른 실행 속도</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>한계:</strong> 런타임 문제 탐지 어려움</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎯 동적 분석 (DAST)</h4>
+                                <ul>
+                                    <li><strong>도구:</strong> OWASP ZAP, Burp Suite, Netsparker</li>
+                                    <li><strong>장점:</strong>
+                                        <ul>
+                                            <li>실제 실행 환경 테스트</li>
+                                            <li>런타임 취약점 발견</li>
+                                            <li>설정 오류 탐지</li>
+                                            <li>블랙박스 테스트</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>한계:</strong> 코드 커버리지 제한</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>⚡ 대화형 분석 (IAST)</h4>
+                                <ul>
+                                    <li><strong>도구:</strong> Contrast Security, Synopsys IAST</li>
+                                    <li><strong>특징:</strong>
+                                        <ul>
+                                            <li>애플리케이션 내부 계측</li>
+                                            <li>실시간 취약점 탐지</li>
+                                            <li>정확한 결과 제공</li>
+                                            <li>거짓 양성 최소화</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>📦 의존성 분석 (SCA)</h4>
+                                <ul>
+                                    <li><strong>도구:</strong> Snyk, OWASP Dependency-Check</li>
+                                    <li><strong>기능:</strong>
+                                        <ul>
+                                            <li>오픈소스 취약점 스캔</li>
+                                            <li>라이선스 컴플라이언스</li>
+                                            <li>자동 업데이트 알림</li>
+                                            <li>CVE 데이터베이스 연동</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🔄 CI/CD 보안 통합</div>
+                            <div class="tech-desc">GitHub Actions, GitLab CI, Jenkins에서 보안 스캔 자동화. 취약점 발견시 빌드 중단, 보안 게이트 구현</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🛡️ 컨테이너 보안</div>
+                            <div class="tech-desc">Docker 이미지 스캔, Kubernetes 보안 정책, 런타임 보안 모니터링, 최소 권한 컨테이너</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📊 보안 메트릭스</div>
+                            <div class="tech-desc">취약점 발견-수정 시간, 보안 부채 추적, 위험 점수 계산, 보안 KPI 대시보드</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🤖 AI 기반 위협 헌팅</div>
+                            <div class="tech-desc">머신러닝 기반 이상 탐지, 행위 분석, 제로데이 공격 예측, 자동 대응 시스템</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 보안 통계 -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">70%</div>
+                            <div class="stat-label">개발자가 직접 수정하는 보안 이슈</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24시간</div>
+                            <div class="stat-label">평균 취약점 패치 시간</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-label">자동화된 보안 스캔 커버리지</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-label">보안 테스팅 자동화 비율</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/web_security/web_security-8.png" alt="DevSecOps와 자동화 보안" loading="lazy">
                 </div>
             </div>
         </div>
@@ -495,12 +1166,12 @@
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
-            <h2 class="cta-title">안전한 웹 서비스를 구축하세요</h2>
+            <h2 class="cta-title">견고한 웹 보안 체계를 구축하세요</h2>
             <p class="cta-text">
-                OWASP 표준부터 최신 보안 기술까지<br>
-                견고하고 신뢰할 수 있는 웹 애플리케이션을 만들어보세요.
+                Zero Trust부터 DevSecOps까지<br>
+                2025년 표준에 맞는 완벽한 웹 보안 솔루션을 구현해보세요.
             </p>
-            <a href="mailto:jun22sky@nate.com" class="cta-button">보안 컨설팅 받기</a>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">보안 컨설팅 문의하기</a>
         </div>
     </section>
     
@@ -538,6 +1209,112 @@
             section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(section);
         });
+        
+        // Lazy loading images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Counter animation for stats
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.textContent);
+                const isDecimal = counter.textContent.includes('.');
+                const isPercentage = counter.textContent.includes('%');
+                const isTime = counter.textContent.includes('시간');
+                
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        let displayValue;
+                        
+                        if (isDecimal) {
+                            displayValue = current.toFixed(1);
+                        } else {
+                            displayValue = Math.ceil(current);
+                        }
+                        
+                        if (isPercentage) {
+                            counter.textContent = displayValue + '%';
+                        } else if (isTime) {
+                            counter.textContent = displayValue + '시간';
+                        } else {
+                            counter.textContent = displayValue;
+                        }
+                        
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + (isPercentage ? '%' : isTime ? '시간' : '');
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+        
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+        
+        // Enhanced scroll animations
+        const enhancedObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '-50px'
+        });
+        
+        document.querySelectorAll('.tech-card, .toc-item').forEach(el => {
+            enhancedObserver.observe(el);
+        });
+        
+        // TOC item stagger animation
+        document.querySelectorAll('.toc-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+        
+        // Loading performance optimization
+        window.addEventListener('load', () => {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => {
+                    console.log('웹 보안 완전 가이드 페이지가 완전히 로드되었습니다.');
+                });
+            }
+        });
     </script>
 </body>
-</html> 
+</html>
