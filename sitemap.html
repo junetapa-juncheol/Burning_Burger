@@ -479,6 +479,330 @@
             }
         }
 
+        /* Update History Section */
+        .update-history {
+            margin: 4rem 0;
+        }
+
+        .update-history-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .history-icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid var(--bg-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-item:last-child::after {
+            content: '';
+            position: absolute;
+            left: -0.25rem;
+            bottom: -1.5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            margin-bottom: 1rem;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-lg);
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        .date-badge.latest {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .date-badge.latest::after {
+            content: 'NEW';
+            position: absolute;
+            top: -0.25rem;
+            right: -0.25rem;
+            background: var(--secondary);
+            color: white;
+            padding: 0.125rem 0.25rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.625rem;
+            font-weight: 700;
+        }
+
+        .date-badge.initial {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            border: none;
+        }
+
+        .date-badge.planning {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            border: none;
+            position: relative;
+        }
+
+        .date-badge.planning::after {
+            content: 'START';
+            position: absolute;
+            top: -0.25rem;
+            right: -0.25rem;
+            background: var(--danger);
+            color: white;
+            padding: 0.125rem 0.25rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.625rem;
+            font-weight: 700;
+        }
+
+        .timeline-content {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .update-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .update-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .update-category {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            border-left: 4px solid;
+        }
+
+        .update-category.new {
+            border-left-color: var(--success);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .update-category.improved {
+            border-left-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .update-category.fixed {
+            border-left-color: var(--secondary);
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .category-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .update-category.new .category-label {
+            background: var(--success);
+        }
+
+        .update-category.improved .category-label {
+            background: var(--primary);
+        }
+
+        .update-category.fixed .category-label {
+            background: var(--secondary);
+        }
+
+        .update-category ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .update-category li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .update-category li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Show More Button */
+        .show-more-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .show-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-lg);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .show-more-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .show-more-icon {
+            width: 1rem;
+            height: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .show-more-btn.expanded .show-more-icon {
+            transform: rotate(180deg);
+        }
+
+        .more-updates {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .more-updates.expanded {
+            opacity: 1;
+            max-height: 5000px;
+        }
+
+        /* Responsive Design for Timeline */
+        @media (max-width: 768px) {
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline::before {
+                left: 0.5rem;
+            }
+
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+
+            .timeline-item::before {
+                left: -0.25rem;
+                width: 0.75rem;
+                height: 0.75rem;
+            }
+
+            .update-history-title {
+                font-size: 1.75rem;
+            }
+
+            .update-details {
+                gap: 0.75rem;
+            }
+
+            .timeline-content {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .update-history-title {
+                font-size: 1.5rem;
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .timeline {
+                padding-left: 0.5rem;
+            }
+
+            .timeline-item {
+                padding-left: 1rem;
+            }
+        }
+
         /* Print styles */
         @media print {
             .nav-container,
@@ -495,6 +819,19 @@
                 box-shadow: none;
                 border: 1px solid #ccc;
                 break-inside: avoid;
+            }
+
+            .timeline::before {
+                background: #ccc;
+            }
+
+            .timeline-item::before {
+                background: #666;
+            }
+
+            .timeline-content {
+                box-shadow: none;
+                border: 1px solid #ccc;
             }
         }
     </style>
@@ -527,7 +864,7 @@
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12,6 12,12 16,14"/>
                 </svg>
-                최종 업데이트: 2025년 1월 16일
+                최종 업데이트: 2025년 7월 1일
             </div>
         </header>
 
@@ -1005,6 +1342,211 @@
             </div>
         </div>
 
+        <!-- Update History Section -->
+        <section class="update-history">
+            <h2 class="update-history-title">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="history-icon">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                    <path d="M3 3v5h5"/>
+                    <path d="M12 7v5l4 2"/>
+                </svg>
+                업데이트 내역
+            </h2>
+            
+            <div class="timeline">
+                <!-- 2025-07-01 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span class="date-badge latest">2025.07.01</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="update-title">🆕 정책 페이지 추가 및 사이트맵 완성</h3>
+                        <div class="update-details">
+                            <div class="update-category new">
+                                <span class="category-label">추가</span>
+                                <ul>
+                                    <li><strong>웹 접근성 페이지</strong> - 포용적인 웹 환경 가이드</li>
+                                    <li><strong>사이트맵 페이지</strong> - 전체 페이지 구조 안내</li>
+                                    <li><strong>개인정보처리방침</strong> - 현대적 디자인으로 개선</li>
+                                    <li><strong>이용약관</strong> - 상세한 서비스 약관</li>
+                                </ul>
+                            </div>
+                            <div class="update-category improved">
+                                <span class="category-label">개선</span>
+                                <ul>
+                                    <li>홈페이지 푸터 링크 연결 완료</li>
+                                    <li>모든 정책 페이지 통일된 디자인 적용</li>
+                                    <li>다크모드 및 반응형 디자인 지원</li>
+                                    <li>진행률 표시바 및 애니메이션 효과</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025-06-28 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span class="date-badge">2025.06.28</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="update-title">🔧 아이콘 시스템 로컬화</h3>
+                        <div class="update-details">
+                            <div class="update-category improved">
+                                <span class="category-label">개선</span>
+                                <ul>
+                                    <li><strong>Font Awesome 로컬화</strong> - CDN 의존성 제거</li>
+                                    <li><strong>SVG 아이콘 추가</strong> - 46개 → 62개로 확장</li>
+                                    <li><strong>브랜드 아이콘 추가</strong> - HTML5, CSS3, React, Node.js 등</li>
+                                    <li>모든 HTML 파일의 외부 링크 로컬 파일로 교체</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025-06-25 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span class="date-badge">2025.06.25</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="update-title">🐛 JavaScript 오류 수정</h3>
+                        <div class="update-details">
+                            <div class="update-category fixed">
+                                <span class="category-label">수정</span>
+                                <ul>
+                                    <li><strong>스크롤 오류 해결</strong> - navigation.js 중복 함수 제거</li>
+                                    <li><strong>utils 객체 오류</strong> - 초기화 순서 개선</li>
+                                    <li><strong>이벤트 리스너 최적화</strong> - 메모리 누수 방지</li>
+                                    <li>try-catch 블록으로 에러 처리 강화</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025-06-20 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span class="date-badge">2025.06.20</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="update-title">📱 반응형 디자인 개선</h3>
+                        <div class="update-details">
+                            <div class="update-category improved">
+                                <span class="category-label">개선</span>
+                                <ul>
+                                    <li><strong>모바일 최적화</strong> - 터치 인터페이스 개선</li>
+                                    <li><strong>태블릿 레이아웃</strong> - 중간 화면 크기 대응</li>
+                                    <li><strong>네비게이션 UX</strong> - 햄버거 메뉴 개선</li>
+                                    <li>CSS Grid 및 Flexbox 최적화</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025-06-15 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span class="date-badge">2025.06.15</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="update-title">🎨 디자인 시스템 구축</h3>
+                        <div class="update-details">
+                            <div class="update-category new">
+                                <span class="category-label">추가</span>
+                                <ul>
+                                    <li><strong>CSS 변수 시스템</strong> - 색상 팔레트 통일</li>
+                                    <li><strong>컴포넌트 라이브러리</strong> - 재사용 가능한 UI 요소</li>
+                                    <li><strong>애니메이션 시스템</strong> - 부드러운 전환 효과</li>
+                                    <li>타이포그래피 가이드라인 설정</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 더 많은 업데이트 보기 버튼 -->
+                <div class="show-more-container">
+                    <button class="show-more-btn" onclick="toggleMoreUpdates()">
+                        <span id="showMoreText">이전 업데이트 보기</span>
+                        <svg class="show-more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 숨겨진 이전 업데이트들 -->
+                <div class="more-updates" id="moreUpdates" style="display: none;">
+                    <!-- 2025-06-10 -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <span class="date-badge">2025.06.10</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="update-title">🚀 성능 최적화</h3>
+                            <div class="update-details">
+                                <div class="update-category improved">
+                                    <span class="category-label">개선</span>
+                                    <ul>
+                                        <li><strong>이미지 최적화</strong> - WebP 포맷 및 Lazy Loading</li>
+                                        <li><strong>JavaScript 번들링</strong> - 로딩 시간 단축</li>
+                                        <li><strong>CSS 압축</strong> - 파일 크기 최적화</li>
+                                        <li>캐싱 전략 개선</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2025-05-20 -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <span class="date-badge">2025.05.20</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="update-title">🎵 음악 플레이어 기능 추가</h3>
+                            <div class="update-details">
+                                <div class="update-category new">
+                                    <span class="category-label">추가</span>
+                                    <ul>
+                                        <li><strong>음악 스트리밍</strong> - 실시간 재생 기능</li>
+                                        <li><strong>플레이리스트</strong> - 작곡 작품 모음</li>
+                                        <li><strong>오디오 컨트롤</strong> - 볼륨, 진행률 조절</li>
+                                        <li>음악 메타데이터 표시</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2025-05-01 -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <span class="date-badge initial">2025.05.01</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="update-title">🎉 junetapa 웹사이트 프로젝트 시작</h3>
+                            <div class="update-details">
+                                <div class="update-category new">
+                                    <span class="category-label">시작</span>
+                                    <ul>
+                                        <li><strong>웹사이트 리뉴얼 계획</strong> - 전체적인 개선 방향 수립</li>
+                                        <li><strong>사용자 경험 분석</strong> - 기존 사이트 문제점 파악</li>
+                                        <li><strong>기술 스택 선정</strong> - 현대적 개발 도구 도입</li>
+                                        <li><strong>디자인 콘셉트 설계</strong> - UI/UX 가이드라인 작성</li>
+                                        <li><strong>개발 일정 수립</strong> - 단계별 개발 계획</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="sitemap-footer">
             <p>
@@ -1073,6 +1615,91 @@
         // Observe all category cards
         document.querySelectorAll('.category-card').forEach(card => {
             observer.observe(card);
+        });
+
+        // Toggle more updates functionality
+        function toggleMoreUpdates() {
+            const moreUpdates = document.getElementById('moreUpdates');
+            const showMoreBtn = document.querySelector('.show-more-btn');
+            const showMoreText = document.getElementById('showMoreText');
+            const showMoreIcon = document.querySelector('.show-more-icon');
+
+            if (moreUpdates.style.display === 'none' || !moreUpdates.classList.contains('expanded')) {
+                // Show more updates
+                moreUpdates.style.display = 'block';
+                setTimeout(() => {
+                    moreUpdates.classList.add('expanded');
+                }, 10);
+                
+                showMoreText.textContent = '이전 업데이트 숨기기';
+                showMoreBtn.classList.add('expanded');
+                
+                // Smooth scroll to the newly visible content
+                setTimeout(() => {
+                    moreUpdates.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'nearest' 
+                    });
+                }, 500);
+            } else {
+                // Hide more updates
+                moreUpdates.classList.remove('expanded');
+                
+                setTimeout(() => {
+                    moreUpdates.style.display = 'none';
+                }, 500);
+                
+                showMoreText.textContent = '이전 업데이트 보기';
+                showMoreBtn.classList.remove('expanded');
+                
+                // Scroll back to the button
+                showMoreBtn.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }
+        }
+
+        // Add animation to timeline items on scroll
+        const timelineObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Initialize timeline animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial state for timeline items
+            document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                
+                timelineObserver.observe(item);
+            });
+        });
+
+        // Add click effect to timeline items
+        document.querySelectorAll('.timeline-content').forEach(content => {
+            content.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Keyboard navigation for show more button
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.target.classList.contains('show-more-btn')) {
+                toggleMoreUpdates();
+            }
         });
     </script>
 </body>
