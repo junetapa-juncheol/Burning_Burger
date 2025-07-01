@@ -220,7 +220,7 @@
     /* Music Player Specific */
     --player-height: 80px;
     --player-bg: var(--color-gray-900);
-    --player-text: var(--color-white);
+    --player-text: #666666;
     --player-accent: var(--color-primary);
     
     /* Header Specific */

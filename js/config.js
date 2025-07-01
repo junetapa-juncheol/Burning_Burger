@@ -113,7 +113,7 @@ const CONFIG = {
             album: '여름 이야기',
             duration: 200,
             src: './assets/audio/3. 폭염 속 불꽃.mp3',
-            cover: './assets/images/profile.jpg',
+            cover: './assets/images/al.png',
             genre: 'Instrumental',
             year: 2024
         }
