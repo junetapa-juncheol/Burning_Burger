@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이용약관 - junetapa</title>
+    <meta name="description" content="junetapa 포트폴리오 사이트의 이용약관입니다.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png">
+    
+    <style>
+        :root {
+            /* Enhanced Color Palette */
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #a5b4fc;
+            --primary-ultra-light: #e0e7ff;
+            --secondary: #f59e0b;
+            --secondary-light: #fbbf24;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            
+            /* Sophisticated Neutrals */
+            --gray-25: #fcfcfd;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --gray-950: #030712;
+            
+            /* Semantic Colors */
+            --text-primary: var(--gray-900);
+            --text-secondary: var(--gray-600);
+            --text-muted: var(--gray-500);
+            --text-inverse: var(--gray-25);
+            
+            /* Background System */
+            --bg-primary: #ffffff;
+            --bg-secondary: var(--gray-25);
+            --bg-tertiary: var(--gray-50);
+            --bg-quaternary: var(--gray-100);
+            --bg-surface: #ffffff;
+            --bg-elevated: #ffffff;
+            
+            /* Border & Divider */
+            --border-light: var(--gray-100);
+            --border-medium: var(--gray-200);
+            --border-strong: var(--gray-300);
+            --divider: var(--gray-200);
+            
+            /* Enhanced Shadows */
+            --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+            
+            /* Border Radius System */
+            --radius-xs: 0.25rem;
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-3xl: 2rem;
+            --radius-full: 9999px;
+            
+            /* Typography Scale */
+            --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            
+            /* Spacing Scale */
+            --space-px: 1px;
+            --space-0-5: 0.125rem;
+            --space-1: 0.25rem;
+            --space-1-5: 0.375rem;
+            --space-2: 0.5rem;
+            --space-2-5: 0.625rem;
+            --space-3: 0.75rem;
+            --space-3-5: 0.875rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-7: 1.75rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Enhanced Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Enhanced Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-4) var(--space-8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-button:hover::before {
+            opacity: 1;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+            transition: transform 0.1s ease;
+        }
+
+        .back-icon {
+            width: 16px;
+            height: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--secondary) 100%);
+            z-index: 1001;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Main Container */
+        .terms-container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: var(--space-24) var(--space-8) var(--space-16);
+            min-height: 100vh;
+        }
+
+        /* Enhanced Header */
+        .terms-header {
+            text-align: center;
+            margin-bottom: var(--space-20);
+            position: relative;
+        }
+
+        .terms-header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: var(--radius-full);
+            opacity: 0.6;
+        }
+
+        .terms-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, var(--secondary) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: var(--space-4);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .terms-subtitle {
+            font-size: 1.375rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-6);
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .terms-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: var(--bg-surface);
+            color: var(--text-secondary);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            border: 1px solid var(--border-medium);
+            box-shadow: var(--shadow-xs);
+            transition: all 0.3s ease;
+        }
+
+        .terms-updated:hover {
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-1px);
+        }
+
+        .update-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--primary);
+        }
+
+        /* Enhanced Section Styles */
+        .terms-section {
+            margin-bottom: var(--space-12);
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .terms-section:nth-child(1) { animation-delay: 0.1s; }
+        .terms-section:nth-child(2) { animation-delay: 0.15s; }
+        .terms-section:nth-child(3) { animation-delay: 0.2s; }
+        .terms-section:nth-child(4) { animation-delay: 0.25s; }
+        .terms-section:nth-child(5) { animation-delay: 0.3s; }
+        .terms-section:nth-child(6) { animation-delay: 0.35s; }
+        .terms-section:nth-child(7) { animation-delay: 0.4s; }
+        .terms-section:nth-child(8) { animation-delay: 0.45s; }
+        .terms-section:nth-child(9) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-4);
+            border-bottom: 2px solid var(--bg-quaternary);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: var(--radius-full);
+        }
+
+        .section-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            box-shadow: var(--shadow-xs);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-ultra-light) 50%, transparent 100%);
+        }
+
+        .section-content:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: var(--border-medium);
+        }
+
+        /* Enhanced Typography */
+        .section-content p {
+            margin-bottom: var(--space-6);
+            line-height: 1.75;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-content strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .section-content ul, .section-content ol {
+            margin: var(--space-6) 0;
+            padding-left: var(--space-6);
+        }
+
+        .section-content li {
+            margin-bottom: var(--space-3);
+            line-height: 1.75;
+            position: relative;
+        }
+
+        .section-content li:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-content ul li::marker {
+            color: var(--primary);
+        }
+
+        .section-content ol li::marker {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Enhanced Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.04) 0%, 
+                rgba(6, 182, 212, 0.04) 50%, 
+                rgba(245, 158, 11, 0.04) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            margin: var(--space-8) 0;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 50%, var(--secondary) 100%);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        .highlight-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-box p, .highlight-box ul {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Notice Boxes */
+        .terms-notice {
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-4);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .terms-notice:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .terms-notice::before {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .info-notice {
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .info-notice::before {
+            content: 'ℹ️';
+        }
+
+        .warning-notice {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .warning-notice::before {
+            content: '⚠️';
+        }
+
+        .success-notice {
+            background: rgba(16, 185, 129, 0.06);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .success-notice::before {
+            content: '✅';
+        }
+
+        /* Enhanced Footer */
+        .terms-footer {
+            text-align: center;
+            margin-top: var(--space-20);
+            padding: var(--space-8);
+            border-top: 1px solid var(--border-light);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-radius: var(--radius-3xl);
+            position: relative;
+        }
+
+        .terms-footer::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+        }
+
+        .terms-footer p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .terms-footer strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* Table of Contents (Optional Enhancement) */
+        .toc {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin-bottom: var(--space-12);
+            box-shadow: var(--shadow-xs);
+        }
+
+        .toc h3 {
+            color: var(--primary-dark);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: var(--space-2);
+        }
+
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-md);
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+            background: var(--primary-ultra-light);
+        }
+
+        .toc a::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: var(--space-4);
+            }
+
+            .terms-container {
+                padding: var(--space-20) var(--space-4) var(--space-12);
+            }
+
+            .terms-title {
+                font-size: 2.25rem;
+            }
+
+            .terms-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .section-content {
+                padding: var(--space-6);
+            }
+
+            .highlight-box {
+                padding: var(--space-6);
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terms-title {
+                font-size: 1.875rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-3);
+                text-align: left;
+            }
+
+            .section-number {
+                align-self: flex-start;
+            }
+
+            .section-content {
+                padding: var(--space-5);
+            }
+
+            .highlight-box {
+                padding: var(--space-5);
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-primary: var(--gray-50);
+                --text-secondary: var(--gray-300);
+                --text-muted: var(--gray-400);
+                --text-inverse: var(--gray-900);
+                --bg-primary: var(--gray-950);
+                --bg-secondary: var(--gray-900);
+                --bg-tertiary: var(--gray-800);
+                --bg-quaternary: var(--gray-700);
+                --bg-surface: var(--gray-900);
+                --bg-elevated: var(--gray-800);
+                --border-light: var(--gray-800);
+                --border-medium: var(--gray-700);
+                --border-strong: var(--gray-600);
+                --divider: var(--gray-800);
+            }
+
+            .nav-container {
+                background: rgba(3, 7, 18, 0.85);
+                border-bottom-color: var(--border-light);
+            }
+
+            .section-content {
+                background: var(--bg-surface);
+                border-color: var(--border-light);
+            }
+
+            .terms-footer {
+                background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .nav-container,
+            .back-button,
+            .progress-indicator,
+            .toc {
+                display: none;
+            }
+
+            .terms-container {
+                padding-top: var(--space-8);
+                max-width: none;
+            }
+
+            .section-content {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                break-inside: avoid;
+            }
+
+            .terms-section {
+                break-inside: avoid;
+            }
+        }
+
+        /* Accessibility Enhancements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for better accessibility */
+        .back-button:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .toc a:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Enhanced scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: var(--radius-full);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <button class="back-button" onclick="window.history.back()">
+                <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m12 19-7-7 7-7"/>
+                    <path d="M19 12H5"/>
+                </svg>
+                <span>돌아가기</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="terms-container">
+        <!-- Header -->
+        <header class="terms-header">
+            <h1 class="terms-title">서비스 이용약관</h1>
+            <p class="terms-subtitle">junetapa 포트폴리오 웹사이트</p>
+            <div class="terms-updated">
+                <svg class="update-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12,6 12,12 16,14"/>
+                </svg>
+                최종 업데이트: 2025년 1월 16일
+            </div>
+        </header>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18"/>
+                    <path d="M3 12h18"/>
+                    <path d="M3 18h18"/>
+                </svg>
+                목차
+            </h3>
+            <ul>
+                <li><a href="#section-1">1. 약관의 목적 및 적용범위</a></li>
+                <li><a href="#section-2">2. 서비스의 제공 및 변경</a></li>
+                <li><a href="#section-3">3. 이용자의 권리와 의무</a></li>
+                <li><a href="#section-4">4. 저작권 및 지식재산권</a></li>
+                <li><a href="#section-5">5. 서비스 이용의 제한</a></li>
+                <li><a href="#section-6">6. 손해배상 및 면책조항</a></li>
+                <li><a href="#section-7">7. 분쟁해결 및 준거법</a></li>
+                <li><a href="#section-8">8. 약관의 변경 및 효력</a></li>
+                <li><a href="#section-9">9. 기타 및 연락처</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 1: 약관의 목적 및 적용범위 -->
+        <section class="terms-section" id="section-1">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                약관의 목적 및 적용범위
+            </h2>
+            <div class="section-content">
+                <p>본 이용약관은 <strong>junetapa</strong>(이하 "운영자")가 제공하는 포트폴리오 웹사이트 서비스의 이용조건과 절차, 운영자와 이용자 간의 권리, 의무, 책임사항을 명확히 하여 상호 신뢰를 바탕으로 한 건전한 서비스 이용환경을 조성하는 것을 목적으로 합니다.</p>
+                
+                <div class="highlight-box">
+                    <h4>🎯 서비스 정의 및 범위</h4>
+                    <ul>
+                        <li><strong>웹 개발 포트폴리오:</strong> 프론트엔드, 백엔드, 풀스택 개발 프로젝트 소개 및 전시</li>
+                        <li><strong>음악 제작 포트폴리오:</strong> 작곡, 편곡, 사운드 디자인 등 음악 관련 작품 전시</li>
+                        <li><strong>교육 및 정보 제공:</strong> 개발 및 음악 제작 관련 지식, 튜토리얼, 팁 공유</li>
+                        <li><strong>커뮤니케이션 서비스:</strong> 뉴스레터 구독, 프로젝트 문의, 협업 제안 등</li>
+                    </ul>
+                </div>
+
+                <p><strong>적용 범위:</strong></p>
+                <ul>
+                    <li>본 약관은 junetapa.info 도메인에서 제공되는 모든 서비스에 적용됩니다</li>
+                    <li>별도로 명시된 개별 서비스 약관이 있는 경우, 해당 약관이 우선 적용됩니다</li>
+                    <li>관계 법령에서 허용하는 범위 내에서 본 약관이 적용됩니다</li>
+                </ul>
+
+                <div class="terms-notice info-notice">
+                    본 서비스는 개인 포트폴리오 사이트로, 별도의 회원가입 절차 없이도 대부분의 콘텐츠를 자유롭게 이용하실 수 있습니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 서비스의 제공 및 변경 -->
+        <section class="terms-section" id="section-2">
+            <h2 class="section-title">
+                <span class="section-number">2</span>
+                서비스의 제공 및 변경
+            </h2>
+            <div class="section-content">
+                <p>운영자는 이용자에게 안정적이고 유용한 서비스를 제공하기 위해 지속적으로 노력하며, 다음과 같은 원칙에 따라 서비스를 운영합니다.</p>
+                
+                <div class="highlight-box">
+                    <h4>🚀 주요 제공 서비스</h4>
+                    <ul>
+                        <li><strong>포트폴리오 전시:</strong> 웹 개발 및 음악 제작 프로젝트의 체계적인 소개와 데모</li>
+                        <li><strong>기술 블로그:</strong> 개발 경험, 학습 과정, 업계 동향에 대한 인사이트 공유</li>
+                        <li><strong>리소스 공유:</strong> 유용한 도구, 라이브러리, 학습 자료 추천</li>
+                        <li><strong>연락 및 상담:</strong> 프로젝트 의뢰, 협업 문의, 멘토링 상담</li>
+                        <li><strong>뉴스레터:</strong> 정기적인 업데이트, 새로운 프로젝트 소식, 업계 트렌드 정보</li>
+                    </ul>
+                </div>
+
+                <p><strong>서비스 운영 원칙:</strong></p>
+                <ul>
+                    <li><strong>지속적 개선:</strong> 사용자 피드백을 바탕으로 서비스 품질을 지속적으로 향상시킵니다</li>
+                    <li><strong>기술적 안정성:</strong> 최신 웹 기술과 보안 기준을 적용하여 안정적인 서비스를 제공합니다</li>
+                    <li><strong>접근성 보장:</strong> 다양한 기기와 브라우저에서 원활한 이용이 가능하도록 최적화합니다</li>
+                </ul>
+
+                <p><strong>서비스 변경 및 중단:</strong></p>
+                <ul>
+                    <li>서비스 개선이나 정책 변경을 위해 서비스의 일부 또는 전부를 수정할 수 있습니다</li>
+                    <li>중요한 변경사항은 최소 7일 전 웹사이트를 통해 사전 공지합니다</li>
+                    <li>시스템 점검, 서버 교체, 긴급한 보안 패치 등으로 인한 일시적 중단은 사전 공지 없이 진행될 수 있습니다</li>
+                    <li>천재지변, 불가항력적 상황 발생 시 서비스가 일시 중단될 수 있습니다</li>
+                </ul>
+
+                <div class="terms-notice warning-notice">
+                    서비스 변경이나 중단으로 인해 발생하는 손해에 대해서는 운영자에게 고의 또는 중대한 과실이 없는 한 책임을 지지 않습니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: 이용자의 권리와 의무 -->
+        <section class="terms-section" id="section-3">
+            <h2 class="section-title">
+                <span class="section-number">3</span>
+                이용자의 권리와 의무
+            </h2>
+            <div class="section-content">
+                <p>이용자는 서비스를 이용함에 있어 다음과 같은 권리를 보장받으며, 동시에 건전한 서비스 환경 조성을 위한 의무를 준수해야 합니다.</p>
+                
+                <div class="highlight-box">
+                    <h4>✨ 이용자의 권리</h4>
+                    <ul>
+                        <li><strong>자유로운 정보 접근:</strong> 공개된 모든 콘텐츠에 제한 없이 접근할 권리</li>
+                        <li><strong>개인정보 보호:</strong> 개인정보 수집, 이용, 제공에 대한 동의권 및 삭제 요구권</li>
+                        <li><strong>서비스 개선 요청:</strong> 서비스 개선 사항이나 불편 사항에 대한 의견 제시권</li>
+                        <li><strong>문의 및 소통:</strong> 프로젝트 관련 문의나 협업 제안을 할 권리</li>
+                        <li><strong>구독 관리:</strong> 뉴스레터 구독 및 해지를 자유롭게 결정할 권리</li>
+                    </ul>
+                </div>
+
+                <p><strong>이용자의 기본 의무:</strong></p>
+                <ul>
+                    <li><strong>법령 준수:</strong> 관련 법률과 본 약관의 규정을 성실히 준수해야 합니다</li>
+                    <li><strong>정확한 정보 제공:</strong> 문의나 구독 신청 시 정확하고 최신의 정보를 제공해야 합니다</li>
+                    <li><strong>서비스 보호:</strong> 서비스의 안정적 운영을 방해하는 행위를 해서는 안 됩니다</li>
+                    <li><strong>지적재산권 존중:</strong> 웹사이트 내 모든 콘텐츠의 저작권과 지적재산권을 존중해야 합니다</li>
+                    <li><strong>타인 권리 존중:</strong> 다른 이용자나 제3자의 권리를 침해하지 않아야 합니다</li>
+                </ul>
+
+                <p><strong>엄격히 금지되는 행위:</strong></p>
+                <ul>
+                    <li>🚫 서비스 운영을 고의로 방해하거나 서버에 과부하를 일으키는 행위</li>
+                    <li>🚫 허위 정보를 입력하거나 악의적인 목적으로 서비스를 이용하는 행위</li>
+                    <li>🚫 저작권이 보호되는 콘텐츠를 무단으로 복제, 배포, 상업적 이용하는 행위</li>
+                    <li>🚫 악성 코드 유포, 해킹 시도, 불법적인 접근을 시도하는 행위</li>
+                    <li>🚫 음란물, 폭력적 내용, 차별적 표현 등 부적절한 내용을 전송하는 행위</li>
+                    <li>🚫 스팸, 광고성 메시지를 무단으로 발송하는 행위</li>
+                </ul>
+
+                <div class="terms-notice success-notice">
+                    건전하고 창의적인 교류를 위해 서로를 존중하는 마음으로 서비스를 이용해 주시기 바랍니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: 저작권 및 지식재산권 -->
+        <section class="terms-section" id="section-4">
+            <h2 class="section-title">
+                <span class="section-number">4</span>
+                저작권 및 지적재산권
+            </h2>
+            <div class="section-content">
+                <p>본 웹사이트에 게시된 모든 콘텐츠는 저작권법 및 관련 법령에 의해 보호받는 창작물입니다. 이용자는 저작권자의 권리를 존중하고 적법한 범위 내에서 이용해야 합니다.</p>
+                
+                <div class="highlight-box">
+                    <h4>🎨 보호 대상 및 범위</h4>
+                    <ul>
+                        <li><strong>소스 코드 및 기술 문서:</strong> 프로젝트 코드, 아키텍처 설계, 기술 명세서</li>
+                        <li><strong>음악 및 오디오 작품:</strong> 원곡, 편곡, 믹싱, 마스터링 결과물</li>
+                        <li><strong>시각적 디자인:</strong> 웹사이트 디자인, 로고, 아이콘, 그래픽 요소</li>
+                        <li><strong>텍스트 콘텐츠:</strong> 블로그 글, 프로젝트 설명, 튜토리얼, 기술 문서</li>
+                        <li><strong>멀티미디어:</strong> 사진, 영상, 애니메이션, 인터랙티브 요소</li>
+                    </ul>
+                </div>
+
+                <p><strong>허용되는 이용 범위:</strong></p>
+                <ul>
+                    <li><strong>개인적 열람:</strong> 개인 학습이나 참고 목적의 열람 및 브라우징</li>
+                    <li><strong>교육적 인용:</strong> 학술 연구나 교육 목적의 제한적 인용 (반드시 출처 명시)</li>
+                    <li><strong>소셜 공유:</strong> 원본 링크를 포함한 소셜미디어 공유</li>
+                    <li><strong>피드백 제공:</strong> 건설적인 비평이나 리뷰 작성</li>
+                </ul>
+
+                <p><strong>명시적으로 금지되는 행위:</strong></p>
+                <ul>
+                    <li>❌ 상업적 목적의 무단 사용, 복제, 재배포</li>
+                    <li>❌ 콘텐츠의 변경, 수정, 왜곡을 통한 2차 저작물 제작</li>
+                    <li>❌ 출처를 밝히지 않은 채 타 플랫폼에 게시</li>
+                    <li>❌ 역공학을 통한 소스 코드 분석 및 유사 제품 개발</li>
+                    <li>❌ 음악 작품의 무단 샘플링이나 리믹스 제작</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>📄 라이선스 및 이용 허가</h4>
+                    <p>일부 오픈소스 프로젝트나 교육 자료의 경우, 별도의 라이선스가 명시되어 있습니다. 해당 라이선스 조건을 확인하고 준수해 주시기 바랍니다.</p>
+                    <ul>
+                        <li><strong>MIT License:</strong> 일부 데모 프로젝트</li>
+                        <li><strong>Creative Commons:</strong> 특정 교육 콘텐츠</li>
+                        <li><strong>Custom License:</strong> 개별 프로젝트별 명시된 조건</li>
+                    </ul>
+                </div>
+
+                <div class="terms-notice info-notice">
+                    콘텐츠의 상업적 이용이나 2차 창작을 원하시는 경우, 사전에 운영자에게 문의하여 별도의 이용 허가를 받으시기 바랍니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: 서비스 이용의 제한 -->
+        <section class="terms-section" id="section-5">
+            <h2 class="section-title">
+                <span class="section-number">5</span>
+                서비스 이용의 제한
+            </h2>
+            <div class="section-content">
+                <p>운영자는 건전한 서비스 환경 유지와 다른 이용자의 권익 보호를 위해 필요한 경우 서비스 이용을 제한할 수 있습니다.</p>
+                
+                <p><strong>이용 제한 사유:</strong></p>
+                <ul>
+                    <li><strong>약관 위반:</strong> 본 이용약관이나 개별 서비스 약관을 위반한 경우</li>
+                    <li><strong>법령 위반:</strong> 관련 법률을 위반하거나 공공질서를 해치는 행위를 한 경우</li>
+                    <li><strong>서비스 방해:</strong> 서비스 운영을 고의로 방해하거나 다른 이용자의 이용을 저해한 경우</li>
+                    <li><strong>보안 위협:</strong> 해킹, 악성 코드 유포 등 보안을 위협하는 행위를 한 경우</li>
+                    <li><strong>허위 정보:</strong> 의도적으로 허위 정보를 제공하거나 사기 행위를 시도한 경우</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>⚖️ 제한 조치의 종류</h4>
+                    <ul>
+                        <li><strong>경고:</strong> 경미한 위반 시 개선 요구 및 주의 조치</li>
+                        <li><strong>기능 제한:</strong> 특정 서비스나 기능 이용 일시 정지</li>
+                        <li><strong>접속 차단:</strong> IP 주소 기반 일시적 또는 영구적 접속 차단</li>
+                        <li><strong>계정 정지:</strong> 뉴스레터 구독 정지, 문의 기능 이용 제한</li>
+                        <li><strong>법적 조치:</strong> 심각한 위반 시 관련 기관 신고 및 법적 대응</li>
+                    </ul>
+                </div>
+
+                <p><strong>즉시 제한 조치 대상:</strong></p>
+                <ul>
+                    <li>🚨 해킹, DDoS 공격 등 사이버 범죄 행위</li>
+                    <li>🚨 악성 코드, 바이러스 유포 시도</li>
+                    <li>🚨 개인정보 탈취나 프라이버시 침해 행위</li>
+                    <li>🚨 저작권 대량 침해나 상업적 도용</li>
+                    <li>🚨 불법 정보 유포나 범죄 예고</li>
+                </ul>
+
+                <p><strong>이의 제기 및 해제 절차:</strong></p>
+                <ul>
+                    <li>이용 제한 조치에 이의가 있는 경우 운영자에게 서면으로 이의 제기 가능</li>
+                    <li>정당한 사유가 인정되는 경우 제한 조치를 해제하거나 완화할 수 있음</li>
+                    <li>제한 해제 후에도 동일한 위반 행위 재발 시 더 강력한 조치가 적용될 수 있음</li>
+                </ul>
+
+                <div class="terms-notice warning-notice">
+                    이용 제한은 위반 행위의 정도와 재발 여부를 종합적으로 고려하여 결정되며, 사전 통보 없이 즉시 적용될 수 있습니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: 손해배상 및 면책조항 -->
+        <section class="terms-section" id="section-6">
+            <h2 class="section-title">
+                <span class="section-number">6</span>
+                손해배상 및 면책조항
+            </h2>
+            <div class="section-content">
+                <p>서비스 이용과 관련하여 발생할 수 있는 손해에 대한 책임 범위와 면책 사항을 명확히 하여 분쟁을 예방하고자 합니다.</p>
+                
+                <div class="highlight-box">
+                    <h4>⚖️ 운영자의 배상 책임</h4>
+                    <ul>
+                        <li><strong>고의·중과실:</strong> 운영자의 고의 또는 중대한 과실로 인한 손해</li>
+                        <li><strong>개인정보 침해:</strong> 개인정보보호법 위반으로 인한 정신적·재산적 피해</li>
+                        <li><strong>서비스 약속:</strong> 명시적으로 보장한 서비스 제공 약속의 불이행</li>
+                        <li><strong>저작권 침해:</strong> 운영자가 제공한 콘텐츠의 저작권 침해로 인한 손해</li>
+                    </ul>
+                </div>
+
+                <p><strong>면책 사항:</strong></p>
+                <ul>
+                    <li><strong>불가항력:</strong> 천재지변, 전쟁, 테러, 전염병 등으로 인한 서비스 중단</li>
+                    <li><strong>기술적 한계:</strong> 인터넷 특성상 발생하는 일시적 접속 장애나 데이터 손실</li>
+                    <li><strong>이용자 귀책:</strong> 이용자의 과실이나 부주의로 인한 손해</li>
+                    <li><strong>무료 서비스:</strong> 무료로 제공되는 서비스의 품질이나 연속성</li>
+                    <li><strong>외부 링크:</strong> 제3자 웹사이트나 서비스 이용으로 인한 손해</li>
+                    <li><strong>정보 정확성:</strong> 참고용으로 제공되는 정보의 정확성이나 완전성</li>
+                </ul>
+
+                <p><strong>손해배상의 범위와 한계:</strong></p>
+                <ul>
+                    <li>배상 범위는 통상적이고 직접적인 손해에 한정됩니다</li>
+                    <li>특별손해, 간접손해, 결과적 손해, 정신적 피해는 배상 대상에서 제외됩니다</li>
+                    <li>손해배상액은 손해 발생 전 3개월간 이용자가 지불한 서비스 이용료를 초과하지 않습니다</li>
+                    <li>무료 서비스의 경우 배상액은 10만원을 초과하지 않습니다</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>🛡️ 이용자 보호 조치</h4>
+                    <ul>
+                        <li><strong>보험 가입:</strong> 서비스 운영 관련 배상책임보험 가입</li>
+                        <li><strong>보안 강화:</strong> 정기적인 보안 점검 및 업데이트</li>
+                        <li><strong>백업 시스템:</strong> 데이터 손실 방지를 위한 이중 백업</li>
+                        <li><strong>신속 대응:</strong> 문제 발생 시 24시간 내 대응 체계</li>
+                    </ul>
+                </div>
+
+                <div class="terms-notice info-notice">
+                    손해 발생 시 즉시 운영자에게 신고해 주시면 신속한 조치와 지원을 받으실 수 있습니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: 분쟁해결 및 준거법 -->
+        <section class="terms-section" id="section-7">
+            <h2 class="section-title">
+                <span class="section-number">7</span>
+                분쟁해결 및 준거법
+            </h2>
+            <div class="section-content">
+                <p>서비스 이용 과정에서 발생할 수 있는 분쟁을 원만하고 신속하게 해결하기 위한 절차와 기준을 제시합니다.</p>
+                
+                <div class="highlight-box">
+                    <h4>🤝 단계별 분쟁해결 절차</h4>
+                    <ol>
+                        <li><strong>직접 협의 (1단계):</strong> 운영자와 이용자 간 이메일 또는 문의폼을 통한 직접 소통</li>
+                        <li><strong>조정 신청 (2단계):</strong> 협의가 어려운 경우 관련 조정기관을 통한 조정 절차</li>
+                        <li><strong>법정 소송 (3단계):</strong> 조정으로도 해결되지 않는 경우 관할 법원을 통한 법적 해결</li>
+                    </ol>
+                </div>
+
+                <p><strong>준거법 및 관할:</strong></p>
+                <ul>
+                    <li><strong>준거법:</strong> 대한민국 법령 (민법, 전자상거래법, 개인정보보호법 등)</li>
+                    <li><strong>관할법원:</strong> 운영자의 주소지 또는 서비스 제공지 관할법원</li>
+                    <li><strong>적용 언어:</strong> 한국어 (분쟁 발생 시 한국어 버전이 우선적으로 해석됨)</li>
+                    <li><strong>시효:</strong> 손해배상청구권은 손해 및 가해자를 안 날로부터 3년, 불법행위일로부터 10년</li>
+                </ul>
+
+                <p><strong>대안적 분쟁해결 기관:</strong></p>
+                <ul>
+                    <li><strong>소비자분쟁조정위원회:</strong> www.ccn.go.kr | ☎ 1372</li>
+                    <li><strong>개인정보 분쟁조정위원회:</strong> privacy.go.kr | ☎ 국번없이 182</li>
+                    <li><strong>온라인상 분쟁조정:</strong> www.ecmc.or.kr | ☎ 1661-5714</li>
+                    <li><strong>저작권 분쟁조정위원회:</strong> www.copyright.or.kr | ☎ 1800-5455</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>💼 분쟁 예방을 위한 권고사항</h4>
+                    <ul>
+                        <li>서비스 이용 전 약관과 정책을 충분히 숙지하시기 바랍니다</li>
+                        <li>문의사항이 있는 경우 주저하지 마시고 운영자에게 연락해 주세요</li>
+                        <li>중요한 소통 내용은 이메일 등 서면으로 기록을 남겨두시기 바랍니다</li>
+                        <li>분쟁 발생 시 감정적 대응보다는 합리적 해결 방안을 모색해 주세요</li>
+                    </ul>
+                </div>
+
+                <div class="terms-notice success-notice">
+                    대부분의 문제는 상호 이해와 소통을 통해 원만히 해결될 수 있습니다. 언제든지 열린 마음으로 대화하겠습니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: 약관의 변경 및 효력 -->
+        <section class="terms-section" id="section-8">
+            <h2 class="section-title">
+                <span class="section-number">8</span>
+                약관의 변경 및 효력
+            </h2>
+            <div class="section-content">
+                <p>본 이용약관은 관련 법령의 변경이나 서비스 정책 개선에 따라 필요시 개정될 수 있으며, 투명하고 공정한 절차를 통해 진행됩니다.</p>
+                
+                <p><strong>약관 변경 사유:</strong></p>
+                <ul>
+                    <li><strong>법령 변경:</strong> 관련 법률의 제정, 개정, 폐지에 따른 조정</li>
+                    <li><strong>서비스 개선:</strong> 새로운 기능 추가나 서비스 품질 향상을 위한 개정</li>
+                    <li><strong>정책 변경:</strong> 운영 정책이나 가이드라인의 변경에 따른 수정</li>
+                    <li><strong>분쟁 예방:</strong> 이용자 보호 강화나 분쟁 예방을 위한 명확화</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>📢 변경 절차 및 공지</h4>
+                    <ul>
+                        <li><strong>사전 공지:</strong> 중요 변경사항은 30일 전, 일반 변경사항은 7일 전 공지</li>
+                        <li><strong>공지 방법:</strong> 웹사이트 메인페이지, 뉴스레터, 팝업 공지</li>
+                        <li><strong>변경 내용:</strong> 변경 조항, 변경 사유, 적용 일자를 상세히 명시</li>
+                        <li><strong>이용자 보호:</strong> 불리한 변경의 경우 더 긴 사전 공지 기간 제공</li>
+                    </ul>
+                </div>
+
+                <p><strong>변경 약관의 효력:</strong></p>
+                <ul>
+                    <li>공지된 효력 발생일부터 새로운 약관이 적용됩니다</li>
+                    <li>변경에 동의하지 않는 경우 서비스 이용을 중단하시면 됩니다</li>
+                    <li>효력 발생일 이후 서비스를 계속 이용하는 경우 변경된 약관에 동의한 것으로 간주됩니다</li>
+                    <li>중요한 변경사항의 경우 별도의 동의 절차를 거칠 수 있습니다</li>
+                </ul>
+
+                <p><strong>약관의 해석 원칙:</strong></p>
+                <ul>
+                    <li>약관의 일부가 무효이거나 집행 불가능하더라도 나머지 조항은 유효하게 적용됩니다</li>
+                    <li>약관 해석에 이견이 있는 경우 이용자에게 유리한 방향으로 해석합니다</li>
+                    <li>본 약관에 명시되지 않은 사항은 관계 법령과 일반적 관례에 따릅니다</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>📅 약관 개정 이력</h4>
+                    <ul>
+                        <li><strong>v1.0 (2025.01.16):</strong> 이용약관 최초 제정 및 시행</li>
+                        <li style="color: var(--text-muted); font-style: italic;">향후 개정 내역이 여기에 추가됩니다</li>
+                    </ul>
+                </div>
+
+                <div class="terms-notice info-notice">
+                    약관 변경 알림을 받고 싶으시면 뉴스레터를 구독하시거나 정기적으로 웹사이트를 방문해 확인해 주시기 바랍니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: 기타 및 연락처 -->
+        <section class="terms-section" id="section-9">
+            <h2 class="section-title">
+                <span class="section-number">9</span>
+                기타 사항 및 연락처
+            </h2>
+            <div class="section-content">
+                <p>본 약관에 명시되지 않은 사항과 서비스 이용 중 문의사항이 있을 때의 연락 방법을 안내합니다.</p>
+                
+                <p><strong>약관 적용의 우선순위:</strong></p>
+                <ol>
+                    <li>개별 서비스 약관 (특정 서비스에 대한 별도 약관이 있는 경우)</li>
+                    <li>본 이용약관</li>
+                    <li>개인정보처리방침</li>
+                    <li>관련 법령 (전자상거래법, 개인정보보호법 등)</li>
+                    <li>일반적인 상관례</li>
+                </ol>
+
+                <p><strong>통지 및 의사소통:</strong></p>
+                <ul>
+                    <li><strong>운영자 → 이용자:</strong> 웹사이트 공지사항, 뉴스레터, 이메일</li>
+                    <li><strong>이용자 → 운영자:</strong> 이메일, 웹사이트 문의폼, 소셜미디어 DM</li>
+                    <li><strong>공식 언어:</strong> 한국어 (영어 문의도 가능하나 답변은 한국어로 제공)</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>📞 종합 고객지원 센터</h4>
+                    <ul>
+                        <li><strong>이메일:</strong> <a href="mailto:jun22sky@nate.com">jun22sky@nate.com</a></li>
+                        <li><strong>웹사이트:</strong> <a href="https://junetapa.info" target="_blank" rel="noopener">https://junetapa.info</a></li>
+                        <li><strong>문의 분야:</strong> 기술 문의, 협업 제안, 서비스 개선 의견, 약관 관련 질문</li>
+                        <li><strong>응답 시간:</strong> 평일 기준 24-48시간 이내 (긴급 사안은 당일 처리)</li>
+                        <li><strong>언어 지원:</strong> 한국어, 영어</li>
+                    </ul>
+                </div>
+
+                <p><strong>특별 지원 서비스:</strong></p>
+                <ul>
+                    <li><strong>기술 상담:</strong> 웹 개발 관련 기술 문의 및 컨설팅</li>
+                    <li><strong>협업 문의:</strong> 프로젝트 파트너십, 외주 개발, 멘토링</li>
+                    <li><strong>교육 지원:</strong> 학습 자료 추천, 커리어 조언</li>
+                    <li><strong>접근성 지원:</strong> 장애인 이용자를 위한 웹 접근성 개선 요청</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>🌟 지속적인 소통과 개선</h4>
+                    <p>더 나은 서비스를 위해 여러분의 의견을 소중히 듣고 있습니다.</p>
+                    <ul>
+                        <li><strong>피드백 환영:</strong> 서비스 개선 아이디어나 불편사항 제보</li>
+                        <li><strong>정기 설문:</strong> 분기별 사용자 만족도 조사 참여 요청</li>
+                        <li><strong>커뮤니티:</strong> 개발자 모임, 네트워킹 이벤트 안내</li>
+                        <li><strong>업데이트 알림:</strong> 새로운 기능이나 콘텐츠 출시 소식</li>
+                    </ul>
+                </div>
+
+                <div class="terms-notice success-notice">
+                    궁금한 점이 있으시거나 도움이 필요하시면 언제든지 편하게 연락해 주세요. <br>빠르고 친절하게 도움을 드리겠습니다!
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="terms-footer">
+            <p>
+                본 이용약관은 <strong>2025년 1월 16일</strong>부터 시행됩니다.<br>
+                창의적이고 혁신적인 개발 여정을 함께 만들어가는 공간이 되기를 희망합니다.<br><br>
+                
+                <strong>junetapa</strong><br>
+                📧 jun22sky@nate.com<br>
+                🌐 https://junetapa.info<br><br>
+                
+                <em>Always Learning, Always Creating, Always Sharing</em>
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        // Enhanced Progress Bar with smooth animation
+        function updateProgressBar() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = Math.min((scrolled / documentHeight) * 100, 100);
+            
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = progress + '%';
+            
+            // Add glow effect when near completion
+            if (progress > 90) {
+                progressBar.style.boxShadow = '0 0 30px rgba(99, 102, 241, 0.5)';
+            } else {
+                progressBar.style.boxShadow = '0 0 20px rgba(99, 102, 241, 0.3)';
+            }
+        }
+
+        // Throttled scroll event
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            if (!scrollTimeout) {
+                scrollTimeout = setTimeout(function() {
+                    updateProgressBar();
+                    updateNavbar();
+                    scrollTimeout = null;
+                }, 16); // ~60fps
+            }
+        });
+
+        // Enhanced navbar transparency
+        function updateNavbar() {
+            const navbar = document.querySelector('.nav-container');
+            const scrolled = window.scrollY;
+            
+            if (scrolled > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(25px) saturate(200%)';
+                navbar.style.borderBottomColor = 'rgba(229, 231, 235, 0.8)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.85)';
+                navbar.style.backdropFilter = 'blur(20px) saturate(180%)';
+                navbar.style.borderBottomColor = 'rgba(229, 231, 235, 0.6)';
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced theme detection and support
+        function updateTheme() {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        }
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+        
+        // Initialize theme
+        updateTheme();
+
+        // Enhanced Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -10% 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.terms-section, .toc').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Add interactive hover effects for highlight boxes
+        document.querySelectorAll('.highlight-box, .terms-notice').forEach(box => {
+            box.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            box.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgressBar();
+            updateNavbar();
+            
+            // Add loading complete class
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            // Alt + Home: Go to top
+            if (e.altKey && e.key === 'Home') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            // Alt + End: Go to bottom
+            if (e.altKey && e.key === 'End') {
+                e.preventDefault();
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }
+        });
+
+        // Add print support
+        window.addEventListener('beforeprint', function() {
+            document.body.classList.add('printing');
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.body.classList.remove('printing');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트맵 - junetapa</title>
+    <meta name="description" content="junetapa 포트폴리오 사이트의 전체 페이지 구조를 한눈에 확인하세요.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png">
+    
+    <style>
+        :root {
+            /* Modern Color Palette */
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #a5b4fc;
+            --secondary: #f59e0b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            
+            /* Neutral Colors */
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            
+            /* Text Colors */
+            --text-primary: var(--gray-900);
+            --text-secondary: var(--gray-600);
+            --text-muted: var(--gray-500);
+            
+            /* Background Colors */
+            --bg-primary: #ffffff;
+            --bg-secondary: var(--gray-50);
+            --bg-tertiary: var(--gray-100);
+            
+            /* Border & Shadow */
+            --border: var(--gray-200);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            /* Radius */
+            --radius-sm: 0.375rem;
+            --radius: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            
+            /* Typography */
+            --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        /* Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-lg);
+            font-weight: 500;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* Main Container */
+        .sitemap-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .sitemap-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .sitemap-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .sitemap-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .sitemap-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-lg);
+            font-size: 0.875rem;
+            border: 1px solid var(--border);
+        }
+
+        .update-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--primary);
+        }
+
+        /* Category Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Category Card */
+        .category-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .category-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .category-card:nth-child(1) { animation-delay: 0.1s; }
+        .category-card:nth-child(2) { animation-delay: 0.2s; }
+        .category-card:nth-child(3) { animation-delay: 0.3s; }
+        .category-card:nth-child(4) { animation-delay: 0.4s; }
+        .category-card:nth-child(5) { animation-delay: 0.5s; }
+        .category-card:nth-child(6) { animation-delay: 0.6s; }
+        .category-card:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Category Header */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--bg-tertiary);
+            position: relative;
+        }
+
+        .category-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 3rem;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .category-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .category-count {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius);
+            margin-left: auto;
+        }
+
+        /* Page Links */
+        .page-links {
+            list-style: none;
+        }
+
+        .page-link {
+            margin-bottom: 0.75rem;
+        }
+
+        .page-link:last-child {
+            margin-bottom: 0;
+        }
+
+        .page-link a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-lg);
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .page-link a:hover {
+            background: var(--bg-secondary);
+            border-color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .page-link-icon {
+            width: 1rem;
+            height: 1rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .page-link-info {
+            flex: 1;
+        }
+
+        .page-link-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .page-link-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Stats Section */
+        .sitemap-stats {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .sitemap-footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+        }
+
+        .sitemap-footer p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .sitemap-footer strong {
+            color: var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 1rem;
+            }
+
+            .sitemap-container {
+                padding: 5rem 1rem 3rem;
+            }
+
+            .sitemap-title {
+                font-size: 2.25rem;
+            }
+
+            .sitemap-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .category-card {
+                padding: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sitemap-title {
+                font-size: 1.875rem;
+            }
+
+            .category-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .category-count {
+                margin-left: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-primary: #f9fafb;
+                --text-secondary: #d1d5db;
+                --text-muted: #9ca3af;
+                --bg-primary: #111827;
+                --bg-secondary: #1f2937;
+                --bg-tertiary: #374151;
+                --border: #374151;
+            }
+
+            .nav-container {
+                background: rgba(17, 24, 39, 0.95);
+            }
+
+            .category-card {
+                background: var(--bg-secondary);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .nav-container,
+            .back-button,
+            .progress-indicator {
+                display: none;
+            }
+
+            .sitemap-container {
+                padding-top: 2rem;
+            }
+
+            .category-card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <button class="back-button" onclick="window.history.back()">
+                <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m12 19-7-7 7-7"/>
+                    <path d="M19 12H5"/>
+                </svg>
+                돌아가기
+            </button>
+        </div>
+    </nav>
+
+    <main class="sitemap-container">
+        <!-- Header -->
+        <header class="sitemap-header">
+            <h1 class="sitemap-title">사이트맵</h1>
+            <p class="sitemap-subtitle">junetapa 포트폴리오 사이트의 모든 페이지</p>
+            <div class="sitemap-updated">
+                <svg class="update-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12,6 12,12 16,14"/>
+                </svg>
+                최종 업데이트: 2025년 1월 16일
+            </div>
+        </header>
+
+        <!-- Statistics -->
+        <section class="sitemap-stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">29</div>
+                    <div class="stat-label">전체 페이지</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">주요 카테고리</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">포트폴리오</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">서비스</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Grid -->
+        <div class="categories-grid">
+            <!-- Main Pages -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🏠</div>
+                    <h3 class="category-title">메인 페이지</h3>
+                    <span class="category-count">3개</span>
+                </div>
+                <ul class="page-links">
+                    <li class="page-link">
+                        <a href="index.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9,22 9,12 15,12 15,22"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">홈페이지</div>
+                                <div class="page-link-desc">메인 포트폴리오 및 소개 페이지</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="privacy-policy.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">개인정보처리방침</div>
+                                <div class="page-link-desc">개인정보 수집 및 이용 관련 방침</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="terms-of-service.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">이용약관</div>
+                                <div class="page-link-desc">서비스 이용 조건 및 규정</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Web Development Portfolio -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">💻</div>
+                    <h3 class="category-title">웹 개발</h3>
+                    <span class="category-count">6개</span>
+                </div>
+                <ul class="page-links">
+                    <li class="page-link">
+                        <a href="web-dev/frontend.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">프론트엔드 개발</div>
+                                <div class="page-link-desc">React, Vue.js, HTML/CSS/JS 프로젝트</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="web-dev/backend.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                                <line x1="6" y1="6" x2="6" y2="6.01"/>
+                                <line x1="6" y1="18" x2="6" y2="18.01"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">백엔드 개발</div>
+                                <div class="page-link-desc">Node.js, Python, 데이터베이스 프로젝트</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="web-dev/fullstack.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">풀스택 개발</div>
+                                <div class="page-link-desc">전체 웹 애플리케이션 개발 프로젝트</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="web-dev/responsive-design.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <rect x="9" y="9" width="6" height="6"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">반응형 디자인</div>
+                                <div class="page-link-desc">모바일 최적화 및 반응형 웹 디자인</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="web-dev/web-security.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <circle cx="12" cy="16" r="1"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">웹 보안</div>
+                                <div class="page-link-desc">보안 취약점 분석 및 해결 방안</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="web-dev/performance-optimization.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">성능 최적화</div>
+                                <div class="page-link-desc">웹 성능 향상 및 최적화 기법</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Music Portfolio -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🎵</div>
+                    <h3 class="category-title">음악 포트폴리오</h3>
+                    <span class="category-count">6개</span>
+                </div>
+                <ul class="page-links">
+                    <li class="page-link">
+                        <a href="music/composition.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">작곡</div>
+                                <div class="page-link-desc">오리지널 음악 작품 및 멜로디 제작</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="music/arrangement-mixing.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 3v18"/>
+                                <path d="M8 12h8"/>
+                                <path d="M8 6h8"/>
+                                <path d="M8 18h8"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">편곡 & 믹싱</div>
+                                <div class="page-link-desc">음악 편곡 및 오디오 믹싱 작업</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="music/sound-design.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">사운드 디자인</div>
+                                <div class="page-link-desc">효과음 및 사운드 디자인 작업</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="music/music-theory.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <path d="M14 2v6h6"/>
+                                <path d="M16 13H8"/>
+                                <path d="M16 17H8"/>
+                                <path d="M10 9H8"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">음악 이론</div>
+                                <div class="page-link-desc">음악 이론 및 화성학 연구</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="music/recording-tech.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">녹음 기술</div>
+                                <div class="page-link-desc">스튜디오 녹음 및 오디오 엔지니어링</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="music/digital-audio.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"/>
+                                <path d="M8 21v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/>
+                                <path d="M9 9h1v1H9z"/>
+                                <path d="M14 9h1v1h-1z"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">디지털 오디오</div>
+                                <div class="page-link-desc">디지털 오디오 워크스테이션 활용</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Portfolio Projects -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">📁</div>
+                    <h3 class="category-title">포트폴리오</h3>
+                    <span class="category-count">5개</span>
+                </div>
+                <ul class="page-links">
+                    <li class="page-link">
+                        <a href="navigation/portfolio/web-project.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="6"/>
+                                <circle cx="12" cy="12" r="2"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">웹 프로젝트</div>
+                                <div class="page-link-desc">완성된 웹 애플리케이션 프로젝트</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="navigation/portfolio/mobile-app.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                                <line x1="12" y1="18" x2="12.01" y2="18"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">모바일 앱</div>
+                                <div class="page-link-desc">모바일 애플리케이션 개발 프로젝트</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="navigation/portfolio/responsive-blog.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">반응형 블로그</div>
+                                <div class="page-link-desc">반응형 디자인 적용 블로그 시스템</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="navigation/portfolio/portfolio-portal.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">포트폴리오 포털</div>
+                                <div class="page-link-desc">통합 포트폴리오 관리 시스템</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="navigation/portfolio/design-work.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                                <path d="M2 2l7.586 7.586"/>
+                                <circle cx="11" cy="11" r="2"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">디자인 작업</div>
+                                <div class="page-link-desc">UI/UX 디자인 및 그래픽 작업</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Projects -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🚀</div>
+                    <h3 class="category-title">프로젝트</h3>
+                    <span class="category-count">2개</span>
+                </div>
+                <ul class="page-links">
+                    <li class="page-link">
+                        <a href="navigation/projects/music-streaming.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">음악 스트리밍</div>
+                                <div class="page-link-desc">음악 스트리밍 플랫폼 개발 프로젝트</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="navigation/projects/opensource.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6"/>
+                                <path d="M21 12h-6m-6 0H3"/>
+                                <path d="M18.364 5.636L15.536 8.464m-7.072 0L5.636 5.636"/>
+                                <path d="M18.364 18.364L15.536 15.536m-7.072 0L5.636 18.364"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">오픈소스</div>
+                                <div class="page-link-desc">오픈소스 기여 및 개인 프로젝트</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🛠️</div>
+                    <h3 class="category-title">서비스</h3>
+                    <span class="category-count">4개</span>
+                </div>
+                <ul class="page-links">
+                    <li class="page-link">
+                        <a href="navigation/services/web-service.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">웹 서비스</div>
+                                <div class="page-link-desc">웹 개발 및 유지보수 서비스</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="navigation/services/music-production.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">음악 제작</div>
+                                <div class="page-link-desc">음악 제작 및 편곡 서비스</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="navigation/services/consulting.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                <path d="M8 9h8"/>
+                                <path d="M8 13h6"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">컨설팅</div>
+                                <div class="page-link-desc">기술 컨설팅 및 전략 수립</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="navigation/services/education.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">교육</div>
+                                <div class="page-link-desc">웹 개발 및 음악 교육 서비스</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tools -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🔧</div>
+                    <h3 class="category-title">도구</h3>
+                    <span class="category-count">3개</span>
+                </div>
+                <ul class="page-links">
+                    <li class="page-link">
+                        <a href="navigation/tools/tools.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">개발 도구</div>
+                                <div class="page-link-desc">개발에 사용하는 도구 및 기술 스택</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="navigation/tools/devblog.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">개발 블로그</div>
+                                <div class="page-link-desc">기술 블로그 및 학습 기록</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="page-link">
+                        <a href="navigation/tools/certificate.html">
+                            <svg class="page-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="7"/>
+                                <polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"/>
+                            </svg>
+                            <div class="page-link-info">
+                                <div class="page-link-title">자격증</div>
+                                <div class="page-link-desc">취득한 자격증 및 인증서</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="sitemap-footer">
+            <p>
+                웹사이트의 모든 페이지를 한눈에 확인하고 원하는 정보를 빠르게 찾아보세요.<br>
+                추가 문의사항이 있으시면 언제든지 연락해 주시기 바랍니다.<br><br>
+                <strong>junetapa</strong> | jun22sky@nate.com | https://junetapa.info
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        // Progress Bar
+        function updateProgressBar() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / documentHeight) * 100;
+            
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        window.addEventListener('scroll', updateProgressBar);
+
+        // Dark mode detection and support
+        function updateTheme() {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        }
+
+        // Listen for theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+        
+        // Initialize theme
+        updateTheme();
+
+        // Add scroll event for navbar transparency
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.nav-container');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all category cards
+        document.querySelectorAll('.category-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html> 

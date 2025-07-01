@@ -3,22 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 편곡 & 스마트 믹싱 마스터 클래스 - junetapa</title>
+    <title>AI 편곡 & 스마트 믹싱 마스터 클래스 2025 - junetapa</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Cubase Expression Maps, Logic Pro Flex Pitch, FL Studio와 AI를 활용한 전문 편곡 및 믹싱 실무 꿀팁 완전 가이드">
-    <meta name="keywords" content="AI편곡, 스마트믹싱, 큐베이스, 로직프로, FL스튜디오, Expression Maps, Flex Pitch, 음악편곡, 믹싱기법">
+    <meta name="description" content="2025년 Cubase 13 Expression Maps, Logic Pro 11 Flex Pitch, FL Studio 21과 AI를 활용한 전문 편곡 및 믹싱 실무 완전 가이드. 현장에서 바로 쓰는 혁신적 워크플로우">
+    <meta name="keywords" content="AI편곡, 스마트믹싱, 큐베이스13, 로직프로11, FL스튜디오21, Expression Maps, Flex Pitch, LANDR, iZotope, 음악편곡, 믹싱기법, 2025">
     <meta name="author" content="junetapa">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/sections.css">
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/local-icons.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        /* 전체 리스트 스타일 초기화 */
+        ul, li {
+            list-style: none;
+        }
+        
         .arrangement-page {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
@@ -110,20 +105,24 @@
         .content-text ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
         .content-text li {
             padding: 8px 0;
-            padding-left: 25px;
+            padding-left: 0;
             position: relative;
             color: #555;
         }
         
         .content-text li:before {
-            content: "🎚️";
+            content: "";
             position: absolute;
             left: 0;
             font-size: 16px;
+            line-height: 1.2;
+            top: 2px;
+            color: #667eea;
         }
         
         .content-image {
@@ -163,30 +162,38 @@
         
         .tech-card {
             background: #f8f9fa;
-            padding: 30px;
+            padding: 30px 25px;
             border-radius: 15px;
             text-align: left;
             transition: transform 0.3s ease;
             border-left: 4px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            min-height: 180px;
+            justify-content: flex-start;
         }
         
         .tech-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
         .tech-name {
-            font-weight: 700;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            line-height: 1.4;
+            font-weight: 600;
             color: #667eea;
             margin-bottom: 15px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         .tech-desc {
             font-size: 0.95rem;
             color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            line-height: 1.5;
+            flex-grow: 1;
         }
         
         .tech-tips {
@@ -196,6 +203,69 @@
             font-size: 0.9rem;
             color: #0066cc;
             border-left: 3px solid #667eea;
+            margin-top: 10px;
+        }
+        
+        .comparison-table {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .comparison-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .comparison-item h4 {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            line-height: 1.4;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .comparison-item li {
+            padding: 8px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .comparison-item ul ul {
+            margin-top: 8px;
+            margin-left: 20px;
+            list-style: none;
+        }
+        
+        .comparison-item ul ul li {
+            padding: 4px 0;
+            padding-left: 0;
+            font-size: 0.95em;
+            color: #666;
+        }
+        
+        .comparison-item strong {
+            color: #667eea;
+            font-weight: 600;
         }
         
         .stats-grid {
@@ -329,6 +399,28 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
+        .tip-box {
+            background: linear-gradient(135deg, #e8f4fd, #f0f8ff);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .tip-box h5 {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .tip-box p {
+            color: #444;
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -352,6 +444,32 @@
             .tech-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .comparison-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .comparison-item h4,
+            .tech-name {
+                gap: 8px;
+                font-size: 1rem;
+                line-height: 1.3;
+            }
+            
+            .comparison-item {
+                padding: 20px;
+            }
+            
+            .tech-card {
+                padding: 20px;
+                min-height: auto;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -363,12 +481,12 @@
     <section class="hero-section">
         <div class="container">
             <div class="hero-badge">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
-                <span>AI 편곡 & 스마트 믹싱</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                <span>AI 편곡 & 스마트 믹싱 2025</span>
             </div>
-            <h1 class="hero-title">프로급 편곡과 AI 믹싱의 만남</h1>
+            <h1 class="hero-title">AI 편곡 & 스마트 믹싱 마스터 클래스</h1>
             <p class="hero-subtitle">
-                Cubase Expression Maps, Logic Pro Flex Pitch, FL Studio와 AI의 완벽한 조화<br>
+                Cubase 13 Expression Maps, Logic Pro 11 Flex Pitch, FL Studio 21과 AI의 완벽한 조화<br>
                 현장에서 바로 쓰는 실무 꿀팁과 혁신적인 워크플로우를 마스터하세요.
             </p>
         </div>
@@ -386,17 +504,17 @@
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">02</div>
-                    <h3>Cubase Expression Maps × AI</h3>
+                    <h3>Cubase 13 Expression Maps × AI</h3>
                     <p>스마트 오케스트레이션과 AI 아티큘레이션</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">03</div>
-                    <h3>Logic Pro Flex Pitch × AI</h3>
+                    <h3>Logic Pro 11 Flex Pitch × AI</h3>
                     <p>AI 보컬 튜닝과 하모니 자동 생성</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">04</div>
-                    <h3>FL Studio × AI 믹싱 혁신</h3>
+                    <h3>FL Studio 21 × AI 믹싱 혁신</h3>
                     <p>Lifetime Updates와 AI 플러그인 통합</p>
                 </div>
                 <div class="toc-item">
@@ -407,7 +525,7 @@
                 <div class="toc-item">
                     <div class="toc-number">06</div>
                     <h3>실무 믹싱 팁 & AI 도구</h3>
-                    <p>LANDR, eMastered 활용 스마트 믹싱</p>
+                    <p>LANDR, iZotope 활용 스마트 믹싱</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">07</div>
@@ -422,110 +540,924 @@
             </div>
         </div>
     </section>
-    
-    <!-- Section 1: Cubase Expression Maps × AI -->
+
+    <!-- Section 1: AI 편곡 도구와 워크플로우 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">Cubase Expression Maps × AI 스마트 오케스트레이션</h2>
+            <h2 class="section-title">AI 편곡 도구와 혁신적 워크플로우</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>Expression Maps의 AI 통합 혁명</h3>
-                    <p>Cubase의 Expression Maps는 AI와 결합될 때 진정한 힘을 발휘합니다. VST 인스트루먼트의 아티큘레이션을 AI가 자동으로 선택하고 조절하는 워크플로우를 구축할 수 있습니다.</p>
+                    <h3>2025년 AI 편곡 생태계</h3>
+                    <p>AI는 편곡 과정을 근본적으로 변화시켰습니다. 단순한 코드 진행 제안을 넘어 감정 분석, 구조 최적화, 장르별 특성 반영까지 가능한 지능형 편곡 도구들이 등장했습니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">🎻 스마트 아티큘레이션 매핑</div>
-                            <div class="tech-desc">AI가 멜로디 흐름을 분석하여 자동으로 레가토, 스타카토, 피치카토 등을 배치합니다.</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> Logical Editor + Expression Maps 조합으로 완전 자동화</div>
+                            <div class="tech-name">🧠 ChatGPT 하모니 분석</div>
+                            <div class="tech-desc">멜로디를 입력하면 최적의 코드 진행과 베이스 라인을 제안. 장르별 스타일과 감정 분석을 통한 맞춤형 하모니 생성</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> "C major, emotional ballad, 4/4 time" 형식으로 프롬프트 작성</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">🎺 다이나믹 자동 조절</div>
-                            <div class="tech-desc">곡의 구조를 파악하여 클라이맥스에서 ff, 조용한 부분에서 pp 자동 적용</div>
-                            <div class="tech-tips"><strong>실무 팁:</strong> CC11(Expression) + AI 분석으로 자연스러운 다이나믹</div>
+                            <div class="tech-name">🎼 Orb Composer 3.0</div>
+                            <div class="tech-desc">블록 기반 AI 편곡. 멜로디, 하모니, 리듬을 독립적으로 생성하고 조합하여 완성된 편곡 제작</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> 템포 120-140 BPM에서 가장 자연스러운 결과 획득</div>
                         </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ Captain Chords Epic</div>
+                            <div class="tech-desc">실시간 코드 진행 생성과 MIDI 익스포트. 스케일 기반 화성 분석으로 이론적으로 정확한 편곡</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> Circle of Fifths 모드로 자연스러운 전조 구현</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎹 Scaler 2 + AI</div>
+                            <div class="tech-desc">스케일과 코드 이론을 AI와 결합. 감정 분석 기반 스케일 추천과 모달 인터체인지 자동 적용</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> "Suggest" 모드에서 창의적 아이디어 발견</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🎯 AI 편곡 워크플로우 단계별 가이드</h4>
+                                <ul>
+                                    <li><strong>1단계 - 구조 분석:</strong>
+                                        <ul>
+                                            <li>기존 곡 구조 AI 분석 (ChatGPT)</li>
+                                            <li>장르별 표준 구조 템플릿 추천</li>
+                                            <li>클라이맥스 지점과 브리지 위치 최적화</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>2단계 - 하모니 생성:</strong>
+                                        <ul>
+                                            <li>멜로디 기반 코드 진행 자동 생성</li>
+                                            <li>장르별 특징적 화성 진행 적용</li>
+                                            <li>텐션과 리졸브 최적화</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>⚡ 실시간 편곡 기법</h4>
+                                <ul>
+                                    <li><strong>라이브 잼 세션:</strong>
+                                        <ul>
+                                            <li>AI 기반 반주 자동 생성</li>
+                                            <li>연주자 스타일 학습과 적응</li>
+                                            <li>실시간 화성 분석과 제안</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>협업 편곡:</strong>
+                                        <ul>
+                                            <li>여러 아이디어 실시간 조합</li>
+                                            <li>투표 시스템을 통한 최적안 선택</li>
+                                            <li>클라우드 기반 동시 편집</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <h5>💡 프로 편곡가의 AI 활용 노하우</h5>
+                        <p>AI는 아이디어 제공자로 활용하고, 최종 결정은 인간의 음악적 판단에 맡기세요. AI 제안의 30-40%를 수용하고 나머지는 창의적으로 변형하는 것이 최적의 결과를 만듭니다.</p>
                     </div>
                 </div>
                 <div class="content-image">
-                    <img src="./assets/images/fullstack/fullstack-1.png" alt="Cubase Expression Maps AI 통합" loading="lazy">
+                    <img src="../assets/images/arrangement/arrangement-1.png" alt="AI 편곡 도구와 워크플로우" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 2: Logic Pro Flex Pitch × AI -->
+    <!-- Section 2: Cubase 13 Expression Maps × AI -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">Logic Pro Flex Pitch × AI 보컬 튜닝 혁신</h2>
+            <h2 class="section-title">Cubase 13 Expression Maps × AI 스마트 오케스트레이션</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>AI 기반 자동 보컬 프로덕션</h3>
-                    <p>Logic Pro의 Flex Pitch는 AI와 결합되어 단순한 피치 보정을 넘어 창의적인 보컬 편집과 하모니 생성까지 가능합니다.</p>
+                    <h3>Expression Maps의 AI 혁명</h3>
+                    <p>Cubase 13의 새로운 AI 기능들은 Expression Maps와 결합되어 놀라운 시너지를 발휘합니다. 복잡한 오케스트라 아티큘레이션을 AI가 자동으로 선택하고 조절하는 시대가 열렸습니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">🎤 AI 자동 피치 보정</div>
-                            <div class="tech-desc">멜로디 라인을 분석하여 자연스러운 피치 보정을 자동 적용합니다.</div>
-                            <div class="tech-tips"><strong>꿀팁:</strong> "Strength" 30-50%로 설정하면 자연스러운 보정 효과</div>
+                            <div class="tech-name">🎻 AI 아티큘레이션 매핑</div>
+                            <div class="tech-desc">멜로디 라인의 음표 길이, 간격, 다이나믹을 분석하여 레가토, 스타카토, 트레몰로 등을 자동 선택</div>
+                            <div class="tech-tips"><strong>설정값:</strong> Velocity Range 20-127, Duration Threshold 480 ticks</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">🎵 스마트 하모니 생성</div>
-                            <div class="tech-desc">메인 보컬을 기반으로 AI가 3도, 5도 하모니를 자동 생성합니다.</div>
-                            <div class="tech-tips"><strong>꿀팁:</strong> ChromaGlow + AI 하모니 = K-Pop 스타일 보컬 스택</div>
+                            <div class="tech-name">🎺 스마트 다이나믹 제어</div>
+                            <div class="tech-desc">곡의 구조와 감정 곡선을 분석하여 CC11(Expression)과 CC1(Modulation) 자동 조절</div>
+                            <div class="tech-tips"><strong>설정값:</strong> Expression Range 0-127, Attack Time 50ms, Release 200ms</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🥁 리듬 섹션 AI</div>
+                            <div class="tech-desc">드럼 패턴을 분석하여 관악기와 현악기의 리듬 아티큘레이션 자동 싱크</div>
+                            <div class="tech-tips"><strong>설정값:</strong> Quantize 16th notes, Swing 8%, Humanize ±10 ticks</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎼 오케스트라 밸런싱</div>
+                            <div class="tech-desc">각 악기군의 주파수 특성을 분석하여 자동 팬닝과 볼륨 밸런싱</div>
+                            <div class="tech-tips"><strong>설정값:</strong> Strings L30-R30, Brass Center±20, Woodwinds L50-R50</div>
                         </div>
                     </div>
                     
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number">82%</div>
-                            <div class="stat-label">시간 단축</div>
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🛠️ Expression Maps 설정 가이드</h4>
+                                <ul>
+                                    <li><strong>바이올린 섹션:</strong>
+                                        <ul>
+                                            <li>C1: Legato (CC64, 127)</li>
+                                            <li>C#1: Staccato (CC64, 0)</li>
+                                            <li>D1: Tremolo (CC1, 100-127)</li>
+                                            <li>D#1: Pizzicato (Note Length <240)</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>AI 자동화 조건:</strong>
+                                        <ul>
+                                            <li>Note Length >960 = Legato</li>
+                                            <li>Note Length <240 = Staccato</li>
+                                            <li>Velocity >100 = Accent</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>⚡ 실시간 AI 처리 워크플로우</h4>
+                                <ul>
+                                    <li><strong>Logical Editor 설정:</strong>
+                                        <ul>
+                                            <li>Filter: Note Length = 1-240 ticks</li>
+                                            <li>Action: Insert CC64 Value 0</li>
+                                            <li>Transform: Staccato Articulation</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Project Logical Editor:</strong>
+                                        <ul>
+                                            <li>Track Type = Instrument</li>
+                                            <li>VST Name Contains "Strings"</li>
+                                            <li>Apply Expression Map Auto</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-number">95%</div>
-                            <div class="stat-label">품질 향상</div>
-                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <h5>🎯 프로듀서의 Expression Maps 활용 팁</h5>
+                        <p>VST Expression 2.0 플러그인과 연동하여 AI 분석 결과를 실시간으로 적용할 수 있습니다. 특히 Hans Zimmer Strings, Cinematic Studio 시리즈와의 호환성이 뛰어납니다.</p>
                     </div>
                 </div>
                 <div class="content-image">
-                    <img src="./assets/images/fullstack/fullstack-2.png" alt="Logic Pro Flex Pitch AI 통합" loading="lazy">
+                    <img src="../assets/images/arrangement/arrangement-2.png" alt="Cubase 13 Expression Maps AI" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Section 3: FL Studio × AI 믹싱 혁신 -->
+
+    <!-- Section 3: Logic Pro 11 Flex Pitch × AI -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">FL Studio × AI 믹싱 혁신과 Lifetime Updates</h2>
+            <h2 class="section-title">Logic Pro 11 Flex Pitch × AI 보컬 프로덕션 혁신</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>FL Studio Lifetime Updates의 AI 활용</h3>
-                    <p>FL Studio의 Lifetime Free Updates 정책 덕분에 최신 AI 기능들을 추가 비용 없이 계속 활용할 수 있습니다.</p>
+                    <h3>Apple Intelligence 보컬 처리</h3>
+                    <p>Logic Pro 11의 Flex Pitch는 Apple Intelligence와 결합되어 인간의 감성을 잃지 않으면서도 완벽한 피치 정확도를 달성합니다. 이는 단순한 튜닝을 넘어 창의적 보컬 편집의 새로운 차원을 열었습니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🎤 AI 기반 Flex Pitch 설정</h4>
+                                <ul>
+                                    <li><strong>Automatic Mode 설정:</strong>
+                                        <ul>
+                                            <li>Correction Strength: 85-95%</li>
+                                            <li>Preserve Formants: ON</li>
+                                            <li>Natural Vibrato: 70%</li>
+                                            <li>Pitch Drift: 15-25%</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>AI 감정 분석 적용:</strong>
+                                        <ul>
+                                            <li>발라드: Softer correction (80%)</li>
+                                            <li>팝: Standard correction (90%)</li>
+                                            <li>R&B: Natural vibrato (60%)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎵 자동 하모니 생성 프로세스</h4>
+                                <ul>
+                                    <li><strong>Smart Harmony 설정:</strong>
+                                        <ul>
+                                            <li>Key Detection: Automatic</li>
+                                            <li>Harmony Type: 3rd+5th</li>
+                                            <li>Voicing: Close/Open 자동 선택</li>
+                                            <li>Doubling: AI 기반 옥타브 추가</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>처리 워크플로우:</strong>
+                                        <ul>
+                                            <li>메인 보컬 Flex Pitch 분석</li>
+                                            <li>코드 진행 감지 및 하모니 생성</li>
+                                            <li>자동 팬닝과 볼륨 조절</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>⚡ K-Pop 스타일 보컬 스택</h4>
+                                <ul>
+                                    <li><strong>레이어링 기법:</strong>
+                                        <ul>
+                                            <li>Lead Vocal: Center, 0dB</li>
+                                            <li>Harmony 1: L25, -6dB, 3rd</li>
+                                            <li>Harmony 2: R25, -6dB, 5th</li>
+                                            <li>Octave: Center, -12dB, +1 octave</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>AI 프로세싱:</strong>
+                                        <ul>
+                                            <li>ChromaGlow 자동 하모닉 증강</li>
+                                            <li>Vintage EQ AI 설정</li>
+                                            <li>컴프레서 Auto-Gain</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🔧 고급 보정 기법</h4>
+                                <ul>
+                                    <li><strong>Micro-pitch 조정:</strong>
+                                        <ul>
+                                            <li>Fine-tune: ±5 cents 범위</li>
+                                            <li>Bend Sensitivity: 자동 감지</li>
+                                            <li>Timing Correction: 10ms 이내</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>자연스러운 표현:</strong>
+                                        <ul>
+                                            <li>Vibrato 속도: 5-7 Hz</li>
+                                            <li>Vibrato 깊이: 15-30 cents</li>
+                                            <li>Portamento: 자동 감지</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">🎛️ AI 자동 믹싱</div>
-                            <div class="tech-desc">트랙별 특성을 분석하여 EQ, 컴프레서, 리미터를 자동 설정합니다.</div>
-                            <div class="tech-tips"><strong>꿀팁:</strong> Mixer Track Template + AI = 일관된 믹싱 워크플로우</div>
+                            <div class="tech-name">🎯 AI 보컬 분석</div>
+                            <div class="tech-desc">음성의 포르만트, 기본 주파수, 배음 구조를 실시간 분석하여 가장 자연스러운 보정 파라미터 자동 설정</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">🔊 스마트 사이드체인</div>
-                            <div class="tech-desc">킥 드럼을 분석하여 베이스와 다른 악기들의 사이드체인을 자동 조절</div>
-                            <div class="tech-tips"><strong>꿀팁:</strong> LFO Tool + AI 분석 = 매끄러운 펌핑 효과</div>
+                            <div class="tech-name">🔄 실시간 처리</div>
+                            <div class="tech-desc">녹음과 동시에 AI 분석이 진행되어 후작업 시간 최소화. Low Latency Mode에서도 정확한 분석 결과 제공</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">⚡ 실시간 AI 마스터링</div>
-                            <div class="tech-desc">Maximus + AI 알고리즘으로 장르별 최적화된 마스터링 자동 적용</div>
-                            <div class="tech-tips"><strong>꿀팁:</strong> LANDR 플러그인 + FL Studio = 스트리밍 최적화</div>
+                            <div class="tech-name">🎼 스타일 학습</div>
+                            <div class="tech-desc">아티스트별 보컬 스타일을 학습하여 일관된 사운드 캐릭터 유지. 개인화된 튜닝 프리셋 자동 생성</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ 배치 처리</div>
+                            <div class="tech-desc">앨범 전체의 보컬 트랙을 일괄 처리하여 일관된 품질과 스타일 보장. 멀티 트랙 동시 처리 지원</div>
                         </div>
                     </div>
                 </div>
                 <div class="content-image">
-                    <img src="./assets/images/fullstack/fullstack-3.png" alt="FL Studio AI 믹싱 혁신" loading="lazy">
+                    <img src="../assets/images/arrangement/arrangement-3.png" alt="Logic Pro 11 Flex Pitch AI" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Section 4: FL Studio 21 × AI 믹싱 혁신 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">FL Studio 21 × AI 믹싱 혁신과 Lifetime Updates</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>Lifetime Updates의 AI 활용 혁명</h3>
+                    <p>FL Studio의 Lifetime Free Updates 정책은 AI 시대에 더욱 빛을 발합니다. 지속적으로 업데이트되는 AI 기능들을 추가 비용 없이 활용하여 최첨단 믹싱 워크플로우를 구축할 수 있습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎛️ AI Mixer Revolution</div>
+                            <div class="tech-desc">FL Studio 21의 새로운 AI Mixer는 각 트랙의 특성을 실시간 분석하여 최적의 EQ 커브와 컴프레션 설정을 자동 적용</div>
+                            <div class="tech-tips"><strong>활용 팁:</strong> "Learn Mode"로 사용자 선호도 학습 후 자동 적용</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔊 Smart Sidechain 2.0</div>
+                            <div class="tech-desc">킥 드럼의 주파수 특성과 리듬 패턴을 분석하여 베이스, 신스, 패드의 사이드체인 파라미터 자동 조절</div>
+                            <div class="tech-tips"><strong>설정값:</strong> Attack 5ms, Release 150ms, Ratio 4:1</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ Real-time AI Mastering</div>
+                            <div class="tech-desc">Maximus + AI 알고리즘으로 장르별 특성에 맞는 마스터링 체인을 실시간 생성. 스트리밍 플랫폼 LUFS 자동 최적화</div>
+                            <div class="tech-tips"><strong>목표값:</strong> Spotify -14 LUFS, Apple Music -16 LUFS</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎵 Pattern-based AI</div>
+                            <div class="tech-desc">FL Studio의 Pattern 워크플로우에 최적화된 AI. 패턴별 특성을 분석하여 자동 믹싱과 이펙트 체인 생성</div>
+                            <div class="tech-tips"><strong>실무 팁:</strong> Color Groups와 연동하여 일관된 처리</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🎯 트랩/힙합 AI 믹싱 설정</h4>
+                                <ul>
+                                    <li><strong>808 베이스 최적화:</strong>
+                                        <ul>
+                                            <li>AI EQ: 40Hz HPF, 80Hz Boost</li>
+                                            <li>컴프레서: 3:1, Fast Attack</li>
+                                            <li>사이드체인: 킥과 자동 싱크</li>
+                                            <li>포화: Subtle tape saturation</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>하이햇 AI 처리:</strong>
+                                        <ul>
+                                            <li>스테레오 와이드닝: Auto-width</li>
+                                            <li>EQ: 8kHz+ 자동 부스트</li>
+                                            <li>리버브: Short room, AI decay</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎛️ EDM/House AI 믹싱 설정</h4>
+                                <ul>
+                                    <li><strong>킥 드럼 마스터링:</strong>
+                                        <ul>
+                                            <li>AI 분석: 60Hz 서브 + 2kHz 클릭</li>
+                                            <li>다이나믹 EQ: 자동 보정</li>
+                                            <li>멀티밴드 컴프: 4-band auto</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>베이스라인 처리:</strong>
+                                        <ul>
+                                            <li>사이드체인: 1/16 note sync</li>
+                                            <li>모노 포커싱: 120Hz 이하</li>
+                                            <li>하모닉 증강: AI Distortion</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FL Studio AI 통계 -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">75%</div>
+                            <div class="stat-label">믹싱 시간 단축</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">90%</div>
+                            <div class="stat-label">일관성 향상</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">무제한</div>
+                            <div class="stat-label">Lifetime Updates</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">AI 프리셋</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/arrangement/arrangement-4.png" alt="FL Studio 21 AI 믹싱" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: 장르별 AI 편곡 프롬프트 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">장르별 AI 편곡 프롬프트 전략</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>장르 특화 AI 편곡 기법</h3>
+                    <p>각 음악 장르는 고유한 편곡 관습과 사운드 캐릭터를 가지고 있습니다. AI를 활용한 편곡에서도 이러한 장르적 특성을 정확히 반영하는 것이 성공의 열쇠입니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🎤 K-Pop 편곡 AI 프롬프트</h4>
+                                <ul>
+                                    <li><strong>구조적 특징:</strong>
+                                        <ul>
+                                            <li>"Intro-Verse-Pre-Chorus-Chorus-Bridge-Final Chorus"</li>
+                                            <li>Key change: +1 semitone in final chorus</li>
+                                            <li>High energy, danceable rhythm</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>사운드 특성:</strong>
+                                        <ul>
+                                            <li>Wide stereo vocals with harmonies</li>
+                                            <li>Punchy drums with heavy sidechain</li>
+                                            <li>Bright, polished production</li>
+                                            <li>Synth leads and vocal chops</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎵 발라드 편곡 AI 프롬프트</h4>
+                                <ul>
+                                    <li><strong>구조적 특징:</strong>
+                                        <ul>
+                                            <li>"Piano intro-Verse-Chorus-Verse-Chorus-Bridge-Final"</li>
+                                            <li>Gradual build-up with string section</li>
+                                            <li>Emotional climax at bridge</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>사운드 특성:</strong>
+                                        <ul>
+                                            <li>Piano or acoustic guitar foundation</li>
+                                            <li>Lush string arrangements</li>
+                                            <li>Wide dynamic range</li>
+                                            <li>Emotional vocal delivery</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🔥 힙합/트랩 편곡 AI 프롬프트</h4>
+                                <ul>
+                                    <li><strong>리듬 특성:</strong>
+                                        <ul>
+                                            <li>"Trap beat, 140-180 BPM, heavy 808s"</li>
+                                            <li>Hi-hat rolls and triplets</li>
+                                            <li>Snare on 3rd beat</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>편곡 요소:</strong>
+                                        <ul>
+                                            <li>Minimalist approach</li>
+                                            <li>Dark, atmospheric pads</li>
+                                            <li>Vocal samples and chops</li>
+                                            <li>Sub-heavy bass lines</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>⚡ EDM/House 편곡 AI 프롬프트</h4>
+                                <ul>
+                                    <li><strong>구조적 특징:</strong>
+                                        <ul>
+                                            <li>"32-bar intro, 16-bar breakdown, 64-bar drop"</li>
+                                            <li>4/4 kick pattern, 128 BPM</li>
+                                            <li>Build-up with risers and filters</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>사운드 디자인:</strong>
+                                        <ul>
+                                            <li>Supersaw leads and plucks</li>
+                                            <li>Heavy sidechain compression</li>
+                                            <li>White noise sweeps</li>
+                                            <li>Vocal chops and effects</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">📝 프롬프트 최적화 기법</div>
+                            <div class="tech-desc">장르명 + BPM + 키 + 감정 + 구조 순으로 명확하게 입력. "Future bass, 140 BPM, F# minor, euphoric, build-drop structure"</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎯 레퍼런스 활용</div>
+                            <div class="tech-desc">유명 아티스트나 트랙을 레퍼런스로 제시. "In the style of BTS Dynamite" 또는 "Similar to The Weeknd's production style"</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔄 반복 실험</div>
+                            <div class="tech-desc">동일한 프롬프트로 5-10개 변형을 생성한 후 최고의 요소들을 조합하여 최종 편곡 완성</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ 단계적 접근</div>
+                            <div class="tech-desc">전체 편곡을 한 번에 생성하지 말고 드럼-베이스-멜로디-하모니 순으로 단계적 구축</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/arrangement/arrangement-5.png" alt="장르별 AI 편곡 프롬프트" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: 실무 믹싱 팁 & AI 도구 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">실무 믹싱 팁 & AI 도구 활용법</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>프로 레벨 AI 믹싱 워크플로우</h3>
+                    <p>현장에서 검증된 AI 믹싱 도구들과 실무 노하우를 결합하여 일관되고 고품질의 믹싱 결과를 얻을 수 있습니다. 시간 절약과 품질 향상을 동시에 달성하는 것이 핵심입니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🎛️ iZotope Neutron 4 AI 활용</h4>
+                                <ul>
+                                    <li><strong>Mix Assistant 설정:</strong>
+                                        <ul>
+                                            <li>Target Style: Modern Pop/Hip-hop</li>
+                                            <li>Focus: Vocal clarity/Punch</li>
+                                            <li>Intensity: Medium-High</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Track Assistant:</strong>
+                                        <ul>
+                                            <li>드럼: 펀치와 클래리티 중심</li>
+                                            <li>보컬: 온기와 존재감 강화</li>
+                                            <li>베이스: 타이트함과 서브 조절</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🔧 LANDR 실시간 마스터링</h4>
+                                <ul>
+                                    <li><strong>스타일 선택:</strong>
+                                        <ul>
+                                            <li>Pop: 밝고 깔끔한 사운드</li>
+                                            <li>Hip-hop: 펀치와 로우엔드 강조</li>
+                                            <li>Electronic: 스테레오 와이드와 임팩트</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>세부 조정:</strong>
+                                        <ul>
+                                            <li>Loudness: -14 LUFS (스트리밍)</li>
+                                            <li>Stereo Width: 자동 최적화</li>
+                                            <li>Low End: AI 기반 조절</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>⚡ Waves AI 플러그인 체인</h4>
+                                <ul>
+                                    <li><strong>보컬 체인:</strong>
+                                        <ul>
+                                            <li>OVox Vocal ReSynthesis</li>
+                                            <li>Vocal Rider (자동 레벨링)</li>
+                                            <li>Renaissance Compressor</li>
+                                            <li>DeBreath (AI 브레스 제거)</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>마스터 체인:</strong>
+                                        <ul>
+                                            <li>Linear Phase EQ</li>
+                                            <li>L3 Multimaximizer</li>
+                                            <li>Clarity Vx (AI 보컬 분리)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎯 실무 최적화 팁</h4>
+                                <ul>
+                                    <li><strong>AI 설정 우선순위:</strong>
+                                        <ul>
+                                            <li>1순위: 보컬 클래리티</li>
+                                            <li>2순위: 드럼 펀치</li>
+                                            <li>3순위: 베이스 밸런스</li>
+                                            <li>4순위: 스테레오 이미징</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>품질 관리:</strong>
+                                        <ul>
+                                            <li>AI 결과를 100% 신뢰하지 말 것</li>
+                                            <li>레퍼런스 트랙과 지속적 비교</li>
+                                            <li>다양한 스피커에서 검증</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🎚️ 자동 레벨 밸런싱</div>
+                            <div class="tech-desc">Vocal Rider, Bass Rider를 활용한 자동 볼륨 조절. 수동 오토메이션 대비 80% 시간 절약 효과</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔊 AI 기반 EQ 매칭</div>
+                            <div class="tech-desc">iZotope Ozone의 EQ Match 기능으로 레퍼런스 트랙의 주파수 특성을 AI가 분석하여 자동 적용</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ 실시간 스펙트럼 분석</div>
+                            <div class="tech-desc">AI가 실시간으로 주파수 마스킹을 감지하고 자동으로 EQ 조정 제안. 믹스 클래리티 자동 최적화</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎯 장르별 AI 프리셋</div>
+                            <div class="tech-desc">팝, 힙합, EDM, 락 등 장르별로 최적화된 AI 설정 프리셋. 일관된 품질과 사운드 캐릭터 보장</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <h5>💡 프로 엔지니어의 AI 믹싱 노하우</h5>
+                        <p>AI 도구는 기본 밸런싱과 기술적 보정에 활용하고, 창의적 이펙트와 최종 감성 조절은 수동으로 진행하세요. AI로 80% 작업을 완료한 후 인간의 감성으로 20%를 마무리하는 것이 최적의 결과를 만듭니다.</p>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/arrangement/arrangement-6.png" alt="실무 믹싱 팁 & AI 도구" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: AI 마스터링과 최종 믹스 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">AI 마스터링과 최종 믹스 최적화</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>차세대 AI 마스터링 워크플로우</h3>
+                    <p>AI 마스터링 기술은 2025년 들어 비약적으로 발전했습니다. 스트리밍 플랫폼별 최적화, 장르별 특성 반영, 실시간 품질 분석까지 가능한 통합 솔루션이 등장했습니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🎛️ AI 마스터링 체인 구성</h4>
+                                <ul>
+                                    <li><strong>1단계 - 분석:</strong>
+                                        <ul>
+                                            <li>주파수 스펙트럼 분석</li>
+                                            <li>다이나믹 레인지 측정</li>
+                                            <li>스테레오 이미징 검사</li>
+                                            <li>장르 및 스타일 식별</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>2단계 - 처리:</strong>
+                                        <ul>
+                                            <li>멀티밴드 컴프레션</li>
+                                            <li>다이나믹 EQ 적용</li>
+                                            <li>스테레오 이미징 최적화</li>
+                                            <li>라우드니스 정규화</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>📊 스트리밍 플랫폼별 최적화</h4>
+                                <ul>
+                                    <li><strong>Spotify 최적화:</strong>
+                                        <ul>
+                                            <li>Target LUFS: -14</li>
+                                            <li>Peak Limit: -1 dBFS</li>
+                                            <li>Dynamic Range: 6-10 DR</li>
+                                            <li>OGG Vorbis 대응</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Apple Music 최적화:</strong>
+                                        <ul>
+                                            <li>Target LUFS: -16</li>
+                                            <li>Peak Limit: -1 dBFS</li>
+                                            <li>AAC 인코딩 최적화</li>
+                                            <li>Spatial Audio 고려</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>⚡ 실시간 품질 분석</h4>
+                                <ul>
+                                    <li><strong>AI 품질 지표:</strong>
+                                        <ul>
+                                            <li>Clarity Score: 0-100</li>
+                                            <li>Balance Rating: A-F</li>
+                                            <li>Punch Index: 1-10</li>
+                                            <li>Warmth Factor: Cool-Warm</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>자동 보정 기능:</strong>
+                                        <ul>
+                                            <li>하슈 밴드 억제</li>
+                                            <li>서브베이스 타이트닝</li>
+                                            <li>고음역 에어 추가</li>
+                                            <li>중음역 투명도 개선</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎯 장르별 마스터링 설정</h4>
+                                <ul>
+                                    <li><strong>팝/K-Pop:</strong>
+                                        <ul>
+                                            <li>밝고 화사한 톤</li>
+                                            <li>압축된 다이나믹스</li>
+                                            <li>보컬 포워드 믹싱</li>
+                                            <li>스테레오 와이드</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>힙합/트랩:</strong>
+                                        <ul>
+                                            <li>헤비 로우엔드</li>
+                                            <li>펀치 있는 드럼</li>
+                                            <li>다크한 분위기</li>
+                                            <li>임팩트 있는 트랜지언트</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🤖 LANDR AI Studio</div>
+                            <div class="tech-desc">클라우드 기반 AI 마스터링. 2025년 새로운 알고리즘으로 인간 엔지니어 수준의 품질 달성. 실시간 처리와 다양한 스타일 옵션</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔧 iZotope Ozone 11 AI</div>
+                            <div class="tech-desc">Master Assistant 3.0으로 완전 자동화된 마스터링. 머신러닝 기반 EQ, 컴프레서, 리미터 설정. 레퍼런스 매칭 기능</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ eMastered Pro</div>
+                            <div class="tech-desc">그래미 수상 엔지니어들의 노하우를 AI로 구현. 실시간 A/B 테스트와 비교 분석. 무제한 리비전 지원</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎛️ AI 품질 검증</div>
+                            <div class="tech-desc">완성된 마스터를 AI가 자동 분석하여 잠재적 문제점 발견. 스펙트럼 불균형, 위상 문제, 클리핑 등 자동 감지</div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI 마스터링 통계 -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">AI 마스터링 정확도</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">30분</div>
+                            <div class="stat-label">평균 처리 시간</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">-14 LUFS</div>
+                            <div class="stat-label">스트리밍 최적화</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">지원 파일 형식</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/arrangement/arrangement-7.png" alt="AI 마스터링과 최종 믹스" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: 협업과 미래 전망 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">협업과 미래 전망: AI 시대 편곡가의 경쟁력</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>AI 시대의 협업과 전문성</h3>
+                    <p>AI가 편곡과 믹싱 분야를 혁신하고 있지만, 인간 편곡가의 역할은 더욱 중요해지고 있습니다. 기술적 작업에서 해방된 편곡가들은 이제 더 창의적이고 예술적인 영역에 집중할 수 있게 되었습니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🤝 AI 시대의 협업 모델</h4>
+                                <ul>
+                                    <li><strong>하이브리드 워크플로우:</strong>
+                                        <ul>
+                                            <li>AI: 기본 편곡과 기술적 처리</li>
+                                            <li>인간: 창의적 디렉션과 감성 조절</li>
+                                            <li>협업: 실시간 피드백과 수정</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>역할 분담의 진화:</strong>
+                                        <ul>
+                                            <li>편곡가: 음악적 비전과 스타일링</li>
+                                            <li>AI: 반복 작업과 기술적 최적화</li>
+                                            <li>클라이언트: 명확한 방향성 제시</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🚀 새로운 직업군의 등장</h4>
+                                <ul>
+                                    <li><strong>AI 편곡 디렉터:</strong>
+                                        <ul>
+                                            <li>AI 도구 활용 전문가</li>
+                                            <li>프롬프트 엔지니어링</li>
+                                            <li>연봉: 6,000만원 - 1.2억원</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>하이브리드 프로듀서:</strong>
+                                        <ul>
+                                            <li>AI-인간 협업 전문가</li>
+                                            <li>워크플로우 최적화</li>
+                                            <li>크리에이티브 & 테크니컬 융합</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>📈 시장 전망과 기회</h4>
+                                <ul>
+                                    <li><strong>2030년 예측:</strong>
+                                        <ul>
+                                            <li>AI 편곡 시장: 50억 달러</li>
+                                            <li>자동화율: 70% (기술적 작업)</li>
+                                            <li>인간 중심: 30% (창의적 작업)</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>새로운 수익 모델:</strong>
+                                        <ul>
+                                            <li>AI 편곡 템플릿 판매</li>
+                                            <li>맞춤형 AI 튜닝 서비스</li>
+                                            <li>편곡 교육 콘텐츠</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🎯 경쟁력 강화 전략</h4>
+                                <ul>
+                                    <li><strong>필수 역량:</strong>
+                                        <ul>
+                                            <li>AI 도구 숙련도</li>
+                                            <li>음악 이론 심화 지식</li>
+                                            <li>다양한 장르 이해</li>
+                                            <li>클라이언트 커뮤니케이션</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>차별화 포인트:</strong>
+                                        <ul>
+                                            <li>독특한 사운드 시그니처</li>
+                                            <li>빠른 작업 속도</li>
+                                            <li>트렌드 예측 능력</li>
+                                            <li>국제적 감각</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🌐 글로벌 협업 플랫폼</div>
+                            <div class="tech-desc">BandLab, Splice Studio 등을 통한 실시간 글로벌 협업. AI 번역과 문화적 컨텍스트 이해로 언어 장벽 해소</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📚 지속적 학습</div>
+                            <div class="tech-desc">AI 기술 발전 속도에 맞춰 지속적인 학습 필요. 온라인 코스, 워크샵, 컨퍼런스 참여를 통한 최신 트렌드 습득</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎼 창의성 중심 전환</div>
+                            <div class="tech-desc">기술적 작업에서 해방되어 순수 창작에 집중. 스토리텔링, 감정 전달, 문화적 의미 부여에 특화</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔮 미래 대비</div>
+                            <div class="tech-desc">메타버스 음악, AI 가상 아티스트, 뇌파 기반 음악 등 새로운 플랫폼과 매체에 대한 준비</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <h5>💡 성공하는 AI 시대 편곡가의 조건</h5>
+                        <p>기술을 도구로 활용하되 음악의 본질을 잃지 않는 것이 핵심입니다. AI가 제공하는 효율성을 바탕으로 더 많은 실험과 창작에 도전하여 독창적인 음악적 색깔을 만들어나가세요.</p>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/arrangement/arrangement-8.png" alt="협업과 미래 전망" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
@@ -534,7 +1466,7 @@
                 실무 현장에서 검증된 AI 편곡 기법으로<br>
                 당신의 음악 제작 워크플로우를 혁신하세요.
             </p>
-            <a href="mailto:jun22sky@nate.com" class="cta-button">AI 편곡 상담받기</a>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">AI 편곡 마스터 상담받기</a>
         </div>
     </section>
     
@@ -573,6 +1505,82 @@
             observer.observe(section);
         });
         
+        // Lazy loading images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Counter animation for stats
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const originalText = counter.textContent;
+                const target = parseFloat(originalText);
+                const isPercentage = originalText.includes('%');
+                const isTime = originalText.includes('분') || originalText.includes('시간');
+                const isLUFS = originalText.includes('LUFS');
+                const isSpecial = originalText.includes('무제한') || originalText.includes('+');
+                
+                if (isSpecial) return; // 특수한 경우는 애니메이션 하지 않음
+                
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        let displayValue = Math.ceil(current);
+                        
+                        if (isPercentage) {
+                            counter.textContent = displayValue + '%';
+                        } else if (isTime && originalText.includes('분')) {
+                            counter.textContent = displayValue + '분';
+                        } else if (isLUFS) {
+                            counter.textContent = '-' + displayValue + ' LUFS';
+                        } else {
+                            counter.textContent = displayValue + (originalText.includes('+') ? '+' : '');
+                        }
+                        
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = originalText;
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+        
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+        
         // Enhanced scroll animations
         const enhancedObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -593,6 +1601,15 @@
         document.querySelectorAll('.toc-item').forEach((item, index) => {
             item.style.animationDelay = `${index * 0.1}s`;
         });
+        
+        // Loading performance optimization
+        window.addEventListener('load', () => {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => {
+                    console.log('AI 편곡 & 스마트 믹싱 마스터 클래스 페이지가 완전히 로드되었습니다.');
+                });
+            }
+        });
     </script>
 </body>
-</html> 
+</html>
