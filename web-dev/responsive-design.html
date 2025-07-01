@@ -3,22 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>반응형 웹 디자인 완전 가이드 - junetapa</title>
+    <title>웹 성능 최적화 완벽 가이드 - junetapa</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="반응형 웹 디자인의 핵심 원리부터 최신 CSS Grid, Flexbox, 미디어 쿼리까지. 모든 디바이스에서 완벽한 사용자 경험을 제공하는 방법을 배워보세요.">
-    <meta name="keywords" content="반응형 웹 디자인, 모바일 퍼스트, CSS Grid, Flexbox, 미디어 쿼리, 웹 개발, 프론트엔드">
+    <meta name="description" content="웹사이트 성능 최적화를 위한 실용적인 가이드. 로딩 속도 개선, 사용자 경험 향상을 위한 전문적인 기법들을 소개합니다.">
+    <meta name="keywords" content="웹성능최적화, 로딩속도개선, 사용자경험, 웹개발, 성능튜닝, Core Web Vitals, LCP, FID, CLS">
     <meta name="author" content="junetapa">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/sections.css">
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/local-icons.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        .responsive-page {
+        /* 전체 리스트 스타일 초기화 */
+        ul, li {
+            list-style: none;
+        }
+        
+        .performance-page {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
@@ -41,7 +36,7 @@
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff, #a8edea);
+            background: linear-gradient(45deg, #fff, #feca57);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -110,20 +105,24 @@
         .content-text ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
         .content-text li {
             padding: 8px 0;
-            padding-left: 25px;
+            padding-left: 0;
             position: relative;
             color: #555;
         }
         
         .content-text li:before {
-            content: "📱";
+            content: "";
             position: absolute;
             left: 0;
             font-size: 16px;
+            line-height: 1.2;
+            top: 2px;
+            color: #667eea;
         }
         
         .content-image {
@@ -152,191 +151,26 @@
         
         .reverse .content-image {
             order: 1;
-        }
-        
-        .nav-back {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #667eea;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-
-        .content-section {
-            background: white;
-            margin: 40px 20px;
-            border-radius: 20px;
-            padding: 60px 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #333;
-            text-align: center;
-        }
-        
-        .section-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-        
-        .content-text h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #667eea;
-        }
-        
-        .content-text p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .content-text ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .content-text li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #555;
-        }
-        
-        .content-text li:before {
-            content: "📱";
-            position: absolute;
-            left: 0;
-            font-size: 16px;
-        }
-        
-        .content-image {
-            text-align: center;
-        }
-        
-        .content-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .content-image img:hover {
-            transform: scale(1.02);
-        }
-        
-        .reverse {
-            grid-template-columns: 1fr 1fr;
-        }
-        
-        .reverse .content-text {
-            order: 2;
-        }
-        
-        .reverse .content-image {
-            order: 1;
-        }
-        
-        .nav-back {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #667eea;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-
-        .toc-section {
-            background: white;
-            margin: 40px 20px;
-            border-radius: 20px;
-            padding: 60px 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .toc-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 50px;
-            color: #333;
-        }
-        
-        .toc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .toc-item {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px;
-            transition: transform 0.3s ease;
-            border-left: 4px solid #667eea;
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .toc-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .toc-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-        
-        .toc-item h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .toc-item p {
-            color: #666;
-            font-size: 0.9rem;
         }
         
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 30px;
         }
         
         .tech-card {
             background: #f8f9fa;
-            padding: 25px;
+            padding: 30px 25px;
             border-radius: 15px;
-            text-align: center;
+            text-align: left;
             transition: transform 0.3s ease;
             border-left: 4px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            min-height: 180px;
+            justify-content: flex-start;
         }
         
         .tech-card:hover {
@@ -345,16 +179,83 @@
         }
         
         .tech-name {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            line-height: 1.4;
             font-weight: 600;
             color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 1.1rem;
         }
         
         .tech-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #666;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        
+        .comparison-table {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .comparison-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .comparison-item h4 {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
             line-height: 1.4;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .comparison-item li {
+            padding: 8px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .comparison-item ul ul {
+            margin-top: 8px;
+            margin-left: 20px;
+            list-style: none;
+        }
+        
+        .comparison-item ul ul li {
+            padding: 4px 0;
+            padding-left: 0;
+            font-size: 0.95em;
+            color: #666;
+        }
+        
+        .comparison-item strong {
+            color: #667eea;
+            font-weight: 600;
         }
         
         .stats-grid {
@@ -383,37 +284,6 @@
             opacity: 0.9;
         }
         
-        .comparison-table {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-        }
-        
-        .comparison-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-        
-        .comparison-item h4 {
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .comparison-item ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .comparison-item li {
-            padding: 5px 0;
-            color: #555;
-        }
-
         .cta-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -451,6 +321,74 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        
+        .toc-section {
+            background: white;
+            margin: 40px 20px;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toc-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .toc-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .toc-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toc-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .toc-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .toc-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -478,24 +416,46 @@
             .comparison-row {
                 grid-template-columns: 1fr;
                 gap: 20px;
-                    }
+            }
+            
+            .comparison-item h4,
+            .tech-name {
+                gap: 8px;
+                font-size: 1rem;
+                line-height: 1.3;
+            }
+            
+            .comparison-item {
+                padding: 20px;
+            }
+            
+            .tech-card {
+                padding: 20px;
+                min-height: auto;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+        }
     </style>
 </head>
-<body class="responsive-page">
+<body class="performance-page">
     <!-- Navigation Back -->
-    <a href="../index.html#responsive" class="nav-back">← 홈으로 돌아가기</a>
+    <a href="../index.html#performance" class="nav-back">← 홈으로 돌아가기</a>
     
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="hero-badge">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"/></svg>
-                <span>반응형 웹 디자인</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                <span>웹 성능 최적화</span>
             </div>
-            <h1 class="hero-title">모든 디바이스에서 완벽한 웹 경험</h1>
+            <h1 class="hero-title">웹 성능 최적화 완벽 가이드</h1>
             <p class="hero-subtitle">
-                스마트폰부터 데스크톱까지, 모든 화면 크기에서<br>
-                최적화된 사용자 경험을 제공하는 반응형 웹 디자인의 완전한 가이드입니다.
+                빠른 로딩 속도와 뛰어난 사용자 경험을 제공하는<br>
+                현대적인 웹사이트를 구축하는 실전 최적화 전략을 제시합니다.
             </p>
         </div>
     </section>
@@ -503,1256 +463,598 @@
     <!-- Table of Contents -->
     <section class="toc-section">
         <div class="container">
-            <h2 class="toc-title">반응형 웹 디자인 마스터 로드맵</h2>
+            <h2 class="toc-title">성능 최적화 마스터 로드맵</h2>
             <div class="toc-grid">
                 <div class="toc-item">
                     <div class="toc-number">01</div>
-                    <h3>반응형 웹의 기초</h3>
-                    <p>반응형 웹 디자인의 핵심 개념과 원리</p>
+                    <h3>성능 최적화의 중요성</h3>
+                    <p>Core Web Vitals와 비즈니스 임팩트</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">02</div>
-                    <h3>뷰포트와 미디어 쿼리</h3>
-                    <p>기기별 최적화를 위한 핵심 기술</p>
+                    <h3>성능 측정 도구</h3>
+                    <p>Lighthouse, PageSpeed Insights 활용법</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">03</div>
-                    <h3>유연한 그리드 시스템</h3>
-                    <p>CSS Grid와 Flexbox 활용법</p>
+                    <h3>프론트엔드 최적화</h3>
+                    <p>이미지, CSS, JavaScript 최적화</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">04</div>
-                    <h3>반응형 이미지</h3>
-                    <p>다양한 해상도를 위한 이미지 최적화</p>
+                    <h3>백엔드 최적화</h3>
+                    <p>서버 응답 시간과 API 개선</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">05</div>
-                    <h3>타이포그래피</h3>
-                    <p>반응형 환경에서의 텍스트 최적화</p>
+                    <h3>네트워크 최적화</h3>
+                    <p>CDN, HTTP/3, 캐싱 전략</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">06</div>
-                    <h3>내비게이션 패턴</h3>
-                    <p>모바일 친화적 네비게이션 설계</p>
+                    <h3>실전 워크플로우</h3>
+                    <p>체계적인 최적화 프로세스</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">07</div>
-                    <h3>성능 최적화</h3>
-                    <p>모바일에서의 빠른 로딩 구현</p>
+                    <h3>팀 협업 전략</h3>
+                    <p>효율적인 성능 개선 방법론</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">08</div>
-                    <h3>테스팅과 디버깅</h3>
-                    <p>다양한 기기에서의 검증 방법</p>
+                    <h3>성능 모니터링</h3>
+                    <p>지속적인 성능 관리 시스템</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Section 1: 반응형 웹의 기초 -->
+    
+    <!-- Section 1: 웹 성능 최적화 개요 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">반응형 웹 디자인의 기초 이해</h2>
+            <h2 class="section-title">웹 성능 최적화의 중요성과 Core Web Vitals</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>반응형 웹 디자인이란?</h3>
-                    <p>반응형 웹 디자인(Responsive Web Design)은 다양한 기기와 화면 크기에 유연하게 대응하는 웹 디자인 접근법입니다. 하나의 웹사이트가 데스크톱, 태블릿, 스마트폰 등 모든 디바이스에서 최적의 사용자 경험을 제공합니다.</p>
-                    <ul>
-                        <li>유연한 그리드 시스템 활용</li>
-                        <li>반응형 이미지와 미디어</li>
-                        <li>CSS 미디어 쿼리 적용</li>
-                        <li>모바일 퍼스트 접근법</li>
-                        <li>터치 친화적 인터페이스</li>
-                        <li>빠른 로딩 속도 최적화</li>
-                    </ul>
-                    <p>현대 웹 개발에서 반응형 디자인은 선택이 아닌 필수가 되었으며, 사용자 경험과 SEO 최적화에 핵심적인 역할을 합니다.</p>
+                    <h3>2025년 성능 최적화의 핵심</h3>
+                    <p>웹 성능은 사용자 경험과 비즈니스 성과에 직접적인 영향을 미칩니다. Google의 Core Web Vitals는 이제 SEO 순위 결정 요소로 확고히 자리잡았습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🚀 LCP (Largest Contentful Paint)</div>
+                            <div class="tech-desc">페이지의 주요 콘텐츠가 로드되는 시간. 2.5초 이내가 목표이며, 이미지 최적화와 서버 응답 시간 개선이 핵심입니다.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ FID (First Input Delay)</div>
+                            <div class="tech-desc">사용자 첫 상호작용까지의 지연 시간. 100ms 이내가 목표이며, JavaScript 실행 시간 최적화가 중요합니다.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📐 CLS (Cumulative Layout Shift)</div>
+                            <div class="tech-desc">레이아웃 변경으로 인한 시각적 안정성. 0.1 이하가 목표이며, 이미지와 폰트 크기 미리 지정이 필요합니다.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔄 INP (Interaction to Next Paint)</div>
+                            <div class="tech-desc">2024년 도입된 새로운 지표로 FID를 대체. 사용자 상호작용의 전체 지연 시간을 측정합니다.</div>
+                        </div>
+                    </div>
+                    
+                    <p>최신 연구에 따르면 페이지 로딩 시간이 1초에서 3초로 증가하면 이탈률이 32% 증가하며, 1초에서 5초로 증가하면 90% 증가합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="./assets/images/responsive/responsive-1.png" alt="반응형 웹 디자인 기초" loading="lazy">
+                    <img src="../assets/images/responsive/responsive-1.png" alt="반응형 디자인의 개념" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .feature-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #2d3748;
-        }
-
-        .feature-description {
-            font-size: 0.95rem;
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        .code-example {
-            background: #1a202c;
-            color: #e2e8f0;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 0.9rem;
-            overflow-x: auto;
-            border: 1px solid #2d3748;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .comparison-table th {
-            background: var(--primary-gradient);
-            color: white;
-            font-weight: 700;
-        }
-
-        .comparison-table tr:hover {
-            background: #f8fafc;
-        }
-
-        .tips-box {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            margin: 2rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tips-box::before {
-            content: '💡';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            opacity: 0.3;
-        }
-
-        .tips-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section {
-            background: var(--primary-gradient);
-            color: white;
-            border-radius: 2rem;
-            padding: 3rem;
-            text-align: center;
-            margin: 4rem 0;
-        }
-
-        .cta-title {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .cta-description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button.secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .cta-button.secondary:hover {
-            background: white;
-            color: #667eea;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .page-title {
-                font-size: 1.2rem;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .section {
-                padding: 2rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .toc-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .content-container {
-                padding: 0 1rem 4rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section:nth-child(odd) {
-            animation-delay: 0.1s;
-        }
-
-                 .section:nth-child(even) {
-             animation-delay: 0.2s;
-         }
-    </style>
-</head>
-<body>
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="header-content">
-            <a href="../index.html#responsive" class="back-link">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-                </svg>
-                홈으로 돌아가기
-            </a>
-            
-            <h1 class="page-title">반응형 웹 디자인 완전 가이드</h1>
-            
-            <button class="toc-toggle" onclick="toggleTOC()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                </svg>
-                목차
-            </button>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">반응형 웹 디자인</h1>
-            <p class="hero-subtitle">
-                모든 디바이스에서 완벽한 사용자 경험을 제공하는 현대 웹 개발의 핵심 기술을 마스터하세요
-            </p>
-            
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">모바일 호환성</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">3초</span>
-                    <span class="stat-label">평균 로딩 시간</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">9가지</span>
-                    <span class="stat-label">핵심 기법</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">2025</span>
-                    <span class="stat-label">최신 트렌드</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Table of Contents -->
-    <section class="table-of-contents fade-in">
-        <div class="content-container">
-            <h2 class="toc-title">반응형 웹 디자인 학습 로드맵</h2>
-            <div class="toc-grid">
-                <a href="#section-1" class="toc-item">
-                    <div class="toc-number">1</div>
-                    <div class="toc-text">반응형 디자인의 개념과 중요성</div>
-                </a>
-                <a href="#section-2" class="toc-item">
-                    <div class="toc-number">2</div>
-                    <div class="toc-text">모바일 퍼스트 접근법</div>
-                </a>
-                <a href="#section-3" class="toc-item">
-                    <div class="toc-number">3</div>
-                    <div class="toc-text">CSS Grid와 Flexbox 마스터</div>
-                </a>
-                <a href="#section-4" class="toc-item">
-                    <div class="toc-number">4</div>
-                    <div class="toc-text">미디어 쿼리 완벽 활용</div>
-                </a>
-                <a href="#section-5" class="toc-item">
-                    <div class="toc-number">5</div>
-                    <div class="toc-text">반응형 이미지 및 미디어</div>
-                </a>
-                <a href="#section-6" class="toc-item">
-                    <div class="toc-number">6</div>
-                    <div class="toc-text">터치 친화적 인터페이스</div>
-                </a>
-                <a href="#section-7" class="toc-item">
-                    <div class="toc-number">7</div>
-                    <div class="toc-text">성능 최적화 전략</div>
-                </a>
-                <a href="#section-8" class="toc-item">
-                    <div class="toc-number">8</div>
-                    <div class="toc-text">테스팅 및 디버깅</div>
-                </a>
-                <a href="#section-9" class="toc-item">
-                    <div class="toc-number">9</div>
-                    <div class="toc-text">미래의 반응형 기술</div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="content-container">
-        <!-- Section 1: 반응형 디자인의 개념과 중요성 -->
-        <section id="section-1" class="section fade-in">
-            <div class="section-header">
-                <div class="section-number">1</div>
-                <h2 class="section-title">반응형 디자인의 개념과 중요성</h2>
-            </div>
-            
-            <img src="./assets/images/responsive/responsive-1.png" alt="반응형 웹 디자인의 개념" class="section-image">
-            
-            <div class="section-content">
-                <p><span class="highlight">반응형 웹 디자인(Responsive Web Design)</span>은 하나의 웹사이트가 모든 디바이스에서 최적의 사용자 경험을 제공하도록 설계하는 접근 방식입니다. 2025년 현재, 전 세계 웹 트래픽의 60% 이상이 모바일 기기에서 발생하고 있어, 반응형 디자인은 필수가 되었습니다.</p>
-                
-                <h3>핵심 원리와 개념</h3>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">📱</div>
-                        <div class="feature-title">유연한 그리드</div>
-                        <div class="feature-description">고정 픽셀 대신 백분율, rem, em 등 상대적 단위를 사용하여 화면 크기에 따라 자동 조절되는 레이아웃 구현</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🖼️</div>
-                        <div class="feature-title">유동적 이미지</div>
-                        <div class="feature-description">컨테이너 크기에 맞춰 자동으로 크기가 조절되는 이미지와 미디어 요소로 모든 화면에서 완벽한 표시</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <div class="feature-title">미디어 쿼리</div>
-                        <div class="feature-description">디바이스 특성(화면 크기, 해상도, 방향)에 따라 다른 CSS 스타일을 적용하는 핵심 기술</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🚀</div>
-                        <div class="feature-title">모바일 우선</div>
-                        <div class="feature-description">가장 작은 화면부터 설계하여 점진적으로 확장하는 효율적인 개발 방법론</div>
-                    </div>
-                </div>
-
-                <h3>비즈니스 관점에서의 중요성</h3>
-                <p>반응형 웹 디자인은 단순한 기술적 선택이 아닌 비즈니스 성공의 핵심 요소입니다. Google의 모바일 우선 인덱싱 정책으로 인해 SEO에 직접적인 영향을 미치며, 사용자 이탈률을 53% 감소시킬 수 있습니다.</p>
-
-                                 <div class="tips-box">
-                     <div class="tips-title">💡 프로 팁</div>
-                     <p>2025년 웹 표준에서는 Container Queries와 CSS Subgrid가 반응형 디자인의 새로운 패러다임을 제시하고 있습니다. 이러한 최신 기술을 활용하면 더욱 정교한 반응형 레이아웃을 구현할 수 있습니다.</p>
-                 </div>
-             </div>
-         </section>
-
-        <!-- Section 2: 모바일 퍼스트 접근법 -->
-        <section id="section-2" class="section fade-in">
-            <div class="section-header">
-                <div class="section-number">2</div>
-                <h2 class="section-title">모바일 퍼스트 접근법</h2>
-            </div>
-            
-            <img src="./assets/images/responsive/responsive-2.png" alt="모바일 퍼스트 접근법" class="section-image">
-            
-            <div class="section-content">
-                <p><span class="highlight">모바일 퍼스트(Mobile First)</span> 접근법은 가장 작은 화면부터 설계를 시작하여 점진적으로 큰 화면으로 확장하는 개발 방법론입니다. 이는 성능 최적화와 사용자 경험 향상에 결정적인 역할을 합니다.</p>
-                
-                <h3>모바일 퍼스트의 핵심 원칙</h3>
-                <div class="code-example">
-/* 모바일 스타일 (기본) */
-.container {
-    width: 100%;
-    padding: 1rem;
-}
-
-/* 태블릿 (768px 이상) */
-@media (min-width: 768px) {
-    .container {
-        max-width: 750px;
-        margin: 0 auto;
-    }
-}
-
-/* 데스크톱 (1024px 이상) */
-@media (min-width: 1024px) {
-    .container {
-        max-width: 1200px;
-        padding: 2rem;
-    }
-}
-                </div>
-
-                <h3>장점과 이점</h3>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>측면</th>
-                            <th>모바일 퍼스트</th>
-                            <th>데스크톱 퍼스트</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>성능</td>
-                            <td>✅ 빠른 로딩, 필수 요소 우선</td>
-                            <td>❌ 불필요한 요소 로딩</td>
-                        </tr>
-                        <tr>
-                            <td>사용성</td>
-                            <td>✅ 터치 친화적 인터페이스</td>
-                            <td>❌ 작은 화면에서 어려움</td>
-                        </tr>
-                        <tr>
-                            <td>콘텐츠</td>
-                            <td>✅ 핵심 정보 우선 노출</td>
-                            <td>❌ 정보 과부하 가능성</td>
-                        </tr>
-                        <tr>
-                            <td>SEO</td>
-                            <td>✅ Google 모바일 우선 인덱싱</td>
-                            <td>❌ 검색 순위 불이익</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>실제 구현 전략</h3>
-                <p>모바일 퍼스트 구현 시 콘텐츠 우선순위를 명확히 정의해야 합니다. 핵심 정보와 주요 기능을 먼저 배치하고, 부가적인 요소들은 더 큰 화면에서 점진적으로 추가합니다.</p>
-            </div>
-        </section>
-
-        <!-- Section 3: CSS Grid와 Flexbox 마스터 -->
-        <section id="section-3" class="section fade-in">
-            <div class="section-header">
-                <div class="section-number">3</div>
-                <h2 class="section-title">CSS Grid와 Flexbox 마스터</h2>
-            </div>
-            
-            <img src="./assets/images/responsive/responsive-3.png" alt="CSS Grid와 Flexbox" class="section-image">
-            
-            <div class="section-content">
-                <p><span class="highlight">CSS Grid</span>와 <span class="highlight">Flexbox</span>는 현대 반응형 레이아웃의 핵심 기술입니다. 2025년 현재 모든 주요 브라우저에서 완벽 지원되며, 복잡한 레이아웃을 간단하게 구현할 수 있습니다.</p>
-
-                <h3>CSS Grid vs Flexbox 비교</h3>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <div class="feature-title">CSS Grid</div>
-                        <div class="feature-description">2차원 레이아웃을 위한 강력한 도구. 행과 열을 동시에 제어하여 복잡한 그리드 시스템 구현에 최적</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔄</div>
-                        <div class="feature-title">Flexbox</div>
-                        <div class="feature-description">1차원 레이아웃에 특화. 아이템 정렬, 공간 분배, 순서 변경에 탁월한 성능</div>
-                    </div>
-                </div>
-
-                <h3>CSS Grid 핵심 기법</h3>
-                <div class="code-example">
-/* 반응형 그리드 레이아웃 */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
-}
-
-/* 그리드 영역 정의 */
-.layout-grid {
-    display: grid;
-    grid-template-areas:
-        "header header"
-        "sidebar main"
-        "footer footer";
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-}
-
-@media (max-width: 768px) {
-    .layout-grid {
-        grid-template-areas:
-            "header"
-            "main"
-            "sidebar"
-            "footer";
-        grid-template-columns: 1fr;
-    }
-}
-                </div>
-
-                <h3>Flexbox 고급 활용</h3>
-                <div class="code-example">
-/* 완벽한 중앙 정렬 */
-.center-everything {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* 반응형 네비게이션 */
-.nav-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-    .nav-flex {
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4: 미디어 쿼리 완벽 활용 -->
-        <section id="section-4" class="section fade-in">
-            <div class="section-header">
-                <div class="section-number">4</div>
-                <h2 class="section-title">미디어 쿼리 완벽 활용</h2>
-            </div>
-            
-            <img src="./assets/images/responsive/responsive-4.png" alt="미디어 쿼리 활용" class="section-image">
-            
-            <div class="section-content">
-                <p><span class="highlight">미디어 쿼리(Media Queries)</span>는 반응형 디자인의 핵심 기술로, 디바이스의 특성에 따라 다른 CSS 스타일을 적용할 수 있게 해줍니다. 2025년 현재 Level 5 규격이 도입되어 더욱 정교한 제어가 가능합니다.</p>
-
-                <h3>2025년 권장 브레이크포인트</h3>
-                <div class="code-example">
-/* 최신 권장 브레이크포인트 */
-/* 모바일: 320px - 767px */
-@media (max-width: 767px) { }
-
-/* 태블릿: 768px - 1023px */
-@media (min-width: 768px) and (max-width: 1023px) { }
-
-/* 데스크톱: 1024px - 1439px */
-@media (min-width: 1024px) and (max-width: 1439px) { }
-
-/* 대형 데스크톱: 1440px 이상 */
-@media (min-width: 1440px) { }
-
-/* 고해상도 디스플레이 */
-@media (min-resolution: 2dppx) { }
-
-/* 다크 모드 지원 */
-@media (prefers-color-scheme: dark) { }
-
-/* 모션 감소 선호 */
-@media (prefers-reduced-motion: reduce) { }
-                </div>
-
-                <h3>고급 미디어 쿼리 기법</h3>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">📐</div>
-                        <div class="feature-title">Container Queries</div>
-                        <div class="feature-description">부모 컨테이너 크기에 따른 스타일 적용. 2025년 새로운 표준으로 더욱 정교한 컴포넌트 기반 반응형 디자인 가능</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🌙</div>
-                        <div class="feature-title">다크 모드</div>
-                        <div class="feature-description">사용자의 시스템 설정에 따른 자동 테마 변경. 눈의 피로감 감소와 배터리 절약 효과</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">♿</div>
-                        <div class="feature-title">접근성 쿼리</div>
-                        <div class="feature-description">사용자의 접근성 설정을 감지하여 적절한 인터페이스 제공. 모션 감소, 고대비 모드 등</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📱</div>
-                        <div class="feature-title">디바이스 특성</div>
-                        <div class="feature-description">터치 지원, 호버 가능성, 포인터 정확도 등을 감지하여 최적화된 인터페이스 제공</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 5: 반응형 이미지 및 미디어 -->
-        <section id="section-5" class="section fade-in">
-            <div class="section-header">
-                <div class="section-number">5</div>
-                <h2 class="section-title">반응형 이미지 및 미디어</h2>
-            </div>
-            
-            <img src="./assets/images/responsive/responsive-5.png" alt="반응형 이미지 및 미디어" class="section-image">
-            
-            <div class="section-content">
-                <p><span class="highlight">반응형 이미지</span>는 다양한 화면 크기와 해상도에 맞춰 최적화된 이미지를 제공하는 기술입니다. 2025년 현재 WebP, AVIF 등 차세대 이미지 포맷과 함께 성능 최적화의 핵심 요소가 되었습니다.</p>
-
-                <h3>현대적인 반응형 이미지 구현</h3>
-                <div class="code-example">
-&lt;!-- Picture 요소를 활용한 반응형 이미지 --&gt;
-&lt;picture&gt;
-    &lt;source media="(min-width: 1024px)" 
-            srcset="hero-large.avif" type="image/avif"&gt;
-    &lt;source media="(min-width: 1024px)" 
-            srcset="hero-large.webp" type="image/webp"&gt;
-    &lt;source media="(min-width: 768px)" 
-            srcset="hero-medium.avif" type="image/avif"&gt;
-    &lt;source media="(min-width: 768px)" 
-            srcset="hero-medium.webp" type="image/webp"&gt;
-    &lt;source srcset="hero-small.avif" type="image/avif"&gt;
-    &lt;source srcset="hero-small.webp" type="image/webp"&gt;
-    &lt;img src="hero-fallback.jpg" alt="히어로 이미지" 
-         loading="lazy" decoding="async"&gt;
-&lt;/picture&gt;
-
-&lt;!-- CSS를 활용한 반응형 배경 이미지 --&gt;
-.hero-section {
-    background-image: image-set(
-        "hero-mobile.avif" type("image/avif"),
-        "hero-mobile.webp" type("image/webp"),
-        "hero-mobile.jpg" type("image/jpeg")
-    );
-}
-
-@media (min-width: 768px) {
-    .hero-section {
-        background-image: image-set(
-            "hero-desktop.avif" type("image/avif"),
-            "hero-desktop.webp" type("image/webp"),
-            "hero-desktop.jpg" type("image/jpeg")
-        );
-    }
-}
-                </div>
-
-                <h3>비디오 및 미디어 최적화</h3>
-                <div class="code-example">
-&lt;!-- 반응형 비디오 --&gt;
-&lt;video poster="video-poster.jpg" controls preload="metadata"&gt;
-    &lt;source src="video-4k.mp4" type="video/mp4" 
-            media="(min-width: 1440px)"&gt;
-    &lt;source src="video-1080p.mp4" type="video/mp4" 
-            media="(min-width: 768px)"&gt;
-    &lt;source src="video-720p.mp4" type="video/mp4"&gt;
-    &lt;track kind="captions" src="captions-ko.vtt" 
-           srclang="ko" label="한국어"&gt;
-&lt;/video&gt;
-
-/* CSS 비디오 컨테이너 */
-.video-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 비율 */
-}
-
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 6: 터치 친화적 인터페이스 -->
-        <section id="section-6" class="section fade-in">
-            <div class="section-header">
-                <div class="section-number">6</div>
-                <h2 class="section-title">터치 친화적 인터페이스</h2>
-            </div>
-            
-            <img src="./assets/images/responsive/responsive-6.png" alt="터치 친화적 인터페이스" class="section-image">
-            
-            <div class="section-content">
-                <p><span class="highlight">터치 친화적 인터페이스</span> 설계는 모바일 사용자 경험의 핵심입니다. 손가락 터치에 최적화된 버튼 크기, 제스처 지원, 접근성을 고려한 설계가 필요합니다.</p>
-
-                <h3>터치 타겟 최적화</h3>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">👆</div>
-                        <div class="feature-title">최소 터치 크기</div>
-                        <div class="feature-description">44px × 44px 이상의 터치 영역 확보. Apple과 Google 가이드라인을 모두 만족하는 안전한 크기</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📏</div>
-                        <div class="feature-title">적절한 간격</div>
-                        <div class="feature-description">터치 요소 간 최소 8px 이상의 여백 유지. 의도하지 않은 터치 방지</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">👍</div>
-                        <div class="feature-title">엄지 영역</div>
-                        <div class="feature-description">한 손 사용 시 엄지가 닿기 쉬운 하단 영역에 주요 기능 배치</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔄</div>
-                        <div class="feature-title">제스처 지원</div>
-                        <div class="feature-description">스와이프, 핀치, 탭 등 직관적인 제스처 인터페이스 제공</div>
-                    </div>
-                </div>
-
-                <h3>터치 이벤트 최적화</h3>
-                <div class="code-example">
-/* 터치 친화적 CSS */
-.touch-button {
-    min-height: 44px;
-    min-width: 44px;
-    padding: 12px 24px;
-    margin: 8px;
-    border-radius: 8px;
-    border: none;
-    background: #007AFF;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
     
-    /* 터치 하이라이트 제거 */
-    -webkit-tap-highlight-color: transparent;
-    
-    /* 터치 시 확대 방지 */
-    touch-action: manipulation;
-}
-
-.touch-button:active {
-    transform: scale(0.95);
-    transition: transform 0.1s;
-}
-
-/* 스와이프 컨테이너 */
-.swipe-container {
-    overflow-x: auto;
-    display: flex;
-    gap: 1rem;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-}
-
-.swipe-item {
-    flex: 0 0 300px;
-    scroll-snap-align: start;
-}
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 7: 성능 최적화 전략 -->
-        <section id="section-7" class="section fade-in">
-            <div class="section-header">
-                <div class="section-number">7</div>
-                <h2 class="section-title">성능 최적화 전략</h2>
-            </div>
-            
-            <img src="./assets/images/responsive/responsive-7.png" alt="성능 최적화 전략" class="section-image">
-            
-            <div class="section-content">
-                <p><span class="highlight">성능 최적화</span>는 반응형 웹사이트의 성공을 좌우하는 핵심 요소입니다. 2025년 현재 Core Web Vitals와 사용자 중심 성능 지표가 SEO와 사용자 경험에 직접적인 영향을 미치고 있습니다.</p>
-
-                <h3>2025년 성능 최적화 체크리스트</h3>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">2.5초</div>
-                        <div class="stat-label">Largest Contentful Paint (LCP)</div>
-                        <div class="stat-description">메인 콘텐츠 로딩 시간</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">100ms</div>
-                        <div class="stat-label">First Input Delay (FID)</div>
-                        <div class="stat-description">첫 상호작용 응답 시간</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">0.1</div>
-                        <div class="stat-label">Cumulative Layout Shift (CLS)</div>
-                        <div class="stat-description">레이아웃 변화 최소화</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">75%</div>
-                        <div class="stat-label">사용자 기준</div>
-                        <div class="stat-description">모든 지표 달성률</div>
-                    </div>
-                </div>
-
-                <h3>이미지 최적화 전략</h3>
-                <div class="code-example">
-/* 최신 이미지 최적화 기법 */
-.responsive-image {
-    width: 100%;
-    height: auto;
-    
-    /* 이미지 로딩 최적화 */
-    loading: lazy;
-    decoding: async;
-    
-    /* 브라우저 힌트 */
-    fetch-priority: high; /* 중요한 이미지만 */
-}
-
-/* CSS containment으로 성능 향상 */
-.image-gallery {
-    contain: layout style paint;
-}
-
-/* Intersection Observer를 위한 준비 */
-.lazy-image {
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.lazy-image.loaded {
-    opacity: 1;
-}
-                </div>
-
-                <h3>JavaScript 번들 최적화</h3>
-                <div class="code-example">
-// 동적 임포트를 활용한 코드 분할
-const loadModule = async () => {
-    const { default: Module } = await import('./heavy-module.js');
-    return new Module();
-};
-
-// Intersection Observer를 활용한 지연 로딩
-const observeImages = () => {
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-};
-
-// Service Worker를 활용한 캐싱 전략
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js');
-}
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 8: 테스팅 및 디버깅 -->
-        <section id="section-8" class="section fade-in">
-            <div class="section-header">
-                <div class="section-number">8</div>
-                <h2 class="section-title">테스팅 및 디버깅</h2>
-            </div>
-            
-            <img src="./assets/images/responsive/responsive-8.png" alt="테스팅 및 디버깅" class="section-image">
-            
-            <div class="section-content">
-                <p><span class="highlight">효과적인 테스팅과 디버깅</span>은 반응형 웹사이트의 품질을 보장하는 필수 과정입니다. 다양한 디바이스와 브라우저에서 일관된 경험을 제공하기 위한 체계적인 접근이 필요합니다.</p>
-
-                <h3>테스팅 도구와 방법론</h3>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🛠️</div>
-                        <div class="feature-title">개발자 도구</div>
-                        <div class="feature-description">Chrome DevTools의 디바이스 시뮬레이션과 반응형 디자인 모드 활용</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📱</div>
-                        <div class="feature-title">실제 기기 테스트</div>
-                        <div class="feature-description">BrowserStack, LambdaTest 등을 활용한 실제 디바이스 테스팅</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🤖</div>
-                        <div class="feature-title">자동화 테스트</div>
-                        <div class="feature-description">Playwright, Cypress를 활용한 시각적 회귀 테스트</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <div class="feature-title">성능 모니터링</div>
-                        <div class="feature-description">Lighthouse, WebPageTest를 통한 지속적인 성능 모니터링</div>
-                    </div>
-                </div>
-
-                <h3>일반적인 문제와 해결책</h3>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>문제</th>
-                            <th>원인</th>
-                            <th>해결책</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>가로 스크롤 발생</td>
-                            <td>고정 너비 요소</td>
-                            <td>max-width: 100% 적용</td>
-                        </tr>
-                        <tr>
-                            <td>텍스트 가독성 저하</td>
-                            <td>너무 작은 폰트 크기</td>
-                            <td>최소 16px 폰트 사용</td>
-                        </tr>
-                        <tr>
-                            <td>터치 타겟 문제</td>
-                            <td>버튼 크기 부족</td>
-                            <td>최소 44px × 44px 확보</td>
-                        </tr>
-                        <tr>
-                            <td>이미지 로딩 지연</td>
-                            <td>이미지 최적화 부재</td>
-                            <td>WebP, 지연 로딩 적용</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Section 9: 미래의 반응형 기술 -->
-        <section id="section-9" class="section fade-in">
-            <div class="section-header">
-                <div class="section-number">9</div>
-                <h2 class="section-title">미래의 반응형 기술</h2>
-            </div>
-            
-            <img src="./assets/images/responsive/responsive-9.png" alt="미래의 반응형 기술" class="section-image">
-            
-            <div class="section-content">
-                <p><span class="highlight">2025년과 그 이후</span>의 반응형 웹 디자인은 AI, 머신러닝, 그리고 새로운 웹 표준의 등장으로 더욱 지능적이고 효율적으로 발전하고 있습니다.</p>
-
-                <h3>차세대 기술 트렌드</h3>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🤖</div>
-                        <div class="feature-title">AI 기반 적응형 UI</div>
-                        <div class="feature-description">사용자 행동 패턴을 학습하여 개인화된 인터페이스를 자동으로 생성하는 지능형 시스템</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔧</div>
-                        <div class="feature-title">Container Queries</div>
-                        <div class="feature-description">부모 컨테이너 크기에 따른 스타일 적용으로 더욱 정교한 컴포넌트 기반 반응형 디자인</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🌐</div>
-                        <div class="feature-title">CSS Subgrid</div>
-                        <div class="feature-description">중첩된 그리드 시스템으로 복잡한 레이아웃의 간소화와 정렬 개선</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <div class="feature-title">Web Components</div>
-                        <div class="feature-description">재사용 가능한 캡슐화된 HTML 요소로 반응형 컴포넌트 라이브러리 구축</div>
-                    </div>
-                </div>
-
-                <h3>2025년 미래 전망</h3>
-                <p>반응형 웹 디자인의 미래는 더욱 자동화되고 지능적인 방향으로 발전할 것으로 예상됩니다. AI가 사용자의 컨텍스트를 이해하고 최적의 레이아웃을 실시간으로 제안하며, 브라우저 자체에서 성능 최적화를 자동으로 수행하는 시대가 올 것입니다.</p>
-
-                <div class="tips-box">
-                    <div class="tips-title">🚀 준비해야 할 기술</div>
-                    <ul>
-                        <li><strong>CSS Grid Level 3:</strong> 서브그리드와 매스킹 기능</li>
-                        <li><strong>CSS Houdini:</strong> CSS 파싱 과정에 개입하는 저수준 API</li>
-                        <li><strong>WebAssembly:</strong> 고성능 웹 애플리케이션 개발</li>
-                        <li><strong>Progressive Web Apps:</strong> 네이티브 앱 수준의 웹 경험</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <script>
-        // GSAP와 ScrollTrigger 초기화
-        gsap.registerPlugin(ScrollTrigger);
-
-        // 페이지 로딩 애니메이션
-        window.addEventListener('load', () => {
-            // 히어로 섹션 애니메이션
-            const tl = gsap.timeline();
-            tl.from('.hero-title', {
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                ease: 'power3.out'
-            })
-            .from('.hero-subtitle', {
-                duration: 0.8,
-                y: 30,
-                opacity: 0,
-                ease: 'power3.out'
-            }, '-=0.5')
-            .from('.page-title', {
-                duration: 0.6,
-                y: 20,
-                opacity: 0,
-                ease: 'power3.out'
-            }, '-=0.3');
-
-            // 목차 아이템들 순차 애니메이션
-            gsap.from('.toc-item', {
-                duration: 0.6,
-                y: 20,
-                opacity: 0,
-                stagger: 0.1,
-                delay: 0.5,
-                ease: 'power2.out'
-            });
-        });
-
-        // 스크롤 애니메이션
-        gsap.utils.toArray('.section').forEach((section, index) => {
-            gsap.from(section, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                },
-                duration: 0.8,
-                y: 50,
-                opacity: 0,
-                ease: 'power2.out',
-                delay: index * 0.1
-            });
-        });
-
-        // feature card 호버 애니메이션
-        gsap.utils.toArray('.feature-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                gsap.to(card, {
-                    duration: 0.3,
-                    y: -5,
-                    scale: 1.02,
-                    ease: 'power2.out'
-                });
-            });
-
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, {
-                    duration: 0.3,
-                    y: 0,
-                    scale: 1,
-                    ease: 'power2.out'
-                });
-            });
-        });
-
-        // 통계 카운터 애니메이션
-        const animateCounters = () => {
-            gsap.utils.toArray('.stat-number, .cta-stat-number').forEach(counter => {
-                const endValue = counter.textContent;
-                const numberMatch = endValue.match(/[\d.]+/);
-                
-                if (numberMatch) {
-                    const number = parseFloat(numberMatch[0]);
-                    const suffix = endValue.replace(numberMatch[0], '');
+    <!-- Section 2: 성능 분석 도구 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">2025년 최신 성능 측정 도구와 분석 방법</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>성능 분석의 새로운 표준</h3>
+                    <p>현대적인 성능 최적화는 정확한 측정에서 시작됩니다. 2025년 기준 가장 효과적인 도구들을 소개합니다.</p>
                     
-                    gsap.fromTo(counter, {
-                        textContent: 0
-                    }, {
-                        textContent: number,
-                        duration: 2,
-                        ease: 'power2.out',
-                        snap: { textContent: number > 10 ? 1 : 0.1 },
-                        onUpdate: function() {
-                            counter.textContent = this.targets()[0].textContent + suffix;
-                        },
-                        scrollTrigger: {
-                            trigger: counter,
-                            start: 'top 80%',
-                            once: true
-                        }
-                    });
-                }
-            });
-        };
-
-        // 통계 애니메이션 실행
-        animateCounters();
-
-        // 부드러운 스크롤
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">💡 Lighthouse 11.0+</div>
+                            <div class="tech-desc">Chrome DevTools에 내장된 최신 버전. INP 지표 포함, AI 기반 성능 제안 기능이 추가되었습니다. CI/CD 파이프라인 통합 지원.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🌐 WebPageTest 2025</div>
+                            <div class="tech-desc">실제 디바이스에서 테스트 가능. 최신 HTTP/3, WebAssembly 성능 분석 지원. 다양한 네트워크 환경 시뮬레이션.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📊 Chrome User Experience Report</div>
+                            <div class="tech-desc">실제 사용자 데이터 기반 성능 지표. BigQuery를 통한 상세 분석과 경쟁사 벤치마킹 가능.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔍 Speedlify & Calibre</div>
+                            <div class="tech-desc">지속적 성능 모니터링 플랫폼. 성능 회귀 감지, 알림 시스템, 상세한 분석 리포트 제공.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/responsive/responsive-2.png" alt="모바일 퍼스트 접근법" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 3: 프론트엔드 최적화 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">프론트엔드 최적화: 2025년 최신 기법</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>모던 웹 개발의 성능 최적화</h3>
+                    <p>프론트엔드 최적화는 사용자가 직접 경험하는 성능 향상의 핵심입니다. 최신 브라우저 기능과 도구를 활용한 실전 기법을 알아보겠습니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🖼️ 차세대 이미지 최적화</h4>
+                                <ul>
+                                    <li><strong>AVIF 포맷 우선 사용:</strong> WebP 대비 50% 더 작은 크기</li>
+                                    <li><strong>Responsive Images:</strong> srcset과 sizes 속성 활용</li>
+                                    <li><strong>Priority Hints:</strong> fetchpriority="high" 속성 적용</li>
+                                    <li><strong>Lazy Loading:</strong> Intersection Observer v2 활용</li>
+                                    <li><strong>Image CDN:</strong> Cloudinary, ImageKit 등 스마트 최적화</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>⚡ JavaScript 최적화 2025</h4>
+                                <ul>
+                                    <li><strong>ES2024 모듈:</strong> Top-level await, Import Maps 활용</li>
+                                    <li><strong>Code Splitting:</strong> Dynamic imports와 React.lazy</li>
+                                    <li><strong>Tree Shaking:</strong> Webpack 5, Vite의 고급 최적화</li>
+                                    <li><strong>Service Worker:</strong> 백그라운드 동기화와 오프라인 지원</li>
+                                    <li><strong>Web Workers:</strong> 메인 스레드 부하 분산</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🎨 CSS 최적화 전략</h4>
+                                <ul>
+                                    <li><strong>Critical CSS:</strong> 첫 화면 렌더링에 필요한 CSS 인라인</li>
+                                    <li><strong>CSS Containment:</strong> contain 속성으로 렌더링 최적화</li>
+                                    <li><strong>Custom Properties:</strong> CSS 변수 활용한 동적 스타일링</li>
+                                    <li><strong>Container Queries:</strong> 반응형 컴포넌트 구현</li>
+                                    <li><strong>Cascade Layers:</strong> CSS 우선순위 최적화</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🚀 최신 웹 기술 활용</h4>
+                                <ul>
+                                    <li><strong>WebAssembly (WASM):</strong> 연산 집약적 작업 최적화</li>
+                                    <li><strong>Shared Array Buffer:</strong> 멀티 스레딩 활용</li>
+                                    <li><strong>OffscreenCanvas:</strong> 백그라운드 렌더링</li>
+                                    <li><strong>Web Streams API:</strong> 대용량 데이터 스트리밍</li>
+                                    <li><strong>Origin Private File System:</strong> 로컬 파일 시스템 활용</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/responsive/responsive-3.png" alt="CSS Grid와 Flexbox" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 4: 백엔드 최적화 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">백엔드 최적화: 서버 성능과 API 효율성</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>2025년 서버 사이드 최적화</h3>
+                    <p>백엔드 최적화는 TTFB(Time To First Byte) 개선과 API 응답 시간 단축이 핵심입니다. 최신 서버 기술과 아키텍처 패턴을 활용한 최적화 방법을 알아보겠습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ Edge Computing & Serverless</div>
+                            <div class="tech-desc">Vercel Edge Functions, Cloudflare Workers를 활용한 지연 시간 최소화. 전 세계 사용자에게 5ms 이내 응답 제공.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🗄️ 데이터베이스 최적화 2025</div>
+                            <div class="tech-desc">PostgreSQL 16, MongoDB 7.0의 새로운 인덱싱 기능. 벡터 검색과 AI 기반 쿼리 최적화 활용.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔄 캐싱 전략</div>
+                            <div class="tech-desc">Redis 7.2의 새로운 기능 활용. Multi-tier caching, 분산 캐시 무효화, 실시간 데이터 동기화.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📡 API 최적화</div>
+                            <div class="tech-desc">GraphQL Federation, tRPC를 활용한 타입 안전한 API. 배치 요청, 응답 압축, 스트리밍 적용.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🎯 TTFB 최적화 전략</h4>
+                                <ul>
+                                    <li><strong>서버 선택:</strong> Node.js 20+, Bun, Deno 2.0 성능 비교</li>
+                                    <li><strong>Connection Pooling:</strong> 데이터베이스 연결 최적화</li>
+                                    <li><strong>컴파일 최적화:</strong> JIT 컴파일러 활용</li>
+                                    <li><strong>메모리 관리:</strong> Garbage Collection 튜닝</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🔧 현대적 인프라 패턴</h4>
+                                <ul>
+                                    <li><strong>Container 최적화:</strong> Docker multi-stage, 경량 이미지</li>
+                                    <li><strong>Kubernetes:</strong> HPA, VPA 활용한 자동 스케일링</li>
+                                    <li><strong>Service Mesh:</strong> Istio, Linkerd로 마이크로서비스 최적화</li>
+                                    <li><strong>Observability:</strong> OpenTelemetry 기반 모니터링</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/responsive/responsive-4.png" alt="미디어 쿼리 활용" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 5: 네트워크 최적화 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">네트워크 최적화: HTTP/3와 차세대 프로토콜</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>2025년 네트워크 성능의 혁신</h3>
+                    <p>HTTP/3, QUIC 프로토콜의 확산과 5G 네트워크의 대중화로 네트워크 최적화에 새로운 가능성이 열렸습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🌐 HTTP/3 & QUIC</div>
+                            <div class="tech-desc">UDP 기반 프로토콜로 연결 지연 시간 0ms 달성. 패킷 손실 상황에서도 안정적인 성능 유지. Cloudflare, Fastly 등 CDN 지원.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📡 5G & Edge Computing</div>
+                            <div class="tech-desc">5G 네트워크와 Edge 컴퓨팅 결합으로 1ms 이내 지연 시간. MEC(Multi-access Edge Computing) 활용한 실시간 서비스.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔒 보안과 성능의 균형</div>
+                            <div class="tech-desc">TLS 1.3, ECH(Encrypted Client Hello) 활용. 보안 강화와 동시에 핸드셰이크 시간 최소화. Certificate Transparency 2.0 적용.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ 차세대 CDN</div>
+                            <div class="tech-desc">AI 기반 캐싱 전략, 실시간 최적화. Anycast DNS, 글로벌 로드 밸런싱. WebP, AVIF 자동 변환 지원.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/responsive/responsive-5.png" alt="반응형 이미지 및 미디어" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 6: 개인 vs 팀 최적화 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">개인 vs 팀: 성능 최적화 접근 전략</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>프로젝트 규모에 따른 최적화 전략</h3>
+                    <p>성능 최적화 접근 방식은 프로젝트 규모와 팀 구성에 따라 달라져야 합니다. 각 상황에 맞는 효과적인 전략을 알아보겠습니다.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>👤 개인 프로젝트 최적화</h4>
+                                <ul>
+                                    <li><strong>장점:</strong>
+                                        <ul>
+                                            <li>빠른 의사결정과 구현</li>
+                                            <li>전체 스택 이해도 향상</li>
+                                            <li>즉시 테스트와 피드백</li>
+                                            <li>학습 기회 극대화</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>적합한 도구:</strong> Lighthouse CI, Vite, Next.js 자동 최적화</li>
+                                    <li><strong>권장 접근법:</strong> 자동화 도구 중심, 점진적 개선</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>👥 팀 프로젝트 최적화</h4>
+                                <ul>
+                                    <li><strong>장점:</strong>
+                                        <ul>
+                                            <li>전문 영역별 깊이 있는 최적화</li>
+                                            <li>다양한 관점과 아이디어</li>
+                                            <li>대규모 프로젝트 대응 가능</li>
+                                            <li>품질 보장과 코드 리뷰</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>필수 도구:</strong> Performance Budget, Monitoring Dashboard</li>
+                                    <li><strong>권장 접근법:</strong> 역할 분담, 지속적 모니터링</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">📊 성과 측정 KPI</div>
+                            <div class="tech-desc">개인: Learning Progress, Tool Mastery | 팀: Performance Budget 달성률, 개선 속도, ROI 측정</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔄 워크플로우 차이</div>
+                            <div class="tech-desc">개인: Experiment → Measure → Iterate | 팀: Plan → Assign → Review → Deploy → Monitor</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/responsive/responsive-6.png" alt="터치 친화적 인터페이스" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 7: 실전 워크플로우 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">성능 최적화 실전 워크플로우와 자동화</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3>체계적이고 효율적인 최적화 프로세스</h3>
+                    <p>성공적인 성능 최적화를 위해서는 체계적인 워크플로우와 자동화가 필수입니다. 2025년 표준 프로세스를 알아보겠습니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">🔍 1단계: 성능 진단</div>
+                            <div class="tech-desc">Lighthouse CI를 GitHub Actions에 통합하여 자동 분석. WebPageTest API로 다양한 환경 테스트. RUM(Real User Monitoring) 데이터 수집.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎯 2단계: 우선순위 설정</div>
+                            <div class="tech-desc">Impact vs Effort 매트릭스로 작업 우선순위 결정. Performance Budget 설정. 비즈니스 KPI와 성능 지표 연결.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">⚡ 3단계: 최적화 구현</div>
+                            <div class="tech-desc">자동 이미지 최적화 파이프라인 구축. Webpack/Vite 번들 분석 자동화. CSS/JS 최소화 및 압축 자동화.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📊 4단계: 성과 측정</div>
+                            <div class="tech-desc">A/B 테스트로 최적화 효과 검증. Continuous Performance Monitoring 구축. 정기적인 성능 리포트 생성.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-item">
+                                <h4>🤖 자동화 도구 스택</h4>
+                                <ul>
+                                    <li><strong>CI/CD 통합:</strong> GitHub Actions, GitLab CI</li>
+                                    <li><strong>성능 모니터링:</strong> Speedlify, Calibre, SpeedCurve</li>
+                                    <li><strong>이미지 최적화:</strong> Sharp, ImageOptim-CLI</li>
+                                    <li><strong>번들 분석:</strong> Bundle Analyzer, webpack-bundle-analyzer</li>
+                                    <li><strong>알림 시스템:</strong> Slack, Discord, PagerDuty 통합</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>📋 Performance Budget 예시</h4>
+                                <ul>
+                                    <li><strong>Lighthouse 점수:</strong> 95점 이상 유지</li>
+                                    <li><strong>Bundle Size:</strong> 메인 청크 250KB 이하</li>
+                                    <li><strong>이미지 크기:</strong> 개별 이미지 500KB 이하</li>
+                                    <li><strong>API 응답:</strong> 95% 요청이 500ms 이하</li>
+                                    <li><strong>Core Web Vitals:</strong> 모든 지표 녹색 구간</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/responsive/responsive-7.png" alt="성능 최적화 전략" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 8: 성능 모니터링 -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">지속적인 성능 모니터링과 최적화</h2>
+            <div class="section-content reverse">
+                <div class="content-text">
+                    <h3>성능 회귀 방지와 지속적 개선</h3>
+                    <p>성능 최적화는 일회성 작업이 아닌 지속적인 과정입니다. 성능 회귀를 방지하고 지속적으로 개선하는 시스템을 구축해야 합니다.</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-name">📈 실시간 모니터링</div>
+                            <div class="tech-desc">RUM 데이터 실시간 수집, 성능 이상 감지 알림, 사용자별 성능 차이 분석. Sentry, DataDog, New Relic 통합.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🔄 성능 회귀 감지</div>
+                            <div class="tech-desc">PR별 성능 영향 분석, 자동 성능 테스트, 기준치 대비 변화 추적. 성능 저하 시 자동 롤백.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">🎯 예측적 최적화</div>
+                            <div class="tech-desc">AI/ML 기반 성능 예측, 트래픽 패턴 분석, 프로액티브 스케일링. 장애 예방과 용량 계획.</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">📊 비즈니스 임팩트 측정</div>
+                            <div class="tech-desc">성능 개선과 전환율 상관관계 분석, ROI 측정, 사용자 만족도 추적. 데이터 기반 의사결정.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 최신 성능 통계 -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">90점</div>
+                            <div class="stat-label">Lighthouse 목표 점수</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">2.5초</div>
+                            <div class="stat-label">LCP 목표 시간</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100ms</div>
+                            <div class="stat-label">INP 목표 시간</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">0.1</div>
+                            <div class="stat-label">CLS 목표 점수</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-image">
+                    <img src="../assets/images/responsive/responsive-8.png" alt="테스팅 및 디버깅" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">웹 성능 최적화 전문 컨설팅</h2>
+            <p class="cta-text">
+                웹사이트 성능 개선이 필요하신가요?<br>
+                Core Web Vitals 최적화부터 인프라 개선까지 전문적인 컨설팅을 제공합니다.
+            </p>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">성능 최적화 상담받기</a>
+        </div>
+    </section>
+    
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    gsap.to(window, {
-                        duration: 1,
-                        scrollTo: target,
-                        ease: 'power2.inOut'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-
-        // 이미지 지연 로딩
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src || img.src;
-                    img.classList.add('loaded');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-
-        document.querySelectorAll('img').forEach(img => {
-            imageObserver.observe(img);
-        });
-
-        // 네비게이션 하이라이트
-        const sections = document.querySelectorAll('.section');
-        const tocItems = document.querySelectorAll('.toc-item');
-
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const currentId = entry.target.id;
-                    
-                    // 모든 TOC 아이템에서 active 클래스 제거
-                    tocItems.forEach(item => {
-                        item.classList.remove('active');
-                    });
-                    
-                    // 현재 섹션에 해당하는 TOC 아이템에 active 클래스 추가
-                    const activeTocItem = document.querySelector(`.toc-item[href="#${currentId}"]`);
-                    if (activeTocItem) {
-                        activeTocItem.classList.add('active');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+        
+        // Lazy loading images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
                     }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Counter animation for stats
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.textContent);
+                const isDecimal = counter.textContent.includes('.');
+                const suffix = counter.textContent.includes('초') ? '초' : 
+                             counter.textContent.includes('ms') ? 'ms' : 
+                             counter.textContent.includes('점') ? '점' : '';
+                
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        const displayValue = isDecimal ? 
+                            current.toFixed(1) : 
+                            Math.ceil(current);
+                        counter.textContent = displayValue + suffix;
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + suffix;
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+        
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+        
+        // Enhanced scroll animations
+        const enhancedObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
                 }
             });
         }, {
-            threshold: 0.6
+            threshold: 0.1,
+            rootMargin: '-50px'
         });
-
-        sections.forEach(section => {
-            observer.observe(section);
+        
+        document.querySelectorAll('.tech-card, .toc-item').forEach(el => {
+            enhancedObserver.observe(el);
         });
-
-        // 버튼 클릭 효과
-        document.querySelectorAll('.cta-btn, .back-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
+        
+        // TOC item stagger animation
+        document.querySelectorAll('.toc-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
         });
-
-        // 성능 모니터링
-        if ('performance' in window) {
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    const perfData = performance.getEntriesByType('navigation')[0];
-                    console.log('페이지 로딩 시간:', perfData.loadEventEnd - perfData.fetchStart, 'ms');
-                }, 0);
-            });
-        }
-
-        // 다크 모드 지원
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        if (prefersDarkScheme.matches) {
-            document.body.classList.add('dark-mode');
-        }
-
-        prefersDarkScheme.addEventListener('change', (e) => {
-            if (e.matches) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
+        
+        // Loading performance optimization
+        window.addEventListener('load', () => {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => {
+                    console.log('웹 성능 최적화 가이드 페이지가 완전히 로드되었습니다.');
+                });
             }
         });
     </script>
 </body>
-</html> 
+</html>
