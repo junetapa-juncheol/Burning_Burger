@@ -97,9 +97,6 @@ class Navigation {
             }
         });
 
-        // 스크롤 이벤트
-        this.utils.onScroll(() => this.handleScroll());
-        
         // 리사이즈 이벤트
         this.utils.onResize(() => this.handleResize());
         
@@ -129,6 +126,12 @@ class Navigation {
     }
 
     setupScrollEffects() {
+        // utils 객체가 제대로 초기화되었는지 확인
+        if (!this.utils || !this.utils.$) {
+            console.warn('⚠️ utils 객체가 초기화되지 않았습니다.');
+            return;
+        }
+
         const navigation = this.utils.$('.main-navigation');
         if (!navigation) {
             console.warn('⚠️ 네비게이션 요소를 찾을 수 없어 스크롤 효과를 설정할 수 없습니다.');
@@ -139,35 +142,51 @@ class Navigation {
         let isScrolling = false;
         
         const handleScroll = this.debounce(() => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollDifference = Math.abs(scrollTop - lastScrollTop);
-            
-            // 스크롤 거리가 충분히 클 때만 반응 (더 부드러운 UX)
-            if (scrollDifference > 5) {
-                if (scrollTop > lastScrollTop && scrollTop > 200) {
-                    // 아래로 스크롤 (임계값 100 → 200으로 증가)
-                    console.log('📱 네비게이션 숨김 (스크롤 다운)');
-                    this.utils.addClass(navigation, 'nav-hidden');
-                } else if (scrollTop < lastScrollTop) {
-                    // 위로 스크롤
-                    console.log('📱 네비게이션 표시 (스크롤 업)');
-                    this.utils.removeClass(navigation, 'nav-hidden');
+            try {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollDifference = Math.abs(scrollTop - lastScrollTop);
+                
+                // 스크롤 거리가 충분히 클 때만 반응 (더 부드러운 UX)
+                if (scrollDifference > 5) {
+                    // 스크롤된 상태 클래스 추가/제거
+                    if (scrollTop > 50) {
+                        this.utils.addClass(navigation, 'scrolled');
+                    } else {
+                        this.utils.removeClass(navigation, 'scrolled');
+                    }
+
+                    // 네비게이션 숨김/표시 (아래로 많이 스크롤할 때만)
+                    if (scrollTop > lastScrollTop && scrollTop > 200) {
+                        // 아래로 스크롤
+                        this.utils.addClass(navigation, 'nav-hidden');
+                    } else if (scrollTop < lastScrollTop) {
+                        // 위로 스크롤
+                        this.utils.removeClass(navigation, 'nav-hidden');
+                    }
+                    
+                    lastScrollTop = scrollTop;
                 }
                 
-                lastScrollTop = scrollTop;
+                isScrolling = false;
+            } catch (error) {
+                console.error('🚨 스크롤 이벤트 처리 중 오류:', error);
+                isScrolling = false;
             }
-            
-            isScrolling = false;
         }, 16); // 60fps로 제한
         
-        this.utils.onScroll(() => {
-            if (!isScrolling) {
-                isScrolling = true;
-                handleScroll();
-            }
-        });
-        
-        console.log('📜 네비게이션 스크롤 효과 설정 완료');
+        // 안전한 스크롤 이벤트 바인딩
+        try {
+            this.utils.onScroll(() => {
+                if (!isScrolling) {
+                    isScrolling = true;
+                    handleScroll();
+                }
+            });
+            
+            console.log('📜 네비게이션 스크롤 효과 설정 완료');
+        } catch (error) {
+            console.error('🚨 스크롤 이벤트 바인딩 실패:', error);
+        }
     }
 
     setupActiveStates() {
@@ -301,57 +320,66 @@ class Navigation {
         }
     }
 
-    handleScroll() {
-        const navigation = this.utils.$('.main-navigation');
-        if (navigation) {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 50) {
-                this.utils.addClass(navigation, 'scrolled');
-            } else {
-                this.utils.removeClass(navigation, 'scrolled');
-            }
-        }
-    }
+
 
     handleResize() {
-        // 화면 크기 변경 시 모바일 메뉴 닫기
-        if (window.innerWidth > 768) {
-            this.closeMobileMenu();
-            
-            // 드롭다운 상태 초기화
-            this.utils.$$('.nav-item.has-dropdown.active').forEach(item => {
-                this.utils.removeClass(item, 'active');
-                const dropdown = item.querySelector('.dropdown-menu');
-                if (dropdown) {
-                    this.utils.removeClass(dropdown, 'show');
-                }
-            });
+        // utils 객체 확인
+        if (!this.utils || !this.utils.$$) {
+            console.warn('⚠️ handleResize: utils 객체가 초기화되지 않았습니다.');
+            return;
+        }
+
+        try {
+            // 화면 크기 변경 시 모바일 메뉴 닫기
+            if (window.innerWidth > 768) {
+                this.closeMobileMenu();
+                
+                // 드롭다운 상태 초기화
+                this.utils.$$('.nav-item.has-dropdown.active').forEach(item => {
+                    this.utils.removeClass(item, 'active');
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    if (dropdown) {
+                        this.utils.removeClass(dropdown, 'show');
+                    }
+                });
+            }
+        } catch (error) {
+            console.error('🚨 리사이즈 이벤트 처리 중 오류:', error);
         }
     }
 
     handleOutsideClick(event) {
-        const navigation = this.utils.$('.main-navigation');
-        const mobileMenu = this.utils.$('.main-nav-list');
-        
-        // 모바일 메뉴 외부 클릭 시 닫기
-        if (mobileMenu && mobileMenu.classList.contains('active')) {
-            if (!navigation.contains(event.target)) {
-                this.closeMobileMenu();
-            }
+        // utils 객체 확인
+        if (!this.utils || !this.utils.$) {
+            console.warn('⚠️ handleOutsideClick: utils 객체가 초기화되지 않았습니다.');
+            return;
         }
-        
-        // 드롭다운 외부 클릭 시 닫기
-        const dropdownItems = this.utils.$$('.nav-item.has-dropdown');
-        dropdownItems.forEach(item => {
-            if (!item.contains(event.target)) {
-                this.utils.removeClass(item, 'active');
-                const dropdown = item.querySelector('.dropdown-menu');
-                if (dropdown) {
-                    this.utils.removeClass(dropdown, 'show');
+
+        try {
+            const navigation = this.utils.$('.main-navigation');
+            const mobileMenu = this.utils.$('.main-nav-list');
+            
+            // 모바일 메뉴 외부 클릭 시 닫기
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                if (navigation && !navigation.contains(event.target)) {
+                    this.closeMobileMenu();
                 }
             }
-        });
+            
+            // 드롭다운 외부 클릭 시 닫기
+            const dropdownItems = this.utils.$$('.nav-item.has-dropdown');
+            dropdownItems.forEach(item => {
+                if (!item.contains(event.target)) {
+                    this.utils.removeClass(item, 'active');
+                    const dropdown = item.querySelector('.dropdown-menu');
+                    if (dropdown) {
+                        this.utils.removeClass(dropdown, 'show');
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('🚨 외부 클릭 이벤트 처리 중 오류:', error);
+        }
     }
 
     // 북마크 기능
@@ -551,8 +579,7 @@ class Navigation {
         this.setupShare();
         this.setupAccessibility();
         
-        // 스크롤 이벤트 최적화
-        this.handleScroll = this.debounce(this.handleScroll, 10);
+        // 리사이즈 이벤트 최적화
         this.handleResize = this.debounce(this.handleResize, 250);
     }
 }

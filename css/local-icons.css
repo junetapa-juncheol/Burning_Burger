@@ -151,4 +151,192 @@
 .floating-element .icon-svg {
     width: 1.5em;
     height: 1.5em;
-} 
+}
+
+/* Font Awesome 대체 아이콘들 */
+.fas, .fab, .far, .fal {
+    font-family: inherit;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-rendering: auto;
+}
+
+.fas::before, .fab::before, .far::before, .fal::before {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    text-align: center;
+    font-family: inherit;
+}
+
+/* SVG 파일 기반 Font Awesome 아이콘들 */
+.fa-laptop-code::before { 
+    content: "";
+    background-image: url("../assets/images/icons/laptop-code-fa.svg");
+}
+.fa-paint-brush::before { 
+    content: "";
+    background-image: url("../assets/images/icons/paint-brush.svg");
+}
+.fa-html5::before { 
+    content: "";
+    background-image: url("../assets/images/icons/html5.svg");
+}
+.fa-css3-alt::before { 
+    content: "";
+    background-image: url("../assets/images/icons/css3-alt.svg");
+}
+.fa-js-square::before { 
+    content: "";
+    background-image: url("../assets/images/icons/js-square.svg");
+}
+.fa-react::before { 
+    content: "";
+    background-image: url("../assets/images/icons/react.svg");
+}
+.fa-code::before { 
+    content: "";
+    background-image: url("../assets/images/icons/code.svg");
+}
+.fa-server::before { 
+    content: "";
+    background-image: url("../assets/images/icons/server.svg");
+}
+.fa-node-js::before { 
+    content: "";
+    background-image: url("../assets/images/icons/node-js.svg");
+}
+.fa-python::before { 
+    content: "";
+    background-image: url("../assets/images/icons/python.svg");
+}
+.fa-database::before { 
+    content: "";
+    background-image: url("../assets/images/icons/database.svg");
+}
+.fa-git-alt::before { 
+    content: "";
+    background-image: url("../assets/images/icons/git-alt.svg");
+}
+.fa-docker::before { 
+    content: "";
+    background-image: url("../assets/images/icons/docker.svg");
+}
+.fa-rocket::before { 
+    content: "";
+    background-image: url("../assets/images/icons/rocket.svg");
+}
+.fa-arrow-left::before { 
+    content: "";
+    background-image: url("../assets/images/icons/arrow-left.svg");
+}
+.fa-search::before { 
+    content: "";
+    background-image: url("../assets/images/icons/search.svg");
+}
+.fa-clock::before { 
+    content: "";
+    background-image: url("../assets/images/icons/clock.svg");
+}
+.fa-envelope::before { 
+    content: "";
+    background-image: url("../assets/images/icons/envelope.svg");
+}
+.fa-github::before { 
+    content: "";
+    background-image: url("../assets/images/icons/github.svg");
+}
+.fa-star::before { 
+    content: "";
+    background-image: url("../assets/images/icons/star.svg");
+}
+.fa-music::before { 
+    content: "";
+    background-image: url("../assets/images/icons/music.svg");
+}
+.fa-palette::before { 
+    content: "";
+    background-image: url("../assets/images/icons/palette.svg");
+}
+.fa-mobile-alt::before { 
+    content: "";
+    background-image: url("../assets/images/icons/mobile-alt.svg");
+}
+.fa-circle::before { 
+    content: "";
+    background-image: url("../assets/images/icons/circle.svg");
+}
+
+/* SVG 아이콘 공통 스타일 */
+[class*="fa-"]::before {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+/* 이모지 폴백 아이콘들 (SVG 파일이 없는 경우) */
+.fa-vuejs::before { content: "🖼️"; }
+.fa-leaf::before { content: "🍃"; }
+.fa-figma::before { content: "🔧"; }
+.fa-image::before { content: "🖼️"; }
+.fa-bezier-curve::before { content: "📐"; }
+.fa-video::before { content: "🎬"; }
+.fa-sliders-h::before { content: "🎛️"; }
+.fa-waveform::before { content: "〰️"; }
+.fa-tools::before { content: "🔧"; }
+.fa-brain::before { content: "🧠"; }
+.fa-cube::before { content: "📦"; }
+.fa-fire::before { content: "🔥"; }
+.fa-tags::before { content: "🏷️"; }
+.fa-chart-bar::before { content: "📊"; }
+.fa-tachometer-alt::before { content: "⚡"; }
+.fa-chevron-left::before { content: "‹"; }
+.fa-chevron-right::before { content: "›"; }
+.fa-industry::before { content: "🏭"; }
+.fa-tablet-alt::before { content: "📟"; }
+.fa-desktop::before { content: "🖥️"; }
+.fa-chalkboard-teacher::before { content: "👨‍🏫"; }
+.fa-user-tie::before { content: "👔"; }
+.fa-book::before { content: "📖"; }
+.fa-code-branch::before { content: "🌿"; }
+.fa-download::before { content: "⬇️"; }
+.fa-external-link-alt::before { content: "🔗"; }
+.fa-users::before { content: "👥"; }
+.fa-chart-line::before { content: "📈"; }
+.fa-bug::before { content: "🐛"; }
+.fa-compact-disc::before { content: "💿"; }
+
+/* 크기 조절 */
+.fa-lg { font-size: 1.33em; }
+.fa-2x { font-size: 2em; }
+.fa-3x { font-size: 3em; }
+.fa-4x { font-size: 4em; }
+.fa-5x { font-size: 5em; }
+
+/* 애니메이션 */
+.fa-spin {
+    animation: fa-spin 2s infinite linear;
+}
+
+@keyframes fa-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 온라인 상태 표시 */
+.online-indicator {
+    color: #22c55e;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
