@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프론트엔드 개발 완벽 가이드 - junetapa</title>
+    <title>일러스트레이션 완벽 가이드 - junetapa</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="프론트엔드 개발의 모든 것을 담은 완벽 가이드. HTML, CSS, JavaScript부터 최신 프레임워크까지 실무에 필요한 모든 지식을 제공합니다.">
-    <meta name="keywords" content="프론트엔드개발, HTML, CSS, JavaScript, React, Vue, 웹개발, 사용자경험">
+    <meta name="description" content="일러스트레이션의 모든 것을 담은 완벽 가이드. 기초 기법부터 상업적 활용까지 시각적 스토리텔링의 모든 지식을 제공합니다.">
+    <meta name="keywords" content="일러스트레이션, 디지털드로잉, 캐릭터디자인, 컨셉아트, 포토샵, 프로크리에이트, 시각적스토리텔링">
     <meta name="author" content="junetapa">
     
     <!-- CSS Files -->
@@ -31,7 +31,7 @@
     
     <style>
         :root {
-            --accent: #feca57;
+            --accent: #8e44ad;
             --radius-full: 9999px;
         }
         
@@ -42,15 +42,15 @@
             left: 0;
             width: 0%;
             height: 4px;
-            background: linear-gradient(90deg, #667eea 0%, #feca57 50%, #764ba2 100%);
+            background: linear-gradient(90deg, #8e44ad 0%, #9b59b6 50%, #af7ac5 100%);
             z-index: 10000;
             transition: width 0.05s ease-out;
             border-radius: 0 0 2px 0;
         }
         
         .progress-indicator.near-complete {
-            box-shadow: 0 0 20px rgba(254, 202, 87, 0.6),
-                       0 0 30px rgba(254, 202, 87, 0.4);
+            box-shadow: 0 0 20px rgba(142, 68, 173, 0.6),
+                       0 0 30px rgba(142, 68, 173, 0.4);
             filter: brightness(1.2);
         }
         
@@ -65,18 +65,18 @@
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #667eea, #feca57);
+            background: linear-gradient(45deg, #8e44ad, #9b59b6);
             border-radius: var(--radius-full);
             transition: all 0.3s ease;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #feca57, #764ba2);
-            box-shadow: 0 0 10px rgba(254, 202, 87, 0.5);
+            background: linear-gradient(45deg, #9b59b6, #af7ac5);
+            box-shadow: 0 0 10px rgba(142, 68, 173, 0.5);
         }
         
-        .frontend-page {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .illustration-page {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
             min-height: 100vh;
         }
         
@@ -90,7 +90,7 @@
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff, #feca57);
+            background: linear-gradient(45deg, #fff, #8e44ad);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -146,7 +146,7 @@
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 20px;
-            color: #667eea;
+            color: #8e44ad;
         }
         
         .content-text p {
@@ -172,7 +172,7 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #8e44ad;
             font-weight: bold;
         }
         
@@ -226,7 +226,7 @@
         
         .tech-name {
             font-weight: 600;
-            color: #667eea;
+            color: #8e44ad;
             margin-bottom: 10px;
         }
         
@@ -236,7 +236,7 @@
         }
         
         .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
             color: white;
             padding: 80px 40px;
             text-align: center;
@@ -259,7 +259,7 @@
         .cta-button {
             display: inline-block;
             background: white;
-            color: #667eea;
+            color: #8e44ad;
             padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
@@ -277,7 +277,7 @@
             top: 20px;
             left: 20px;
             background: rgba(255, 255, 255, 0.9);
-            color: #667eea;
+            color: #8e44ad;
             padding: 10px 20px;
             border-radius: 25px;
             text-decoration: none;
@@ -330,7 +330,7 @@
         .toc-number {
             font-size: 2rem;
             font-weight: 700;
-            color: #667eea;
+            color: #8e44ad;
             margin-bottom: 15px;
         }
         
@@ -372,24 +372,24 @@
         }
     </style>
 </head>
-<body class="frontend-page">
+<body class="illustration-page">
     <!-- Enhanced Progress Indicator -->
     <div class="progress-indicator" id="progress-indicator"></div>
     
     <!-- Navigation Back -->
-    <a href="../index.html#frontend" class="nav-back">← 홈으로 돌아가기</a>
+    <a href="../index.html#illustration" class="nav-back">← 홈으로 돌아가기</a>
     
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="hero-badge">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
-                <span>프론트엔드 개발</span>
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M368.4 18.3L312.7 74.1 437.9 199.3l55.7-55.7c21.9-21.9 21.9-57.3 0-79.2L447.6 18.3c-21.9-21.9-57.3-21.9-79.2 0zM288 94.6l-9.2 2.8L134.7 140.6c-19.9 6-35.7 21.2-42.3 41L3.8 445.8c-3.8 11.3-1 23.9 7.3 32.4L164.7 324.7c-3-6.3-4.7-13.3-4.7-20.7c0-26.5 21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48c-7.4 0-14.4-1.7-20.7-4.7L33.7 500.9c8.6 8.3 21.1 11.2 32.4 7.3l264.3-88.6c19.7-6.6 35-22.4 41-42.3l43.2-144.1 2.8-9.2L288 94.6z"/></svg>
+                <span>일러스트레이션</span>
             </div>
-            <h1 class="hero-title">프론트엔드 개발의 모든 것</h1>
+            <h1 class="hero-title">일러스트레이션의 모든 것</h1>
             <p class="hero-subtitle">
-                사용자 경험을 혁신하는 기술부터 최신 프레임워크까지,<br>
-                프론트엔드 개발자가 되기 위한 완벽한 로드맵을 제시합니다.
+                상상을 현실로 구현하는 시각적 스토리텔링부터 감정을 전달하는 창작 기법까지,<br>
+                예술적 감각과 전문적 기술을 겸비한 일러스트레이터가 되기 위한 완벽한 가이드를 제시합니다.
             </p>
         </div>
     </section>
@@ -397,265 +397,270 @@
     <!-- Table of Contents -->
     <section class="toc-section">
         <div class="container">
-            <h2 class="toc-title">학습 로드맵</h2>
+            <h2 class="toc-title">일러스트레이션 마스터 로드맵</h2>
             <div class="toc-grid">
                 <div class="toc-item">
                     <div class="toc-number">01</div>
-                    <h3>프론트엔드 개발 소개</h3>
-                    <p>사용자 경험을 혁신하는 기술의 기초</p>
+                    <h3>일러스트레이션 소개</h3>
+                    <p>시각적 스토리텔링의 예술과 창작의 기초</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">02</div>
-                    <h3>프론트엔드 개발이란?</h3>
-                    <p>웹 개발의 핵심 개념과 역할</p>
+                    <h3>일러스트레이션이란?</h3>
+                    <p>창작과 소통의 시각 언어</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">03</div>
-                    <h3>핵심 기술 스택</h3>
-                    <p>HTML, CSS, JavaScript 마스터하기</p>
+                    <h3>기초 기법과 재료</h3>
+                    <p>전통과 디지털 매체의 활용</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">04</div>
-                    <h3>모던 프레임워크</h3>
-                    <p>React, Vue, Angular 완벽 가이드</p>
+                    <h3>일러스트레이션 도구</h3>
+                    <p>디지털 소프트웨어와 전통 재료</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">05</div>
-                    <h3>반응형 디자인</h3>
-                    <p>모바일 퍼스트 개발 전략</p>
+                    <h3>스타일과 장르</h3>
+                    <p>다양한 표현 방식과 특성</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">06</div>
-                    <h3>개발자의 역할</h3>
-                    <p>핵심 책임과 업무 프로세스</p>
+                    <h3>일러스트레이터의 역할</h3>
+                    <p>창작자이자 비주얼 스토리텔러</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">07</div>
-                    <h3>백엔드 협업</h3>
-                    <p>완전한 웹 서비스 구축하기</p>
+                    <h3>클라이언트와의 협업</h3>
+                    <p>상업적 프로젝트 관리와 소통</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">08</div>
-                    <h3>미래 트렌드</h3>
-                    <p>진화하는 기술과 새로운 패러다임</p>
+                    <h3>일러스트레이션의 미래</h3>
+                    <p>디지털 혁신과 새로운 가능성</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 1: 프론트엔드 개발 소개 -->
+    <!-- Section 1: 일러스트레이션 소개 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발의 모든 것</h2>
+            <h2 class="section-title">일러스트레이션의 세계로</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>사용자 경험을 혁신하는 기술</h3>
-                    <p>프론트엔드 개발은 사용자가 직접 보고 상호작용하는 웹사이트의 모든 부분을 담당합니다. 단순한 화면 구성을 넘어서 사용자의 니즈를 이해하고, 직관적이고 매력적인 인터페이스를 설계하는 것이 핵심입니다.</p>
+                    <h3>시각적 스토리텔링의 예술과 창작의 기초</h3>
+                    <p>일러스트레이션은 말로는 표현하기 어려운 감정과 이야기를 시각적으로 전달하는 강력한 예술 형태입니다. 단순한 그림을 넘어서 개념과 메시지를 명확하게 소통하고, 보는 이의 상상력을 자극하며, 깊은 감동을 주는 창작 활동입니다.</p>
                     <ul>
-                        <li>사용자 인터페이스(UI) 설계 및 구현</li>
-                        <li>사용자 경험(UX) 최적화</li>
-                        <li>반응형 웹 디자인 구현</li>
-                        <li>성능 최적화 및 접근성 향상</li>
-                        <li>최신 웹 표준 및 기술 적용</li>
+                        <li>개념과 아이디어의 시각적 구현</li>
+                        <li>감정과 분위기를 전달하는 표현 기법</li>
+                        <li>스토리텔링과 내러티브 구성</li>
+                        <li>색채와 형태를 통한 메시지 전달</li>
+                        <li>관찰과 상상의 조화로운 결합</li>
                     </ul>
-                    <p>현대의 프론트엔드 개발자는 디자이너, 백엔드 개발자, 그리고 사용자 사이의 가교 역할을 하며, 기술적 구현 능력과 창의적 사고를 모두 갖춰야 합니다.</p>
+                    <p>일러스트레이터는 예술가이자 소통자로서, 복잡한 개념을 직관적인 이미지로 변환하는 특별한 능력을 가진 창작자입니다. 기술적 숙련도와 창의적 사고, 그리고 인간에 대한 깊은 이해가 만나는 곳에서 감동적인 작품이 탄생합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-1.png" alt="프론트엔드 개발 소개" loading="lazy">
+                    <img src="../assets/images/illustration/illustration-1.png" alt="일러스트레이션 소개" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 2: 프론트엔드 개발이란 -->
+    <!-- Section 2: 일러스트레이션이란 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발이란 무엇인가?</h2>
+            <h2 class="section-title">일러스트레이션이란 무엇인가?</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>웹 개발의 핵심 영역</h3>
-                    <p>프론트엔드 개발은 웹 애플리케이션의 클라이언트 사이드를 담당하는 개발 분야입니다. 사용자가 브라우저에서 직접 경험하는 모든 요소들을 설계하고 구현합니다.</p>
+                    <h3>창작과 소통의 시각 언어</h3>
+                    <p>일러스트레이션은 특정한 목적을 가지고 제작되는 시각적 표현으로, 정보 전달, 감정 표현, 스토리텔링 등 다양한 커뮤니케이션 목표를 달성하기 위해 창작됩니다. 순수 미술과 달리 명확한 소통 의도를 가지고 있으며, 이를 효과적으로 전달하는 것이 핵심입니다.</p>
                     <ul>
-                        <li>웹 페이지의 시각적 요소 구현</li>
-                        <li>사용자 상호작용 로직 개발</li>
-                        <li>데이터 표시 및 관리</li>
-                        <li>브라우저 호환성 보장</li>
-                        <li>성능 최적화 및 SEO 고려</li>
+                        <li>출판물과 에디토리얼 일러스트레이션</li>
+                        <li>광고와 마케팅 비주얼 커뮤니케이션</li>
+                        <li>캐릭터 디자인과 게임 아트</li>
+                        <li>교육용 일러스트레이션과 인포그래픽</li>
+                        <li>웹과 앱을 위한 디지털 일러스트레이션</li>
                     </ul>
-                    <p>단순히 정적인 웹 페이지를 만드는 것이 아니라, 동적이고 인터랙티브한 사용자 경험을 제공하는 것이 현대 프론트엔드 개발의 목표입니다.</p>
+                    <p>현대 일러스트레이션은 전통적인 책과 잡지를 넘어서 디지털 플랫폼, 애니메이션, 인터랙티브 미디어까지 확장되며, 점점 더 다양한 형태와 매체에서 활용되고 있습니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-2.png" alt="프론트엔드 개발 정의" loading="lazy">
+                    <img src="../assets/images/illustration/illustration-2.png" alt="일러스트레이션 정의" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 3: 핵심 기술 스택 -->
+    <!-- Section 3: 기초 기법과 재료 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드의 핵심 요소</h2>
+            <h2 class="section-title">기초 기법과 재료</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>HTML, CSS, JavaScript - 웹의 3대 기술</h3>
-                    <p>모든 프론트엔드 개발의 기초가 되는 세 가지 핵심 기술입니다. 각각의 역할과 상호작용을 완벽히 이해하는 것이 성공적인 프론트엔드 개발자가 되는 첫걸음입니다.</p>
+                    <h3>전통과 디지털 매체의 조화로운 활용</h3>
+                    <p>일러스트레이션의 기초는 관찰력, 드로잉 스킬, 그리고 다양한 재료와 기법에 대한 이해입니다. 전통적인 아날로그 기법부터 최신 디지털 도구까지, 각각의 특성을 파악하고 자신만의 표현 방식을 찾아가는 것이 중요합니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">HTML</div>
-                            <div class="tech-desc">웹 페이지의 구조와 의미를 정의하는 마크업 언어</div>
+                            <div class="tech-name">드로잉 기초</div>
+                            <div class="tech-desc">선, 형태, 명암, 원근법 등 기본적인 표현 기법</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">CSS</div>
-                            <div class="tech-desc">웹 페이지의 시각적 스타일과 레이아웃을 담당</div>
+                            <div class="tech-name">전통 재료</div>
+                            <div class="tech-desc">연필, 펜, 수채화, 아크릴 등 아날로그 매체</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">JavaScript</div>
-                            <div class="tech-desc">동적 기능과 사용자 상호작용을 구현하는 프로그래밍 언어</div>
+                            <div class="tech-name">색채 이론</div>
+                            <div class="tech-desc">색상환, 조화, 대비를 활용한 감정 표현</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">구성과 레이아웃</div>
+                            <div class="tech-desc">화면 구성과 시각적 흐름을 고려한 배치</div>
                         </div>
                     </div>
                     
-                    <p>이 세 기술은 서로 독립적이면서도 긴밀하게 연결되어 있습니다. HTML로 기본 구조를 만들고, CSS로 아름답게 꾸미며, JavaScript로 생동감을 불어넣는 것이 프론트엔드 개발의 기본 원리입니다.</p>
+                    <p>기초 기법을 탄탄히 다지는 것은 어떤 도구를 사용하든 자유롭게 표현할 수 있는 바탕이 됩니다. 전통 기법을 익힌 후 디지털로 확장하면 더 풍부한 표현이 가능합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-3.png" alt="HTML, CSS, JavaScript" loading="lazy">
+                    <img src="../assets/images/illustration/illustration-3.png" alt="기초 기법과 재료" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 4: 모던 프레임워크 -->
+    <!-- Section 4: 일러스트레이션 도구 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">현대 프론트엔드 프레임워크와 라이브러리</h2>
+            <h2 class="section-title">일러스트레이션 도구 완전정복</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>효율적인 개발을 위한 도구들</h3>
-                    <p>현대 웹 개발에서는 복잡한 애플리케이션을 효율적으로 구축하기 위해 다양한 프레임워크와 라이브러리를 활용합니다. 각각의 특성을 이해하고 프로젝트에 맞는 도구를 선택하는 것이 중요합니다.</p>
+                    <h3>디지털 소프트웨어와 전통 재료의 전문적 활용</h3>
+                    <p>현대 일러스트레이터는 다양한 디지털 도구와 전통 재료를 자유자재로 활용할 수 있어야 합니다. 각 도구의 특성을 이해하고 프로젝트의 성격에 맞는 최적의 도구를 선택하는 것이 전문성의 핵심입니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">React</div>
-                            <div class="tech-desc">컴포넌트 기반의 사용자 인터페이스 라이브러리</div>
+                            <div class="tech-name">Adobe Photoshop</div>
+                            <div class="tech-desc">디지털 페인팅과 포토 일러스트레이션의 표준</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">Vue.js</div>
-                            <div class="tech-desc">점진적으로 적용 가능한 프론트엔드 프레임워크</div>
+                            <div class="tech-name">Procreate</div>
+                            <div class="tech-desc">iPad 기반 직관적인 디지털 드로잉 앱</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">Angular</div>
-                            <div class="tech-desc">대규모 애플리케이션을 위한 완전한 프레임워크</div>
+                            <div class="tech-name">Clip Studio Paint</div>
+                            <div class="tech-desc">만화와 애니메이션에 특화된 전문 도구</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">Svelte</div>
-                            <div class="tech-desc">컴파일 타임 최적화를 통한 고성능 프레임워크</div>
+                            <div class="tech-name">Adobe Illustrator</div>
+                            <div class="tech-desc">벡터 기반 일러스트레이션과 캐릭터 디자인</div>
                         </div>
                     </div>
                     
-                    <p>각 프레임워크는 고유한 철학과 접근 방식을 가지고 있으며, 프로젝트의 규모, 팀의 경험, 성능 요구사항 등을 고려하여 선택해야 합니다.</p>
+                    <p>도구는 아이디어를 구현하는 수단입니다. 기술적 숙련도도 중요하지만, 자신만의 스타일과 표현 방식을 발전시키는 것이 더욱 중요합니다. 다양한 도구를 실험하며 자신에게 맞는 워크플로우를 찾아가세요.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-4.png" alt="모던 프레임워크" loading="lazy">
+                    <img src="../assets/images/illustration/illustration-4.png" alt="일러스트레이션 도구" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 5: 반응형 디자인 -->
+    <!-- Section 5: 스타일과 장르 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">반응형 디자인과 모바일 최적화</h2>
+            <h2 class="section-title">다양한 스타일과 장르</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>모든 디바이스에서 완벽한 경험</h3>
-                    <p>현재 웹 트래픽의 대부분이 모바일에서 발생하므로, 반응형 디자인은 선택이 아닌 필수입니다. 다양한 화면 크기와 해상도에서 일관된 사용자 경험을 제공하는 것이 핵심입니다.</p>
+                    <h3>개성 있는 표현 방식과 장르별 특성</h3>
+                    <p>일러스트레이션은 무궁무진한 스타일과 장르를 포괄합니다. 리얼리즘부터 추상적 표현까지, 각각의 스타일은 고유한 매력과 표현력을 가지고 있습니다. 다양한 스타일을 탐구하며 자신만의 독창적인 어법을 개발하는 것이 일러스트레이터의 성장 과정입니다.</p>
                     <ul>
-                        <li>플렉서블 그리드 시스템 구현</li>
-                        <li>미디어 쿼리를 활용한 브레이크포인트 설정</li>
-                        <li>터치 인터페이스 최적화</li>
-                        <li>모바일 성능 최적화</li>
-                        <li>Progressive Web App (PWA) 구현</li>
+                        <li>리얼리즘과 하이퍼 리얼리즘</li>
+                        <li>카툰과 캐리커처 스타일</li>
+                        <li>미니멀리즘과 기하학적 표현</li>
+                        <li>빈티지와 레트로 스타일</li>
+                        <li>컨셉아트와 판타지 일러스트레이션</li>
+                        <li>벡터 아트와 플랫 디자인</li>
                     </ul>
-                    <p>모바일 퍼스트 접근법을 통해 작은 화면부터 설계하고 점진적으로 확장하는 것이 효과적인 반응형 디자인의 핵심 전략입니다.</p>
+                    <p>자신만의 스타일을 찾는 것은 시간이 걸리는 과정입니다. 다양한 작가들의 작품을 연구하고, 여러 기법을 실험하며, 자신이 표현하고 싶은 것이 무엇인지 깊이 탐구해야 합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-5.png" alt="반응형 디자인" loading="lazy">
+                    <img src="../assets/images/illustration/illustration-5.png" alt="스타일과 장르" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 6: 개발자의 역할 -->
+    <!-- Section 6: 일러스트레이터의 역할 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발자의 핵심 역할과 책임</h2>
+            <h2 class="section-title">일러스트레이터의 핵심 역할과 책임</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>다면적 역할을 수행하는 전문가</h3>
-                    <p>프론트엔드 개발자는 단순한 코딩을 넘어서 사용자 경험, 디자인, 성능, 접근성 등 다양한 영역에서 전문성을 발휘해야 합니다.</p>
+                    <h3>창작자이자 비주얼 스토리텔러</h3>
+                    <p>일러스트레이터는 단순한 그림쟁이가 아닌, 시각적 언어를 통해 복잡한 개념과 감정을 전달하는 전문가입니다. 클라이언트의 요구사항을 이해하고, 타겟 오디언스에게 효과적으로 메시지를 전달하는 창의적 솔루션을 제공합니다.</p>
                     <ul>
-                        <li>사용자 인터페이스 설계 및 구현</li>
-                        <li>사용자 경험(UX) 최적화</li>
-                        <li>크로스 브라우저 호환성 보장</li>
-                        <li>웹 접근성 표준 준수</li>
-                        <li>성능 모니터링 및 최적화</li>
-                        <li>팀 협업 및 커뮤니케이션</li>
+                        <li>클라이언트 브리핑 분석과 컨셉 개발</li>
+                        <li>타겟 오디언스에 맞는 스타일 선택</li>
+                        <li>스토리보드와 러프 스케치 제작</li>
+                        <li>최종 일러스트레이션 완성과 수정</li>
+                        <li>다양한 매체와 용도에 맞는 파일 제작</li>
+                        <li>트렌드 분석과 자기 계발</li>
                     </ul>
-                    <p>기술적 역량뿐만 아니라 디자인 감각, 사용자 심리 이해, 비즈니스 목표 파악 등 종합적인 능력이 요구되는 직업입니다.</p>
+                    <p>성공적인 일러스트레이터는 예술적 재능과 함께 소통 능력, 비즈니스 감각, 시간 관리 능력을 모두 갖춘 멀티플레이어입니다. 꾸준한 학습과 실험을 통해 자신만의 브랜드를 구축해 나가야 합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-6.png" alt="개발자 역할" loading="lazy">
+                    <img src="../assets/images/illustration/illustration-6.png" alt="일러스트레이터 역할" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 7: 백엔드 협업 -->
+    <!-- Section 7: 클라이언트와의 협업 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드와 백엔드의 협업</h2>
+            <h2 class="section-title">클라이언트와의 효과적인 협업</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>완전한 웹 서비스 구축</h3>
-                    <p>현대 웹 개발에서 프론트엔드와 백엔드의 효과적인 협업은 성공적인 프로젝트의 핵심입니다. API 설계부터 데이터 흐름까지 전체적인 아키텍처를 이해하는 것이 중요합니다.</p>
+                    <h3>상업적 프로젝트 관리와 전략적 소통</h3>
+                    <p>상업적 일러스트레이션에서는 창의적 표현과 함께 클라이언트의 요구사항을 만족시키는 것이 중요합니다. 명확한 소통, 체계적인 프로젝트 관리, 그리고 전문적인 서비스 제공이 성공적인 협업의 핵심입니다.</p>
                     <ul>
-                        <li>RESTful API 및 GraphQL 활용</li>
-                        <li>상태 관리 및 데이터 동기화</li>
-                        <li>인증 및 보안 구현</li>
-                        <li>실시간 데이터 처리 (WebSocket, SSE)</li>
-                        <li>마이크로서비스 아키텍처 이해</li>
-                        <li>DevOps 및 배포 프로세스</li>
+                        <li>프로젝트 스코프와 예산 협상</li>
+                        <li>컨셉 제안과 스타일 가이드 제시</li>
+                        <li>단계별 피드백과 수정 프로세스</li>
+                        <li>저작권과 사용권 계약 관리</li>
+                        <li>납기 관리와 품질 보증</li>
+                        <li>장기적 파트너십 구축</li>
                     </ul>
-                    <p>풀스택 개발자로 성장하기 위해서는 백엔드 기술에 대한 기본적인 이해와 함께 효과적인 협업 방식을 익히는 것이 필수입니다.</p>
+                    <p>클라이언트와의 신뢰 관계는 꾸준한 작업과 전문적인 태도를 통해 구축됩니다. 창의적 비전을 제시하면서도 비즈니스 목표를 달성하는 균형감 있는 접근이 필요합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-7.png" alt="백엔드 협업" loading="lazy">
+                    <img src="../assets/images/illustration/illustration-7.png" alt="클라이언트 협업" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 8: 미래 트렌드 -->
+    <!-- Section 8: 일러스트레이션의 미래 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발의 미래</h2>
+            <h2 class="section-title">일러스트레이션의 미래와 디지털 혁신</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>진화하는 기술과 트렌드</h3>
-                    <p>프론트엔드 개발은 빠르게 진화하는 분야입니다. 새로운 기술과 패러다임을 지속적으로 학습하고 적응하는 것이 경쟁력 있는 개발자가 되는 비결입니다.</p>
+                    <h3>새로운 기술과 창작의 무한한 가능성</h3>
+                    <p>AI, VR/AR, NFT 등 새로운 기술들이 일러스트레이션 분야에 혁신적 변화를 가져오고 있습니다. 전통적인 창작 방식과 최신 기술을 조화롭게 결합하여 더욱 풍부하고 다양한 표현이 가능해지고 있습니다.</p>
                     <ul>
-                        <li>WebAssembly와 고성능 웹 애플리케이션</li>
-                        <li>AI/ML 통합 웹 서비스</li>
-                        <li>Web3와 블록체인 기술</li>
-                        <li>AR/VR 웹 경험 (WebXR)</li>
-                        <li>Edge Computing과 CDN 최적화</li>
-                        <li>서버리스 아키텍처와 JAMstack</li>
-                        <li>No-Code/Low-Code 플랫폼</li>
+                        <li>AI 도구를 활용한 창작 프로세스 혁신</li>
+                        <li>VR/AR 환경에서의 3D 일러스트레이션</li>
+                        <li>애니메이션과 인터랙티브 일러스트레이션</li>
+                        <li>NFT와 디지털 아트 마켓플레이스</li>
+                        <li>소셜미디어 플랫폼별 최적화</li>
+                        <li>실시간 스트리밍과 라이브 드로잉</li>
+                        <li>지속가능한 디지털 아트와 환경 의식</li>
                     </ul>
-                    <p>기술의 변화에 능동적으로 대응하면서도 기본기를 탄탄히 다지는 것이 장기적인 성공의 열쇠입니다. 새로운 도구와 프레임워크에 열린 마음을 가지되, 근본적인 웹 기술에 대한 깊은 이해를 바탕으로 성장해 나가세요.</p>
+                    <p>미래의 일러스트레이터는 기술을 창의적으로 활용하면서도 인간적 감성과 스토리텔링의 본질을 잃지 않는 균형감이 필요합니다. 새로운 도구들을 실험하되, 자신만의 고유한 목소리를 유지하는 것이 중요합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-8.png" alt="미래 트렌드" loading="lazy">
+                    <img src="../assets/images/illustration/illustration-8.png" alt="일러스트레이션 미래" loading="lazy">
                 </div>
             </div>
         </div>
@@ -664,12 +669,12 @@
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
-            <h2 class="cta-title">프론트엔드 개발 여정을 시작하세요</h2>
+            <h2 class="cta-title">일러스트레이션 여정을 시작하세요</h2>
             <p class="cta-text">
-                현대 웹 개발의 핵심인 프론트엔드 기술을 마스터하고<br>
-                사용자 경험을 혁신하는 개발자가 되어보세요.
+                상상력을 현실로 구현하고 감동적인 스토리를 시각적으로 전달하는<br>
+                창의적이고 전문적인 일러스트레이터가 되어보세요.
             </p>
-            <a href="mailto:jun22sky@nate.com" class="cta-button">프론트엔드 개발 상담받기</a>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">일러스트레이션 상담받기</a>
         </div>
     </section>
     
@@ -771,4 +776,4 @@
         }
     </script>
 </body>
-</html> 
+</html>

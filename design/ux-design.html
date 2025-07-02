@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프론트엔드 개발 완벽 가이드 - junetapa</title>
+    <title>UX 디자인 완벽 가이드 - junetapa</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="프론트엔드 개발의 모든 것을 담은 완벽 가이드. HTML, CSS, JavaScript부터 최신 프레임워크까지 실무에 필요한 모든 지식을 제공합니다.">
-    <meta name="keywords" content="프론트엔드개발, HTML, CSS, JavaScript, React, Vue, 웹개발, 사용자경험">
+    <meta name="description" content="UX 디자인의 모든 것을 담은 완벽 가이드. 사용자 리서치부터 프로토타이핑까지 사용자 중심 디자인의 모든 지식을 제공합니다.">
+    <meta name="keywords" content="UX디자인, 사용자경험, 사용자리서치, 와이어프레임, 프로토타이핑, 사용성테스트, 정보아키텍처">
     <meta name="author" content="junetapa">
     
     <!-- CSS Files -->
@@ -31,7 +31,7 @@
     
     <style>
         :root {
-            --accent: #feca57;
+            --accent: #4facfe;
             --radius-full: 9999px;
         }
         
@@ -42,15 +42,15 @@
             left: 0;
             width: 0%;
             height: 4px;
-            background: linear-gradient(90deg, #667eea 0%, #feca57 50%, #764ba2 100%);
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 50%, #667eea 100%);
             z-index: 10000;
             transition: width 0.05s ease-out;
             border-radius: 0 0 2px 0;
         }
         
         .progress-indicator.near-complete {
-            box-shadow: 0 0 20px rgba(254, 202, 87, 0.6),
-                       0 0 30px rgba(254, 202, 87, 0.4);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.6),
+                       0 0 30px rgba(79, 172, 254, 0.4);
             filter: brightness(1.2);
         }
         
@@ -65,18 +65,18 @@
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #667eea, #feca57);
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
             border-radius: var(--radius-full);
             transition: all 0.3s ease;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #feca57, #764ba2);
-            box-shadow: 0 0 10px rgba(254, 202, 87, 0.5);
+            background: linear-gradient(45deg, #00f2fe, #667eea);
+            box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
         }
         
-        .frontend-page {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .ux-design-page {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             min-height: 100vh;
         }
         
@@ -90,7 +90,7 @@
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff, #feca57);
+            background: linear-gradient(45deg, #fff, #4facfe);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -146,7 +146,7 @@
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 20px;
-            color: #667eea;
+            color: #4facfe;
         }
         
         .content-text p {
@@ -172,7 +172,7 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #4facfe;
             font-weight: bold;
         }
         
@@ -226,7 +226,7 @@
         
         .tech-name {
             font-weight: 600;
-            color: #667eea;
+            color: #4facfe;
             margin-bottom: 10px;
         }
         
@@ -236,7 +236,7 @@
         }
         
         .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
             padding: 80px 40px;
             text-align: center;
@@ -259,7 +259,7 @@
         .cta-button {
             display: inline-block;
             background: white;
-            color: #667eea;
+            color: #4facfe;
             padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
@@ -277,7 +277,7 @@
             top: 20px;
             left: 20px;
             background: rgba(255, 255, 255, 0.9);
-            color: #667eea;
+            color: #4facfe;
             padding: 10px 20px;
             border-radius: 25px;
             text-decoration: none;
@@ -330,7 +330,7 @@
         .toc-number {
             font-size: 2rem;
             font-weight: 700;
-            color: #667eea;
+            color: #4facfe;
             margin-bottom: 15px;
         }
         
@@ -372,24 +372,24 @@
         }
     </style>
 </head>
-<body class="frontend-page">
+<body class="ux-design-page">
     <!-- Enhanced Progress Indicator -->
     <div class="progress-indicator" id="progress-indicator"></div>
     
     <!-- Navigation Back -->
-    <a href="../index.html#frontend" class="nav-back">← 홈으로 돌아가기</a>
+    <a href="../index.html#ux-design" class="nav-back">← 홈으로 돌아가기</a>
     
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="hero-badge">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
-                <span>프론트엔드 개발</span>
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                <span>UX 디자인</span>
             </div>
-            <h1 class="hero-title">프론트엔드 개발의 모든 것</h1>
+            <h1 class="hero-title">UX 디자인의 모든 것</h1>
             <p class="hero-subtitle">
-                사용자 경험을 혁신하는 기술부터 최신 프레임워크까지,<br>
-                프론트엔드 개발자가 되기 위한 완벽한 로드맵을 제시합니다.
+                사용자의 진정한 니즈를 발견하고 문제를 해결하는 디자인부터 행동 변화를 이끄는 경험까지,<br>
+                사용자 중심의 혁신적인 UX 디자이너가 되기 위한 완벽한 로드맵을 제시합니다.
             </p>
         </div>
     </section>
@@ -397,265 +397,270 @@
     <!-- Table of Contents -->
     <section class="toc-section">
         <div class="container">
-            <h2 class="toc-title">학습 로드맵</h2>
+            <h2 class="toc-title">UX 디자인 학습 로드맵</h2>
             <div class="toc-grid">
                 <div class="toc-item">
                     <div class="toc-number">01</div>
-                    <h3>프론트엔드 개발 소개</h3>
-                    <p>사용자 경험을 혁신하는 기술의 기초</p>
+                    <h3>UX 디자인 소개</h3>
+                    <p>사용자 경험 설계의 기초와 철학</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">02</div>
-                    <h3>프론트엔드 개발이란?</h3>
-                    <p>웹 개발의 핵심 개념과 역할</p>
+                    <h3>UX 디자인이란?</h3>
+                    <p>사용자 경험 디자인의 핵심 개념과 가치</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">03</div>
-                    <h3>핵심 기술 스택</h3>
-                    <p>HTML, CSS, JavaScript 마스터하기</p>
+                    <h3>사용자 리서치 방법론</h3>
+                    <p>정성적, 정량적 리서치와 데이터 분석</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">04</div>
-                    <h3>모던 프레임워크</h3>
-                    <p>React, Vue, Angular 완벽 가이드</p>
+                    <h3>UX 도구와 방법론</h3>
+                    <p>페르소나, 여정맵, 프로토타이핑 완전정복</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">05</div>
-                    <h3>반응형 디자인</h3>
-                    <p>모바일 퍼스트 개발 전략</p>
+                    <h3>정보 아키텍처</h3>
+                    <p>정보 구조 설계와 내비게이션 최적화</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">06</div>
-                    <h3>개발자의 역할</h3>
-                    <p>핵심 책임과 업무 프로세스</p>
+                    <h3>UX 디자이너의 역할</h3>
+                    <p>전략적 사고와 문제 해결 능력</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">07</div>
-                    <h3>백엔드 협업</h3>
-                    <p>완전한 웹 서비스 구축하기</p>
+                    <h3>팀과의 협업</h3>
+                    <p>다학제적 협업과 소통 전략</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">08</div>
-                    <h3>미래 트렌드</h3>
-                    <p>진화하는 기술과 새로운 패러다임</p>
+                    <h3>UX의 미래</h3>
+                    <p>진화하는 사용자 경험과 새로운 패러다임</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 1: 프론트엔드 개발 소개 -->
+    <!-- Section 1: UX 디자인 소개 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발의 모든 것</h2>
+            <h2 class="section-title">UX 디자인의 세계로</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>사용자 경험을 혁신하는 기술</h3>
-                    <p>프론트엔드 개발은 사용자가 직접 보고 상호작용하는 웹사이트의 모든 부분을 담당합니다. 단순한 화면 구성을 넘어서 사용자의 니즈를 이해하고, 직관적이고 매력적인 인터페이스를 설계하는 것이 핵심입니다.</p>
+                    <h3>사용자 경험 설계의 기초와 철학</h3>
+                    <p>UX 디자인은 단순한 인터페이스 설계를 넘어서 사용자의 전체 여정에서 느끼는 모든 경험을 설계하는 분야입니다. 사용자의 목표, 감정, 행동, 맥락을 깊이 이해하여 진정으로 도움이 되는 제품과 서비스를 만드는 것이 핵심입니다.</p>
                     <ul>
-                        <li>사용자 인터페이스(UI) 설계 및 구현</li>
-                        <li>사용자 경험(UX) 최적화</li>
-                        <li>반응형 웹 디자인 구현</li>
-                        <li>성능 최적화 및 접근성 향상</li>
-                        <li>최신 웹 표준 및 기술 적용</li>
+                        <li>사용자 중심의 디자인 사고 프로세스</li>
+                        <li>공감과 관찰을 통한 문제 발견</li>
+                        <li>데이터 기반의 의사결정</li>
+                        <li>지속적인 테스트와 개선</li>
+                        <li>비즈니스 목표와 사용자 니즈의 균형</li>
                     </ul>
-                    <p>현대의 프론트엔드 개발자는 디자이너, 백엔드 개발자, 그리고 사용자 사이의 가교 역할을 하며, 기술적 구현 능력과 창의적 사고를 모두 갖춰야 합니다.</p>
+                    <p>UX 디자이너는 사용자의 대변인이자 문제 해결사로서, 복잡한 문제를 단순하고 직관적인 해결책으로 변환하는 전문가입니다. 기술적 가능성과 비즈니스 실현 가능성 사이에서 최적의 사용자 경험을 찾아내는 것이 우리의 역할입니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-1.png" alt="프론트엔드 개발 소개" loading="lazy">
+                    <img src="../assets/images/ux-design/ux-design-1.png" alt="UX 디자인 소개" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 2: 프론트엔드 개발이란 -->
+    <!-- Section 2: UX 디자인이란 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발이란 무엇인가?</h2>
+            <h2 class="section-title">UX 디자인이란 무엇인가?</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>웹 개발의 핵심 영역</h3>
-                    <p>프론트엔드 개발은 웹 애플리케이션의 클라이언트 사이드를 담당하는 개발 분야입니다. 사용자가 브라우저에서 직접 경험하는 모든 요소들을 설계하고 구현합니다.</p>
+                    <h3>사용자 경험 디자인의 핵심 개념과 가치</h3>
+                    <p>User Experience 디자인은 사용자가 제품이나 서비스와 상호작용하는 모든 접점에서의 경험을 의도적으로 설계하는 분야입니다. 기능적 효용성뿐만 아니라 감정적 만족까지 고려하여 총체적인 경험을 디자인합니다.</p>
                     <ul>
-                        <li>웹 페이지의 시각적 요소 구현</li>
-                        <li>사용자 상호작용 로직 개발</li>
-                        <li>데이터 표시 및 관리</li>
-                        <li>브라우저 호환성 보장</li>
-                        <li>성능 최적화 및 SEO 고려</li>
+                        <li>사용자 여정 전반의 터치포인트 설계</li>
+                        <li>사용성과 접근성 최적화</li>
+                        <li>감정적 경험과 브랜드 가치 전달</li>
+                        <li>사용자 행동과 심리학 이해</li>
+                        <li>비즈니스 목표 달성을 위한 전략적 설계</li>
                     </ul>
-                    <p>단순히 정적인 웹 페이지를 만드는 것이 아니라, 동적이고 인터랙티브한 사용자 경험을 제공하는 것이 현대 프론트엔드 개발의 목표입니다.</p>
+                    <p>좋은 UX 디자인은 사용자가 의식하지 못할 정도로 자연스럽고 직관적입니다. 사용자가 원하는 것을 쉽게 찾고, 빠르게 목표를 달성하며, 그 과정에서 즐거움이나 만족감을 느낄 수 있도록 하는 것이 궁극적인 목표입니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-2.png" alt="프론트엔드 개발 정의" loading="lazy">
+                    <img src="../assets/images/ux-design/ux-design-2.png" alt="UX 디자인 정의" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 3: 핵심 기술 스택 -->
+    <!-- Section 3: 사용자 리서치 방법론 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드의 핵심 요소</h2>
+            <h2 class="section-title">사용자 리서치 방법론</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>HTML, CSS, JavaScript - 웹의 3대 기술</h3>
-                    <p>모든 프론트엔드 개발의 기초가 되는 세 가지 핵심 기술입니다. 각각의 역할과 상호작용을 완벽히 이해하는 것이 성공적인 프론트엔드 개발자가 되는 첫걸음입니다.</p>
+                    <h3>정성적, 정량적 리서치와 데이터 분석</h3>
+                    <p>성공적인 UX 디자인의 출발점은 사용자에 대한 깊이 있는 이해입니다. 다양한 리서치 방법론을 활용하여 사용자의 실제 행동, 니즈, 고충점을 파악하고 이를 디자인 결정의 근거로 활용해야 합니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">HTML</div>
-                            <div class="tech-desc">웹 페이지의 구조와 의미를 정의하는 마크업 언어</div>
+                            <div class="tech-name">사용자 인터뷰</div>
+                            <div class="tech-desc">심층적인 일대일 인터뷰를 통한 정성적 인사이트 발굴</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">CSS</div>
-                            <div class="tech-desc">웹 페이지의 시각적 스타일과 레이아웃을 담당</div>
+                            <div class="tech-name">설문 조사</div>
+                            <div class="tech-desc">대규모 사용자 의견 수집과 정량적 데이터 분석</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">JavaScript</div>
-                            <div class="tech-desc">동적 기능과 사용자 상호작용을 구현하는 프로그래밍 언어</div>
+                            <div class="tech-name">사용자 관찰</div>
+                            <div class="tech-desc">자연스러운 환경에서의 행동 패턴 관찰과 분석</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">경쟁사 분석</div>
+                            <div class="tech-desc">시장 동향 파악과 차별화 포인트 발굴</div>
                         </div>
                     </div>
                     
-                    <p>이 세 기술은 서로 독립적이면서도 긴밀하게 연결되어 있습니다. HTML로 기본 구조를 만들고, CSS로 아름답게 꾸미며, JavaScript로 생동감을 불어넣는 것이 프론트엔드 개발의 기본 원리입니다.</p>
+                    <p>리서치는 일회성 활동이 아닌 지속적인 과정입니다. 제품 개발 초기부터 출시 후까지 단계별로 적절한 리서치 방법을 선택하여 사용자의 변화하는 니즈를 지속적으로 파악해야 합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-3.png" alt="HTML, CSS, JavaScript" loading="lazy">
+                    <img src="../assets/images/ux-design/ux-design-3.png" alt="사용자 리서치 방법론" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 4: 모던 프레임워크 -->
+    <!-- Section 4: UX 도구와 방법론 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">현대 프론트엔드 프레임워크와 라이브러리</h2>
+            <h2 class="section-title">UX 도구와 방법론 완전정복</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>효율적인 개발을 위한 도구들</h3>
-                    <p>현대 웹 개발에서는 복잡한 애플리케이션을 효율적으로 구축하기 위해 다양한 프레임워크와 라이브러리를 활용합니다. 각각의 특성을 이해하고 프로젝트에 맞는 도구를 선택하는 것이 중요합니다.</p>
+                    <h3>페르소나, 여정맵, 프로토타이핑의 실전 활용</h3>
+                    <p>UX 디자인 프로세스에서 활용하는 다양한 도구와 방법론들은 추상적인 사용자 니즈를 구체적인 디자인 솔루션으로 변환하는 핵심 수단입니다. 각 도구의 목적과 활용법을 정확히 이해하는 것이 중요합니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">React</div>
-                            <div class="tech-desc">컴포넌트 기반의 사용자 인터페이스 라이브러리</div>
+                            <div class="tech-name">사용자 페르소나</div>
+                            <div class="tech-desc">실제 데이터 기반의 대표 사용자 모델링</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">Vue.js</div>
-                            <div class="tech-desc">점진적으로 적용 가능한 프론트엔드 프레임워크</div>
+                            <div class="tech-name">사용자 여정맵</div>
+                            <div class="tech-desc">전체 경험 과정의 시각화와 문제점 발굴</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">Angular</div>
-                            <div class="tech-desc">대규모 애플리케이션을 위한 완전한 프레임워크</div>
+                            <div class="tech-name">와이어프레임</div>
+                            <div class="tech-desc">정보 구조와 기능 우선순위 정의</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">Svelte</div>
-                            <div class="tech-desc">컴파일 타임 최적화를 통한 고성능 프레임워크</div>
+                            <div class="tech-name">프로토타이핑</div>
+                            <div class="tech-desc">상호작용 가능한 모형을 통한 아이디어 검증</div>
                         </div>
                     </div>
                     
-                    <p>각 프레임워크는 고유한 철학과 접근 방식을 가지고 있으며, 프로젝트의 규모, 팀의 경험, 성능 요구사항 등을 고려하여 선택해야 합니다.</p>
+                    <p>도구는 목적에 맞게 선택적으로 사용해야 합니다. 프로젝트의 규모, 일정, 리소스를 고려하여 가장 효과적인 방법론을 조합하여 활용하는 능력이 숙련된 UX 디자이너의 핵심 역량입니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-4.png" alt="모던 프레임워크" loading="lazy">
+                    <img src="../assets/images/ux-design/ux-design-4.png" alt="UX 도구와 방법론" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 5: 반응형 디자인 -->
+    <!-- Section 5: 정보 아키텍처 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">반응형 디자인과 모바일 최적화</h2>
+            <h2 class="section-title">정보 아키텍처와 내비게이션 설계</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>모든 디바이스에서 완벽한 경험</h3>
-                    <p>현재 웹 트래픽의 대부분이 모바일에서 발생하므로, 반응형 디자인은 선택이 아닌 필수입니다. 다양한 화면 크기와 해상도에서 일관된 사용자 경험을 제공하는 것이 핵심입니다.</p>
+                    <h3>체계적인 정보 구조와 직관적인 흐름 설계</h3>
+                    <p>정보 아키텍처는 복잡한 정보와 기능을 사용자가 쉽게 이해할 수 있도록 논리적으로 구조화하는 작업입니다. 사용자의 멘탈 모델과 일치하는 직관적인 구조를 만드는 것이 핵심입니다.</p>
                     <ul>
-                        <li>플렉서블 그리드 시스템 구현</li>
-                        <li>미디어 쿼리를 활용한 브레이크포인트 설정</li>
-                        <li>터치 인터페이스 최적화</li>
-                        <li>모바일 성능 최적화</li>
-                        <li>Progressive Web App (PWA) 구현</li>
+                        <li>카드 소팅을 통한 정보 분류 체계 구축</li>
+                        <li>사이트맵과 태스크 플로우 설계</li>
+                        <li>내비게이션 패턴과 메뉴 구조 최적화</li>
+                        <li>검색과 필터링 시스템 설계</li>
+                        <li>콘텐츠 전략과 정보 우선순위 정의</li>
+                        <li>반응형 내비게이션과 적응형 구조</li>
                     </ul>
-                    <p>모바일 퍼스트 접근법을 통해 작은 화면부터 설계하고 점진적으로 확장하는 것이 효과적인 반응형 디자인의 핵심 전략입니다.</p>
+                    <p>좋은 정보 아키텍처는 사용자가 길을 잃지 않고 원하는 정보나 기능에 빠르게 도달할 수 있게 해줍니다. 사용자의 목표와 행동 패턴을 깊이 이해하여 가장 자연스러운 경로를 제공하는 것이 핵심입니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-5.png" alt="반응형 디자인" loading="lazy">
+                    <img src="../assets/images/ux-design/ux-design-5.png" alt="정보 아키텍처" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 6: 개발자의 역할 -->
+    <!-- Section 6: UX 디자이너의 역할 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발자의 핵심 역할과 책임</h2>
+            <h2 class="section-title">UX 디자이너의 핵심 역할과 책임</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>다면적 역할을 수행하는 전문가</h3>
-                    <p>프론트엔드 개발자는 단순한 코딩을 넘어서 사용자 경험, 디자인, 성능, 접근성 등 다양한 영역에서 전문성을 발휘해야 합니다.</p>
+                    <h3>전략적 사고와 문제 해결 능력</h3>
+                    <p>UX 디자이너는 사용자의 대변인이자 비즈니스 문제의 해결사입니다. 복잡한 요구사항들 사이에서 균형점을 찾고, 창의적이면서도 실현 가능한 솔루션을 제시하는 전략적 파트너 역할을 합니다.</p>
                     <ul>
-                        <li>사용자 인터페이스 설계 및 구현</li>
-                        <li>사용자 경험(UX) 최적화</li>
-                        <li>크로스 브라우저 호환성 보장</li>
-                        <li>웹 접근성 표준 준수</li>
-                        <li>성능 모니터링 및 최적화</li>
-                        <li>팀 협업 및 커뮤니케이션</li>
+                        <li>사용자 니즈와 비즈니스 목표의 조화</li>
+                        <li>데이터 기반의 디자인 의사결정</li>
+                        <li>크로스 펑셔널 팀의 소통 허브 역할</li>
+                        <li>사용성 테스트와 지속적인 개선</li>
+                        <li>디자인 시스템과 가이드라인 구축</li>
+                        <li>혁신적 아이디어와 실용적 구현의 균형</li>
                     </ul>
-                    <p>기술적 역량뿐만 아니라 디자인 감각, 사용자 심리 이해, 비즈니스 목표 파악 등 종합적인 능력이 요구되는 직업입니다.</p>
+                    <p>성공적인 UX 디자이너는 공감 능력, 분석적 사고, 창의성, 소통 능력을 모두 갖춘 다면적 전문가입니다. 기술과 비즈니스를 이해하면서도 인간 중심의 관점을 잃지 않는 것이 핵심 역량입니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-6.png" alt="개발자 역할" loading="lazy">
+                    <img src="../assets/images/ux-design/ux-design-6.png" alt="UX 디자이너 역할" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 7: 백엔드 협업 -->
+    <!-- Section 7: 팀과의 협업 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드와 백엔드의 협업</h2>
+            <h2 class="section-title">다학제적 팀과의 효과적인 협업</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>완전한 웹 서비스 구축</h3>
-                    <p>현대 웹 개발에서 프론트엔드와 백엔드의 효과적인 협업은 성공적인 프로젝트의 핵심입니다. API 설계부터 데이터 흐름까지 전체적인 아키텍처를 이해하는 것이 중요합니다.</p>
+                    <h3>디자이너, 개발자, 기획자, 마케터와의 시너지</h3>
+                    <p>현대의 제품 개발은 다양한 전문 분야의 협업으로 이루어집니다. UX 디자이너는 이들 사이의 소통을 원활하게 하고, 사용자 관점에서 모든 결정을 검토하는 중요한 역할을 담당합니다.</p>
                     <ul>
-                        <li>RESTful API 및 GraphQL 활용</li>
-                        <li>상태 관리 및 데이터 동기화</li>
-                        <li>인증 및 보안 구현</li>
-                        <li>실시간 데이터 처리 (WebSocket, SSE)</li>
-                        <li>마이크로서비스 아키텍처 이해</li>
-                        <li>DevOps 및 배포 프로세스</li>
+                        <li>제품 매니저와의 전략적 파트너십</li>
+                        <li>개발팀과의 기술적 제약 고려한 설계</li>
+                        <li>시각 디자이너와의 브랜드 일관성 유지</li>
+                        <li>마케팅팀과의 사용자 인사이트 공유</li>
+                        <li>이해관계자와의 효과적인 프레젠테이션</li>
+                        <li>애자일 프로세스에서의 유연한 대응</li>
                     </ul>
-                    <p>풀스택 개발자로 성장하기 위해서는 백엔드 기술에 대한 기본적인 이해와 함께 효과적인 협업 방식을 익히는 것이 필수입니다.</p>
+                    <p>각 팀원의 전문성을 존중하면서도 사용자 경험의 품질을 타협하지 않는 것이 중요합니다. 명확한 커뮤니케이션과 데이터 기반의 논리적 설득을 통해 최적의 사용자 경험을 구현해야 합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-7.png" alt="백엔드 협업" loading="lazy">
+                    <img src="../assets/images/ux-design/ux-design-7.png" alt="팀 협업" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 8: 미래 트렌드 -->
+    <!-- Section 8: UX의 미래 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발의 미래</h2>
+            <h2 class="section-title">UX 디자인의 미래와 새로운 패러다임</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>진화하는 기술과 트렌드</h3>
-                    <p>프론트엔드 개발은 빠르게 진화하는 분야입니다. 새로운 기술과 패러다임을 지속적으로 학습하고 적응하는 것이 경쟁력 있는 개발자가 되는 비결입니다.</p>
+                    <h3>진화하는 사용자 경험과 새로운 기술</h3>
+                    <p>기술의 발전과 사용자 행동의 변화에 따라 UX 디자인도 지속적으로 진화하고 있습니다. 새로운 인터페이스와 상호작용 방식을 이해하고 선제적으로 준비하는 것이 미래 경쟁력의 핵심입니다.</p>
                     <ul>
-                        <li>WebAssembly와 고성능 웹 애플리케이션</li>
-                        <li>AI/ML 통합 웹 서비스</li>
-                        <li>Web3와 블록체인 기술</li>
-                        <li>AR/VR 웹 경험 (WebXR)</li>
-                        <li>Edge Computing과 CDN 최적화</li>
-                        <li>서버리스 아키텍처와 JAMstack</li>
-                        <li>No-Code/Low-Code 플랫폼</li>
+                        <li>AI/ML 기반의 개인화된 경험 설계</li>
+                        <li>음성 사용자 인터페이스(VUI)와 대화형 디자인</li>
+                        <li>증강현실(AR)과 가상현실(VR)의 공간적 UX</li>
+                        <li>IoT와 연결된 전 채널 경험 설계</li>
+                        <li>윤리적 디자인과 디지털 웰빙</li>
+                        <li>지속가능한 디자인과 환경 고려</li>
+                        <li>포용적 디자인과 접근성 향상</li>
                     </ul>
-                    <p>기술의 변화에 능동적으로 대응하면서도 기본기를 탄탄히 다지는 것이 장기적인 성공의 열쇠입니다. 새로운 도구와 프레임워크에 열린 마음을 가지되, 근본적인 웹 기술에 대한 깊은 이해를 바탕으로 성장해 나가세요.</p>
+                    <p>미래의 UX 디자이너는 기술의 가능성을 이해하면서도 인간의 본질적 니즈에 집중하는 균형감을 가져야 합니다. 새로운 도구와 방법론을 활용하되, 사용자의 진정한 가치 창출에 초점을 맞추는 것이 중요합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-8.png" alt="미래 트렌드" loading="lazy">
+                    <img src="../assets/images/ux-design/ux-design-8.png" alt="UX 미래 트렌드" loading="lazy">
                 </div>
             </div>
         </div>
@@ -664,12 +669,12 @@
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
-            <h2 class="cta-title">프론트엔드 개발 여정을 시작하세요</h2>
+            <h2 class="cta-title">UX 디자인 여정을 시작하세요</h2>
             <p class="cta-text">
-                현대 웹 개발의 핵심인 프론트엔드 기술을 마스터하고<br>
-                사용자 경험을 혁신하는 개발자가 되어보세요.
+                사용자의 진정한 문제를 해결하고 의미 있는 경험을 설계하는<br>
+                전략적이고 창의적인 UX 디자이너가 되어보세요.
             </p>
-            <a href="mailto:jun22sky@nate.com" class="cta-button">프론트엔드 개발 상담받기</a>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">UX 디자인 상담받기</a>
         </div>
     </section>
     
@@ -771,4 +776,4 @@
         }
     </script>
 </body>
-</html> 
+</html>

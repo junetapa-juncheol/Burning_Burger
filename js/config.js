@@ -10,12 +10,12 @@ const CONFIG = {
         version: '1.0.0',
         description: '크리에이티브 개발자 포털 - 웹 개발, 음악 작곡, 창작 활동을 소개합니다',
         author: 'junetapa',
-        url: 'https://junetapa.info'
+        url: 'https://junetapa.com'
     },
 
     // API 설정
     api: {
-        baseUrl: 'https://api.junetapa.info',
+        baseUrl: 'https://api.junetapa.com',
         timeout: 10000,
         retries: 3
     },

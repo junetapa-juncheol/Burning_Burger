@@ -11,21 +11,69 @@
     <meta name="author" content="junetapa">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/sections.css">
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/local-icons.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/sections.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/local-icons.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="192x192" href="../assets/images/android-chrome-192x192.png">
+    
     <style>
+        :root {
+            --accent: #00cec9;
+            --radius-full: 9999px;
+        }
+        
+        /* Enhanced Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #00cec9 50%, #a8e6cf 100%);
+            z-index: 10000;
+            transition: width 0.05s ease-out;
+            border-radius: 0 0 2px 0;
+        }
+        
+        .progress-indicator.near-complete {
+            box-shadow: 0 0 20px rgba(0, 206, 201, 0.6),
+                       0 0 30px rgba(0, 206, 201, 0.4);
+            filter: brightness(1.2);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #667eea, #00cec9);
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #00cec9, #a8e6cf);
+            box-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
+        }
         .sound-design-page {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
@@ -356,6 +404,8 @@
     </style>
 </head>
 <body class="sound-design-page">
+    <!-- Enhanced Progress Indicator -->
+    <div class="progress-indicator" id="progress-indicator"></div>
     <!-- Navigation Back -->
     <a href="../index.html#sound-design" class="nav-back">← 홈으로 돌아가기</a>
     
@@ -599,6 +649,38 @@
         document.querySelectorAll('.toc-item').forEach((item, index) => {
             item.style.animationDelay = `${index * 0.1}s`;
         });
+    </script>
+    <!-- JavaScript -->
+    <script>
+        // Enhanced Progress Bar with 60fps optimization
+        let ticking = false;
+        
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            
+            const progressBar = document.getElementById('progress-indicator');
+            progressBar.style.width = progress + '%';
+            
+            // Add glow effect when near completion
+            if (progress > 90) {
+                progressBar.classList.add('near-complete');
+            } else {
+                progressBar.classList.remove('near-complete');
+            }
+            
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateProgressBar);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick);
     </script>
 </body>
 </html> 

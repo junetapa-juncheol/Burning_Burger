@@ -11,21 +11,70 @@
     <meta name="author" content="junetapa">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/sections.css">
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/local-icons.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/sections.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/local-icons.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="192x192" href="../assets/images/android-chrome-192x192.png">
+    
     <style>
+        :root {
+            --accent: #27ae60;
+            --radius-full: 9999px;
+        }
+        
+        /* Enhanced Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #2c3e50 0%, #27ae60 50%, #4a6741 100%);
+            z-index: 10000;
+            transition: width 0.05s ease-out;
+            border-radius: 0 0 2px 0;
+        }
+        
+        .progress-indicator.near-complete {
+            box-shadow: 0 0 20px rgba(39, 174, 96, 0.6),
+                       0 0 30px rgba(39, 174, 96, 0.4);
+            filter: brightness(1.2);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #2c3e50, #27ae60);
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #27ae60, #4a6741);
+            box-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
+        }
+        
         .backend-page {
             background: linear-gradient(135deg, #2c3e50 0%, #4a6741 100%);
             min-height: 100vh;
@@ -383,6 +432,9 @@
     </style>
 </head>
 <body class="backend-page">
+    <!-- Enhanced Progress Indicator -->
+    <div class="progress-indicator" id="progress-indicator"></div>
+    
     <!-- Navigation Back -->
     <a href="../index.html#backend" class="nav-back">← 홈으로 돌아가기</a>
     
@@ -725,6 +777,48 @@
     
     <!-- JavaScript -->
     <script>
+        // Enhanced Progress Bar with 60fps optimization
+        let ticking = false;
+        
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            
+            const progressBar = document.getElementById('progress-indicator');
+            progressBar.style.width = progress + '%';
+            
+            // Add glow effect when near completion
+            if (progress > 90) {
+                progressBar.classList.add('near-complete');
+            } else {
+                progressBar.classList.remove('near-complete');
+            }
+            
+            // Update navbar transparency
+            const navbar = document.querySelector('.nav-back');
+            if (navbar) {
+                if (scrollTop > 100) {
+                    navbar.style.background = 'rgba(0, 0, 0, 0.9)';
+                    navbar.style.backdropFilter = 'blur(10px)';
+                } else {
+                    navbar.style.background = 'rgba(0, 0, 0, 0.7)';
+                    navbar.style.backdropFilter = 'none';
+                }
+            }
+            
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateProgressBar);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick);
+        
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {

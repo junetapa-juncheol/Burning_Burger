@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프론트엔드 개발 완벽 가이드 - junetapa</title>
+    <title>그래픽 디자인 완벽 가이드 - junetapa</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="프론트엔드 개발의 모든 것을 담은 완벽 가이드. HTML, CSS, JavaScript부터 최신 프레임워크까지 실무에 필요한 모든 지식을 제공합니다.">
-    <meta name="keywords" content="프론트엔드개발, HTML, CSS, JavaScript, React, Vue, 웹개발, 사용자경험">
+    <meta name="description" content="그래픽 디자인의 모든 것을 담은 완벽 가이드. 브랜드 아이덴티티부터 최신 디자인 트렌드까지 시각 커뮤니케이션의 모든 지식을 제공합니다.">
+    <meta name="keywords" content="그래픽디자인, 브랜드디자인, 로고디자인, 비주얼아이덴티티, 포토샵, 일러스트레이터, 타이포그래피">
     <meta name="author" content="junetapa">
     
     <!-- CSS Files -->
@@ -31,7 +31,7 @@
     
     <style>
         :root {
-            --accent: #feca57;
+            --accent: #f39c12;
             --radius-full: 9999px;
         }
         
@@ -42,15 +42,15 @@
             left: 0;
             width: 0%;
             height: 4px;
-            background: linear-gradient(90deg, #667eea 0%, #feca57 50%, #764ba2 100%);
+            background: linear-gradient(90deg, #f39c12 0%, #e67e22 50%, #d35400 100%);
             z-index: 10000;
             transition: width 0.05s ease-out;
             border-radius: 0 0 2px 0;
         }
         
         .progress-indicator.near-complete {
-            box-shadow: 0 0 20px rgba(254, 202, 87, 0.6),
-                       0 0 30px rgba(254, 202, 87, 0.4);
+            box-shadow: 0 0 20px rgba(243, 156, 18, 0.6),
+                       0 0 30px rgba(243, 156, 18, 0.4);
             filter: brightness(1.2);
         }
         
@@ -65,18 +65,18 @@
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #667eea, #feca57);
+            background: linear-gradient(45deg, #f39c12, #e67e22);
             border-radius: var(--radius-full);
             transition: all 0.3s ease;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #feca57, #764ba2);
-            box-shadow: 0 0 10px rgba(254, 202, 87, 0.5);
+            background: linear-gradient(45deg, #e67e22, #d35400);
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
         }
         
-        .frontend-page {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .graphic-design-page {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
             min-height: 100vh;
         }
         
@@ -90,7 +90,7 @@
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff, #feca57);
+            background: linear-gradient(45deg, #fff, #f39c12);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -146,7 +146,7 @@
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 20px;
-            color: #667eea;
+            color: #f39c12;
         }
         
         .content-text p {
@@ -172,7 +172,7 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #f39c12;
             font-weight: bold;
         }
         
@@ -226,7 +226,7 @@
         
         .tech-name {
             font-weight: 600;
-            color: #667eea;
+            color: #f39c12;
             margin-bottom: 10px;
         }
         
@@ -236,7 +236,7 @@
         }
         
         .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
             color: white;
             padding: 80px 40px;
             text-align: center;
@@ -259,7 +259,7 @@
         .cta-button {
             display: inline-block;
             background: white;
-            color: #667eea;
+            color: #f39c12;
             padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
@@ -277,7 +277,7 @@
             top: 20px;
             left: 20px;
             background: rgba(255, 255, 255, 0.9);
-            color: #667eea;
+            color: #f39c12;
             padding: 10px 20px;
             border-radius: 25px;
             text-decoration: none;
@@ -330,7 +330,7 @@
         .toc-number {
             font-size: 2rem;
             font-weight: 700;
-            color: #667eea;
+            color: #f39c12;
             margin-bottom: 15px;
         }
         
@@ -372,24 +372,24 @@
         }
     </style>
 </head>
-<body class="frontend-page">
+<body class="graphic-design-page">
     <!-- Enhanced Progress Indicator -->
     <div class="progress-indicator" id="progress-indicator"></div>
     
     <!-- Navigation Back -->
-    <a href="../index.html#frontend" class="nav-back">← 홈으로 돌아가기</a>
+    <a href="../index.html#graphic-design" class="nav-back">← 홈으로 돌아가기</a>
     
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="hero-badge">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
-                <span>프론트엔드 개발</span>
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 16px; height: 16px;"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-4.6-2.7c-50.5-29.7-102.3-29.7-152.8 0l-4.6 2.7c-5.1 3-11.4 3-16.5 0l-9.4-5.5c-5.1-3-11.4-3-16.5 0L158 280c-5.1 3-11.4 3-16.5 0l-9.4-5.5c-5.1-3-11.4-3-16.5 0l-9.4 5.5c-4.2 2.4-9.4 2.4-13.6 0L73.7 268c-12.7-7.4-28.6 1.9-28.6 16.6v28.7c0 8.8 4.6 16.9 12.1 21.3l16.9 9.9c7.5 4.4 12.1 12.5 12.1 21.3v33.1c0 8.8-4.6 16.9-12.1 21.3l-16.9 9.9c-7.5 4.4-12.1 12.5-12.1 21.3v28.7c0 14.7 15.9 24 28.6 16.6l18.8-11c4.2-2.4 9.4-2.4 13.6 0l9.4 5.5c5.1 3 11.4 3 16.5 0l9.4-5.5c5.1-3 11.4-3 16.5 0l9.4 5.5c5.1 3 11.4 3 16.5 0l4.6-2.7c50.5-29.7 102.3-29.7 152.8 0l4.6 2.7c5.1 3 11.4 3 16.5 0l9.4-5.5c5.1-3 11.4-3 16.5 0l9.4 5.5c5.1 3 11.4 3 16.5 0l9.4-5.5c5.1-3 11.4-3 16.5 0l18.8 11c12.7 7.4 28.6-1.9 28.6-16.6v-28.7c0-8.8-4.6-16.9-12.1-21.3l-16.9-9.9c-7.5-4.4-12.1-12.5-12.1-21.3v-33.1c0-8.8 4.6-16.9 12.1-21.3l16.9-9.9c7.5-4.4 12.1-12.5 12.1-21.3v-28.7c0-14.7-15.9-24-28.6-16.6l-18.8 11c-4.2 2.4-9.4 2.4-13.6 0z"/></svg>
+                <span>그래픽 디자인</span>
             </div>
-            <h1 class="hero-title">프론트엔드 개발의 모든 것</h1>
+            <h1 class="hero-title">그래픽 디자인의 모든 것</h1>
             <p class="hero-subtitle">
-                사용자 경험을 혁신하는 기술부터 최신 프레임워크까지,<br>
-                프론트엔드 개발자가 되기 위한 완벽한 로드맵을 제시합니다.
+                브랜드의 가치를 시각적으로 전달하는 창작부터 강력한 메시지를 담은 디자인까지,<br>
+                창의적이고 전략적인 그래픽 디자이너가 되기 위한 완벽한 가이드를 제시합니다.
             </p>
         </div>
     </section>
@@ -397,265 +397,270 @@
     <!-- Table of Contents -->
     <section class="toc-section">
         <div class="container">
-            <h2 class="toc-title">학습 로드맵</h2>
+            <h2 class="toc-title">그래픽 디자인 학습 로드맵</h2>
             <div class="toc-grid">
                 <div class="toc-item">
                     <div class="toc-number">01</div>
-                    <h3>프론트엔드 개발 소개</h3>
-                    <p>사용자 경험을 혁신하는 기술의 기초</p>
+                    <h3>그래픽 디자인 소개</h3>
+                    <p>시각 커뮤니케이션의 힘과 창작의 기초</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">02</div>
-                    <h3>프론트엔드 개발이란?</h3>
-                    <p>웹 개발의 핵심 개념과 역할</p>
+                    <h3>그래픽 디자인이란?</h3>
+                    <p>비주얼 아이덴티티와 브랜드 디자인의 세계</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">03</div>
-                    <h3>핵심 기술 스택</h3>
-                    <p>HTML, CSS, JavaScript 마스터하기</p>
+                    <h3>디자인 원리와 요소</h3>
+                    <p>색상, 타이포그래피, 레이아웃, 구성의 법칙</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">04</div>
-                    <h3>모던 프레임워크</h3>
-                    <p>React, Vue, Angular 완벽 가이드</p>
+                    <h3>그래픽 디자인 도구</h3>
+                    <p>Photoshop, Illustrator, InDesign 완전정복</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">05</div>
-                    <h3>반응형 디자인</h3>
-                    <p>모바일 퍼스트 개발 전략</p>
+                    <h3>브랜드 아이덴티티</h3>
+                    <p>로고, VI 시스템, 브랜딩 전략</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">06</div>
-                    <h3>개발자의 역할</h3>
-                    <p>핵심 책임과 업무 프로세스</p>
+                    <h3>그래픽 디자이너의 역할</h3>
+                    <p>창작과 소통의 전문가</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">07</div>
-                    <h3>백엔드 협업</h3>
-                    <p>완전한 웹 서비스 구축하기</p>
+                    <h3>클라이언트와의 협업</h3>
+                    <p>프로젝트 관리와 효과적인 소통</p>
                 </div>
                 <div class="toc-item">
                     <div class="toc-number">08</div>
-                    <h3>미래 트렌드</h3>
-                    <p>진화하는 기술과 새로운 패러다임</p>
+                    <h3>그래픽 디자인의 미래</h3>
+                    <p>디지털 트렌드와 새로운 매체의 활용</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 1: 프론트엔드 개발 소개 -->
+    <!-- Section 1: 그래픽 디자인 소개 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발의 모든 것</h2>
+            <h2 class="section-title">그래픽 디자인의 세계로</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>사용자 경험을 혁신하는 기술</h3>
-                    <p>프론트엔드 개발은 사용자가 직접 보고 상호작용하는 웹사이트의 모든 부분을 담당합니다. 단순한 화면 구성을 넘어서 사용자의 니즈를 이해하고, 직관적이고 매력적인 인터페이스를 설계하는 것이 핵심입니다.</p>
+                    <h3>시각 커뮤니케이션의 힘과 창작의 기초</h3>
+                    <p>그래픽 디자인은 메시지를 시각적으로 전달하는 예술이자 과학입니다. 단순한 장식을 넘어서 브랜드의 가치를 표현하고, 감정을 불러일으키며, 행동을 유도하는 강력한 커뮤니케이션 도구입니다. 창의성과 전략적 사고가 만나는 지점에서 혁신적인 비주얼이 탄생합니다.</p>
                     <ul>
-                        <li>사용자 인터페이스(UI) 설계 및 구현</li>
-                        <li>사용자 경험(UX) 최적화</li>
-                        <li>반응형 웹 디자인 구현</li>
-                        <li>성능 최적화 및 접근성 향상</li>
-                        <li>최신 웹 표준 및 기술 적용</li>
+                        <li>브랜드 아이덴티티와 시각적 일관성 구축</li>
+                        <li>타겟 오디언스에 맞는 메시지 전달</li>
+                        <li>색상, 형태, 텍스처를 통한 감정 표현</li>
+                        <li>다양한 매체와 플랫폼 최적화</li>
+                        <li>트렌드와 클래식의 조화로운 균형</li>
                     </ul>
-                    <p>현대의 프론트엔드 개발자는 디자이너, 백엔드 개발자, 그리고 사용자 사이의 가교 역할을 하며, 기술적 구현 능력과 창의적 사고를 모두 갖춰야 합니다.</p>
+                    <p>그래픽 디자이너는 클라이언트의 비전을 시각적 언어로 번역하는 통역사이자, 보는 이의 마음을 움직이는 스토리텔러입니다. 기술적 숙련도와 예술적 감각, 그리고 전략적 사고력을 모두 갖춘 종합 예술가입니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-1.png" alt="프론트엔드 개발 소개" loading="lazy">
+                    <img src="../assets/images/graphic-design/graphic-design-1.png" alt="그래픽 디자인 소개" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 2: 프론트엔드 개발이란 -->
+    <!-- Section 2: 그래픽 디자인이란 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발이란 무엇인가?</h2>
+            <h2 class="section-title">그래픽 디자인이란 무엇인가?</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>웹 개발의 핵심 영역</h3>
-                    <p>프론트엔드 개발은 웹 애플리케이션의 클라이언트 사이드를 담당하는 개발 분야입니다. 사용자가 브라우저에서 직접 경험하는 모든 요소들을 설계하고 구현합니다.</p>
+                    <h3>비주얼 아이덴티티와 브랜드 디자인의 세계</h3>
+                    <p>그래픽 디자인은 시각적 요소를 통해 정보를 전달하고 문제를 해결하는 창작 분야입니다. 로고부터 웹사이트, 포스터부터 패키지까지 우리 일상 곳곳에서 만나는 모든 시각적 소통의 배후에는 그래픽 디자이너의 창의적 사고가 담겨 있습니다.</p>
                     <ul>
-                        <li>웹 페이지의 시각적 요소 구현</li>
-                        <li>사용자 상호작용 로직 개발</li>
-                        <li>데이터 표시 및 관리</li>
-                        <li>브라우저 호환성 보장</li>
-                        <li>성능 최적화 및 SEO 고려</li>
+                        <li>브랜드 로고와 비주얼 아이덴티티 시스템</li>
+                        <li>인쇄물 디자인 (브로셔, 포스터, 명함)</li>
+                        <li>디지털 미디어 디자인 (웹, 앱, 소셜미디어)</li>
+                        <li>패키지 디자인과 제품 비주얼</li>
+                        <li>광고 및 마케팅 커뮤니케이션</li>
                     </ul>
-                    <p>단순히 정적인 웹 페이지를 만드는 것이 아니라, 동적이고 인터랙티브한 사용자 경험을 제공하는 것이 현대 프론트엔드 개발의 목표입니다.</p>
+                    <p>현대 그래픽 디자인은 전통적인 인쇄 매체에서 디지털 플랫폼으로 영역을 확장하며, 브랜드 경험의 모든 터치포인트에서 일관된 메시지를 전달하는 통합적 역할을 담당하고 있습니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-2.png" alt="프론트엔드 개발 정의" loading="lazy">
+                    <img src="../assets/images/graphic-design/graphic-design-2.png" alt="그래픽 디자인 정의" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 3: 핵심 기술 스택 -->
+    <!-- Section 3: 디자인 원리와 요소 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드의 핵심 요소</h2>
+            <h2 class="section-title">디자인 원리와 기본 요소</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>HTML, CSS, JavaScript - 웹의 3대 기술</h3>
-                    <p>모든 프론트엔드 개발의 기초가 되는 세 가지 핵심 기술입니다. 각각의 역할과 상호작용을 완벽히 이해하는 것이 성공적인 프론트엔드 개발자가 되는 첫걸음입니다.</p>
+                    <h3>색상, 타이포그래피, 레이아웃, 구성의 법칙</h3>
+                    <p>모든 훌륭한 그래픽 디자인의 기초가 되는 시각적 원리들입니다. 이론적 지식과 실무 경험이 만나는 지점에서 독창적이면서도 효과적인 디자인이 탄생합니다. 규칙을 알아야 창의적으로 깰 수 있습니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">HTML</div>
-                            <div class="tech-desc">웹 페이지의 구조와 의미를 정의하는 마크업 언어</div>
+                            <div class="tech-name">색상 이론</div>
+                            <div class="tech-desc">색상환, 조화, 대비를 활용한 감정과 메시지 전달</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">CSS</div>
-                            <div class="tech-desc">웹 페이지의 시각적 스타일과 레이아웃을 담당</div>
+                            <div class="tech-name">타이포그래피</div>
+                            <div class="tech-desc">폰트 선택, 간격, 위계를 통한 가독성과 표현력</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">JavaScript</div>
-                            <div class="tech-desc">동적 기능과 사용자 상호작용을 구현하는 프로그래밍 언어</div>
+                            <div class="tech-name">구성과 레이아웃</div>
+                            <div class="tech-desc">균형, 리듬, 강조를 통한 시각적 흐름 조절</div>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-name">형태와 공간</div>
+                            <div class="tech-desc">기하학적 요소와 여백 활용한 조형미 구현</div>
                         </div>
                     </div>
                     
-                    <p>이 세 기술은 서로 독립적이면서도 긴밀하게 연결되어 있습니다. HTML로 기본 구조를 만들고, CSS로 아름답게 꾸미며, JavaScript로 생동감을 불어넣는 것이 프론트엔드 개발의 기본 원리입니다.</p>
+                    <p>이러한 기본 원리들은 매체와 트렌드가 변해도 변하지 않는 디자인의 근본입니다. 탄탄한 기초 위에서 자유롭게 창작할 수 있는 능력이 전문 디자이너와 아마추어를 구분하는 핵심 요소입니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-3.png" alt="HTML, CSS, JavaScript" loading="lazy">
+                    <img src="../assets/images/graphic-design/graphic-design-3.png" alt="디자인 원리와 요소" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 4: 모던 프레임워크 -->
+    <!-- Section 4: 그래픽 디자인 도구 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">현대 프론트엔드 프레임워크와 라이브러리</h2>
+            <h2 class="section-title">그래픽 디자인 도구 완전정복</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>효율적인 개발을 위한 도구들</h3>
-                    <p>현대 웹 개발에서는 복잡한 애플리케이션을 효율적으로 구축하기 위해 다양한 프레임워크와 라이브러리를 활용합니다. 각각의 특성을 이해하고 프로젝트에 맞는 도구를 선택하는 것이 중요합니다.</p>
+                    <h3>Photoshop, Illustrator, InDesign의 전문적 활용</h3>
+                    <p>창의적 아이디어를 현실로 구현하기 위해서는 전문 도구들을 자유자재로 다룰 수 있어야 합니다. 각 프로그램의 특성을 이해하고 프로젝트에 맞는 최적의 도구를 선택하는 것이 효율적인 작업의 시작입니다.</p>
                     
                     <div class="tech-grid">
                         <div class="tech-card">
-                            <div class="tech-name">React</div>
-                            <div class="tech-desc">컴포넌트 기반의 사용자 인터페이스 라이브러리</div>
+                            <div class="tech-name">Adobe Photoshop</div>
+                            <div class="tech-desc">이미지 편집, 합성, 디지털 페인팅의 표준 도구</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">Vue.js</div>
-                            <div class="tech-desc">점진적으로 적용 가능한 프론트엔드 프레임워크</div>
+                            <div class="tech-name">Adobe Illustrator</div>
+                            <div class="tech-desc">벡터 그래픽과 로고 디자인의 전문 플랫폼</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">Angular</div>
-                            <div class="tech-desc">대규모 애플리케이션을 위한 완전한 프레임워크</div>
+                            <div class="tech-name">Adobe InDesign</div>
+                            <div class="tech-desc">출판물과 다페이지 레이아웃 디자인 솔루션</div>
                         </div>
                         <div class="tech-card">
-                            <div class="tech-name">Svelte</div>
-                            <div class="tech-desc">컴파일 타임 최적화를 통한 고성능 프레임워크</div>
+                            <div class="tech-name">Figma</div>
+                            <div class="tech-desc">협업 중심의 UI/웹 디자인 통합 환경</div>
                         </div>
                     </div>
                     
-                    <p>각 프레임워크는 고유한 철학과 접근 방식을 가지고 있으며, 프로젝트의 규모, 팀의 경험, 성능 요구사항 등을 고려하여 선택해야 합니다.</p>
+                    <p>도구의 기능을 단순히 암기하는 것이 아니라, 창작 과정에서 자연스럽게 활용할 수 있는 수준까지 숙련도를 높이는 것이 중요합니다. 도구는 아이디어를 표현하는 수단이지 목적이 아닙니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-4.png" alt="모던 프레임워크" loading="lazy">
+                    <img src="../assets/images/graphic-design/graphic-design-4.png" alt="그래픽 디자인 도구" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 5: 반응형 디자인 -->
+    <!-- Section 5: 브랜드 아이덴티티 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">반응형 디자인과 모바일 최적화</h2>
+            <h2 class="section-title">브랜드 아이덴티티 시스템 구축</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>모든 디바이스에서 완벽한 경험</h3>
-                    <p>현재 웹 트래픽의 대부분이 모바일에서 발생하므로, 반응형 디자인은 선택이 아닌 필수입니다. 다양한 화면 크기와 해상도에서 일관된 사용자 경험을 제공하는 것이 핵심입니다.</p>
+                    <h3>로고, VI 시스템, 브랜딩 전략의 통합적 접근</h3>
+                    <p>브랜드 아이덴티티는 단순한 로고 디자인을 넘어서 브랜드의 철학과 가치를 시각적으로 구현하는 종합적인 시스템입니다. 일관성 있는 브랜드 경험을 통해 고객과의 감정적 연결고리를 만드는 것이 핵심입니다.</p>
                     <ul>
-                        <li>플렉서블 그리드 시스템 구현</li>
-                        <li>미디어 쿼리를 활용한 브레이크포인트 설정</li>
-                        <li>터치 인터페이스 최적화</li>
-                        <li>모바일 성능 최적화</li>
-                        <li>Progressive Web App (PWA) 구현</li>
+                        <li>브랜드 전략과 포지셔닝 분석</li>
+                        <li>로고 디자인과 심볼 개발</li>
+                        <li>컬러 팔레트와 타이포그래피 시스템</li>
+                        <li>비주얼 아이덴티티 가이드라인 구축</li>
+                        <li>다양한 매체별 적용 사례 개발</li>
+                        <li>브랜드 익스텐션과 진화 계획</li>
                     </ul>
-                    <p>모바일 퍼스트 접근법을 통해 작은 화면부터 설계하고 점진적으로 확장하는 것이 효과적인 반응형 디자인의 핵심 전략입니다.</p>
+                    <p>성공적인 브랜드 아이덴티티는 시장에서 차별화된 인지도를 만들어내고, 브랜드 가치를 향상시키며, 궁극적으로 비즈니스 성공에 직접적으로 기여하는 전략적 자산이 됩니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-5.png" alt="반응형 디자인" loading="lazy">
+                    <img src="../assets/images/graphic-design/graphic-design-5.png" alt="브랜드 아이덴티티" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 6: 개발자의 역할 -->
+    <!-- Section 6: 그래픽 디자이너의 역할 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발자의 핵심 역할과 책임</h2>
+            <h2 class="section-title">그래픽 디자이너의 핵심 역할과 책임</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>다면적 역할을 수행하는 전문가</h3>
-                    <p>프론트엔드 개발자는 단순한 코딩을 넘어서 사용자 경험, 디자인, 성능, 접근성 등 다양한 영역에서 전문성을 발휘해야 합니다.</p>
+                    <h3>창작과 소통의 전문가</h3>
+                    <p>현대의 그래픽 디자이너는 단순한 실행자를 넘어서 브랜드 전략가, 시각적 스토리텔러, 문제 해결사의 역할을 동시에 수행합니다. 클라이언트의 비즈니스 목표와 소비자의 니즈 사이에서 최적의 시각적 솔루션을 찾아내는 전문가입니다.</p>
                     <ul>
-                        <li>사용자 인터페이스 설계 및 구현</li>
-                        <li>사용자 경험(UX) 최적화</li>
-                        <li>크로스 브라우저 호환성 보장</li>
-                        <li>웹 접근성 표준 준수</li>
-                        <li>성능 모니터링 및 최적화</li>
-                        <li>팀 협업 및 커뮤니케이션</li>
+                        <li>클라이언트 브리핑 분석과 전략 수립</li>
+                        <li>타겟 오디언스 특성 파악과 인사이트 도출</li>
+                        <li>창의적 컨셉 개발과 시각화</li>
+                        <li>기술적 제약과 예산 고려한 실행 계획</li>
+                        <li>프로젝트 진행 관리와 품질 관리</li>
+                        <li>트렌드 분석과 혁신적 아이디어 제안</li>
                     </ul>
-                    <p>기술적 역량뿐만 아니라 디자인 감각, 사용자 심리 이해, 비즈니스 목표 파악 등 종합적인 능력이 요구되는 직업입니다.</p>
+                    <p>훌륭한 그래픽 디자이너는 예술적 감각과 비즈니스 마인드, 기술적 숙련도와 소통 능력을 모두 갖춘 멀티플레이어입니다. 끊임없는 학습과 실험을 통해 자신만의 독창적 스타일을 발전시켜 나갑니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-6.png" alt="개발자 역할" loading="lazy">
+                    <img src="../assets/images/graphic-design/graphic-design-6.png" alt="그래픽 디자이너 역할" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 7: 백엔드 협업 -->
+    <!-- Section 7: 클라이언트와의 협업 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드와 백엔드의 협업</h2>
+            <h2 class="section-title">클라이언트와의 효과적인 협업</h2>
             <div class="section-content">
                 <div class="content-text">
-                    <h3>완전한 웹 서비스 구축</h3>
-                    <p>현대 웹 개발에서 프론트엔드와 백엔드의 효과적인 협업은 성공적인 프로젝트의 핵심입니다. API 설계부터 데이터 흐름까지 전체적인 아키텍처를 이해하는 것이 중요합니다.</p>
+                    <h3>프로젝트 관리와 전략적 소통</h3>
+                    <p>성공적인 그래픽 디자인 프로젝트는 클라이언트와의 신뢰 관계와 명확한 소통에서 시작됩니다. 기대치를 조율하고, 진행 과정을 투명하게 공유하며, 전문적인 조언을 제공하는 것이 장기적인 파트너십의 기초가 됩니다.</p>
                     <ul>
-                        <li>RESTful API 및 GraphQL 활용</li>
-                        <li>상태 관리 및 데이터 동기화</li>
-                        <li>인증 및 보안 구현</li>
-                        <li>실시간 데이터 처리 (WebSocket, SSE)</li>
-                        <li>마이크로서비스 아키텍처 이해</li>
-                        <li>DevOps 및 배포 프로세스</li>
+                        <li>초기 브리핑과 요구사항 명확화</li>
+                        <li>프로젝트 스코프와 일정 계획 수립</li>
+                        <li>단계별 승인 프로세스 관리</li>
+                        <li>피드백 수집과 수정 작업 진행</li>
+                        <li>최종 결과물 전달과 활용 가이드</li>
+                        <li>장기적 브랜드 발전 방향 제안</li>
                     </ul>
-                    <p>풀스택 개발자로 성장하기 위해서는 백엔드 기술에 대한 기본적인 이해와 함께 효과적인 협업 방식을 익히는 것이 필수입니다.</p>
+                    <p>클라이언트 교육도 디자이너의 중요한 역할 중 하나입니다. 디자인의 가치와 의미를 이해할 수 있도록 도와 더 나은 결정을 내릴 수 있게 지원하며, 상호 성장할 수 있는 건설적인 관계를 구축해야 합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-7.png" alt="백엔드 협업" loading="lazy">
+                    <img src="../assets/images/graphic-design/graphic-design-7.png" alt="클라이언트 협업" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Section 8: 미래 트렌드 -->
+    <!-- Section 8: 그래픽 디자인의 미래 -->
     <section class="content-section">
         <div class="container">
-            <h2 class="section-title">프론트엔드 개발의 미래</h2>
+            <h2 class="section-title">그래픽 디자인의 미래와 새로운 트렌드</h2>
             <div class="section-content reverse">
                 <div class="content-text">
-                    <h3>진화하는 기술과 트렌드</h3>
-                    <p>프론트엔드 개발은 빠르게 진화하는 분야입니다. 새로운 기술과 패러다임을 지속적으로 학습하고 적응하는 것이 경쟁력 있는 개발자가 되는 비결입니다.</p>
+                    <h3>디지털 혁신과 새로운 매체의 활용</h3>
+                    <p>그래픽 디자인은 기술 발전과 함께 지속적으로 진화하고 있습니다. AI, VR/AR, 모션 그래픽 등 새로운 기술들이 창작의 가능성을 확장하고 있으며, 동시에 지속가능성과 사회적 책임에 대한 인식도 높아지고 있습니다.</p>
                     <ul>
-                        <li>WebAssembly와 고성능 웹 애플리케이션</li>
-                        <li>AI/ML 통합 웹 서비스</li>
-                        <li>Web3와 블록체인 기술</li>
-                        <li>AR/VR 웹 경험 (WebXR)</li>
-                        <li>Edge Computing과 CDN 최적화</li>
-                        <li>서버리스 아키텍처와 JAMstack</li>
-                        <li>No-Code/Low-Code 플랫폼</li>
+                        <li>AI 도구를 활용한 창작 프로세스 혁신</li>
+                        <li>모션 그래픽과 인터랙티브 디자인</li>
+                        <li>증강현실(AR)과 몰입형 브랜드 경험</li>
+                        <li>지속가능한 디자인과 친환경 솔루션</li>
+                        <li>소셜미디어와 플랫폼별 최적화</li>
+                        <li>개인화된 콘텐츠와 데이터 기반 디자인</li>
+                        <li>글로벌 문화와 다양성을 반영한 포용적 디자인</li>
                     </ul>
-                    <p>기술의 변화에 능동적으로 대응하면서도 기본기를 탄탄히 다지는 것이 장기적인 성공의 열쇠입니다. 새로운 도구와 프레임워크에 열린 마음을 가지되, 근본적인 웹 기술에 대한 깊은 이해를 바탕으로 성장해 나가세요.</p>
+                    <p>미래의 그래픽 디자이너는 전통적인 시각 디자인 스킬에 더해 기술적 이해력, 데이터 분석 능력, 사회적 감수성을 갖춘 융합형 전문가가 되어야 합니다. 변화에 적응하면서도 디자인의 본질적 가치를 지키는 균형감이 중요합니다.</p>
                 </div>
                 <div class="content-image">
-                    <img src="../assets/images/frontend/frontend-8.png" alt="미래 트렌드" loading="lazy">
+                    <img src="../assets/images/graphic-design/graphic-design-8.png" alt="그래픽 디자인 미래" loading="lazy">
                 </div>
             </div>
         </div>
@@ -664,12 +669,12 @@
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
-            <h2 class="cta-title">프론트엔드 개발 여정을 시작하세요</h2>
+            <h2 class="cta-title">그래픽 디자인 여정을 시작하세요</h2>
             <p class="cta-text">
-                현대 웹 개발의 핵심인 프론트엔드 기술을 마스터하고<br>
-                사용자 경험을 혁신하는 개발자가 되어보세요.
+                브랜드의 가치를 시각적으로 구현하고 강력한 메시지를 전달하는<br>
+                창의적이고 전략적인 그래픽 디자이너가 되어보세요.
             </p>
-            <a href="mailto:jun22sky@nate.com" class="cta-button">프론트엔드 개발 상담받기</a>
+            <a href="mailto:jun22sky@nate.com" class="cta-button">그래픽 디자인 상담받기</a>
         </div>
     </section>
     
@@ -771,4 +776,4 @@
         }
     </script>
 </body>
-</html> 
+</html>

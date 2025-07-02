@@ -10,12 +10,92 @@
     <meta name="keywords" content="AI작곡, 큐베이스13, 로직프로11, FL스튜디오21, Suno AI, Udio, ChatGPT음악, 곡작곡, 음악제작, DAW, 인공지능음악, 2025">
     <meta name="author" content="junetapa">
     
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/sections.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/local-icons.css">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="192x192" href="../assets/images/android-chrome-192x192.png">
+    
     <style>
+        :root {
+            --accent: #e056fd;
+            --radius-full: 9999px;
+        }
+        
+        /* Enhanced Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #e056fd 50%, #764ba2 100%);
+            z-index: 10000;
+            transition: width 0.05s ease-out;
+            border-radius: 0 0 2px 0;
+        }
+        
+        .progress-indicator.near-complete {
+            box-shadow: 0 0 20px rgba(224, 86, 253, 0.6),
+                       0 0 30px rgba(224, 86, 253, 0.4);
+            filter: brightness(1.2);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #667eea, #e056fd);
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #e056fd, #764ba2);
+            box-shadow: 0 0 10px rgba(224, 86, 253, 0.5);
+        }
+        
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-back:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
         /* 전체 리스트 스타일 초기화 */
         ul, li {
             list-style: none;
@@ -459,6 +539,8 @@
     </style>
 </head>
 <body class="composition-page">
+    <!-- Enhanced Progress Indicator -->
+    <div class="progress-indicator" id="progress-indicator"></div>
     <!-- Navigation Back -->
     <a href="../index.html#composition" class="nav-back">← 홈으로 돌아가기</a>
     
@@ -1407,6 +1489,52 @@
                 });
             }
         });
+        
+        // Enhanced Progress Bar with 60fps optimization
+        let progressTicking = false;
+        
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            
+            const progressBar = document.getElementById('progress-indicator');
+            if (progressBar) {
+                progressBar.style.width = progress + '%';
+                
+                // Add glow effect when near completion
+                if (progress > 90) {
+                    progressBar.classList.add('near-complete');
+                } else {
+                    progressBar.classList.remove('near-complete');
+                }
+            }
+            
+            // Update navbar transparency
+            const navbar = document.querySelector('.nav-back');
+            if (navbar) {
+                if (scrollTop > 100) {
+                    navbar.style.background = 'rgba(0, 0, 0, 0.9)';
+                    navbar.style.backdropFilter = 'blur(10px)';
+                    navbar.style.color = 'white';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+                    navbar.style.backdropFilter = 'blur(10px)';
+                    navbar.style.color = '#667eea';
+                }
+            }
+            
+            progressTicking = false;
+        }
+        
+        function requestProgressTick() {
+            if (!progressTicking) {
+                requestAnimationFrame(updateProgressBar);
+                progressTicking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestProgressTick);
     </script>
 </body>
 </html>

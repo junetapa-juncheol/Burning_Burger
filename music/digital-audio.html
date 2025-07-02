@@ -11,21 +11,103 @@
     <meta name="author" content="junetapa">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/sections.css">
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/local-icons.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/sections.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/local-icons.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="192x192" href="../assets/images/android-chrome-192x192.png">
+    
     <style>
+        :root {
+            --accent: #00d4ff;
+            --radius-full: 9999px;
+        }
+        
+        /* Enhanced Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #00d4ff 50%, #764ba2 100%);
+            z-index: 10000;
+            transition: width 0.05s ease-out;
+            border-radius: 0 0 2px 0;
+        }
+        
+        .progress-indicator.near-complete {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6),
+                       0 0 30px rgba(0, 212, 255, 0.4);
+            filter: brightness(1.2);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #667eea, #00d4ff);
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #00d4ff, #764ba2);
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        
+        /* Navigation Back Button */
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-back:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            color: #00d4ff;
+        }
+        
+        .nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
         .digital-audio-page {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
@@ -224,19 +306,7 @@
             opacity: 0.9;
         }
         
-        .nav-back {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #667eea;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
+
         
         .toc-section {
             background: white;
@@ -356,6 +426,8 @@
     </style>
 </head>
 <body class="digital-audio-page">
+    <!-- Enhanced Progress Indicator -->
+    <div class="progress-indicator" id="progress-indicator"></div>
     <!-- Navigation Back -->
     <a href="../index.html#digital-audio" class="nav-back">← 홈으로 돌아가기</a>
     
@@ -544,15 +616,61 @@
         </div>
     </section>
     
+
     <!-- JavaScript -->
     <script>
+        // Enhanced Progress Bar with 60fps optimization
+        let ticking = false;
+        
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            
+            const progressBar = document.getElementById('progress-indicator');
+            progressBar.style.width = progress + '%';
+            
+            // Add glow effect when near completion
+            if (progress > 90) {
+                progressBar.classList.add('near-complete');
+            } else {
+                progressBar.classList.remove('near-complete');
+            }
+            
+            // Update navbar transparency
+            const navbar = document.querySelector('.nav-back');
+            if (navbar) {
+                if (scrollTop > 100) {
+                    navbar.style.background = 'rgba(0, 0, 0, 0.9)';
+                    navbar.style.backdropFilter = 'blur(10px)';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+                    navbar.style.backdropFilter = 'blur(10px)';
+                }
+            }
+            
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateProgressBar);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick);
+        
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
         
@@ -579,26 +697,46 @@
             observer.observe(section);
         });
         
-        // Enhanced scroll animations
-        const enhancedObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
+        // Lazy loading images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '-50px'
+            
+                    document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
         });
-        
-        document.querySelectorAll('.tech-card, .toc-item').forEach(el => {
-            enhancedObserver.observe(el);
+    }
+    
+    // Enhanced scroll animations for tech cards and TOC items
+    const enhancedObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
         });
-        
-        // TOC item stagger animation
-        document.querySelectorAll('.toc-item').forEach((item, index) => {
-            item.style.animationDelay = `${index * 0.1}s`;
-        });
-    </script>
+    }, {
+        threshold: 0.1,
+        rootMargin: '-50px'
+    });
+    
+    document.querySelectorAll('.tech-card, .toc-item').forEach(el => {
+        enhancedObserver.observe(el);
+    });
+    
+    // TOC item stagger animation
+    document.querySelectorAll('.toc-item').forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.1}s`;
+    });
+</script>
 </body>
 </html> 
