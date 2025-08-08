@@ -171,16 +171,16 @@ backdrop-filter: blur(15px);
 
 ## 👥 개발팀
 
-- **Frontend Developer**: [Your Name](https://github.com/yourusername)
-- **UI/UX Designer**: [Designer Name](https://github.com/designerusername)
+- **Frontend Developer**: [juncheol](https://github.com/junetapa-juncheol)
+- **UI/UX Designer**: [juncheol](https://github.com/junetapa-juncheol)
 
 ## 📞 연락처
 
 프로젝트 관련 문의사항이 있으시면 언제든지 연락해 주세요!
 
-- 📧 Email: contact@burningburger.com
-- 🐙 GitHub: [@yourusername](https://github.com/yourusername)
-- 🌐 Website: [burningburger.com](https://burningburger.com)
+- 📧 Email: jun22sky@nate.com
+- 🐙 GitHub: [@yourusername](https://github.com/junetapa-juncheol)
+- 🌐 Website: [junetapa.com](https://github.com/junetapa-juncheol)
 
 ---
 
